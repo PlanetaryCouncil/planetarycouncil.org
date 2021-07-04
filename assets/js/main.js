@@ -101,71 +101,62 @@
 
 		})();
 
-	// Signup Form.
-		(function() {
-
-			// Vars.
-				var $form = document.querySelectorAll('#signup-form')[0],
-					$submit = document.querySelectorAll('#signup-form input[type="submit"]')[0],
-					$message;
-
-			// Bail if addEventListener isn't supported.
-				if (!('addEventListener' in $form))
-					return;
-
-			// Message.
-				$message = document.createElement('span');
-					$message.classList.add('message');
-					$form.appendChild($message);
-
-				$message._show = function(type, text) {
-
-					$message.innerHTML = text;
-					$message.classList.add(type);
-					$message.classList.add('visible');
-
-					window.setTimeout(function() {
-						$message._hide();
-					}, 3000);
-
-				};
-
-				$message._hide = function() {
-					$message.classList.remove('visible');
-				};
-
-			// Events.
-			// Note: If you're *not* using AJAX, get rid of this event listener.
-				$form.addEventListener('submit', function(event) {
-
-					event.stopPropagation();
-					event.preventDefault();
-
-					// Hide message.
-						$message._hide();
-
-					// Disable submit.
-						$submit.disabled = true;
-
-					// Process form.
-					// Note: Doesn't actually do anything yet (other than report back with a "thank you"),
-					// but there's enough here to piece together a working AJAX submission call that does.
-						window.setTimeout(function() {
-
-							// Reset form.
-								$form.reset();
-
-							// Enable submit.
-								$submit.disabled = false;
-
-							// Show message.
-								$message._show('success', 'Thank you!');
-								//$message._show('failure', 'Something went wrong. Please try again.');
-
-						}, 750);
-
-				});
-
-		})();
-
 })();
+
+// https://codepen.io/gschier/pen/jkivt
+var TxtRotate = function(el, toRotate, period) {
+	this.toRotate = toRotate;
+	this.el = el;
+	this.loopNum = 0;
+	this.period = parseInt(period, 10) || 2000;
+	this.txt = '';
+	this.tick();
+	this.isDeleting = false;
+  };
+  
+  TxtRotate.prototype.tick = function() {
+	var i = this.loopNum % this.toRotate.length;
+	var fullTxt = this.toRotate[i];
+  
+	if (this.isDeleting) {
+	  this.txt = fullTxt.substring(0, this.txt.length - 1);
+	} else {
+	  this.txt = fullTxt.substring(0, this.txt.length + 1);
+	}
+  
+	this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+  
+	var that = this;
+	var delta = 300 - Math.random() * 100;
+  
+	if (this.isDeleting) { delta /= 2; }
+  
+	if (!this.isDeleting && this.txt === fullTxt) {
+	  delta = this.period;
+	  this.isDeleting = true;
+	} else if (this.isDeleting && this.txt === '') {
+	  this.isDeleting = false;
+	  this.loopNum++;
+	  delta = 500;
+	}
+  
+	setTimeout(function() {
+	  that.tick();
+	}, delta);
+  };
+  
+  window.onload = function() {
+	var elements = document.getElementsByClassName('txt-rotate');
+	for (var i=0; i<elements.length; i++) {
+	  var toRotate = elements[i].getAttribute('data-rotate');
+	  var period = elements[i].getAttribute('data-period');
+	  if (toRotate) {
+		new TxtRotate(elements[i], JSON.parse(toRotate), period);
+	  }
+	}
+	// INJECT CSS
+	var css = document.createElement("style");
+	css.type = "text/css";
+	css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid white }";
+	document.body.appendChild(css);
+  };

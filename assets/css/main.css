@@ -439,7 +439,7 @@ ul.icons {
     ul.icons li:last-child {
       padding-right: 0; }
     ul.icons li .icon:before {
-      font-size: 1.25em; }
+      font-size: 1.8em; }
     ul.icons li a {
       color: inherit; }
 
@@ -841,14 +841,14 @@ button,
   -ms-transition: opacity 0.5s ease-in-out;
   transition: opacity 0.5s ease-in-out;
   bottom: 4em;
-  color: rgba(255, 255, 255, 0.5);
+  color: white;
   left: 4em;
-  opacity: 0.5;
+  opacity: 0.7;
   position: absolute; }
   #footer .icons {
     margin: 0 0 0.5em 0; }
   #footer .copyright {
-    font-size: 0.8em;
+    font-size: 0.7em;
     list-style: none;
     padding: 0; }
     #footer .copyright li {
@@ -885,3 +885,9 @@ button,
       left: auto;
       margin: 1em 0 0 0;
       position: relative; } }
+
+
+.copyleft {
+  display:inline-block;
+  transform: rotate(180deg);
+}
