@@ -879,15 +879,44 @@ button,
     #footer {
       bottom: 1.25em;
       left: 1.25em; } }
-  @media screen and (max-height: 640px) {
+  @media screen and (max-height: 820px) {
     #footer {
       bottom: auto;
       left: auto;
       margin: 1em 0 0 0;
-      position: relative; } }
+      position: static; } }
 
+
+
+/* impossible to position accordingly - maybe JavaScript to calculate pixels and if enough space glue to the bottom */  
+#footer {
+  position: static;
+}
+
+
+@media screen and (max-height: 820px) {
+  #everything {
+    top: 3vw;
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 94vw;
+  }
+}
 
 .copyleft {
   display:inline-block;
   transform: rotate(180deg);
+}
+
+#header {
+  max-width: max(800px, 80vw);
+  border:1px solid #EEE; 
+  background:rgba(0,0,0,0.7);
+  padding: 20px;
+}
+
+strong a {
+  border-bottom: 2px solid white;
 }
