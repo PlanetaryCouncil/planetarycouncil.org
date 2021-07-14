@@ -894,15 +894,13 @@ button,
 }
 
 
-@media screen and (max-height: 820px) {
-  #everything {
-    top: 3vw;
-    margin: 0 auto;
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: 94vw;
-  }
+#everything {
+  top: 3vw;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 94vw;
 }
 
 .copyleft {
@@ -915,6 +913,10 @@ button,
   border:1px solid #EEE; 
   background:rgba(0,0,0,0.7);
   padding: 20px;
+}
+
+#header p {
+  color:rgba(255, 255, 255, 0.8);
 }
 
 strong a {
