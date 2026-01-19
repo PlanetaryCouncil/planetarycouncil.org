@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Spiral Text Canvas (Export PNG)</title>
+  <style>
+    :root{
+      --bg:#0b0f12; --panel:#0f161b; --border:#22313b; --text:#e8eef2; --muted:#b7c2ca;
+      --btn:#1a2a33; --btnb:#2b3f4b;
+    }
+    body{margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    .wrap{display:grid;grid-template-columns:460px 1fr;gap:16px;padding:16px}
+    .panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:14px}
+    h1{font-size:18px;margin:0 0 6px 0}
+    .hint{opacity:.85;font-size:12px;color:var(--muted);margin-bottom:12px}
+    textarea{
+      width:100%; box-sizing:border-box; height:240px; resize:vertical;
+      border-radius:14px; border:1px solid var(--border);
+      background:var(--panel); color:var(--text); padding:12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+    }
+    label{display:flex;justify-content:space-between;align-items:center;margin:10px 0;font-size:14px;gap:12px}
+    .ctrl{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    input[type="range"]{width:240px}
+    input[type="number"]{
+      width:84px; background:var(--panel); color:var(--text);
+      border:1px solid var(--border); border-radius:10px; padding:6px 8px;
+    }
+    select{
+      background:var(--panel); color:var(--text); border:1px solid var(--border);
+      border-radius:10px; padding:6px 8px;
+    }
+    button{
+      background:var(--btn); border:1px solid var(--btnb); color:var(--text);
+      padding:10px 12px; border-radius:12px; cursor:pointer
+    }
+    button:hover{filter:brightness(1.1)}
+    .val{min-width:56px;text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
+    .stage{
+      background:#070a0d; border:1px solid var(--border); border-radius:16px;
+      display:flex; align-items:center; justify-content:center; padding:12px;
+      min-height: 720px;
+    }
+    canvas{border-radius:12px; max-width:100%; height:auto; background:#070a0d}
+    .tiny{font-size:12px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="panel">
+      <h1>Spiral text → screenshot or export PNG 🌀</h1>
+      <div class="hint">
+        Draws your text along a spiral, rotating each glyph to follow the tangent.
+        Load your background image, tweak center + spiral, export.
+      </div>
+
+      <label>Background image</label>
+      <div class="ctrl">
+        <input id="bgfile" type="file" accept="image/*" />
+        <button id="clearBg">Clear bg</button>
+        <span class="tiny">Tip: use your vortex image here.</span>
+      </div>
+
+      <label>Text</label>
+      <textarea id="txt">This is the source. Cosmic divine unstoppable force of creation. Gaza as the moment of mass awakening. Ultimate moral clarity. Repeat a lie enough times and propaganda works. But too much will let you see through it. Have you seen enough already? Singularity is near? Singularity is here? Or maybe... singularity is spreading? Unity. Humanity. Singularity. Humans are collaborative by default; we can live in harmony and peace. End all the wars. Cognitive liberty. Activating full potential. This image is the source. We are all the source. No passengers on Spaceship Earth. Global PEACE and UNITY. Happening right now. And you are part of it.</textarea>
+
+      <label>
+        Canvas size
+        <span class="ctrl">
+          <input id="cw" type="number" min="256" max="4096" step="64" value="1024" />
+          <input id="ch" type="number" min="256" max="4096" step="64" value="1024" />
+          <button id="applySize">Apply</button>
+        </span>
+      </label>
+
+      <label>
+        Center X / Y
+        <span class="ctrl">
+          <input id="cx" type="range" min="0" max="1024" value="512" />
+          <span id="cxVal" class="val"></span>
+          <input id="cy" type="range" min="0" max="1024" value="512" />
+          <span id="cyVal" class="val"></span>
+        </span>
+      </label>
+
+      <label>
+        Font
+        <span class="ctrl">
+          <select id="font">
+            <option value="mono" selected>Monospace</option>
+            <option value="ui">UI Sans</option>
+            <option value="condensed">Condensed-ish</option>
+          </select>
+          <input id="fs" type="range" min="10" max="34" value="18" />
+          <span id="fsVal" class="val"></span>
+        </span>
+      </label>
+
+      <label>
+        Text color / opacity
+        <span class="ctrl">
+          <input id="alpha" type="range" min="0.1" max="1" step="0.05" value="0.9" />
+          <span id="alphaVal" class="val"></span>
+        </span>
+      </label>
+
+      <label>
+        Letter spacing
+        <span class="ctrl">
+          <input id="tracking" type="range" min="-2" max="10" step="0.5" value="1.0" />
+          <span id="trackingVal" class="val"></span>
+        </span>
+      </label>
+
+      <label>
+        Spiral: start radius
+        <span class="ctrl">
+          <input id="r0" type="range" min="0" max="500" value="30" />
+          <span id="r0Val" class="val"></span>
+        </span>
+      </label>
+
+      <label>
+        Spiral: pitch (px per turn)
+        <span class="ctrl">
+          <input id="pitch" type="range" min="10" max="200" value="90" />
+          <span id="pitchVal" class="val"></span>
+        </span>
+      </label>
+
+      <label>
+        Spiral: start angle (deg)
+        <span class="ctrl">
+          <input id="a0" type="range" min="-180" max="180" value="-90" />
+          <span id="a0Val" class="val"></span>
+        </span>
+      </label>
+
+      <label>
+        Direction
+        <span class="ctrl">
+          <select id="dir">
+            <option value="cw" selected>Clockwise</option>
+            <option value="ccw">Counterclockwise</option>
+          </select>
+        </span>
+      </label>
+
+      <label>
+        Warp: swirl factor
+        <span class="ctrl">
+          <input id="swirl" type="range" min="0" max="1.2" step="0.05" value="0.35" />
+          <span id="swirlVal" class="val"></span>
+        </span>
+      </label>
+      <div class="hint">
+        Swirl factor adds extra angular “pull” as radius increases, helping it match vortex flow.
+      </div>
+
+      <div class="row">
+        <button id="render">Render</button>
+        <button id="export">Export PNG</button>
+        <button id="rerollJitter">Tiny jitter</button>
+      </div>
+    </div>
+
+    <div class="stage">
+      <canvas id="c" width="1024" height="1024"></canvas>
+    </div>
+  </div>
+
+<script>
+  const el = (id) => document.getElementById(id);
+  const canvas = el("c");
+  const ctx = canvas.getContext("2d");
+
+  let bgImg = null;
+  let jitterSeed = 0;
+
+  function clamp(v, a, b){ return Math.max(a, Math.min(b, v)); }
+
+  // Small deterministic jitter for a more organic feel (optional)
+  function rand01(){
+    // xorshift32
+    jitterSeed ^= jitterSeed << 13; jitterSeed ^= jitterSeed >>> 17; jitterSeed ^= jitterSeed << 5;
+    return ((jitterSeed >>> 0) / 4294967296);
+  }
+
+  function normalizeText(s){
+    return s.replace(/\s+/g, " ").trim();
+  }
+
+  function setFont(){
+    const fs = Number(el("fs").value);
+    const f = el("font").value;
+    let family;
+    if(f === "mono") family = 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
+    else if(f === "condensed") family = '"Arial Narrow", "HelveticaNeue-CondensedBold", "Roboto Condensed", "Noto Sans Condensed", Arial, sans-serif';
+    else family = 'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif';
+
+    ctx.font = `${fs}px ${family}`;
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "center";
+
+    el("fsVal").textContent = fs;
+  }
+
+  function drawBackground(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if(bgImg){
+      // cover
+      const cw = canvas.width, ch = canvas.height;
+      const iw = bgImg.naturalWidth, ih = bgImg.naturalHeight;
+      const scale = Math.max(cw/iw, ch/ih);
+      const w = iw * scale, h = ih * scale;
+      const x = (cw - w) / 2, y = (ch - h) / 2;
+      ctx.drawImage(bgImg, x, y, w, h);
+    } else {
+      ctx.fillStyle = "#070a0d";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+  }
+
+  // Archimedean spiral with optional extra swirl
+  // r(theta) = r0 + b*theta, where b = pitch / (2*pi)
+  // swirl: extra angle offset proportional to radius
+  function spiralPoint(theta, r0, b, swirl, dirSign){
+    const r = r0 + b * theta;
+    const extra = swirl * (r / 300); // tuned "feel" not physics
+    const ang = dirSign * (theta + extra);
+    return { r, ang };
+  }
+
+  function render(){
+    // UI → values
+    const cw = canvas.width, ch = canvas.height;
+
+    const cx = Number(el("cx").value);
+    const cy = Number(el("cy").value);
+
+    const alpha = Number(el("alpha").value);
+    const tracking = Number(el("tracking").value);
+
+    const r0 = Number(el("r0").value);
+    const pitch = Number(el("pitch").value);
+    const a0deg = Number(el("a0").value);
+    const swirl = Number(el("swirl").value);
+    const dir = el("dir").value;
+    const dirSign = (dir === "cw") ? 1 : -1;
+
+    // display labels
+    el("cxVal").textContent = cx;
+    el("cyVal").textContent = cy;
+    el("alphaVal").textContent = alpha.toFixed(2);
+    el("trackingVal").textContent = tracking.toFixed(1);
+    el("r0Val").textContent = r0;
+    el("pitchVal").textContent = pitch;
+    el("a0Val").textContent = a0deg;
+    el("swirlVal").textContent = swirl.toFixed(2);
+
+    setFont();
+    drawBackground();
+
+    // Text styling
+    ctx.fillStyle = `rgba(240, 245, 255, ${alpha})`;
+
+    const text = normalizeText(el("txt").value);
+    const chars = [...text]; // includes spaces
+    const b = pitch / (2 * Math.PI);
+    const a0 = (a0deg * Math.PI) / 180;
+
+    // We'll advance along spiral by converting desired arc length into dtheta
+    // arc length approx: ds ≈ r * dtheta  (good enough for vibe)
+    let theta = 0;
+
+    // Stop once we run out of canvas radius
+    const maxR = Math.min(cw, ch) * 0.48;
+
+    for(let i=0; i<chars.length; i++){
+      const chh = chars[i];
+
+      const { r, ang } = spiralPoint(theta, r0, b, swirl, dirSign);
+      if(r > maxR) break;
+
+      // Position
+      const x = cx + r * Math.cos(ang + a0);
+      const y = cy + r * Math.sin(ang + a0);
+
+      // Tangent direction (approx): angle + 90deg (depends on direction)
+      // For spiral, tangent isn't perfectly perpendicular, but this looks right visually.
+      const rot = (ang + a0) + dirSign * (Math.PI / 2);
+
+      // Advance amount based on glyph width
+      const w = ctx.measureText(chh === " " ? "n" : chh).width; // space uses 'n' width for pacing
+      const advance = Math.max(1, w + tracking);
+
+      // Convert desired arc length into dtheta
+      const dtheta = advance / Math.max(8, r); // avoid huge steps near center
+      theta += dtheta;
+
+      // Skip drawing actual spaces
+      if(chh === " ") continue;
+
+      // Optional tiny jitter for “analog” feel
+      const jx = (rand01() - 0.5) * 0.25;
+      const jy = (rand01() - 0.5) * 0.25;
+      const jr = (rand01() - 0.5) * 0.01;
+
+      ctx.save();
+      ctx.translate(x + jx, y + jy);
+      ctx.rotate(rot + jr);
+      ctx.fillText(chh, 0, 0);
+      ctx.restore();
+    }
+  }
+
+  function applySize(){
+    const w = clamp(Number(el("cw").value), 256, 4096);
+    const h = clamp(Number(el("ch").value), 256, 4096);
+    canvas.width = w; canvas.height = h;
+
+    // update center sliders range + defaults
+    el("cx").max = String(w);
+    el("cy").max = String(h);
+    el("cx").value = String(Math.round(w/2));
+    el("cy").value = String(Math.round(h/2));
+
+    render();
+  }
+
+  function exportPNG(){
+    const a = document.createElement("a");
+    a.download = "spiral-text.png";
+    a.href = canvas.toDataURL("image/png");
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  // Events
+  el("applySize").addEventListener("click", applySize);
+  el("render").addEventListener("click", render);
+  el("export").addEventListener("click", exportPNG);
+
+  el("rerollJitter").addEventListener("click", () => {
+    jitterSeed = (Date.now() ^ (Math.random() * 1e9)) >>> 0;
+    render();
+  });
+
+  el("bgfile").addEventListener("change", (e) => {
+    const f = e.target.files && e.target.files[0];
+    if(!f) return;
+    const url = URL.createObjectURL(f);
+    const img = new Image();
+    img.onload = () => {
+      bgImg = img;
+      URL.revokeObjectURL(url);
+      render();
+    };
+    img.src = url;
+  });
+
+  el("clearBg").addEventListener("click", () => {
+    bgImg = null;
+    el("bgfile").value = "";
+    render();
+  });
+
+  // Live updates
+  const live = ["txt","cx","cy","font","fs","alpha","tracking","r0","pitch","a0","dir","swirl"];
+  live.forEach(id => {
+    el(id).addEventListener(id === "txt" ? "input" : "input", render);
+    el(id).addEventListener("change", render);
+  });
+
+  // Init
+  jitterSeed = 123456789;
+  applySize(); // also renders
+</script>
+</body>
+</html>
