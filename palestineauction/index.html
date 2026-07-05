@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PalestineAuction — supporters sell their stuff</title>
+    <meta
+      name="description"
+      content="A simple listings board. Supporters sell belongings to help those in prison. Fixed prices, best offers welcome."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="index.html">
+          <span class="flag" aria-hidden="true">
+            <svg viewBox="0 0 30 20" width="30" height="20">
+              <rect width="30" height="20" fill="#fff" />
+              <rect width="30" height="6.67" y="0" fill="#000" />
+              <rect width="30" height="6.67" y="13.33" fill="#007a3d" />
+              <polygon points="0,0 12,10 0,20" fill="#ce1126" />
+            </svg>
+          </span>
+          <b>PalestineAuction</b>
+          <small>(not Palestine Action)</small>
+        </a>
+        <nav class="nav">
+          <a href="index.html">Listings</a>
+          <a href="smcf.html">SMCF</a>
+          <a href="money.html">Where the money goes?</a>
+          <a href="legal.html">Legality &amp; disclaimer</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="intro">
+        <h1>Supporters selling their stuff.</h1>
+        <p>
+          Basic stuff. Common sense. People who support the cause are selling
+          belongings — often on behalf of those currently in prison — to raise
+          funds. Every item has a fixed price — pay it, or make an offer and do
+          a bit of bargaining.
+        </p>
+        <p class="note">
+          Every listing shows only the first part of a postcode for the area.
+          Arrange collection and payment directly with the seller.
+        </p>
+
+        <div class="legal-banner">
+          <b>Before you list or buy:</b> this is a listings board only. Only
+          legally owned goods that are legal to sell may be listed. Please read
+          the <a href="legal.html">legality &amp; disclaimer</a> page.
+        </div>
+      </section>
+
+      <section id="grid" class="grid" aria-label="Items for sale"></section>
+    </main>
+
+    <!-- Buy now / make an offer modal -->
+    <div class="modal-backdrop" id="modalBackdrop">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <h2 id="modalTitle">Buy now or make an offer</h2>
+        <p class="sub" id="modalSub"></p>
+
+        <div class="field">
+          <label for="offerAmount">Amount (£) — asking price, or your offer</label>
+          <input id="offerAmount" type="number" min="0" step="1" inputmode="numeric" />
+        </div>
+        <div class="field">
+          <label for="offerFrom">Your email</label>
+          <input id="offerFrom" type="email" placeholder="you@example.com" />
+        </div>
+        <div class="field">
+          <label for="offerMsg">Message (optional)</label>
+          <textarea id="offerMsg" placeholder="Anything the seller should know…"></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn" id="modalCancel" type="button">Cancel</button>
+          <button class="btn primary" id="modalSend" type="button">Send</button>
+        </div>
+        <p class="hint" id="modalStatus" role="status"></p>
+        <p class="hint">
+          Sent through a simple form service (Formspree) — no account needed.
+          The seller replies to your email directly.
+        </p>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        PalestineAuction is a static listings board. Sellers are responsible for
+        their own listings and transactions. &middot;
+        <a href="legal.html">Legality &amp; disclaimer</a>
+      </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
