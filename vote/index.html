@@ -1,9 +1,381 @@
-<!DOCTYPE html>
-<html>
- <head>
-  <meta http-equiv="refresh" content="0; url=https://docs.google.com/document/d/18nZ9585CHPFwA1Hxwa1ZK-Q93WZUlffQlGHu15v2vJY/edit?usp=sharing">
- </head>
- <body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UK — We Need To Talk · 10 Key Policy Questions</title>
+<meta name="description" content="Answer 10 key questions about Britain's future, seal a timestamped verdict card, and share it. Your answers ride inside the card — unreadable by eye.">
+<link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body>
+<div class="win">
+  <div class="titlebar">
+    <div class="t"><span>🇬🇧</span> UK — We Need To Talk</div>
+    <div class="btns"><span class="tbtn">_</span><span class="tbtn">▢</span><span class="tbtn">✕</span></div>
+  </div>
+  <div class="body">
+    <div class="hero">
+      <svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0,0 60,40 M60,0 0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 60,40 M60,0 0,40" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/></svg>
+      <h1>10 KEY POLICY QUESTIONS</h1>
+      <div class="bin">🗑️</div>
+    </div>
+    <div class="sub">Your vote. Your future. Let's build a better UK. — pick where you stand on each, then <b>seal &amp; share your verdict</b>.</div>
 
- </body>
+    <div class="sessionbar">
+      <span class="live">LIVE</span>
+      <span>Honest, independent opinion polling — <b>everyone debates the same 10 questions</b>. Your answers stay on your device.</span>
+      <span class="clock" id="clock">— — —</span>
+    </div>
+
+    <table id="grid">
+      <thead>
+        <tr>
+          <th class="qcol">QUESTION</th>
+          <th class="scol s2">2</th><th class="scol s1">1</th><th class="scol s0">0</th><th class="scol sm1">-1</th><th class="scol sm2">-2</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+
+    <div class="scalekey">
+      <div class="k2"><div class="kv">2</div>Strongly agree</div>
+      <div class="k1"><div class="kv">1</div>Generally agree</div>
+      <div class="k0"><div class="kv">0</div>No opinion</div>
+      <div class="km1"><div class="kv">-1</div>Generally disagree</div>
+      <div class="km2"><div class="kv">-2</div>Strongly disagree</div>
+    </div>
+
+    <!-- SEAL & SHARE -->
+    <div class="panel">
+      <h2>🔒 Timestamp &amp; seal your verdict</h2>
+      <canvas id="liveStrip" width="550" height="48" style="display:block;width:100%;max-width:560px;margin:0 auto 10px"></canvas>
+      <div class="progress"><div class="progressfill" id="progressfill"></div></div>
+      <div class="muted" style="margin-top:8px">Answered: <span class="count" id="answered">0</span> / 10 — all 10 required. Answers stay hidden inside the card.</div>
+      <div class="row" style="margin-top:10px" id="sealRow">
+        <button class="btn primary" id="sealBtn">🔒 Seal my verdict</button>
+        <span class="muted" id="sealHint"></span>
+      </div>
+      <div class="cardwrap" id="cardArea" style="display:none">
+        <canvas id="cardCanvas" width="1080" height="1080"></canvas>
+        <div class="sharecol">
+          <button class="btn share hero pulse" id="shareBtn">📤 Share my verdict card</button>
+          <div class="row">
+            <button class="btn" id="dlBtn">⬇️ Save image</button>
+            <button class="btn" id="linkBtn">🔗 Copy link</button>
+          </div>
+          <div class="receipt" id="receipt" style="display:none"></div>
+          <div class="muted" id="shareMsg" style="margin-top:8px"></div>
+          <div class="muted" style="margin-top:8px">Keep the whole image — the grey squares carry your sealed answers.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="crosslink">Got someone's sealed card? → <a class="btn" href="decode.html">🕵️ Decode a friend's seal</a></div>
+
+    <div class="footer">🌍 PLANETARY COUNCIL &nbsp;·&nbsp; a Binface joint &nbsp;·&nbsp; nothing here leaves your device — all sealing happens in your browser.</div>
+  </div>
+</div>
+
+<!-- always-reachable primary action -->
+<div class="actionbar" id="actionbar">
+  <div class="barlabel"><span id="barCount">0 / 10 answered</span><span id="barTip">tap to seal your card</span></div>
+  <button class="bigcta" id="barCta">🔒 Seal &amp; share my verdict</button>
+</div>
+
+<script src="shared.js?v=4"></script>
+<script src="qr.js?v=4"></script>
+<script>
+const QR_URL = "https://planetarycouncil.org/vote";   // where the card's QR sends people
+/* short forms of the 10 questions, printed on the shared card */
+const QUESTIONS_SHORT = [
+  "🗳️ Proportional representation for UK elections?",
+  "⚡ Public ownership of energy, water & rail?",
+  "🚆 More rail automation?",
+  "📡 5G & broadband as essential public infrastructure?",
+  "🌊 More flood defences & insulation investment?",
+  "🪖 Reduce military spending?",
+  "🏭 Allow foreign-owned arms companies?",
+  "🏛️ A more collaborative chamber instead of the Commons?",
+  "👑 House of Lords — keep, reform or replace?",
+  "🇪🇺 Rejoin the EU Single Market?",
+];
+
+/* ---------- build the survey ---------- */
+const answers = new Array(10).fill(null);      // null = untouched
+const rowsEl = document.getElementById('rows');
+
+QUESTIONS.forEach((q,i)=>{
+  const tr = document.createElement('tr');
+  const opts = VALUES.map(v=>`<td class="opt" data-q="${i}" data-v="${v}"><span class="dot"></span></td>`).join('');
+  tr.innerHTML = `<td class="qcol"><span class="qicon">${q.icon}</span><span class="qnum">${i+1}.</span> <span class="qtxt">${q.t}</span></td>
+    ${opts}`;
+  rowsEl.appendChild(tr);
+});
+
+rowsEl.addEventListener('click', e=>{
+  const cell = e.target.closest('.opt');
+  if(!cell) return;
+  const q = +cell.dataset.q, v = +cell.dataset.v;
+  answers[q] = v;
+  cell.parentElement.querySelectorAll('.opt').forEach(td=> td.classList.toggle('sel', +td.dataset.v===v));
+  if(sealed) markDirty();          // an edit after sealing → card is stale
+  renderLiveStrip();               // fresh one-time pad on every click — the strip dances
+  refresh();
+});
+
+/* live one-time-pad strip: same encoding as the card, re-rolled per render */
+function renderLiveStrip(){
+  const cv=document.getElementById('liveStrip'); if(!cv) return;
+  const ctx=cv.getContext('2d');
+  const W=cv.width, H=cv.height, cols=11, rows=3;
+  const colW=W/cols, rowH=H/rows;
+  const dig=greyDigits(nowSec());
+  const extra=dig.reduce((a,b)=>a+b,0)%5;
+  const payload=dig.concat(extra);
+  const pad=[]; for(let d=0;d<9;d++) pad.push(Math.floor(Math.random()*5));
+  const cipher=payload.map((v,j)=>(v+pad[j%9])%5);
+  ctx.clearRect(0,0,W,H);
+  const cell=(c,r,g)=>{ ctx.fillStyle=`rgb(${g},${g},${g})`; ctx.fillRect(c*colW+1, r*rowH+1, colW-2, rowH-2); };
+  for(let r=0;r<rows;r++){ cell(0,r,ANCHOR_B); cell(cols-1,r,ANCHOR_W); }
+  for(let d=0;d<9;d++){ cell(d+1,0,LEVELS[pad[d]]); cell(d+1,1,LEVELS[cipher[d]]); cell(d+1,2,LEVELS[cipher[9+d]]); }
+}
+function answeredCount(){ return answers.filter(a=>a!==null).length; }
+function refresh(){
+  const n = answeredCount();
+  document.getElementById('answered').textContent = n;
+  document.getElementById('progressfill').style.width = (n/10*100)+'%';
+  document.getElementById('barCount').textContent = n+' / 10 answered';
+  document.getElementById('actionbar').classList.toggle('show', n>0);
+  document.getElementById('sealBtn').disabled = n<10;
+  if(!sealed) setBarMode(false);
+}
+function nowSec(){ return Math.floor(new Date().getTime()/1000); }
+
+/* ---------- encode: exact LSB payload ---------- */
+function packBytes(){
+  let big = 0n;
+  for(let i=0;i<10;i++){ const v=(answers[i]??0)+2; big = big*5n + BigInt(v); }
+  const ai = Number(big);
+  const ts = Math.floor(currentTs);
+  const b = new Uint8Array(8);
+  b[0]=1;
+  b[1]=(ts>>>24)&255; b[2]=(ts>>>16)&255; b[3]=(ts>>>8)&255; b[4]=ts&255;
+  b[5]=(ai>>>16)&255; b[6]=(ai>>>8)&255; b[7]=ai&255;
+  return b;
+}
+function frameBytes(){
+  const payload = packBytes();
+  const out = new Uint8Array(4+2+payload.length);
+  out.set(MAGIC,0);
+  out[4]=(payload.length>>>8)&255; out[5]=payload.length&255;
+  out.set(payload,6);
+  return out;
+}
+function embed(imgData, bytes){
+  const d = imgData.data, bits=[];
+  for(const by of bytes) for(let k=7;k>=0;k--) bits.push((by>>k)&1);
+  let bi=0;
+  for(let p=0; p<d.length && bi<bits.length; p+=4){
+    for(let c=0;c<3 && bi<bits.length;c++){ d[p+c]=(d[p+c]&0xFE)|bits[bi++]; }
+  }
+  if(bi<bits.length) throw new Error("image too small");
+  return imgData;
+}
+
+/* ---------- encode: visible tonal fingerprint ---------- */
+function greyDigits(ts){
+  ts = ts ?? currentTs;
+  const dig=[];
+  for(let i=0;i<10;i++) dig.push((answers[i]??0)+2);         // 10 answers, 0..4 (unanswered = 0)
+  let days=Math.floor((ts*1000 - EPOCH_UTC)/86400000);
+  days=Math.max(0,Math.min(15624,days));
+  let x=days; const td=[]; for(let k=0;k<6;k++){ td.unshift(x%5); x=Math.floor(x/5); }
+  dig.push(...td);                                            // +6 date digits = 16
+  dig.push(dig.reduce((a,b)=>a+b,0)%5);                       // +1 checksum = 17
+  return dig;
+}
+function drawGrid(ctx){
+  const data = greyDigits();                             // 17 digits (10 answers + 6 days + checksum)
+  const extra = data.reduce((a,b)=>a+b,0)%5;             // second checksum
+  const payload = data.concat(extra);                    // 18 digits
+  const pad = []; for(let d=0;d<9;d++) pad.push(Math.floor(Math.random()*5));   // fresh one-time pad
+  const cipher = payload.map((v,j)=>(v+pad[j%9])%5);     // 18 ciphered digits
+
+  // no frame, no caption — a quiet mosaic that reads as decoration
+  const colW=gridCellW();
+  const cell=(col,row,g)=>{
+    ctx.fillStyle=`rgb(${g},${g},${g})`;
+    ctx.fillRect(GRID.x0+col*colW+1.5, GRID.y0+row*GRID.rowH+1.5, colW-3, GRID.rowH-3);
+  };
+  for(let row=0;row<3;row++){ cell(0,row,ANCHOR_B); cell(GRID.cols-1,row,ANCHOR_W); }  // anchor columns
+  for(let d=0;d<9;d++){
+    cell(d+1,0,LEVELS[pad[d]]);          // row 0: the pad
+    cell(d+1,1,LEVELS[cipher[d]]);       // row 1: answers 0..8, scrambled
+    cell(d+1,2,LEVELS[cipher[9+d]]);     // row 2: answers 9..17, scrambled
+  }
+}
+
+/* ---------- real QR (encoder in qr.js, verified against jsQR) ---------- */
+function drawQRCode(ctx,x,y,px,text){
+  const m=qrMatrix(text), n=m.length, quiet=4;
+  const cellPx=Math.floor(px/(n+2*quiet));
+  const plate=cellPx*(n+2*quiet);
+  const ox=x+Math.floor((px-plate)/2), oy=y+Math.floor((px-plate)/2);
+  ctx.fillStyle="#fff"; ctx.fillRect(ox,oy,plate,plate);
+  ctx.fillStyle="#0a0a1e";
+  for(let r=0;r<n;r++)for(let c=0;c<n;c++)
+    if(m[r][c]) ctx.fillRect(ox+(quiet+c)*cellPx, oy+(quiet+r)*cellPx, cellPx, cellPx);
+}
+
+/* ---------- build the shareable card ---------- */
+const canvas = document.getElementById('cardCanvas');
+function drawCard(ts){
+  const ctx = canvas.getContext('2d');
+  const W=canvas.width, H=canvas.height;                 // 1080 × 1080, square
+  // parchment + diploma double rule
+  ctx.fillStyle="#f7f4ec"; ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle="#0a0a8c"; ctx.lineWidth=10; ctx.strokeRect(26,26,W-52,H-52);
+  ctx.lineWidth=2; ctx.strokeRect(44,44,W-88,H-88);
+  // header
+  ctx.textAlign="center"; ctx.textBaseline="middle";
+  ctx.fillStyle="#0a0a8c"; ctx.font="bold 46px Georgia";
+  ctx.fillText("UK — WE NEED TO TALK", W/2, 128);
+  ctx.fillStyle="#444"; ctx.font="24px Georgia";
+  ctx.fillText("1 0   K E Y   P O L I C I E S", W/2, 180);
+  ctx.strokeStyle="#0a0a8c"; ctx.lineWidth=1.5;
+  ctx.beginPath(); ctx.moveTo(250,212); ctx.lineTo(W-250,212); ctx.stroke();
+  // the 10 questions
+  const qy0=256, qh=36;
+  QUESTIONS_SHORT.forEach((q,i)=>{
+    const y=qy0+i*qh;
+    ctx.fillStyle="#0a0a3c";
+    ctx.textAlign="right"; ctx.font="bold 19px Georgia"; ctx.fillText((i+1)+".", 176, y);
+    ctx.textAlign="left";  ctx.font="19px Georgia"; ctx.fillText(q, 192, y);
+  });
+  // divider
+  ctx.strokeStyle="#b9b3a4"; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(400,618); ctx.lineTo(W-400,618); ctx.stroke();
+  // timestamp seal
+  const dt=new Date(ts*1000), sid=sealId(answers.map(a=>a??0),ts);
+  ctx.textAlign="center";
+  ctx.fillStyle="#666"; ctx.font="bold 14px Georgia";
+  ctx.fillText("S E A L E D   &   T I M E S T A M P E D", W/2, 652);
+  ctx.fillStyle="#0a0a3c"; ctx.font="bold 25px Georgia";
+  ctx.fillText(dt.toUTCString(), W/2, 684);
+  ctx.fillStyle="#777"; ctx.font="13px Georgia";
+  ctx.fillText("ISO "+fmtISO(ts)+"   ·   SEAL "+sid, W/2, 710);
+  // the quiet grey seal (one-time-pad grid), then the QR beneath it
+  drawGrid(ctx);
+  drawQRCode(ctx, W/2-75, 822, 150, QR_URL);
+  ctx.fillStyle="#0a0a8c"; ctx.font="bold 22px Georgia";
+  ctx.fillText("Where do YOU stand?  Scan & vote.", W/2, 990);
+  // URL
+  ctx.fillStyle="#0a0a8c"; ctx.font="bold 22px Georgia";
+  ctx.fillText("PlanetaryCouncil.org", W/2, 1018);
+  ctx.textAlign="left";
+  // exact payload in LSBs (bonus layer for pristine PNGs)
+  const img = ctx.getImageData(0,0,W,H);
+  embed(img, frameBytes());
+  ctx.putImageData(img,0,0);
+}
+
+let currentTs = null, sealed = false;
+const barCta = document.getElementById('barCta');
+
+function setBarMode(ready){
+  const n = answeredCount();
+  if(ready){ barCta.textContent='📤 Share my verdict'; barCta.classList.add('ready'); document.getElementById('barTip').textContent='card ready — tap to share'; }
+  else{
+    barCta.textContent = n<10 ? '✅ Answer all 10 to seal' : '🔒 Seal & share my verdict';
+    barCta.classList.remove('ready');
+    document.getElementById('barTip').textContent = n<10 ? (10-n)+' to go' : 'tap to seal your card';
+  }
+}
+function markDirty(){                 // answers changed after a seal → force a re-seal
+  sealed=false; setBarMode(false);
+  document.getElementById('cardArea').style.display='none';
+  document.getElementById('sealRow').style.display='';
+  document.getElementById('sealHint').textContent='Answer changed — seal again to refresh your card.';
+}
+function pulse(el){ el.classList.remove('pulse'); void el.offsetWidth; el.classList.add('pulse'); }
+
+function doSeal(){
+  if(answeredCount()<10){ document.getElementById('sealHint').textContent="All 10 questions required."; return; }
+  document.getElementById('sealHint').textContent="";
+  currentTs = nowSec();
+  saveMine();
+  drawCard(currentTs);
+  sealed = true;
+  const sid = sealId(answers.map(a=>a??0), currentTs);
+  const r = document.getElementById('receipt');
+  r.style.display='block';
+  r.innerHTML = `<b>🧾 Sealed &amp; timestamped</b><br>${fmtUTC(currentTs)}<br><span class="mono">ISO ${fmtISO(currentTs)}</span> · Seal <span class="sid">${sid}</span>`;
+  document.getElementById('cardArea').style.display='flex';
+  document.getElementById('sealRow').style.display='none';   // sealing done — hide its button
+  setBarMode(true);
+  pulse(document.getElementById('shareBtn'));
+  document.getElementById('cardArea').scrollIntoView({behavior:'smooth',block:'center'});
+}
+document.getElementById('sealBtn').addEventListener('click', doSeal);
+barCta.addEventListener('click', ()=>{
+  if(sealed){ document.getElementById('shareBtn').click(); return; }
+  if(answeredCount()<10){
+    const next=[...document.querySelectorAll('#rows tr')].find(tr=>!tr.querySelector('.opt.sel'));
+    if(next) next.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+  doSeal();
+});
+
+function saveMine(){
+  try{ localStorage.setItem('binface_mine', JSON.stringify(answers.map(a=>a??0))); }catch(e){}
+}
+
+/* ---------- share ---------- */
+function cardBlob(){ return new Promise(r=>canvas.toBlob(r,'image/png')); }
+const homeURL = location.href.split('#')[0];
+
+async function saveImage(){
+  const b = await cardBlob(); const url=URL.createObjectURL(b);
+  const a=document.createElement('a'); a.href=url; a.download='binface-verdict-sealed.png'; a.click();
+  URL.revokeObjectURL(url);
+}
+document.getElementById('dlBtn').addEventListener('click', ()=>{ saveImage(); document.getElementById('shareMsg').textContent="Saved ✔ — the image is in your downloads."; });
+document.getElementById('shareBtn').addEventListener('click', async ()=>{
+  const b = await cardBlob();
+  const file = new File([b],'binface-verdict-sealed.png',{type:'image/png'});
+  const text = "My verdict on Britain's 10 key questions is sealed 🗑️ Where do you stand? "+QR_URL;
+  if(navigator.canShare && navigator.canShare({files:[file]})){
+    try{ await navigator.share({files:[file], text, title:'UK — We Need To Talk'}); document.getElementById('shareMsg').textContent="Shared ✔"; }catch(e){}
+  }else{
+    await saveImage();                       // desktop fallback: always do the obvious thing
+    document.getElementById('shareMsg').textContent="Saved the image ✔ — attach it to your post, or use 🔗 Copy link.";
+  }
+});
+document.getElementById('linkBtn').addEventListener('click', async ()=>{
+  const link = homeURL + '#s=' + b64url(frameBytes());
+  try{ await navigator.clipboard.writeText(link); document.getElementById('shareMsg').textContent="Link copied ✔ — your answers travel inside the link itself."; }
+  catch(e){ document.getElementById('shareMsg').textContent=link; }
+});
+
+/* live session clock — reinforces a real, honest, timestamped polling session */
+function tick(){
+  const d=new Date();
+  document.getElementById('clock').textContent = d.toISOString().slice(0,19).replace('T',' ')+' UTC';
+}
+tick(); setInterval(tick,1000);
+
+/* a shared link opens this homepage — stash the sealed payload, keep the URL clean */
+if(location.hash.includes('s=')){
+  const m=location.hash.match(/s=([A-Za-z0-9\-_]+)/);
+  if(m){ try{
+    const f=unb64url(m[1]);
+    if(MAGIC.every((b,i)=>f[i]===b)) localStorage.setItem('binface_received', m[1]);
+  }catch(e){} }
+  history.replaceState(null,'',location.pathname+location.search);
+}
+renderLiveStrip();
+refresh();
+</script>
+</body>
 </html>
