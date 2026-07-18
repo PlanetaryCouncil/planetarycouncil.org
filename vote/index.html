@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>UK — We Need To Talk · 10 Key Policy Questions</title>
 <meta name="description" content="Answer 10 key questions about Britain's future, seal a timestamped verdict card, and share it. Your answers ride inside the card — unreadable by eye.">
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 <div class="win">
@@ -43,7 +43,6 @@
       <div class="cardwrap" id="cardArea">
         <canvas id="cardCanvas" width="1080" height="1080"></canvas>
         <div class="sharecol">
-          <button class="btn share hero" id="shareBtn">📤 Share my card</button>
           <div class="row">
             <button class="btn" id="dlBtn">⬇️ Save image</button>
             <button class="btn" id="linkBtn">🔗 Copy link</button>
@@ -60,13 +59,8 @@
   </div>
 </div>
 
-<!-- always-reachable primary action -->
-<div class="actionbar show" id="actionbar">
-  <button class="bigcta ready" id="barCta">📤 Share my verdict</button>
-</div>
-
-<script src="shared.js?v=5"></script>
-<script src="qr.js?v=5"></script>
+<script src="shared.js?v=6"></script>
+<script src="qr.js?v=6"></script>
 <script>
 const QR_URL = "https://planetarycouncil.org/vote";   // where the card's QR sends people
 /* short forms of the 10 questions, printed on the shared card */
@@ -187,46 +181,61 @@ const canvas = document.getElementById('cardCanvas');
 function drawCard(ts){
   const ctx = canvas.getContext('2d');
   const W=canvas.width, H=canvas.height;                 // 1080 × 1080, square
-  // parchment + diploma double rule
-  ctx.fillStyle="#f7f4ec"; ctx.fillRect(0,0,W,H);
-  ctx.strokeStyle="#0a0a8c"; ctx.lineWidth=10; ctx.strokeRect(26,26,W-52,H-52);
-  ctx.lineWidth=2; ctx.strokeRect(44,44,W-88,H-88);
-  // header
-  ctx.textAlign="center"; ctx.textBaseline="middle";
-  ctx.fillStyle="#0a0a8c"; ctx.font="bold 46px Georgia";
-  ctx.fillText("UK — WE NEED TO TALK", W/2, 128);
-  ctx.fillStyle="#444"; ctx.font="24px Georgia";
-  ctx.fillText("1 0   K E Y   P O L I C I E S", W/2, 180);
-  ctx.strokeStyle="#0a0a8c"; ctx.lineWidth=1.5;
-  ctx.beginPath(); ctx.moveTo(250,212); ctx.lineTo(W-250,212); ctx.stroke();
-  // the 10 questions
-  const qy0=256, qh=36;
+  const NAVY="#0a0a8c", NAVY2="#1a44c8", INK="#0a0a3c", WIN="#c3c7cb";
+  const SCALE=["#128a26","#7ed957","#ffe11a","#ff9a1e","#f0141e"];
+  // teal desktop + Win95 window, matching the site
+  ctx.fillStyle="#008080"; ctx.fillRect(0,0,W,H);
+  ctx.fillStyle=WIN; ctx.fillRect(30,30,W-60,H-60);
+  ctx.fillStyle="#fdffff"; ctx.fillRect(30,30,W-60,4); ctx.fillRect(30,30,4,H-60);
+  ctx.fillStyle="#5a5b60"; ctx.fillRect(30,H-34,W-60,4); ctx.fillRect(W-34,30,4,H-60);
+  // navy gradient titlebar
+  const tg=ctx.createLinearGradient(42,0,W-42,0); tg.addColorStop(0,NAVY); tg.addColorStop(1,NAVY2);
+  ctx.fillStyle=tg; ctx.fillRect(42,42,W-84,62);
+  ctx.textBaseline="middle";
+  ctx.fillStyle="#fff"; ctx.font="bold 32px Georgia"; ctx.textAlign="left";
+  ctx.fillText("🇬🇧 UK — WE NEED TO TALK", 62, 74);
+  for(let i=0;i<3;i++){                                   // _ ▢ ✕
+    const bx=938+i*32;
+    ctx.fillStyle=WIN; ctx.fillRect(bx,54,28,24);
+    ctx.strokeStyle="#000"; ctx.lineWidth=1; ctx.strokeRect(bx+.5,54.5,28,24);
+    ctx.fillStyle="#000"; ctx.font="bold 14px Georgia"; ctx.textAlign="center";
+    ctx.fillText(["_","▢","✕"][i], bx+14, 66);
+  }
+  // subtitle + scale-colour ribbon
+  ctx.fillStyle=NAVY; ctx.font="bold 24px Georgia"; ctx.textAlign="center";
+  ctx.fillText("1 0   K E Y   P O L I C I E S", W/2, 140);
+  SCALE.forEach((c,i)=>{ ctx.fillStyle=c; ctx.fillRect(240+i*120,158,120,12); });
+  ctx.strokeStyle="#333"; ctx.lineWidth=1; ctx.strokeRect(240.5,158.5,600,12);
+  // the 10 questions, numbered with scale-colour badges
+  const qy0=214, qh=36;
   QUESTIONS_SHORT.forEach((q,i)=>{
     const y=qy0+i*qh;
-    ctx.fillStyle="#0a0a3c";
-    ctx.textAlign="right"; ctx.font="bold 19px Georgia"; ctx.fillText((i+1)+".", 176, y);
-    ctx.textAlign="left";  ctx.font="19px Georgia"; ctx.fillText(q, 192, y);
+    if(i%2===0){ ctx.fillStyle="rgba(255,255,255,.6)"; ctx.fillRect(60, y-qh/2, W-120, qh); }
+    const bc=SCALE[i%5];
+    ctx.fillStyle=bc; ctx.fillRect(96, y-13, 34, 26);
+    ctx.strokeStyle="rgba(0,0,0,.35)"; ctx.strokeRect(96.5, y-12.5, 34, 26);
+    ctx.fillStyle=(bc==="#ffe11a")?"#000":"#fff";
+    ctx.font="bold 15px Georgia"; ctx.textAlign="center"; ctx.fillText(String(i+1), 113, y+1);
+    ctx.textAlign="left"; ctx.fillStyle=INK; ctx.font="19px Georgia"; ctx.fillText(q, 146, y+1);
   });
-  // divider
-  ctx.strokeStyle="#b9b3a4"; ctx.lineWidth=1;
-  ctx.beginPath(); ctx.moveTo(400,618); ctx.lineTo(W-400,618); ctx.stroke();
   // timestamp seal
-  const dt=new Date(ts*1000), sid=sealId(answers.map(a=>a??0),ts);
+  const sid=sealId(answers.map(a=>a??0),ts);
   ctx.textAlign="center";
-  ctx.fillStyle="#666"; ctx.font="bold 14px Georgia";
-  ctx.fillText("S E A L E D   &   T I M E S T A M P E D", W/2, 652);
-  ctx.fillStyle="#0a0a3c"; ctx.font="bold 25px Georgia";
-  ctx.fillText(dt.toUTCString(), W/2, 684);
-  ctx.fillStyle="#777"; ctx.font="13px Georgia";
-  ctx.fillText("ISO "+fmtISO(ts)+"   ·   SEAL "+sid, W/2, 710);
-  // the quiet grey seal (one-time-pad grid), then the QR beneath it
+  ctx.fillStyle="#555"; ctx.font="bold 13px Georgia";
+  ctx.fillText("S E A L E D   &   T I M E S T A M P E D", W/2, 612);
+  ctx.fillStyle=INK; ctx.font="bold 26px Georgia";
+  ctx.fillText(new Date(ts*1000).toUTCString(), W/2, 644);
+  ctx.fillStyle="#666"; ctx.font="13px Georgia";
+  ctx.fillText("ISO "+fmtISO(ts)+"   ·   SEAL "+sid, W/2, 670);
+  // one-time-pad grid on a white plate, QR beneath
+  ctx.fillStyle="#fff"; ctx.fillRect(132,737,816,76);
   drawGrid(ctx);
   drawQRCode(ctx, W/2-75, 822, 150, QR_URL);
-  ctx.fillStyle="#0a0a8c"; ctx.font="bold 22px Georgia";
-  ctx.fillText("Where do YOU stand?  Scan & vote.", W/2, 990);
-  // URL
-  ctx.fillStyle="#0a0a8c"; ctx.font="bold 22px Georgia";
-  ctx.fillText("PlanetaryCouncil.org", W/2, 1018);
+  // yellow call-to-action band
+  ctx.fillStyle="#ffe11a"; ctx.fillRect(42,984,W-84,58);
+  ctx.strokeStyle="#000"; ctx.lineWidth=1; ctx.strokeRect(42.5,984.5,W-84,58);
+  ctx.fillStyle=NAVY; ctx.font="bold 24px Georgia"; ctx.textAlign="center";
+  ctx.fillText("Where do YOU stand?  Scan & vote  ·  PlanetaryCouncil.org", W/2, 1014);
   ctx.textAlign="left";
   // exact payload in LSBs (bonus layer for pristine PNGs)
   const img = ctx.getImageData(0,0,W,H);
@@ -235,7 +244,6 @@ function drawCard(ts){
 }
 
 let currentTs = nowSec();
-const barCta = document.getElementById('barCta');
 
 /* everything auto-generated: fresh timestamp, fresh pad, full card — on every click */
 function renderCard(){
@@ -243,7 +251,6 @@ function renderCard(){
   saveMine();
   drawCard(currentTs);
 }
-barCta.addEventListener('click', ()=>document.getElementById('shareBtn').click());
 
 function saveMine(){
   try{ localStorage.setItem('binface_mine', JSON.stringify(answers.map(a=>a??0))); }catch(e){}
@@ -259,17 +266,6 @@ async function saveImage(){
   URL.revokeObjectURL(url);
 }
 document.getElementById('dlBtn').addEventListener('click', ()=>{ saveImage(); document.getElementById('shareMsg').textContent="Saved ✔ — the image is in your downloads."; });
-document.getElementById('shareBtn').addEventListener('click', async ()=>{
-  const b = await cardBlob();
-  const file = new File([b],'binface-verdict-sealed.png',{type:'image/png'});
-  const text = "My verdict on Britain's 10 key questions is sealed 🗑️ Where do you stand? "+QR_URL;
-  if(navigator.canShare && navigator.canShare({files:[file]})){
-    try{ await navigator.share({files:[file], text, title:'UK — We Need To Talk'}); document.getElementById('shareMsg').textContent="Shared ✔"; }catch(e){}
-  }else{
-    await saveImage();                       // desktop fallback: always do the obvious thing
-    document.getElementById('shareMsg').textContent="Saved the image ✔ — attach it to your post, or use 🔗 Copy link.";
-  }
-});
 document.getElementById('linkBtn').addEventListener('click', async ()=>{
   const link = homeURL + '#s=' + b64url(frameBytes());
   try{ await navigator.clipboard.writeText(link); document.getElementById('shareMsg').textContent="Link copied ✔ — your answers travel inside the link itself."; }
