@@ -1,0 +1,983 @@
+{
+  "meta": {
+    "title": "The War Crimes Safari — Top 17 + 3 closers",
+    "description": "Documented war crimes and related repression, Gaza & the West Bank, 2023-2026. Each incident: 2-sentence attributed summary, independent sources, Wikipedia, official Israeli response, image.",
+    "updated": "2026-07-18",
+    "schema": {
+      "id": "stable slug",
+      "section": "main | closers",
+      "title": "sober factual title",
+      "date": "date or range",
+      "summary": "2 sentences, attributed",
+      "links": "[{url, source}] — independent sources; add as many as available",
+      "wikipedia": "most relevant Wikipedia article (optional)",
+      "official": "{url, label} — official Israeli response, primary where possible (optional)",
+      "image": "{src, page, credit, license} — freely licensed embed, Wikimedia Commons (optional)",
+      "photo": "{url, source} — link to iconic copyrighted photo when no free image (optional)",
+      "verify": "open curation caveat (optional)"
+    }
+  },
+  "incidents": [
+    {
+      "id": "hind-rajab",
+      "section": "main",
+      "title": "Killing of Hind Rajab, her family, and two paramedics in Gaza City",
+      "date": "29 Jan 2024 (bodies recovered 10 Feb 2024)",
+      "summary": "Six-year-old Hind Rajab was killed on 29 January 2024 along with six family members when, according to the Palestine Red Crescent Society and subsequent investigations, Israeli tank fire struck the car in which they were fleeing Gaza City's Tal al-Hawa neighborhood; two Red Crescent paramedics dispatched to rescue her after she spent hours on the phone with emergency dispatchers were also killed when their ambulance was struck. Investigations by Forensic Architecture, The Washington Post, and Sky News concluded that Israeli tanks were present at the scene and that one likely fired 335 rounds into the car from close range, contradicting the Israeli military's initial claim that its forces were not in the area.",
+      "links": [
+        {
+          "url": "https://www.washingtonpost.com/world/interactive/2024/hind-rajab-israel-gaza-killing-timeline/",
+          "source": "The Washington Post"
+        },
+        {
+          "url": "https://forensic-architecture.org/investigation/the-killing-of-hind-rajab",
+          "source": "Forensic Architecture"
+        },
+        {
+          "url": "https://www.aljazeera.com/news/2024/6/23/israeli-tank-fired-at-hind-rajab-family-car-from-metres-away-investigation",
+          "source": "Al Jazeera"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Killing_of_Hind_Rajab",
+      "official": {
+        "url": "https://www.timesofisrael.com/idf-says-probe-indicates-no-troops-were-in-area-where-6-year-old-gazan-girl-was-killed/",
+        "label": "IDF response (via Times of Israel)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Demonstrator_grieves_Hind_at_a_Palestine_solidarity_demonstration_in_Lisbon.jpg/960px-Demonstrator_grieves_Hind_at_a_Palestine_solidarity_demonstration_in_Lisbon.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Demonstrator_grieves_Hind_at_a_Palestine_solidarity_demonstration_in_Lisbon.jpg",
+        "credit": "Lua Eva Blue",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "id": "nasser-double-tap",
+      "section": "main",
+      "title": "Double-tap strike on Nasser Hospital kills journalists and rescuers",
+      "date": "25 Aug 2025",
+      "summary": "On 25 August 2025, Israeli forces struck Nasser Hospital in Khan Younis twice in quick succession, with the second strike hitting rescuers and journalists who had gathered at the scene of the first, an attack partly captured on a Reuters live camera feed. Gaza health officials said at least 20 people were killed, including five journalists working with Reuters, the Associated Press, Al Jazeera and other outlets; the Israeli military said the journalists were not the target and that a preliminary inquiry found troops had aimed at what they identified as a Hamas camera, while the UN Secretary-General and press-freedom groups called for an independent investigation.",
+      "links": [
+        {
+          "url": "https://www.cnn.com/2025/08/25/middleeast/more-than-dozen-killed-israeli-strikes-gaza-hospital-journalists-intl",
+          "source": "CNN"
+        },
+        {
+          "url": "https://www.aljazeera.com/news/2025/8/26/who-were-the-five-journalists-killed-in-israels-gaza-hospital-attack",
+          "source": "Al Jazeera"
+        },
+        {
+          "url": "https://cpj.org/2025/08/cpj-demands-a-complete-investigation-into-israels-killing-of-5-journalists-at-nasser-hospital/",
+          "source": "CPJ"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/2025_Nasser_Hospital_strikes",
+      "official": {
+        "url": "https://www.gov.il/en/pages/idf-spokesperson-statement-on-the-strike-in-the-area-of-nasser-hospital-25-aug-2025",
+        "label": "IDF Spokesperson statement (gov.il)"
+      },
+      "photo": {
+        "url": "https://www.cnn.com/2025/08/25/middleeast/more-than-dozen-killed-israeli-strikes-gaza-hospital-journalists-intl",
+        "source": "CNN"
+      }
+    },
+    {
+      "id": "hospital-rocket-jump",
+      "section": "main",
+      "title": "Strike on tent camp at Al-Aqsa Martyrs Hospital, Deir al-Balah",
+      "date": "14 Oct 2024",
+      "summary": "On 14 October 2024, an Israeli airstrike hit a tent camp for displaced people on the grounds of the Al-Aqsa Martyrs Hospital in Deir al-Balah, killing at least four people and injuring dozens, according to Gaza health officials, and igniting a fire that Doctors Without Borders said destroyed shelters housing 37 families. Widely shared footage verified by NBC News showed people burning alive, including a man lying on a bed reportedly attached to an IV drip; the Israeli military said it targeted a Hamas command center at the site, which Doctors Without Borders said it had no knowledge of.",
+      "links": [
+        {
+          "url": "https://www.aljazeera.com/news/2024/10/14/burned-and-charred-bodies-as-israel-hits-tents-at-central-gaza-hospital",
+          "source": "Al Jazeera"
+        },
+        {
+          "url": "https://www.nbcnews.com/news/world/israel-gaza-hamas-hospital-bombing-rcna175237",
+          "source": "NBC News"
+        },
+        {
+          "url": "https://www.washingtonpost.com/world/2024/10/14/israel-airstrike-gaza-hospital-tent-camp-fire/",
+          "source": "Washington Post"
+        }
+      ],
+      "verify": "Best-documented match for the viral clip; the exact strike behind the footage is unconfirmed — verify against the video. Card image shows the 4 Aug 2024 bombing of the same tent camp.",
+      "wikipedia": "https://en.wikipedia.org/wiki/14_October_2024_Al-Aqsa_Hospital_attack",
+      "official": {
+        "url": "https://x.com/LTC_Ariella/status/1845774737881878572",
+        "label": "IDF spokesperson statement (via X)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Israeli_bombing_of_the_tents_of_the_displaced_in_Al-Aqsa_Martyrs_Hospital%2C_Deir_el-Balah%2C_Gaza_Strip.jpg/960px-Israeli_bombing_of_the_tents_of_the_displaced_in_Al-Aqsa_Martyrs_Hospital%2C_Deir_el-Balah%2C_Gaza_Strip.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Israeli_bombing_of_the_tents_of_the_displaced_in_Al-Aqsa_Martyrs_Hospital,_Deir_el-Balah,_Gaza_Strip.jpg",
+        "credit": "Ashraf Amra / UNRWA",
+        "license": "CC BY-SA 3.0 IGO"
+      }
+    },
+    {
+      "id": "ghf-aid-shootings",
+      "section": "main",
+      "title": "Killings of Palestinians seeking food at GHF aid distribution sites",
+      "date": "27 May – October 2025 (recurring incidents)",
+      "summary": "From late May 2025, Palestinians seeking food at distribution sites run by the US- and Israeli-backed Gaza Humanitarian Foundation were repeatedly fired upon; the UN human rights office reported that by mid-August 2025, 994 of the 1,760 Palestinians killed while seeking food since 27 May had died in the vicinity of GHF sites, with witnesses, Gaza health officials, and UN bodies attributing most of the killings to Israeli forces. In June 2025, Haaretz quoted Israeli soldiers who said commanders ordered them to fire on unarmed crowds near the sites — one called the area a \"killing field\" — allegations the Israeli military and government denied, with Netanyahu calling the report a \"blood libel.\"",
+      "links": [
+        {
+          "url": "https://www.haaretz.com/israel-news/2025-06-27/ty-article-magazine/.premium/idf-soldiers-ordered-to-shoot-deliberately-at-unarmed-gazans-waiting-for-humanitarian-aid/00000197-ad8e-de01-a39f-ffbe33780000",
+          "source": "Haaretz"
+        },
+        {
+          "url": "https://www.ohchr.org/en/press-releases/2025/08/un-experts-call-immediate-dismantling-gaza-humanitarian-foundation",
+          "source": "UN OHCHR"
+        },
+        {
+          "url": "https://www.aljazeera.com/news/2025/11/25/us-backed-ghf-aid-mission-in-gaza-ends-a-timeline-of-violence",
+          "source": "Al Jazeera"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/2025_Gaza_Strip_aid_distribution_killings",
+      "official": {
+        "url": "https://www.idf.il/en/mini-sites/humanitarian-missions/everything-you-need-to-know-about-the-humanitarian-aid-situation-in-gaza/",
+        "label": "IDF statement"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Gaza_map_GHF_distribution-IDF_invasion_June_2025.png/960px-Gaza_map_GHF_distribution-IDF_invasion_June_2025.png",
+        "page": "https://commons.wikimedia.org/wiki/File:Gaza_map_GHF_distribution-IDF_invasion_June_2025.png",
+        "credit": "Wickey (Wikimedia Commons user)",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "jenin-execution",
+      "section": "main",
+      "title": "Killing of two surrendering Palestinian men during Israeli raid in Jenin",
+      "date": "27 Nov 2025",
+      "summary": "On 27 November 2025, Israeli forces shot dead two Palestinian men, Al-Muntasir Billah Abdullah, 26, and Youssef Asasa, 37, during a raid in Jenin in the occupied West Bank, after video showed the men emerging from a building with their hands raised and shirts lifted in apparent surrender. The UN human rights office said it was appalled by what it called a \"summary execution,\" the rights group B'Tselem said the footage showed an execution of men who had surrendered, and the Israeli military said the men were wanted militants and that it was investigating the incident.",
+      "links": [
+        {
+          "url": "https://www.aljazeera.com/news/2025/11/27/israeli-troops-kill-two-palestinians-in-jenin-as-they-try-to-surrender",
+          "source": "Al Jazeera"
+        },
+        {
+          "url": "https://www.cnn.com/2025/11/27/middleeast/jenin-west-bank-israeli-military-men-killed-intl-latam",
+          "source": "CNN"
+        },
+        {
+          "url": "https://www.cbsnews.com/news/israel-soldiers-execute-palestinian-men-surrender-west-bank-jenin-video-btselem/",
+          "source": "CBS News"
+        },
+        {
+          "url": "https://www.youtube.com/shorts/k4EHS-qeWYw",
+          "source": "Video (YouTube)"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Iron_Wall_(Israeli_military_operation)",
+      "official": {
+        "url": "https://www.timesofisrael.com/two-palestinian-terror-suspects-shot-dead-in-jenin-after-surrendering-to-border-police/",
+        "label": "IDF and Israel Police joint statement (via Times of Israel)"
+      },
+      "photo": {
+        "url": "https://www.aljazeera.com/news/2025/11/27/israeli-troops-kill-two-palestinians-in-jenin-as-they-try-to-surrender",
+        "source": "Al Jazeera"
+      }
+    },
+    {
+      "id": "baby-cigarette",
+      "section": "main",
+      "title": "Gaza toddler returned from Israeli detention with reported cigarette burns",
+      "date": "19 Mar 2026",
+      "summary": "On 19 March 2026, Israeli forces detained 21-month-old Jawad Abu Nassar and his father Osama near the al-Maghazi refugee camp in central Gaza, and the toddler was handed back through the Red Cross about ten hours later with circular wounds on his legs that his family and doctors at a Gaza hospital said were consistent with deliberate cigarette burns. The Israeli military rejected the abuse allegations as unfounded, suggesting the marks were splinter or shrapnel injuries, while the father reportedly remained in detention.",
+      "links": [
+        {
+          "url": "https://www.cbc.ca/news/world/gaza-toddler-israeli-military-custody-9.7148662",
+          "source": "CBC News"
+        },
+        {
+          "url": "https://www.middleeasteye.net/news/gaza-toddler-released-israeli-custody-cigarette-burn-wounds",
+          "source": "Middle East Eye"
+        },
+        {
+          "url": "https://www.newarab.com/features/jawads-ordeal-gaza-toddlers-trauma-after-israeli-torture",
+          "source": "The New Arab"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Jawad_Abu_Nassar",
+      "official": {
+        "url": "https://www.timesofisrael.com/liveblog_entry/idf-denies-reports-of-abuse-of-gaza-toddler-says-father-used-him-as-a-human-shield/",
+        "label": "IDF response (via Times of Israel)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Nuseirat%2C_Maghazi_and_Bureij_refugee_camps_in_the_OCHA_OpT_September_2023_map_of_the_Gaza_Strip.png/960px-Nuseirat%2C_Maghazi_and_Bureij_refugee_camps_in_the_OCHA_OpT_September_2023_map_of_the_Gaza_Strip.png",
+        "page": "https://commons.wikimedia.org/wiki/File:Nuseirat,_Maghazi_and_Bureij_refugee_camps_in_the_OCHA_OpT_September_2023_map_of_the_Gaza_Strip.png",
+        "credit": "OCHA OpT (UN Office for the Coordination of Humanitarian Affairs)",
+        "license": "Public domain (UN map)"
+      }
+    },
+    {
+      "id": "sde-teiman-dogs",
+      "section": "main",
+      "title": "Torture and sexual violence against Palestinian detainees at Sde Teiman, including use of attack dogs",
+      "date": "October 2023 onward; principal documentation May–August 2024",
+      "summary": "According to UN OHCHR reporting and testimonies from released detainees, Palestinians held at Israel's Sde Teiman military detention facility were subjected to systematic torture and severe sexual and gender-based violence, including dogs being set on shackled detainees, with some testimonies collected by UN bodies and human-rights organizations alleging dog-involved sexual assault. Israeli whistleblowers who worked at the facility corroborated accounts of abuse in a CNN investigation, and UN experts described the reported treatment as flagrant violations of international law, while Israel has denied the specific allegations.",
+      "links": [
+        {
+          "url": "https://www.ohchr.org/en/press-releases/2024/08/israels-escalating-use-torture-against-palestinians-custody-preventable",
+          "source": "UN OHCHR"
+        },
+        {
+          "url": "https://edition.cnn.com/2024/05/10/middleeast/israel-sde-teiman-detention-whistleblowers-intl-cmd",
+          "source": "CNN"
+        },
+        {
+          "url": "https://www.aljazeera.com/features/2026/6/9/shackled-bleeding-raped-palestinians-describe-abuse-in-israels-prisons",
+          "source": "Al Jazeera"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Sde_Teiman_detention_camp",
+      "official": {
+        "url": "https://www.idf.il/en/mini-sites/israel-at-war/all-articles/response-to-queries-about-the-detention-facility-in-the-sde-teiman-military-base/",
+        "label": "IDF statement"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/%D7%A4%D7%A8%D7%A9%D7%AA_%D7%92%D7%99%D7%90_%D7%A4%D7%9C%D7%92_%E2%80%93_%D7%94%D7%A1%D7%A8%D7%98%D7%95%D7%9F_%D7%94%D7%9E%D7%A4%D7%95%D7%A8%D7%A1%D7%9D.png/960px-%D7%A4%D7%A8%D7%A9%D7%AA_%D7%92%D7%99%D7%90_%D7%A4%D7%9C%D7%92_%E2%80%93_%D7%94%D7%A1%D7%A8%D7%98%D7%95%D7%9F_%D7%94%D7%9E%D7%A4%D7%95%D7%A8%D7%A1%D7%9D.png",
+        "page": "https://commons.wikimedia.org/wiki/File:%D7%A4%D7%A8%D7%A9%D7%AA_%D7%92%D7%99%D7%90_%D7%A4%D7%9C%D7%92_%E2%80%93_%D7%94%D7%A1%D7%A8%D7%98%D7%95%D7%9F_%D7%94%D7%9E%D7%A4%D7%95%D7%A8%D7%A1%D7%9D.png",
+        "credit": "IDF security camera footage (uploaded to Commons by אור גנוז)",
+        "license": "Public domain (PD-automated: fixed CCTV footage, ineligible for copyright)"
+      }
+    },
+    {
+      "id": "organs-missing",
+      "section": "main",
+      "title": "Returned bodies of Palestinians show signs of abuse; Gaza officials allege organ removal",
+      "date": "Oct 2025 – Feb 2026 (ceasefire-era body returns; earlier returns from 2023 onward)",
+      "summary": "During the ceasefire exchanges beginning in October 2025, Israel returned hundreds of Palestinian bodies to Gaza via the ICRC, and Gaza health officials and forensic doctors said many arrived bound, blindfolded, or bearing marks of torture and execution, with some allegedly missing corneas, livers, kidneys, and other organs. Gaza's government media office called for an international investigation into alleged organ theft, while Israel denied the accusations and Gaza forensic doctors noted they lack the equipment to conclusively confirm or refute organ removal.",
+      "links": [
+        {
+          "url": "https://www.aljazeera.com/news/2025/10/15/gaza-medics-find-signs-of-torture-on-palestinian-bodies-returned-by-israel",
+          "source": "Al Jazeera"
+        },
+        {
+          "url": "https://www.972mag.com/gaza-palestinian-bodies-israel-transfer-chaos/",
+          "source": "+972 Magazine"
+        },
+        {
+          "url": "https://www.pbs.org/newshour/show/palestinians-say-bodies-and-detainees-returned-by-israel-show-signs-of-torture-and-abuse",
+          "source": "PBS NewsHour"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Israeli_razing_of_cemeteries_and_necroviolence_against_Palestinians",
+      "official": {
+        "url": "https://www.pbs.org/newshour/show/palestinians-say-bodies-and-detainees-returned-by-israel-show-signs-of-torture-and-abuse",
+        "label": "Israeli military response (via PBS NewsHour)"
+      },
+      "photo": {
+        "url": "https://www.aljazeera.com/gallery/2025/10/23/gaza-funerals-held-for-unidentified-palestinians-bodies-returned-by-israel",
+        "source": "Al Jazeera"
+      }
+    },
+    {
+      "id": "right-to-rape",
+      "section": "main",
+      "title": "Sde Teiman detainee abuse case: base stormings and the fall of Israel's top military lawyer",
+      "date": "29 Jul 2024 (arrests and base stormings); Oct–Nov 2025 (Military Advocate General's resignation and arrest)",
+      "summary": "On 29 July 2024, after Israeli military police detained reservists suspected of severely sexually abusing a Palestinian detainee at the Sde Teiman detention facility, far-right mobs that included Knesset members and government ministers stormed the Sde Teiman and Beit Lid bases, while some Israeli lawmakers and commentators publicly defended the soldiers' actions against the detainee, according to Al Jazeera and CBS News. Leaked surveillance video of the alleged assault was broadcast by Israel's Channel 12 in August 2024, and in October–November 2025 Military Advocate General Maj. Gen. Yifat Tomer-Yerushalmi resigned, was formally dismissed, and was arrested after admitting she had authorized the leak, according to CNN.",
+      "links": [
+        {
+          "url": "https://www.aljazeera.com/news/2024/7/29/israeli-far-right-politicians-protest-arrest-of-soldiers-suspected-of-abuse",
+          "source": "Al Jazeera"
+        },
+        {
+          "url": "https://www.cbsnews.com/news/israel-hamas-war-idf-palestinian-prisoner-alleged-rape-sde-teinman-abuse-protest/",
+          "source": "CBS News"
+        },
+        {
+          "url": "https://www.cnn.com/2025/11/04/middleeast/major-general-tomer-yerushalmi-israel-intl",
+          "source": "CNN"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Sde_Teiman_gang_rape",
+      "official": {
+        "url": "https://www.idf.il/en/mini-sites/military-advocate-generals-corps/the-military-advocate-general-s-decision-to-withdraw-the-indictment-against-the-force-100-soldiers-from-the-sde-teiman-base/",
+        "label": "IDF Military Advocate General statement"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/ProtestAtBietLid.jpg/960px-ProtestAtBietLid.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:ProtestAtBietLid.jpg",
+        "credit": "Tolkienay",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "wck-strike",
+      "section": "main",
+      "title": "Israeli drone strikes kill seven World Central Kitchen aid workers",
+      "date": "1 Apr 2024",
+      "summary": "On 1 April 2024, three successive Israeli drone strikes hit a clearly marked World Central Kitchen convoy near Deir al-Balah, Gaza, killing seven aid workers from Australia, Poland, the United Kingdom, Palestine, and a US-Canada dual citizen, even though the charity said it had coordinated the route with the Israeli military. The Israel Defense Forces acknowledged the convoy traveled a preapproved, deconflicted route, called the attack a grave mistake stemming from misidentification, and dismissed two officers, while WCK and the victims' home governments rejected the internal inquiry and demanded an independent investigation.",
+      "links": [
+        {
+          "url": "https://www.cnn.com/2024/04/05/middleeast/israel-idf-world-central-kitchen-strike-report-intl/index.html",
+          "source": "CNN"
+        },
+        {
+          "url": "https://www.haaretz.com/israel-news/2024-04-02/ty-article/.premium/idf-bombed-wck-aid-convoy-3-times-targeting-armed-hamas-member-who-wasnt-there/0000018e-9e75-d764-adff-9eff29360000",
+          "source": "Haaretz"
+        },
+        {
+          "url": "https://www.npr.org/2024/04/05/1242986585/israels-military-dismisses-officers-over-world-central-kitchen-airstrike",
+          "source": "NPR"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/World_Central_Kitchen_aid_convoy_attack",
+      "official": {
+        "url": "https://www.idf.il/en/mini-sites/israel-at-war/all-articles/conclusion-of-the-investigation-into-the-incident-in-which-wck-employees-were-killed-during-a-humanitarian-operation-in-gaza/",
+        "label": "IDF statement (investigation conclusion, 5 Apr 2024)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Foreign_Minister_Penny_Wong_Wreath_Laying_at_International_Humanitarian_Memorial_%28000148167%29.jpg/960px-Foreign_Minister_Penny_Wong_Wreath_Laying_at_International_Humanitarian_Memorial_%28000148167%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Foreign_Minister_Penny_Wong_Wreath_Laying_at_International_Humanitarian_Memorial_(000148167).jpg",
+        "credit": "Alexandra Peek / Department of Foreign Affairs and Trade (Australia)",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "id": "children-sniped",
+      "section": "main",
+      "title": "Children in Gaza treated for single gunshot wounds to the head or chest",
+      "date": "October 2023 – July 2025 (recurring pattern; key reports July–October 2024 and August–September 2025)",
+      "summary": "Volunteer foreign doctors and nurses who worked in Gaza hospitals reported routinely treating young children with single gunshot wounds to the head or chest: in a July 2024 open letter to the White House, 45 American clinicians wrote that they treated pre-teen children shot in the head and chest on a daily basis, and in an October 2024 New York Times opinion survey of 65 healthcare workers, 44 said they had seen multiple children aged 12 or younger shot in the head or chest. A BBC World Service investigation documented 168 cases of children shot in Gaza between October 2023 and July 2025, 95 of them hit in the head or chest, and forensic experts consulted by the Dutch daily de Volkskrant said the wound pattern was consistent with deliberate aimed fire, which Israel denies, saying its forces do not intentionally target civilians.",
+      "links": [
+        {
+          "url": "https://www.aljazeera.com/news/2025/9/14/foreign-doctors-say-israel-systematically-targeting-gazas-children-report",
+          "source": "Al Jazeera"
+        },
+        {
+          "url": "https://www.cnn.com/2024/07/26/world/open-letter-45-us-physicians-gaza",
+          "source": "CNN"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=orR7H8GnhCY",
+          "source": "BBC World Service (BBC Africa Eye, official YouTube)"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Effect_of_the_Gaza_war_on_children_in_the_Gaza_Strip",
+      "official": {
+        "url": "https://www.cbsnews.com/news/children-of-gaza/",
+        "label": "IDF response (via CBS News)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/An_injured_child_receives_treatment_at_Al-Aqsa_Martyrs_Hospital_after_Israeli_airstrike_of_the_Nuseirat_refugee_camp%2C_Gaza_Strip.jpg/960px-An_injured_child_receives_treatment_at_Al-Aqsa_Martyrs_Hospital_after_Israeli_airstrike_of_the_Nuseirat_refugee_camp%2C_Gaza_Strip.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:An_injured_child_receives_treatment_at_Al-Aqsa_Martyrs_Hospital_after_Israeli_airstrike_of_the_Nuseirat_refugee_camp,_Gaza_Strip.jpg",
+        "credit": "Ashraf Amra / UNRWA",
+        "license": "CC BY-SA 3.0 IGO"
+      }
+    },
+    {
+      "id": "flour-massacre",
+      "section": "main",
+      "title": "Al-Rashid Street aid convoy killings, Gaza City",
+      "date": "29 Feb 2024",
+      "summary": "On 29 February 2024, at least 112 Palestinians were killed and roughly 760 wounded around an aid-flour convoy at the Nabulsi roundabout on al-Rashid Street in Gaza City; witnesses and Gaza health officials said Israeli forces fired on the crowd, while the Israeli military said most victims were trampled or run over in a crush around the trucks. UN experts condemned the killings and called for accountability, and a CNN review of video evidence and witness testimony, assessed by forensic experts, cast doubt on the Israeli military's timeline, indicating gunfire began before the stated start of the convoy crossing.",
+      "links": [
+        {
+          "url": "https://www.ohchr.org/en/press-releases/2024/03/un-experts-condemn-flour-massacre-urge-israel-end-campaign-starvation-gaza",
+          "source": "UN OHCHR"
+        },
+        {
+          "url": "https://www.aljazeera.com/news/2024/3/1/flour-massacre-how-gaza-food-killings-unfolded-and-israels-story-changed",
+          "source": "Al Jazeera"
+        },
+        {
+          "url": "https://www.cnn.com/2024/04/09/middleeast/gaza-food-aid-convoy-deaths-eyewitness-intl-investigation-cmd/index.html",
+          "source": "CNN"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Flour_Massacre",
+      "official": {
+        "url": "https://www.timesofisrael.com/liveblog_entry/idf-spokesman-troops-fired-warning-shots-to-disperse-mob-rushing-aid-convoy-did-not-carry-out-strikes/",
+        "label": "IDF statement (via Times of Israel)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Palestinians_during_the_Flour_massacre.png/960px-Palestinians_during_the_Flour_massacre.png",
+        "page": "https://commons.wikimedia.org/wiki/File:Palestinians_during_the_Flour_massacre.png",
+        "credit": "Unknown; IDF (Israel Defense Forces), via NBC News",
+        "license": "CC BY 3.0"
+      }
+    },
+    {
+      "id": "doctors-under-fire",
+      "section": "main",
+      "title": "Attacks on Gaza health workers and the documentary \"Gaza: Doctors Under Attack\"",
+      "date": "Documented events Oct 2023–2025; film broadcast July 2025",
+      "summary": "The 2025 documentary \"Gaza: Doctors Under Attack\" — originally commissioned by the BBC under the title \"Gaza: Medics Under Fire\" and broadcast by Channel 4 in July 2025 after the BBC dropped it — presents testimony from Palestinian health workers about Israeli military attacks on Gaza's hospitals and the killing, detention, and alleged torture of medical staff. According to Physicians for Human Rights–Israel, around 250 health workers have been taken from Gaza into Israeli detention since October 2023 and at least six have died in custody, including Al-Shifa surgeon Dr. Adnan al-Bursh, who died in Ofer prison in April 2024, while Kamal Adwan Hospital director Dr. Hussam Abu Safiya remains held without charge.",
+      "links": [
+        {
+          "url": "https://www.channel4.com/programmes/gaza-doctors-under-attack",
+          "source": "Channel 4"
+        },
+        {
+          "url": "https://www.aljazeera.com/opinions/2026/7/5/release-dr-hussam-abu-safia-immediately",
+          "source": "Al Jazeera"
+        },
+        {
+          "url": "https://www.amnesty.org.uk/latest/uk-healthcare-workers-foreign-secretary-must-act-publicly-and-forcefully-to-save-tortured-gaza-colleague/",
+          "source": "Amnesty International UK"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=tn-c4tLJ74w",
+          "source": "Teaser (YouTube)"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=iv3wpeJ6Ocos",
+          "source": "Full film (YouTube)"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Killing_of_health_workers_in_the_Gaza_war",
+      "official": {
+        "url": "https://www.facebook.com/IsraelinGeneva/posts/hussam-abu-safiya-a-colonel-in-hamas-is-lawfully-detained-by-israel-based-on-con/1449700010523993/",
+        "label": "Israeli Mission in Geneva statement (via Facebook)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Palestine_Red_Crescent_Society%27s_ambulance_after_being_targeted_by_Israeli_missile_in_Khan_Yunis.png/960px-Palestine_Red_Crescent_Society%27s_ambulance_after_being_targeted_by_Israeli_missile_in_Khan_Yunis.png",
+        "page": "https://commons.wikimedia.org/wiki/File:Palestine_Red_Crescent_Society%27s_ambulance_after_being_targeted_by_Israeli_missile_in_Khan_Yunis.png",
+        "credit": "Tasnim News Agency",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "id": "genocidal-rhetoric",
+      "section": "main",
+      "title": "Statements by Israeli officials calling for Gaza's destruction, cited as evidence of genocidal intent",
+      "date": "Oct 2023 onward; nuclear-bomb remark 5 Nov 2023; ICJ provisional-measures order 26 Jan 2024",
+      "summary": "On 5 November 2023, Israeli Heritage Minister Amichai Eliyahu said in a radio interview that dropping a nuclear bomb on Gaza was \"an option,\" prompting Prime Minister Netanyahu to suspend him from cabinet meetings amid a series of statements by Israeli ministers and public figures calling for Gaza to be flattened or erased. South Africa cited such statements as evidence of genocidal intent in its case before the International Court of Justice, which on 26 January 2024 ordered Israel to prevent and punish direct and public incitement to genocide against Palestinians in Gaza.",
+      "links": [
+        {
+          "url": "https://www.haaretz.com/israel-news/2023-11-05/ty-article/netanyahu-criticizes-minister-who-suggested-option-of-dropping-nuclear-bomb-on-gaza/0000018b-9e7b-db71-a7df-ffffe4510000",
+          "source": "Haaretz"
+        },
+        {
+          "url": "https://www.timesofisrael.com/far-right-minister-says-nuking-gaza-an-option-pm-suspends-him-from-cabinet-meetings/",
+          "source": "The Times of Israel"
+        },
+        {
+          "url": "https://www.icj-cij.org/case/192",
+          "source": "International Court of Justice"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/List_of_statements_by_Israeli_officials_cited_as_genocidal",
+      "official": {
+        "url": "https://www.gov.il/en/pages/opening-statement-of-mfa-legal-advisor-tal-becker-at-icj-proceedings-12-jan-2024",
+        "label": "Israel MFA legal statement at ICJ proceedings (gov.il)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Amichai_Eliyahu.jpg/960px-Amichai_Eliyahu.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Amichai_Eliyahu.jpg",
+        "credit": "Yossi Logasi Plashman",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "journalist-legs",
+      "section": "main",
+      "title": "TRT cameraman Sami Shehada loses leg in Israeli strike in Nuseirat",
+      "date": "12 Apr 2024",
+      "summary": "On 12 April 2024, Sami Shehada, a cameraman for Turkey's TRT Arabi, was severely wounded in an Israeli strike on the Nuseirat refugee camp in central Gaza and had his right leg amputated below the knee, with other journalists, including a CNN stringer, also injured in the attack. Shehada said the crew was wearing press-marked flak jackets and helmets and filming from a marked press vehicle in an open area when they were hit, and the Committee to Protect Journalists called for an investigation into the strike on journalists wearing press insignia; widely shared footage showed Shehada on a stretcher asking about his severed leg.",
+      "links": [
+        {
+          "url": "https://edition.cnn.com/2024/04/12/middleeast/israeli-attack-nuseirat-gaza-journalists-injured-intl/index.html",
+          "source": "CNN"
+        },
+        {
+          "url": "https://cpj.org/2024/04/cpj-seeks-probe-of-israeli-attack-on-tv-journalists-wearing-press-insignia/",
+          "source": "Committee to Protect Journalists"
+        },
+        {
+          "url": "https://www.aljazeera.com/news/2024/4/12/journalist-loses-foot-after-being-badly-wounded-in-israeli-attack-in-gaza",
+          "source": "Al Jazeera"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Killing_of_journalists_in_the_Gaza_war",
+      "official": {
+        "url": "https://www.cnn.com/2024/04/12/middleeast/israeli-attack-nuseirat-gaza-journalists-injured-intl/index.html",
+        "label": "IDF response (via CNN)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/A_Palestinian_refugee_carries_his_injured_grandchildren_from_the_Israeli_bombing_of_Nuseirat_Camp%2C_Gaza_Strip.jpg/960px-A_Palestinian_refugee_carries_his_injured_grandchildren_from_the_Israeli_bombing_of_Nuseirat_Camp%2C_Gaza_Strip.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:A_Palestinian_refugee_carries_his_injured_grandchildren_from_the_Israeli_bombing_of_Nuseirat_Camp,_Gaza_Strip.jpg",
+        "credit": "Ashraf Amra / UNRWA",
+        "license": "CC BY-SA 3.0 IGO"
+      }
+    },
+    {
+      "id": "anas-al-sharif",
+      "section": "main",
+      "title": "Targeted killing of Al Jazeera's Anas al-Sharif and the journalist death toll in Gaza",
+      "date": "2025-08-10 (overall toll: October 2023 – 2026)",
+      "summary": "On 10 August 2025 an Israeli strike on the journalists' tent outside Al-Shifa Hospital in Gaza City killed Al Jazeera correspondent Anas al-Sharif together with colleague Mohammed Qreiqeh and camera operators Ibrahim Zaher, Mohammed Noufal and Moamen Aliwa; the Israeli military claimed al-Sharif led a Hamas cell, an allegation Al Jazeera and the Committee to Protect Journalists rejected as unproven, with CPJ noting the accusations were a recurring smear and that the military had threatened him beforehand. According to CPJ, at least 192 journalists had been killed by Israel by the day of the strike (a figure that passed 200 by mid-2026), while Gaza officials and UN-cited counts put the toll above 240, and Brown University's Costs of War project found this to be the deadliest conflict for journalists ever recorded, with more journalists killed than in the US Civil War, both world wars, Korea, Vietnam, the Yugoslav wars and the post-9/11 Afghanistan war combined.",
+      "links": [
+        {
+          "url": "https://www.aljazeera.com/news/2025/8/10/al-jazeera-journalist-anas-al-sharif-killed-in-israeli-attack-in-gaza-city",
+          "source": "Al Jazeera"
+        },
+        {
+          "url": "https://cpj.org/2025/08/israel-kills-al-jazeera-journalists-in-targeted-gaza-city-airstrike/",
+          "source": "Committee to Protect Journalists"
+        },
+        {
+          "url": "https://costsofwar.watson.brown.edu/",
+          "source": "Brown University Costs of War Project"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Assassination_of_Anas_Al-Sharif",
+      "official": {
+        "url": "https://x.com/IDF/status/1954652255199887516",
+        "label": "IDF statement (via X)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Mega_Marcha_por_Palestina_en_la_Ciudad_de_M%C3%A9xico_14.jpg/960px-Mega_Marcha_por_Palestina_en_la_Ciudad_de_M%C3%A9xico_14.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Mega_Marcha_por_Palestina_en_la_Ciudad_de_M%C3%A9xico_14.jpg",
+        "credit": "ProtoplasmaKid",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "terrorist-label",
+      "section": "main",
+      "title": "The expanding \"terrorist\" label: Palestine Action proscription and mass protest arrests; journalists and medics branded militants",
+      "date": "July 2025 – ongoing (proscription 5 July 2025; arrests continuing into 2026)",
+      "summary": "The UK proscribed the protest group Palestine Action under the Terrorism Act in July 2025 — making support punishable by up to 14 years in prison — and police have since arrested more than 2,000 people, many of them elderly, for holding signs supporting the group, a ban UN human rights chief Volker Türk called a \"disturbing\" misuse of counter-terrorism legislation and Amnesty International UK called disproportionate legal overreach. Rights groups paired this with Israel's practice of labeling journalists and medics it killed or detained as terrorists: the Committee to Protect Journalists said Israel produced no credible evidence for its claim that Al Jazeera correspondent Anas al-Sharif, killed in a targeted August 2025 strike, was a Hamas operative — a pattern also applied to detained Kamal Adwan hospital director Dr. Hussam Abu Safiya.",
+      "links": [
+        {
+          "url": "https://www.ohchr.org/en/press-releases/2025/07/uk-palestine-action-ban-disturbing-misuse-uk-counter-terrorism-legislation",
+          "source": "UN OHCHR"
+        },
+        {
+          "url": "https://www.aljazeera.com/gallery/2026/4/12/uk-police-arrest-523-during-pro-palestinian-demonstration-in-london",
+          "source": "Al Jazeera"
+        },
+        {
+          "url": "https://cpj.org/2025/07/cpj-calls-for-anas-al-sharifs-protection-in-face-of-israeli-smears/",
+          "source": "CPJ"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Palestine_Action",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Palestine_Action_Protest%2C_London%2C_Saturday_6th_September_-_01.jpg/960px-Palestine_Action_Protest%2C_London%2C_Saturday_6th_September_-_01.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Palestine_Action_Protest,_London,_Saturday_6th_September_-_01.jpg",
+        "credit": "Indigo Nolan (Flickr: indigonolan)",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "id": "christians",
+      "section": "closers",
+      "title": "Attacks on Christians: Jerusalem harassment and Gaza church killings",
+      "date": "October 2023 – 2024",
+      "summary": "According to CNN and Israeli press reporting, spitting attacks by ultra-Orthodox and nationalist Jews on Christian clergy, pilgrims and churches in Jerusalem's Old City escalated through 2023–2024 — monitors recorded near-daily incidents, and Israeli police made arrests after officials including Prime Minister Netanyahu condemned the practice. In Gaza, the Latin Patriarchate of Jerusalem said an Israeli sniper shot dead Nahida Anton and her daughter Samar \"in cold blood\" inside the Holy Family Catholic parish compound on 16 December 2023 — a killing Pope Francis condemned and the IDF denied responsibility for — two months after an Israeli strike on the Greek Orthodox Church of Saint Porphyrius compound killed 18 displaced people sheltering there, according to church officials.",
+      "links": [
+        {
+          "url": "https://www.cnn.com/2023/10/04/middleeast/jerusalem-christians-spitting-israel-intl/index.html",
+          "source": "CNN"
+        },
+        {
+          "url": "https://www.aljazeera.com/news/2023/12/17/israeli-forces-kill-two-christian-women-in-cold-blood-inside-gaza-church",
+          "source": "Al Jazeera"
+        },
+        {
+          "url": "https://www.vaticannews.va/en/church/news/2023-10/churches-condemn-air-strike-on-greek-orthodox-building-in-gaza.html",
+          "source": "Vatican News"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Killing_of_Nahida_and_Samar_Anton",
+      "official": {
+        "url": "https://www.timesofisrael.com/idf-refutes-claim-it-targeted-sole-catholic-church-in-gaza-after-2-women-said-killed/",
+        "label": "IDF statement denying it targeted the Holy Family church (via Times of Israel)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/5/56/Saint_Porphyrius_Church_in_Gaza-_Gaza_war_2023-2025_2.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Saint_Porphyrius_Church_in_Gaza-_Gaza_war_2023-2025_2.jpg",
+        "credit": "Rawanmurad2025",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "id": "rafah-paramedics",
+      "section": "closers",
+      "title": "Killing of 15 emergency workers in Rafah",
+      "date": "23 March 2025 (bodies recovered 30 March 2025)",
+      "summary": "On 23 March 2025, Israeli forces in Tel al-Sultan, Rafah, killed 15 emergency workers — eight Palestine Red Crescent paramedics, six Civil Defence members and a UN staffer — whose bodies were recovered a week later from a shallow mass grave alongside their crushed ambulances, with UN OCHA official Jonathan Whittall saying they were struck \"one by one\". Mobile-phone video recovered from paramedic Rifaat Radwan, verified and published by the New York Times and shown by the Red Crescent at the UN, showed the ambulances' emergency lights flashing — contradicting the IDF's initial claim that the vehicles advanced suspiciously without lights — and an IDF inquiry released on 20 April 2025 acknowledged \"professional failures\", dismissing the deputy battalion commander involved.",
+      "links": [
+        {
+          "url": "https://www.aljazeera.com/features/2025/4/1/rescue-workers-israel-killed-found-in-mass-grave-in-gaza-what-to-know",
+          "source": "Al Jazeera"
+        },
+        {
+          "url": "https://news.un.org/en/story/2025/04/1161911",
+          "source": "UN News"
+        },
+        {
+          "url": "https://www.amnesty.org/en/latest/news/2025/04/israel-opt-investigate-killings-of-paramedics-and-rescue-workers-in-gaza/",
+          "source": "Amnesty International"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Rafah_paramedic_massacre",
+      "official": {
+        "url": "https://www.cnn.com/2025/04/20/middleeast/israeli-military-professional-failures-gaza-medics-intl",
+        "label": "IDF inquiry findings (\"professional failures\", deputy commander dismissed), as quoted by CNN"
+      },
+      "photo": {
+        "url": "https://www.aljazeera.com/features/2025/4/1/rescue-workers-israel-killed-found-in-mass-grave-in-gaza-what-to-know",
+        "source": "Al Jazeera"
+      }
+    },
+    {
+      "id": "human-shields",
+      "section": "closers",
+      "title": "Palestinian civilians used as human shields by Israeli forces: the \"mosquito procedure\"",
+      "date": "Reported October 2024 – May 2025 (practices documented from 2023 onward)",
+      "summary": "An Associated Press investigation published in May 2025 — drawing on the accounts of Israeli soldiers and seven Palestinian former detainees, gathered in part by the Israeli veterans' group Breaking the Silence — found that Israeli units in Gaza routinely forced detained civilians, including teenagers and the elderly, to enter tunnels and possibly booby-trapped buildings ahead of troops, a practice soldiers called the \"mosquito procedure\"; CNN, +972 Magazine and Haaretz had earlier reported the same tactic. The Israeli military says using civilians for military missions is strictly prohibited and stated in March 2025 that its Military Police had opened criminal investigations, even as Israel has repeatedly cited Hamas's use of human shields to justify its strikes in Gaza.",
+      "links": [
+        {
+          "url": "https://edition.cnn.com/2024/10/24/middleeast/palestinians-human-shields-israel-military-gaza-intl",
+          "source": "CNN"
+        },
+        {
+          "url": "https://www.haaretz.com/middle-east-news/2025-05-24/ty-article/israeli-use-of-human-shields-in-gaza-was-systemic-soldiers-and-former-detainees-tell-ap/00000197-01e6-dc94-ab97-0fee1dd40000",
+          "source": "Haaretz (carrying the AP investigation)"
+        },
+        {
+          "url": "https://www.aljazeera.com/news/2025/5/27/how-has-israel-responded-to-claims-that-it-used-human-shields-in-gaza",
+          "source": "Al Jazeera"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Use_of_human_shields_by_Israeli_forces",
+      "official": {
+        "url": "https://www.aljazeera.com/news/2025/5/27/how-has-israel-responded-to-claims-that-it-used-human-shields-in-gaza",
+        "label": "IDF response (practice \"strictly prohibited\"; Military Police investigations opened) as quoted by Al Jazeera"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/IDF_Soldiers_Found_Terror_Tunnel_in_Gaza_%2814754151084%29.jpg/960px-IDF_Soldiers_Found_Terror_Tunnel_in_Gaza_%2814754151084%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:IDF_Soldiers_Found_Terror_Tunnel_in_Gaza_(14754151084).jpg",
+        "credit": "Israel Defense Forces Spokesperson's Unit, via Flickr",
+        "license": "CC BY-SA 2.0"
+      }
+    },
+    {
+      "id": "docket-netanyahu",
+      "section": "docket",
+      "title": "Benjamin Netanyahu — Prime Minister of Israel",
+      "date": "ICC arrest warrant: 21 Nov 2024; \"Amalek\" statement: 28 Oct 2023; ICJ hearings citing it: 11 Jan 2024",
+      "summary": "ICC Pre-Trial Chamber I found \"reasonable grounds to believe\" that Netanyahu bears criminal responsibility as a co-perpetrator for the war crime of starvation as a method of warfare and the crimes against humanity of murder, persecution, and other inhumane acts in Gaza (covering conduct from at least 8 October 2023 to at least 20 May 2024), and his 28 October 2023 exhortation to troops to \"remember what Amalek has done to you\" is cited in South Africa's ICJ genocide application as evidence of genocidal intent. The ICC issued an arrest warrant for him on 21 November 2024 — obligating all 125 states parties to arrest him on their territory — while the ICJ genocide case in which his statements are cited remains pending.",
+      "links": [
+        {
+          "url": "https://www.icc-cpi.int/news/situation-state-palestine-icc-pre-trial-chamber-i-rejects-state-israels-challenges",
+          "source": "International Criminal Court"
+        },
+        {
+          "url": "https://news.un.org/en/story/2024/11/1157286",
+          "source": "UN News"
+        },
+        {
+          "url": "https://www.aljazeera.com/news/2024/1/11/icj-hears-south-africas-genocide-case-against-israel-over-gaza-war",
+          "source": "Al Jazeera"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Benjamin_Netanyahu",
+      "official": {
+        "url": "https://embassies.gov.il/nepal/en/news/prime-minister-benjamin-netanyahu-22112024",
+        "label": "Israel MFA: PM Netanyahu responds to ICC decision, calling it antisemitic and \"a modern Dreyfus trial\" (22 Nov 2024)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Benjamin_Netanyahu_Portrait_February_2023_%283x4_cropped%29.jpg/960px-Benjamin_Netanyahu_Portrait_February_2023_%283x4_cropped%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Benjamin_Netanyahu_Portrait_February_2023_(3x4_cropped).jpg",
+        "credit": "Avi Ohayon, Government Press Office of Israel",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "docket-gallant",
+      "section": "docket",
+      "title": "Yoav Gallant — Defense Minister of Israel (Oct 2023–Nov 2024)",
+      "date": "Siege order/statement: 9 Oct 2023; ICJ provisional-measures order noting his statements: 26 Jan 2024; ICC arrest warrant: 21 Nov 2024",
+      "summary": "On 9 October 2023, Gallant ordered a \"complete siege\" of Gaza — \"There will be no electricity, no food, no fuel, everything is closed... We are fighting human animals and we are acting accordingly\" (Times of Israel) — a statement South Africa cited as evidence of genocidal intent in its ICJ case, with the Court's 26 January 2024 order taking particular note of his 9–10 October remarks. On 21 November 2024, ICC Pre-Trial Chamber I issued an arrest warrant for Gallant, finding \"reasonable grounds\" to believe he bears criminal responsibility for the war crime of starvation as a method of warfare and the crimes against humanity of murder, persecution, and other inhumane acts, for intentionally depriving Gaza's civilian population of food, water, medicine, fuel, and electricity from at least 8 October 2023 to 20 May 2024.",
+      "links": [
+        {
+          "url": "https://www.icc-cpi.int/news/situation-state-palestine-icc-pre-trial-chamber-i-rejects-state-israels-challenges",
+          "source": "International Criminal Court (warrant announcement, 21 Nov 2024)"
+        },
+        {
+          "url": "https://www.timesofisrael.com/liveblog_entry/defense-minister-announces-complete-siege-of-gaza-no-power-food-or-fuel/",
+          "source": "The Times of Israel (9 Oct 2023 siege announcement)"
+        },
+        {
+          "url": "https://www.aljazeera.com/news/2024/11/21/world-reacts-to-icc-arrest-warrants-for-israels-netanyahu-gallant",
+          "source": "Al Jazeera (reactions incl. Gallant's own statement)"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Yoav_Gallant",
+      "official": {
+        "url": "https://thehill.com/policy/international/5002050-netanyahu-office-rips-icc-after-warrant-issued/",
+        "label": "Israeli PMO: Israel \"utterly rejects the false and absurd charges\"; Gallant said he was proud to have led Israel's defense establishment in wartime"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Yoav_Galant_1.jpg/960px-Yoav_Galant_1.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Yoav_Galant_1.jpg",
+        "credit": "Avi Ohayon / Government Press Office of Israel",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "docket-ben-gvir",
+      "section": "docket",
+      "title": "Itamar Ben-Gvir — National Security Minister",
+      "date": "Five-nation sanctions: 10 June 2025; prison-conditions boasts: 2023–2025; \"encourage emigration\" calls: Jan 2024 onward",
+      "summary": "As the minister overseeing Israel's prison service, Ben-Gvir publicly boasted that \"the summer camps have been stopped\" and that reports of \"abominable conditions\" for Palestinian prisoners \"were true\" (The New Arab, Middle East Eye), and repeatedly called to \"encourage emigration\" of Gazans while opposing humanitarian aid, telling a rally the answer was to \"encourage voluntary emigration\" (Times of Israel). On 10 June 2025 the UK, Canada, Australia, New Zealand and Norway imposed asset freezes and travel bans on him, their foreign ministers jointly stating he had \"incited extremist violence and serious abuses of Palestinian human rights\"; the Hind Rajab Foundation has separately filed a war-crimes complaint against him with the US Department of Justice.",
+      "links": [
+        {
+          "url": "https://www.canada.ca/en/global-affairs/news/2025/06/joint-statement-by-the-foreign-ministers-of-australia-canada-new-zealand-norway-and-the-united-kingdom-on-measures-targeting-itamar-ben-gvir-and-be.html",
+          "source": "Government of Canada — joint foreign ministers' statement on sanctions"
+        },
+        {
+          "url": "https://www.aljazeera.com/news/2025/6/10/uk-and-allies-will-sanction-far-right-israeli-ministers-ben-gvir-smotrich",
+          "source": "Al Jazeera — five nations sanction Ben-Gvir and Smotrich"
+        },
+        {
+          "url": "https://www.timesofisrael.com/ben-gvir-calls-to-encourage-emigration-resettle-gaza-at-ultra-nationalist-rally/",
+          "source": "Times of Israel — Ben-Gvir calls to 'encourage emigration,' resettle Gaza"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Itamar_Ben-Gvir",
+      "official": {
+        "url": "https://www.jpost.com/israel-news/article-857214",
+        "label": "Ben-Gvir: \"We survived Pharaoh, we will also survive Keir Starmer\"; FM Sa'ar called the sanctions \"outrageous\" (Jerusalem Post)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Itamar_Ben_Gvir_3.jpg/960px-Itamar_Ben_Gvir_3.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Itamar_Ben_Gvir_3.jpg",
+        "credit": "Alon Nuriel (אלון נוריאל)",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "docket-smotrich",
+      "section": "docket",
+      "title": "Bezalel Smotrich — Finance Minister",
+      "date": "Huwara remark: 1 Mar 2023; starvation remark: 5 Aug 2024; five-country sanctions: 10 Jun 2025",
+      "summary": "Smotrich said in March 2023 that \"the village of Huwara needs to be wiped out\" and that \"the State of Israel should do it\" (Times of Israel, Al Jazeera), and in August 2024 told the Katif Conference that \"nobody will let us cause two million civilians to die of hunger even though it might be justified and moral until our hostages are returned\" (CNN), a remark the UN High Commissioner for Human Rights condemned as justifying the war crime of starving civilians. On 10 June 2025, the UK, Canada, Australia, New Zealand and Norway imposed sanctions on him — asset freezes and travel bans — for having \"incited extremist violence\" against Palestinians in the West Bank, per the joint foreign ministers' statement.",
+      "links": [
+        {
+          "url": "https://www.gov.uk/government/news/uk-and-partners-unite-to-sanction-ministers-inciting-west-bank-violence",
+          "source": "UK Government (sanctions notice)"
+        },
+        {
+          "url": "https://www.cnn.com/2024/08/06/middleeast/israeli-minister-smotrich-starve-gazans-intl",
+          "source": "CNN"
+        },
+        {
+          "url": "https://www.aljazeera.com/news/2025/6/10/uk-and-allies-will-sanction-far-right-israeli-ministers-ben-gvir-smotrich",
+          "source": "Al Jazeera"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Bezalel_Smotrich",
+      "official": {
+        "url": "https://www.jpost.com/israel-news/article-857214",
+        "label": "Israeli officials call sanctions \"outrageous\"; Smotrich vows to keep building settlements (Jerusalem Post)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Bezalel_Smotrich_%28R_H_4464%29.jpg/960px-Bezalel_Smotrich_%28R_H_4464%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Bezalel_Smotrich_(R_H_4464).jpg",
+        "credit": "Ronen Horesh / Knesset Archives",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "docket-eliyahu",
+      "section": "docket",
+      "title": "Amichai Eliyahu — Heritage Minister",
+      "date": "Nuclear-bomb remark: 5 Nov 2023; South Africa's ICJ application citing his statements: 29 Dec 2023 (case instituted); \"erasing Gaza\" remark: 24 Jul 2025",
+      "summary": "In a 5 November 2023 Radio Kol Barama interview, Heritage Minister Amichai Eliyahu said dropping a nuclear bomb on Gaza was \"one way\" of dealing with the Strip and that \"there is no such thing as uninvolved civilians in Gaza,\" and in a 24 July 2025 interview on the same station he said, as reported by the Times of Israel and Ynet, \"the government is rushing to erase Gaza... All of Gaza will be Jewish.\" Prime Minister Netanyahu suspended him from cabinet meetings \"until further notice\" over the nuclear remark, and South Africa's Genocide Convention case against Israel at the International Court of Justice cited his statements as evidence of genocidal intent.",
+      "links": [
+        {
+          "url": "https://www.haaretz.com/israel-news/2023-11-05/ty-article/netanyahu-criticizes-minister-who-suggested-option-of-dropping-nuclear-bomb-on-gaza/0000018b-9e7b-db71-a7df-ffffe4510000",
+          "source": "Haaretz"
+        },
+        {
+          "url": "https://www.aljazeera.com/news/2023/11/7/israels-nuclear-option-remark-raises-huge-number-of-questions-russia",
+          "source": "Al Jazeera"
+        },
+        {
+          "url": "https://www.icj-cij.org/case/192",
+          "source": "International Court of Justice (South Africa v. Israel, case 192)"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Amihai_Eliyahu",
+      "official": {
+        "url": "https://www.timesofisrael.com/far-right-minister-says-nuking-gaza-an-option-pm-suspends-him-from-cabinet-meetings/",
+        "label": "Netanyahu: remarks \"not based in reality\"; Eliyahu claimed comment was \"metaphorical\" (Times of Israel)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Amichai_Eliyahu.jpg/960px-Amichai_Eliyahu.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Amichai_Eliyahu.jpg",
+        "credit": "Yossi Logassi Fleishman, via Wikimedia Commons",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "docket-herzog",
+      "section": "docket",
+      "title": "Isaac Herzog — President of Israel",
+      "date": "Statement: 12 Oct 2023 (per ICJ Order; widely reported 13 Oct); cited in South Africa's ICJ application: 29 Dec 2023; noted in ICJ provisional-measures order: 26 Jan 2024",
+      "summary": "At a 12 October 2023 press briefing, President Isaac Herzog said of Gaza that \"it is an entire nation out there that is responsible\" and that \"this rhetoric about civilians not aware, not involved — it's absolutely not true,\" adding that Gazans \"could have risen up\" against \"that evil regime\" (ITV News, HuffPost, Times of Israel). South Africa's 29 December 2023 ICJ genocide application cited the remarks as evidence of genocidal intent at the highest level of the state, and the ICJ's 26 January 2024 provisional-measures order took note of \"statements made by Mr Isaac Herzog, President of Israel, on 12 October 2023\" among dehumanizing remarks by senior officials; Herzog faces no individual proceeding and says the court \"twisted my words,\" calling the case \"a blood libel.\"",
+      "links": [
+        {
+          "url": "https://www.icj-cij.org/node/203394",
+          "source": "ICJ — South Africa's Application instituting proceedings (29 Dec 2023)"
+        },
+        {
+          "url": "https://www.aljazeera.com/news/2024/1/11/icj-hears-south-africas-genocide-case-against-israel-over-gaza-war",
+          "source": "Al Jazeera — ICJ hears South Africa's genocide case, incl. officials' statements"
+        },
+        {
+          "url": "https://www.haaretz.com/israel-news/2024-01-28/ty-article/herzog-blasts-icjs-portrayal-of-his-remarks-says-there-are-innocent-palestinians-in-gaza/0000018d-51cb-dfdc-a5ad-dbffce970000",
+          "source": "Haaretz — Herzog blasts ICJ's portrayal of his remarks"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Isaac_Herzog",
+      "official": {
+        "url": "https://www.timesofisrael.com/a-blood-libel-herzog-says-icj-twisted-my-words-to-support-unfounded-contention/",
+        "label": "Herzog: ICJ \"twisted my words\" — case is \"a blood libel\" (Times of Israel)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Isaac_Herzog_2021_%28cropped%29.JPG/960px-Isaac_Herzog_2021_%28cropped%29.JPG",
+        "page": "https://commons.wikimedia.org/wiki/File:Isaac_Herzog_2021_(cropped).JPG",
+        "credit": "Avi Ohayon / Government Press Office of Israel",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "docket-halevi",
+      "section": "docket",
+      "title": "Herzi Halevi — IDF Chief of Staff (Oct 2023–Mar 2025)",
+      "date": "+972/Guardian \"Lavender\" investigation: 3 Apr 2024; Ynet recording (\"gloves off,\" 200,000+ casualties): Sep 2025; Poland criminal complaint naming him: May 2026; resignation over Oct 7 failures: Mar 2025",
+      "summary": "As IDF chief of staff commanding the Gaza campaign from October 2023 to March 2025 — the period in which +972 Magazine, Local Call, and the Guardian documented the \"Lavender\" and \"Where's Daddy?\" AI targeting systems, with intelligence sources describing pre-authorized allowances of 15–20 civilian deaths per junior Hamas operative — Halevi said in a recording published by Ynet in September 2025 that the IDF had killed or wounded more than 200,000 Palestinians, that \"we took the gloves off from the first minute,\" and that \"not once has anyone restricted me.\" He is named, alongside Yoav Gallant, Israel Katz, and Eyal Zamir, in a universal-jurisdiction criminal complaint filed in May 2026 with the Wrocław District Prosecutor's Office in Poland — announced by the Hind Rajab Foundation — alleging genocide, crimes against humanity, war crimes, and starvation as a weapon of war; he is not subject to an ICC arrest warrant and resigned in March 2025 citing the October 7 failures.",
+      "links": [
+        {
+          "url": "https://www.972mag.com/lavender-ai-israeli-army-gaza/",
+          "source": "+972 Magazine — 'Lavender': The AI machine directing Israel's bombing spree in Gaza (3 Apr 2024)"
+        },
+        {
+          "url": "https://www.middleeasteye.net/news/former-israeli-army-chief-admits-palestinian-casualties-gaza",
+          "source": "Middle East Eye — Former Israeli army chief admits to over 200,000 Palestinian casualties in Gaza (Sep 2025, on the Ynet recording)"
+        },
+        {
+          "url": "https://www.hindrajabfoundation.org/posts/-poland-criminal-complaint-filed-against-senior-israeli-officials-for-starvation--obstruction-of-humanitarian-aid-in-gaza",
+          "source": "Hind Rajab Foundation — Criminal complaint filed in Poland (Wrocław) against senior Israeli officials incl. Halevi (May 2026)"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Herzi_Halevi",
+      "official": {
+        "url": "https://www.upi.com/amp/Top_News/World-News/2024/04/07/defends-using-ai-database-lavender-hamas-targets/2521712498490/",
+        "label": "IDF defense of Lavender (\"designed to aid human analysis, not to replace it\" — spokesman Nadav Shoshani, via UPI, Apr 2024)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Herzi_Halevi_RAV_ALUF.jpg/960px-Herzi_Halevi_RAV_ALUF.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Herzi_Halevi_RAV_ALUF.jpg",
+        "credit": "IDF Spokesperson's Unit",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "docket-alian",
+      "section": "docket",
+      "title": "Ghassan Alian — Maj. Gen., head of COGAT",
+      "date": "Statement: 10 Oct 2023 (video; parallel X post 9 Oct); cited in South Africa's ICJ application filed 29 Dec 2023; HRW report: 19 Dec 2024; Hind Rajab Foundation ICC/Italy arrest request: 13 Jan 2025",
+      "summary": "In a 10 October 2023 video address to Gaza residents reported by The Times of Israel, Maj. Gen. Ghassan Alian — head of COGAT, the Israeli military body that controls the entry of aid into Gaza — declared: \"Human animals must be treated as such. There will be no electricity and no water, there will only be destruction. You wanted hell, you will get hell.\" South Africa cited the statement as evidence of genocidal intent in its ICJ Genocide Convention case against Israel; Human Rights Watch's December 2024 report \"Extermination and Acts of Genocide\" documented COGAT's blocking of water, fuel, and aid equipment under his command; and in January 2025 the Hind Rajab Foundation filed requests with the ICC and Italian authorities seeking his arrest for genocide, crimes against humanity, and war crimes.",
+      "links": [
+        {
+          "url": "https://www.timesofisrael.com/liveblog_entry/cogat-chief-addresses-gazans-you-wanted-hell-you-will-get-hell/",
+          "source": "The Times of Israel — COGAT chief's 10 Oct 2023 video statement, exact quote"
+        },
+        {
+          "url": "https://www.icj-cij.org/case/192",
+          "source": "ICJ — South Africa v. Israel (Genocide Convention), case page with the application citing Alian's statement"
+        },
+        {
+          "url": "https://www.hrw.org/report/2024/12/19/extermination-and-acts-genocide/israel-deliberately-depriving-palestinians-gaza",
+          "source": "Human Rights Watch — Dec 2024 report on deliberate water deprivation, naming Alian and COGAT"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Ghassan_Alian",
+      "official": {
+        "url": "https://www.icj-cij.org/case/192",
+        "label": "Israel's pleadings in ICJ Case 192 deny the genocide allegations; on the Jan 2025 arrest request, COGAT declined to comment (per The Times of Israel)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Ghassan_Alian.jpg/960px-Ghassan_Alian.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Ghassan_Alian.jpg",
+        "credit": "IDF Spokesperson's Unit",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "docket-vach",
+      "section": "docket",
+      "title": "Yehuda Vach — Brig. Gen., Commander of IDF Division 252 (Netzarim corridor)",
+      "date": "Haaretz investigations: 18 Dec 2024 and 1 Jan 2025 (Netzarim \"kill zone\"), 27 Jun 2025 (\"killing field\" aid-site shootings); Military Advocate General war-crimes review ordered late Jun 2025",
+      "summary": "Haaretz investigations based on testimony from soldiers and officers of Division 252 (December 2024–June 2025) reported that Vach told troops \"there are no innocents in Gaza,\" enforced an unmapped, shifting \"imaginary line\" in the Netzarim corridor beyond which any Palestinian who crossed was shot regardless of threat — with bodies left uncollected, a zone troops called \"the line of dead bodies\" — ordered the unauthorized demolition of a Gaza hospital, and instituted the use of live fire to disperse civilians at aid distribution points. No international proceeding names Vach individually, but after the June 2025 Haaretz exposé Israel's Military Advocate General ordered the army's Fact-Finding Assessment Mechanism to examine the shootings of aid seekers as possible war crimes; the IDF rejected the allegations against Vach as false, and Netanyahu and Katz denounced the report as \"blood libel.\"",
+      "links": [
+        {
+          "url": "https://www.haaretz.com/israel-news/2024-12-18/ty-article-magazine/.premium/idf-soldiers-expose-arbitrary-killings-and-rampant-lawlessness-in-gazas-netzarim-corridor/00000193-da7f-de86-a9f3-fefff2e50000",
+          "source": "Haaretz — 'No Civilians. Everyone's a Terrorist': soldiers on the Netzarim 'imaginary line' kill zone (18 Dec 2024)"
+        },
+        {
+          "url": "https://www.haaretz.com/israel-news/2025-01-01/ty-article-magazine/.premium/flatten-gaza-halt-aid-the-commander-overseeing-gazas-brutal-netzarim-corridor/00000194-223e-da14-adb7-767eb9790000",
+          "source": "Haaretz — 'Flatten' Gaza, Halt Aid: profile of the Division 252 commander (1 Jan 2025)"
+        },
+        {
+          "url": "https://www.aljazeera.com/news/2025/6/27/israeli-soldiers-ordered-to-shoot-at-unarmed-gaza-aid-seekers-report",
+          "source": "Al Jazeera — Israeli soldiers 'ordered' to shoot unarmed Gaza aid seekers (27 Jun 2025)"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Yehuda_Vach",
+      "official": {
+        "url": "https://www.jpost.com/israel-news/defense-news/article-859245",
+        "label": "IDF rejection of the Haaretz report; Netanyahu-Katz \"blood libel\" statement (via Jerusalem Post)"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/14/Yehuda_Vach%2C_February_2022_%28cropped%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Yehuda_Vach,_February_2022_(cropped).jpg",
+        "credit": "IDF Spokesperson's Unit",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "docket-eiland",
+      "section": "docket",
+      "title": "Giora Eiland — Retired Maj. Gen., architect of the \"Generals' Plan\"",
+      "date": "Yedioth Ahronoth \"epidemics\" op-ed: 19 Nov 2023; cited in South Africa's ICJ application: 29 Dec 2023; \"Generals' Plan\" published/debated: Sep–Oct 2024; Haaretz soldiers' testimony and north Gaza siege reporting: Oct 2024",
+      "summary": "Eiland, a retired IDF major general and former National Security Council chief, authored the October 2024 \"Generals' Plan\" to give northern Gaza's roughly 300,000 residents one week to leave before the area was sealed under \"full and tight blockade\" — cutting food, water and fuel so those remaining, treated as combatants, would \"either have to surrender or to starve\" — and in a November 2023 Yedioth Ahronoth op-ed wrote that \"epidemics in the south [of Gaza] will bring victory closer and will decrease casualties among IDF soldiers,\" a statement 15 Israeli public-health experts condemned as advocating the weaponization of disease. His statements were cited in South Africa's 29 December 2023 ICJ genocide application as evidence of genocidal intent, and although the plan was never officially adopted, Israeli reserve soldiers told Haaretz in October 2024 that \"the Eiland Plan is being promoted by the IDF\" during the siege of Jabalia and north Gaza — while no court has brought proceedings against Eiland personally.",
+      "links": [
+        {
+          "url": "https://www.icj-cij.org/node/203394",
+          "source": "ICJ — South Africa v. Israel, Application instituting proceedings (cites Eiland's statements as evidence of genocidal intent)"
+        },
+        {
+          "url": "https://www.haaretz.com/opinion/editorial/2024-10-22/ty-article-opinion/is-israel-really-implementing-a-plan-of-siege-and-starvation-in-gaza/00000192-b5c7-d5f0-a1bf-f7e74e130000",
+          "source": "Haaretz editorial — mounting evidence Israel is implementing the 'generals' plan' of siege and starvation in north Gaza"
+        },
+        {
+          "url": "https://www.972mag.com/jabalia-camp-northern-gaza-siege/",
+          "source": "+972 Magazine — 'Dead bodies everywhere' in Jabalia as Israel besieges north Gaza"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Giora_Eiland",
+      "official": {
+        "url": "https://time.com/7176657/the-questions-israels-plans-for-north-gaza-endgame/",
+        "label": "Eiland and the IDF deny the plan is being implemented (TIME, Nov 2024; Eiland also said on 10 Dec 2024 the plan was \"not being implemented at all\")"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Giora_Eiland._U.S._Embassy_in_Israel._July_4th_2015_%2819351073586%29_%28cropped%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Giora_Eiland._U.S._Embassy_in_Israel._July_4th_2015_(19351073586)_(cropped).jpg",
+        "credit": "U.S. Embassy Tel Aviv",
+        "license": "CC BY-SA 2.0"
+      }
+    }
+  ]
+}
