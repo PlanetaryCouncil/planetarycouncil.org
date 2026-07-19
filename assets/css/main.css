@@ -922,3 +922,228 @@ button,
 strong a {
   border-bottom: 2px solid white;
 }
+
+.declaration {
+  margin: 0 0 3.4rem 0;
+  max-width: 72rem;
+  padding: clamp(1.1rem, 3vw, 2.6rem) 0 clamp(1.5rem, 3vw, 3rem) 0;
+}
+
+.declaration:before {
+  background: linear-gradient(90deg, #1cb495, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0));
+  content: '';
+  display: block;
+  height: 2px;
+  margin: 0 0 clamp(1.4rem, 3vw, 2.35rem) 0;
+  width: min(19rem, 72vw);
+}
+
+.declaration-intro,
+.declaration-grid,
+.declaration-rail,
+.declaration-body {
+  min-width: 0;
+}
+
+.declaration-intro {
+  margin-bottom: clamp(2rem, 5vw, 4.5rem);
+  max-width: 62rem;
+}
+
+#header .declaration h2 {
+  color: #fff;
+  font-size: clamp(3rem, 8vw, 8.25rem);
+  font-weight: 700;
+  line-height: 0.92;
+  margin: 0 0 clamp(1.1rem, 2vw, 1.75rem) 0;
+  max-width: 10.5ch;
+  text-wrap: balance;
+}
+
+#header .declaration .declaration-kicker {
+  color: #59d7bd;
+  font-size: clamp(0.76rem, 0.8vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.35;
+  margin: 0 0 1.1rem 0;
+  text-transform: uppercase;
+}
+
+#header .declaration .declaration-welcome {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: clamp(1.18rem, 1.7vw, 1.72rem);
+  line-height: 1.35;
+  margin: 0;
+  max-width: 34rem;
+  text-wrap: balance;
+}
+
+.declaration-grid {
+  align-items: start;
+  display: grid;
+  gap: clamp(2rem, 5vw, 5rem);
+  grid-template-columns: minmax(14rem, 0.72fr) minmax(24rem, 1fr);
+}
+
+.declaration-rail {
+  border-left: 2px solid rgba(28, 180, 149, 0.72);
+  padding-left: clamp(1rem, 2vw, 1.5rem);
+  position: sticky;
+  top: 2rem;
+}
+
+#header .declaration-body p {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1.02rem, 1vw, 1.16rem);
+  line-height: 1.66;
+  margin: 0 0 1.12rem 0;
+  max-width: 43rem;
+}
+
+#header .declaration .declaration-lede {
+  color: #fff;
+  font-size: clamp(1.42rem, 2.1vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.12;
+  margin: 0 0 clamp(1.25rem, 3vw, 2rem) 0;
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+#header .declaration .declaration-triad {
+  color: #fff;
+  font-size: clamp(1.78rem, 2.9vw, 3.35rem);
+  font-weight: 700;
+  line-height: 1;
+  margin: 0 0 clamp(1.4rem, 3vw, 2.2rem) 0;
+  max-width: 15ch;
+}
+
+#header .declaration .declaration-close {
+  color: #fff;
+  font-size: clamp(1.35rem, 2vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.08;
+  margin-top: 1.4rem;
+  max-width: 15ch;
+  text-wrap: balance;
+}
+
+#header .declaration .declaration-links {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: clamp(0.92rem, 0.95vw, 1.04rem);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 20rem;
+}
+
+#header .declaration .declaration-links span {
+  color: #59d7bd;
+  display: block;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.65rem;
+  text-transform: uppercase;
+}
+
+#header .declaration a {
+  border-bottom-color: rgba(89, 215, 189, 0.9);
+  color: #fff;
+}
+
+#header .declaration .declaration-links a {
+  border-bottom-color: rgba(255, 255, 255, 0.32);
+  display: table;
+  line-height: 1.35;
+  margin-bottom: 0.65rem;
+}
+
+#header .declaration a:hover {
+  color: #59d7bd !important;
+}
+
+#header .rotating-statement {
+  color: white;
+  font-family: "Courier New", monospace;
+  font-size: clamp(1.15rem, 2.2vw, 2rem);
+  font-weight: 700;
+  line-height: 1.12;
+  margin-bottom: 1.1rem;
+  min-height: 2.6em;
+  word-break: normal;
+}
+
+@media screen and (max-width: 736px) {
+  body {
+    padding-top: 1rem;
+  }
+
+  #everything {
+    top: 1rem;
+    width: calc(100vw - 1.5rem);
+  }
+
+  #header {
+    padding: 1.1rem;
+  }
+
+  #header h1 {
+    font-size: 1.35rem;
+    line-height: 1.15;
+    margin-bottom: 1.4rem;
+  }
+
+  .declaration {
+    margin-bottom: 2.25rem;
+    padding-top: 0.4rem;
+  }
+
+  .declaration-grid {
+    display: block;
+  }
+
+  .declaration-rail {
+    border-left: 0;
+    border-top: 2px solid rgba(28, 180, 149, 0.72);
+    margin: 0 0 2rem 0;
+    padding: 1.2rem 0 0 0;
+    position: static;
+  }
+
+  #header .declaration-body p {
+    font-size: 1rem;
+    line-height: 1.58;
+    margin-bottom: 1rem;
+  }
+
+  #header .declaration .declaration-lede {
+    max-width: 18ch;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .declaration-grid {
+    grid-template-columns: 1fr;
+    max-width: 44rem;
+  }
+
+  .declaration-rail {
+    position: static;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  #header .declaration h2 {
+    font-size: 2.72rem;
+  }
+
+  #header .declaration .declaration-triad {
+    font-size: 1.75rem;
+  }
+
+  #header .declaration .declaration-close {
+    font-size: 1.35rem;
+  }
+}

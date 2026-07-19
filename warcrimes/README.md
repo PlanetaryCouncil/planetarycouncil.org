@@ -5,7 +5,7 @@ Goal: **the most-documented war crimes record in history.** Every claim independ
 
 ## Files
 
-- **`data.json`** — the canonical dataset. 20 incidents (17 main + 3 closers). The page is just a renderer; all curation happens here.
+- **`data.json`** — the canonical dataset. 33 entries: 18 main incidents (incl. the Doha negotiator strike), 3 closers, 10 docket individuals, 2 Hamas entries (Oct 7 crimes; designations and support bans). 330+ sources. The page is just a renderer; all curation happens here.
 - **`index.html`** — static renderer, no dependencies. Serve the folder over HTTP (`python3 -m http.server 8315`) and open `localhost:8315`. Every card is deep-linkable: `/#hind-rajab`, `/#flour-massacre`, …
 - `.claude/launch.json` — dev server config.
 
@@ -14,7 +14,8 @@ Goal: **the most-documented war crimes record in history.** Every claim independ
 | field | meaning |
 |---|---|
 | `id` | stable slug, also the page anchor |
-| `section` | `main` or `closers` |
+| `section` | `main`, `closers`, `docket`, or `hamas` |
+| `comment` | optional curator's note, rendered as an accent-bar italic block |
 | `title`, `date` | sober factual title; date or range |
 | `summary` | 2 sentences, attributed ("according to…") |
 | `links` | `[{url, source}]` — independent sources. **Add as many as you find; 3 is the floor, not the ceiling.** |
