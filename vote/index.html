@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>UK — We Need To Talk · 10 Key Policy Questions</title>
 <meta name="description" content="Answer 10 key questions about Britain's future, seal a timestamped verdict card, and share it. Your answers ride inside the card — unreadable by eye.">
-<link rel="stylesheet" href="styles.css?v=6">
+<link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
 <div class="win">
@@ -16,16 +16,13 @@
   <div class="body">
     <div class="hero">
       <svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0,0 60,40 M60,0 0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 60,40 M60,0 0,40" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/></svg>
-      <h1>10 KEY POLICY QUESTIONS</h1>
+      <div class="headline">
+        <h1>10 KEY POLICY QUESTIONS</h1>
+        <div class="marker"></div>
+      </div>
       <div class="bin">🗑️</div>
     </div>
     <div class="sub">Your vote. Your future. Let's build a better UK. — pick where you stand, <b>share your card</b>.</div>
-
-    <div class="sessionbar">
-      <span class="live">LIVE</span>
-      <span>Honest, independent opinion polling — <b>everyone debates the same 10 questions</b>. Your answers stay on your device.</span>
-      <span class="clock" id="clock">— — —</span>
-    </div>
 
     <table id="grid">
       <thead>
@@ -48,32 +45,41 @@
             <button class="btn" id="linkBtn">🔗 Copy link</button>
           </div>
           <div class="muted" id="shareMsg" style="margin-top:8px"></div>
-          <div class="muted" style="margin-top:8px">Your card updates live as you answer — timestamp, grey squares, everything. Share it. Discuss it with your people.</div>
+          <div class="muted" style="margin-top:8px">Your card updates live as you answer. Share it. Discuss it with your people.</div>
         </div>
       </div>
     </div>
 
-    <div class="crosslink">Got someone's sealed card? → <a class="btn" href="decode.html">🕵️ Decode a friend's seal</a></div>
+    <div class="videobox">
+      <div class="muted">🌍 Created by the <b>Planetary Council</b> — watch the video</div>
+      <div class="videoframe"><iframe src="https://www.youtube-nocookie.com/embed/lIK689cGqUk" title="Planetary Council" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    </div>
 
-    <div class="footer">🌍 PLANETARY COUNCIL &nbsp;·&nbsp; a Binface joint &nbsp;·&nbsp; nothing here leaves your device — all sealing happens in your browser.</div>
+    <div class="crosslink">Got a friend's card? → <a class="btn" href="decode.html">🕵️ Decode it</a></div>
+  </div>
+
+  <div class="statusbar">
+    <span class="sbcell first"><span class="livedot"></span><b class="live">LIVE</b></span>
+    <span class="sbcell" id="answeredCell">0/10 answered</span>
+    <span class="sbcell clock" id="clock">— — —</span>
   </div>
 </div>
 
-<script src="shared.js?v=6"></script>
-<script src="qr.js?v=6"></script>
+<script src="shared.js?v=7"></script>
+<script src="qr.js?v=7"></script>
 <script>
 const QR_URL = "https://planetarycouncil.org/vote";   // where the card's QR sends people
 /* short forms of the 10 questions, printed on the shared card */
 const QUESTIONS_SHORT = [
   "🗳️ Proportional representation for UK elections?",
   "⚡ Public ownership of energy, water & rail?",
-  "🚆 More rail automation?",
+  "🚆 Train drivers becoming train managers?",
   "📡 5G & broadband as essential public infrastructure?",
-  "🌊 More flood defences & insulation investment?",
+  "🌊 Adaptation and clean energy transition?",
   "🪖 Reduce military spending?",
-  "🏭 Allow foreign-owned arms companies?",
-  "🏛️ A more collaborative chamber instead of the Commons?",
-  "👑 House of Lords — keep, reform or replace?",
+  "🏭 Arms production — stop the war?",
+  "🏛️ A non-adversarial House of Commons?",
+  "👑 Elected representatives instead of the Lords?",
   "🇪🇺 Rejoin the EU Single Market?",
 ];
 
@@ -250,44 +256,32 @@ function renderCard(){
   currentTs = nowSec();
   saveMine();
   drawCard(currentTs);
+  document.getElementById('answeredCell').textContent = answeredCount()+'/10 answered';
 }
 
 function saveMine(){
   try{ localStorage.setItem('binface_mine', JSON.stringify(answers.map(a=>a??0))); }catch(e){}
 }
 
-/* ---------- share ---------- */
+/* ---------- share: the image carries the answers, the link is just clean ---------- */
 function cardBlob(){ return new Promise(r=>canvas.toBlob(r,'image/png')); }
-const homeURL = location.href.split('#')[0];
 
 async function saveImage(){
   const b = await cardBlob(); const url=URL.createObjectURL(b);
-  const a=document.createElement('a'); a.href=url; a.download='binface-verdict-sealed.png'; a.click();
+  const a=document.createElement('a'); a.href=url; a.download='uk-we-need-to-talk.png'; a.click();
   URL.revokeObjectURL(url);
 }
 document.getElementById('dlBtn').addEventListener('click', ()=>{ saveImage(); document.getElementById('shareMsg').textContent="Saved ✔ — the image is in your downloads."; });
 document.getElementById('linkBtn').addEventListener('click', async ()=>{
-  const link = homeURL + '#s=' + b64url(frameBytes());
-  try{ await navigator.clipboard.writeText(link); document.getElementById('shareMsg').textContent="Link copied ✔ — your answers travel inside the link itself."; }
-  catch(e){ document.getElementById('shareMsg').textContent=link; }
+  try{ await navigator.clipboard.writeText(QR_URL); document.getElementById('shareMsg').textContent="Link copied ✔"; }
+  catch(e){ document.getElementById('shareMsg').textContent=QR_URL; }
 });
 
-/* live session clock — reinforces a real, honest, timestamped polling session */
+/* live session clock */
 function tick(){
-  const d=new Date();
-  document.getElementById('clock').textContent = d.toISOString().slice(0,19).replace('T',' ')+' UTC';
+  document.getElementById('clock').textContent = new Date().toISOString().slice(0,19).replace('T',' ')+' UTC';
 }
 tick(); setInterval(tick,1000);
-
-/* a shared link opens this homepage — stash the sealed payload, keep the URL clean */
-if(location.hash.includes('s=')){
-  const m=location.hash.match(/s=([A-Za-z0-9\-_]+)/);
-  if(m){ try{
-    const f=unb64url(m[1]);
-    if(MAGIC.every((b,i)=>f[i]===b)) localStorage.setItem('binface_received', m[1]);
-  }catch(e){} }
-  history.replaceState(null,'',location.pathname+location.search);
-}
 renderCard();
 </script>
 </body>

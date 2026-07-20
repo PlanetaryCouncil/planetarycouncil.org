@@ -2,13 +2,13 @@
 const QUESTIONS = [
   {icon:"🗳️", t:"Voting system — should the UK use proportional representation?"},
   {icon:"⚡", t:"Public ownership of infrastructure (energy, water, rail)?"},
-  {icon:"🚆", t:"Rail automation — should more be automated?"},
+  {icon:"🚆", t:"Rail automation — train drivers becoming train managers?"},
   {icon:"📡", t:"5G & broadband — treat it as essential public infrastructure?"},
-  {icon:"🌊", t:"Climate resilience — more investment in flood defences & insulation?"},
+  {icon:"🌊", t:"Climate resilience — adaptation and clean energy transition?"},
   {icon:"🪖", t:"Military spending — should it be reduced?"},
-  {icon:"🏭", t:"Arms production — allow foreign-owned arms companies?"},
-  {icon:"🏛️", t:"House of Commons — replace with a more collaborative chamber?"},
-  {icon:"👑", t:"House of Lords — keep, reform or replace?"},
+  {icon:"🏭", t:"Arms production — stop the war?"},
+  {icon:"🏛️", t:"House of Commons — replace with a non adversarial layout?"},
+  {icon:"👑", t:"House of Lords — replace with elected representatives?"},
   {icon:"🇪🇺", t:"Europe — should the UK rejoin the EU Single Market?"},
 ];
 const VALUES = [2,1,0,-1,-2];
@@ -88,10 +88,6 @@ function readGrid(img){
   let days=0; for(let k=0;k<6;k++) days=days*5+data[10+k];
   return {answers:answersOut, ts:Math.floor((EPOCH_UTC+days*86400000)/1000), coarse:true};
 }
-
-/* base64url helpers for the opaque secret link */
-function b64url(bytes){ let s=btoa(String.fromCharCode(...bytes)); return s.replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,''); }
-function unb64url(s){ s=s.replace(/-/g,'+').replace(/_/g,'/'); const bin=atob(s); const b=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++)b[i]=bin.charCodeAt(i); return b; }
 
 /* remembered own answers for the alignment score */
 function loadMine(){

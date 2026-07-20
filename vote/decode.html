@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Decode a Seal · UK — We Need To Talk</title>
-<meta name="description" content="Drop a friend's sealed Binface card (or paste a secret link) to reveal their verdict on Britain — and see how much you two agree.">
-<link rel="stylesheet" href="styles.css?v=6">
+<meta name="description" content="Drop a friend's Binface card to reveal their verdict on Britain — and see how much you two agree.">
+<link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
 <div class="win">
@@ -19,27 +19,23 @@
       <h1>DECODE A SEAL</h1>
       <div class="bin">🔓</div>
     </div>
-    <div class="sub">Got a sealed card? Drop the PNG (or paste a secret link) to reveal what they really think — and how much you two agree.</div>
+    <div class="sub">Got a friend's card? Drop the image to reveal what they really think — and how much you two agree.</div>
 
     <div class="panel">
-      <h2>📎 Drop the sealed card</h2>
-      <div class="drop" id="drop">📎 Drop a sealed PNG here, or click to choose a file
+      <h2>📎 Drop the card image</h2>
+      <div class="drop" id="drop">📎 Drop a card image here, or click to choose a file
         <input type="file" id="file" accept="image/png,image/jpeg" hidden>
-      </div>
-      <div class="row" style="margin-top:10px">
-        <input id="linkIn" placeholder="…or paste a secret link" style="flex:1;min-width:200px;padding:8px;border:1px solid #b9bcc2;font-family:inherit">
-        <button class="btn" id="decodeLink">Reveal</button>
       </div>
       <div class="reveal" id="reveal"></div>
     </div>
 
-    <div class="crosslink">Haven't voted yet? → <a class="btn primary" href="index.html">🗳️ Take the quiz &amp; seal your own</a></div>
+    <div class="crosslink">Haven't voted yet? → <a class="btn primary" href="index.html">🗳️ Answer the 10 &amp; make your own</a></div>
 
     <div class="footer">🌍 PLANETARY COUNCIL &nbsp;·&nbsp; a Binface joint &nbsp;·&nbsp; everything decodes locally in your browser — nothing is uploaded.</div>
   </div>
 </div>
 
-<script src="shared.js?v=6"></script>
+<script src="shared.js?v=7"></script>
 <script>
 const drop = document.getElementById('drop'), fileIn=document.getElementById('file');
 drop.addEventListener('click',()=>fileIn.click());
@@ -61,23 +57,11 @@ function handleFile(f){
     }catch(e){}
     // 2. robust one-time-pad grid (survives recompression / screenshots / resize)
     if(!res){ try{ res=readGrid(img); }catch(e){} }
-    if(!res){ showReveal(null,"Couldn't read a verdict from that image. The one-time-pad grid may have been cropped off — ask your friend for the whole card, or the secret link."); return; }
+    if(!res){ showReveal(null,"Couldn't read a verdict from that image — make sure it's the whole, uncropped card."); return; }
     showReveal(res);
   };
   img.onerror=()=>showReveal(null,"Couldn't load that file as an image.");
   img.src=URL.createObjectURL(f);
-}
-
-document.getElementById('decodeLink').addEventListener('click',()=>decodeText(document.getElementById('linkIn').value));
-function decodeText(txt){
-  const m = (txt||'').match(/[#?&]s=([A-Za-z0-9\-_]+)/) || (txt||'').trim().match(/^([A-Za-z0-9\-_]{8,})$/);
-  if(!m){ showReveal(null,"That doesn't look like a secret link."); return; }
-  try{
-    const frame=unb64url(m[1]);
-    for(let i=0;i<4;i++) if(frame[i]!==MAGIC[i]) throw 0;
-    const len=(frame[4]<<8)|frame[5];
-    showReveal(unpackBytes(frame.slice(6,6+len)));
-  }catch(e){ showReveal(null,"Couldn't decode that link."); }
 }
 
 function showReveal(data, err){
@@ -105,11 +89,8 @@ function showReveal(data, err){
   }).join('');
   el.innerHTML = `<div class="agree" style="font-size:16px">🔓 A verdict sealed on<br>${when}</div>
     <div class="muted" style="text-align:center;margin-top:-2px">Seal <span class="mono" style="font-weight:bold">${sid}</span></div>${agreeHtml}<div style="margin-top:10px">${rows}</div>
-    <div class="row" style="margin-top:12px;justify-content:center"><a class="btn primary" href="index.html">↑ Now seal YOUR verdict &amp; pass it on</a></div>`;
+    <div class="row" style="margin-top:12px;justify-content:center"><a class="btn primary" href="index.html">↑ Now make YOUR card &amp; pass it on</a></div>`;
 }
-
-// auto-decode a secret link on arrival
-if(location.hash.includes('s=')){ decodeText(location.hash); }
 </script>
 </body>
 </html>
