@@ -315,7 +315,7 @@ body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Arial Black",Arial
     <div id="progress"><i></i></div>
     <div id="btnRow">
       <button id="go" disabled>Loading</button>
-      <button id="rec" disabled>&#9210; Record</button>
+      <button id="rec" disabled hidden>&#9210; Record</button> <!-- public page: PLAY only; record machinery intact via ?auto=1 -->
     </div>
     <div id="linkRow">
       <button id="shortcutsBtn">Shortcuts</button>
@@ -325,7 +325,7 @@ body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Arial Black",Arial
       <summary>Manual overrides</summary>
       <div><label>Master audio<br><input id="masterPick" type="file" accept="../audio/*"></label><label>Square video<br><input id="videoPick" type="file" accept="video/*,image/*"></label></div>
     </details>
-    <p style="margin-bottom:0;font-size:10px">PLAY — watch at full speed · RECORD — 0.25&times; silky capture mode: stage goes clean and frozen, SPACE starts it (speed &times;4 in your editor afterwards)</p>
+    <p style="margin-bottom:0;font-size:10px">Press PLAY. Turn it up. The layers menu (MENU) is yours to explore.</p>
   </div>
 </div>
 <script type="module">
@@ -521,7 +521,7 @@ async function preload(){
     buildSceneDirector();buildLegend();buildMetricSwitches();
     seek.max=Math.max(.01,duration).toFixed(2);
     setStatus('READY · '+speedLabel()+' CAPTURE · '+sceneCuts.length+' scenes cast · '+words.length+' words · '+featureData.groups.VOICE.length+' baked frames',1);
-    go.disabled=recBtn.disabled=false;go.textContent='Play · '+speedLabel()+' Capture';
+    go.disabled=recBtn.disabled=false;go.textContent='▶ Play';
   }catch(err){
     console.error(err);
     setStatus('<span id="error">Could not preload: '+err.message+'<br>Use localhost from the song folder, or choose the master manually.</span>',done/jobs);
@@ -556,7 +556,7 @@ function setPlaybackRate(value){
   document.documentElement.style.setProperty('--slow',(1/next).toFixed(4));
   for(const item of mediaVideos)item.playbackRate=next;
   speedSelect.value=String(next);
-  if(!go.disabled)go.textContent='Play · '+speedLabel()+' Capture';
+  if(!go.disabled)go.textContent='▶ Play';
   updateTimeline(clock());
 }
 function stepPlaybackRate(direction){
@@ -2034,7 +2034,7 @@ $('#masterPick').addEventListener('change',async e=>{
   await loadMasterSource(URL.createObjectURL(f));
   seek.max=Math.max(.01,duration).toFixed(2);
   if(featureData&&sceneCuts.length)buildSceneDirector();
-  setStatus('Manual master ready · '+f.name,1);go.disabled=recBtn.disabled=false;go.textContent='Play · '+speedLabel()+' Capture';
+  setStatus('Manual master ready · '+f.name,1);go.disabled=recBtn.disabled=false;go.textContent='▶ Play';
 });
 $('#videoPick').addEventListener('change',e=>{
   const f=e.target.files[0];if(!f)return;
