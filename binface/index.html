@@ -129,6 +129,13 @@ body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Arial Black",Arial
 /* ===== SECTION: HELP PANEL (H) ===== */
 #helpPanel,#aboutPanel{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:40;width:min(760px,92vw);max-height:86vh;overflow:auto;padding:26px 30px;background:rgba(2,3,10,.94);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(14px);font:500 12px/1.75 ui-monospace,Menlo,monospace;color:rgba(255,255,255,.85)}
 #helpPanel.hidden,#aboutPanel.hidden{display:none}
+#countdown{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:60;font:1000 240px/1 "Arial Black",Impact,sans-serif;color:#fff;text-shadow:-7px 0 var(--pink),7px 0 var(--cyan),0 0 70px rgba(255,255,255,.35);pointer-events:none}
+#countdown.hidden{display:none}
+#mHint{position:fixed;right:26px;bottom:64px;z-index:15;text-align:center;pointer-events:none;animation:mPulse 1.6s ease-in-out infinite}
+#mHint b{display:block;font:1000 64px/1 "Arial Black",Impact,sans-serif;color:#fff;text-shadow:-3px 0 var(--pink),3px 0 var(--cyan),0 0 26px rgba(255,255,255,.3)}
+#mHint span{display:block;font:700 10px/1.4 ui-monospace,Menlo,monospace;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:6px}
+#mHint.hidden{display:none}
+@keyframes mPulse{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.12);opacity:1}}
 #aboutPanel h3{font:1000 13px/1 "Arial Black",Impact,sans-serif;letter-spacing:.14em;color:var(--gold);margin:20px 0 8px;text-transform:uppercase}
 #aboutPanel p{margin:0 0 10px;color:rgba(255,255,255,.8)}
 #btnRow{display:flex;gap:14px;justify-content:center;margin-top:6px}
@@ -207,7 +214,9 @@ body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Arial Black",Arial
     </section>
   </div>
   </div>
-  <div id="pureToasts" aria-live="polite"></div>
+  <div id="countdown" class="hidden"></div>
+<div id="mHint" class="hidden"><b>M</b><span>press M to hide<br>the menu</span></div>
+<div id="pureToasts" aria-live="polite"></div>
   <div id="stemLegend"></div>
 </main>
 </div>
@@ -220,11 +229,11 @@ body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Arial Black",Arial
 
 <div id="layerMenu" class="hidden" aria-label="Feature layers">
   <h3>Layers</h3>
-  <label><input type="checkbox" data-layer="video" checked>Video square</label>
+  <label><input type="checkbox" data-layer="video" checked>Video square &middot; V</label>
   <label><input type="checkbox" data-layer="lyrics" checked>Lyrics</label>
   <label><input type="checkbox" data-layer="field" checked>Director field</label>
-  <label><input type="checkbox" data-layer="waves" checked>Waveforms</label>
-  <label><input type="checkbox" data-layer="histograms" checked>Histograms</label>
+  <label><input type="checkbox" data-layer="waves" checked>Waveforms &middot; W</label>
+  <label><input type="checkbox" data-layer="histograms" checked>Histograms &middot; G</label>
   <label><input type="checkbox" data-layer="particles" checked>Particles + gravity</label>
   <label><input type="checkbox" data-layer="morph" checked>Morph form</label>
   <label><input type="checkbox" data-layer="legend" checked>Stem legend</label>
@@ -239,7 +248,7 @@ body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Arial Black",Arial
   <label><input type="checkbox" data-layer="lyricPerLetter" checked>Lyric per-letter</label>
   <label><input type="checkbox" data-layer="squarePulse">Square bass pulse</label>
   <label><input type="checkbox" data-layer="achievements" checked>Achievements</label>
-  <label><input type="checkbox" data-layer="amoeba">Amoeba field</label>
+  <label><input type="checkbox" data-layer="amoeba">Amoeba field &middot; B</label>
   <label><input type="checkbox" data-layer="amoebaShells" checked>Amoeba shells</label>
   <label><input type="checkbox" data-layer="amoebaFill" checked>Amoeba filled</label>
   <label><input type="checkbox" data-layer="amoebaMorph" checked>Amoeba shapeshift</label>
@@ -247,7 +256,7 @@ body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Arial Black",Arial
     <option value="far">solid far</option><option value="near">solid near</option><option value="flat">flat</option></select></label>
   <label class="opt">Density<select data-opt="amoebaCount">
     <option value="5">5</option><option value="9" selected>9</option><option value="14">14</option><option value="20">20</option></select></label>
-  <label><input type="checkbox" data-layer="hud" checked>Scene HUD</label>
+  <label><input type="checkbox" data-layer="hud" checked>Scene HUD &middot; A</label>
   <div class="presets"><button id="presetLyrics">Lyrics only</button><button id="presetAll">All on</button></div>
 </div>
 
@@ -1979,6 +1988,7 @@ addEventListener('keydown',e=>{
 const helpPanel=$('#helpPanel');
 function toggleHelp(){helpPanel.classList.toggle('hidden')}
 function hideAllUI(){
+  document.getElementById('mHint').classList.add('hidden');
   transport.classList.add('hidden');
   layerMenu.classList.add('hidden');
   helpPanel.classList.add('hidden');
@@ -1990,6 +2000,7 @@ function toggleUiMin(){
   // one key to clean the stage for recording: hides transport, layer menu,
   // help and the timecode; press again to restore transport + timecode.
   uiMin=!uiMin;
+  document.getElementById('mHint').classList.add('hidden'); // lesson learned — the tutor retires on first M
   if(uiMin){
     transport.classList.add('hidden');
     layerMenu.classList.add('hidden');
@@ -2013,9 +2024,21 @@ go.addEventListener('click',async()=>{
     if(masterAudio.readyState<1){go.disabled=recBtn.disabled=false;return}
   }
   startEl.classList.add('hidden');
-  if(!CAPTURE)transport.classList.remove('hidden'); // capture mode: clean frame from the first sample
   setPlaybackRate(1);                               // PLAY is always real time
-  startPlayback(START_AT);
+  // VISITOR FLOW: a 3·2·1 countdown builds the moment, then the artwork plays
+  // with the layers MENU open and a pulsing M teaching the one key to close it.
+  const cd=document.getElementById('countdown');
+  let n=3;cd.classList.remove('hidden');cd.textContent=n;
+  const tick=()=>{
+    n--;
+    if(n>0){cd.textContent=n;setTimeout(tick,1000);return}
+    cd.classList.add('hidden');
+    if(!CAPTURE)transport.classList.remove('hidden');
+    startPlayback(START_AT);
+    layerMenu.classList.remove('hidden');
+    document.getElementById('mHint').classList.remove('hidden');
+  };
+  setTimeout(tick,1000);
 });
 pauseBtn.onclick=togglePause;
 $('#restart').onclick=()=>startPlayback(0);
