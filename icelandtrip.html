@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iceland — The Full Loop · 30 Stops</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --basalt:#0d1218; --column:#141b23; --land:#182230;
+    --edge:rgba(255,255,255,.055);
+    --snow:#edf3f6; --ash:#8290a0;
+    --d1:#d9b26a; --d2:#9cbf83; --d3:#79c8e0; --d4:#6fb0be;
+    --d5:#e08a4f; --d6:#c3cbd6; --d7:#a4b2e4;
+    --z:1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    min-height:100dvh; display:flex; flex-direction:column;
+    background:radial-gradient(120% 90% at 50% -10%, #121a24 0%, var(--basalt) 55%) fixed;
+    color:var(--snow);
+    font:400 13px/1.4 "IBM Plex Sans Condensed","Avenir Next Condensed","Arial Narrow",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .top,main{position:relative;z-index:1}
+
+  /* ---- top zone: info · map (hero) · notes ---- */
+  .top{
+    flex:1 1 auto; min-height:340px;
+    display:grid; grid-template-columns:minmax(250px,320px) 1fr minmax(200px,240px);
+    gap:20px; padding:16px 22px 6px; align-items:stretch;
+  }
+  h1{
+    margin:0;
+    font:800 clamp(30px,3.2vw,46px)/0.95 "Big Shoulders Display","Arial Narrow",sans-serif;
+    letter-spacing:.05em; text-transform:uppercase;
+  }
+  .stats{
+    margin:6px 0 0; font:500 10.5px/1 "IBM Plex Mono",monospace;
+    color:var(--ash); letter-spacing:.14em; text-transform:uppercase;
+  }
+  .stats b{color:var(--snow);font-weight:500}
+  .route{margin:12px 0 0; font-size:11.5px; line-height:1.55; color:var(--ash)}
+  .route em{font-style:normal;color:var(--snow)}
+
+  .mapbox{position:relative; min-width:0; min-height:0}
+  svg.map{width:100%; height:100%; min-height:280px; display:block; cursor:grab; touch-action:none}
+  svg.map.dragging{cursor:grabbing}
+  .coast{fill:var(--land);stroke:rgba(255,255,255,.10);stroke-width:1.2;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+  .ice{fill:rgba(168,220,235,.12);stroke:rgba(168,220,235,.22);stroke-width:1;vector-effect:non-scaling-stroke}
+  .lake{fill:var(--basalt);stroke:rgba(255,255,255,.08);stroke-width:1;vector-effect:non-scaling-stroke}
+  .lbl{font:500 10px "IBM Plex Mono",monospace;fill:rgba(168,220,235,.42);letter-spacing:.24em}
+  .road{
+    fill:none;stroke:rgba(237,243,246,.40);stroke-width:1.6;
+    stroke-dasharray:4 5;stroke-linejoin:round;stroke-linecap:round;
+    vector-effect:non-scaling-stroke;
+    animation:march 70s linear infinite;
+  }
+  .spur{
+    fill:none;stroke:rgba(237,243,246,.24);stroke-width:1.1;
+    stroke-dasharray:2 5;stroke-linejoin:round;stroke-linecap:round;
+    vector-effect:non-scaling-stroke;
+  }
+  @keyframes march{to{stroke-dashoffset:-900}}
+  .dot{
+    fill:var(--a); stroke:var(--basalt); stroke-width:1.6;
+    vector-effect:non-scaling-stroke;
+    r:calc(4.5px * var(--z));
+    transition:r .15s ease, stroke .15s ease;
+    cursor:pointer;
+  }
+  .dot:hover,.dot.hot{r:calc(7px * var(--z));stroke:var(--snow);stroke-width:1.4}
+  .scale text{font:500 10px "IBM Plex Mono",monospace;fill:var(--ash);letter-spacing:.1em}
+  .scale line{stroke:var(--ash);stroke-width:1;vector-effect:non-scaling-stroke}
+
+  .mapui{position:absolute; right:10px; top:10px; display:flex; flex-direction:column; gap:6px}
+  .mapui button{
+    width:28px;height:28px; padding:0;
+    background:rgba(20,27,35,.88); border:1px solid var(--edge); border-radius:3px;
+    color:var(--snow); font:500 14px/1 "IBM Plex Mono",monospace; cursor:pointer;
+    transition:border-color .15s;
+  }
+  .mapui button:hover{border-color:var(--ash)}
+  .mapui button:focus-visible{outline:1px solid var(--d3);outline-offset:2px}
+  .maphint{
+    position:absolute; left:10px; bottom:8px;
+    font:500 9px/1 "IBM Plex Mono",monospace; color:var(--ash);
+    letter-spacing:.12em; text-transform:uppercase; opacity:.7; pointer-events:none;
+  }
+
+  .notes{display:flex;flex-direction:column;justify-content:center;gap:0;margin:0;padding:0;list-style:none}
+  .notes li{
+    padding:7px 0; font-size:10.5px; line-height:1.45; color:var(--ash);
+    border-top:1px dashed rgba(255,255,255,.10);
+  }
+  .notes li:first-child{border-top:0}
+  .notes b{color:var(--snow);font-weight:600}
+  .notes .credit{font-size:9px;letter-spacing:.06em;opacity:.75}
+
+  /* ---- the week ---- */
+  main.week{
+    flex:0 0 auto;
+    display:grid; grid-template-columns:repeat(7,minmax(0,1fr));
+    gap:8px; padding:8px 22px 14px; align-items:stretch;
+  }
+  .day{
+    display:flex;flex-direction:column;
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--a) 13%, transparent), transparent 96px),
+      var(--column);
+    border:1px solid var(--edge); border-top:3px solid var(--a); border-radius:2px;
+    animation:rise .55s cubic-bezier(.2,.7,.2,1) both;
+    animation-delay:calc(var(--i)*70ms);
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}}
+
+  .day>header{padding:10px 10px 8px;border-bottom:1px dashed rgba(255,255,255,.09)}
+  .num{font:500 10px/1 "IBM Plex Mono",monospace;color:var(--a);letter-spacing:.22em}
+  h2{margin:5px 0 4px;font:700 16px/1.05 "Big Shoulders Display","Arial Narrow",sans-serif;letter-spacing:.07em;text-transform:uppercase}
+  .meta{margin:0;font-size:10.5px;color:var(--ash);letter-spacing:.03em}
+
+  .day ol{list-style:none;margin:0;padding:7px 5px 9px;display:flex;flex-direction:column;gap:4px}
+  .day li{padding:6px;border-radius:3px;transition:background .15s;overflow:hidden}
+  .day li:hover,.day li.hot{background:rgba(255,255,255,.05)}
+  .ph{display:block;margin:-6px -6px 6px;overflow:hidden}
+  .ph img{
+    width:100%;height:76px;object-fit:cover;display:block;
+    filter:saturate(.72) brightness(.9) contrast(1.02);
+    transform:scale(1.001);
+    transition:filter .25s,transform .4s;
+  }
+  .day li:hover .ph img,.day li.hot .ph img{filter:none;transform:scale(1.035)}
+  .day b{display:block;font-size:13px;font-weight:600;letter-spacing:.01em}
+  .day small{display:block;margin-top:1px;font-size:10.5px;line-height:1.35;color:var(--ash)}
+  .links{display:flex;gap:10px;margin-top:3px}
+  .links a{
+    font:500 9px/1 "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--ash);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.14);
+    padding-bottom:1px;transition:color .15s,border-color .15s;
+  }
+  .links a:hover{color:var(--a);border-color:var(--a)}
+  .links a:focus-visible{outline:1px solid var(--a);outline-offset:2px}
+
+  @media (prefers-reduced-motion:reduce){.day{animation:none}.road{animation:none}.ph img{transition:none}}
+  @media (max-width:1120px){
+    .top{grid-template-columns:1fr 1fr; min-height:0}
+    .mapbox{grid-column:1/-1; order:-1; height:52vh; min-height:300px}
+    main.week{grid-template-columns:repeat(4,minmax(0,1fr))}
+  }
+  @media (max-width:760px){
+    .top{grid-template-columns:1fr}
+    main.week{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media (max-width:460px){main.week{grid-template-columns:1fr}}
+  @media print{
+    body{background:#fff;color:#111;font-size:11px}
+    body::before{display:none}
+    .day{background:#fff;border-color:#ccc;break-inside:avoid;animation:none}
+    .coast{fill:#eee;stroke:#999}
+    .road,.spur{stroke:#999;animation:none}
+    .mapui,.maphint{display:none}
+    .day small,.meta,.stats,.route,.notes li{color:#555}
+  }
+</style>
+</head>
+<body>
+
+<div class="top">
+
+  <div class="info">
+    <h1>Iceland</h1>
+    <p class="stats"><b>The full loop</b> · <b>30 stops</b> · ≈1,900 km</p>
+    <p class="route">Ring Road, south-first — <em>Reykjavík → Reykjavík</em>. Seven legs, no timetable: late-July light runs past midnight, so pace it however the day feels. The strong dashed line is Route 1; the fainter dashes are the side spurs. Hover any stop to find it on the map — the photo and <em>pin</em> open navigation, <em>wiki</em> and <em>site</em> open the reading.</p>
+  </div>
+
+  <div class="mapbox">
+    <svg class="map" id="map" viewBox="0 0 860 600" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Map of Iceland with the 30-stop loop — scroll to zoom, drag to pan">
+      <!-- coastline (stylised) -->
+      <path class="coast" d="M176,498 L178,453 186,467 226,458 225,440 236,430 222,413 232,377 197,363 165,350 135,336 128,330 111,339 90,345 78,321 105,317 137,313 134,310 174,288 211,295 242,282 222,285 247,227 211,225 141,212 85,203 47,217 70,197 75,175 60,190 80,160 70,140 100,125 90,105 146,57 165,75 200,63 261,108 268,140 249,182 283,278 300,233 320,172 326,200 345,208 344,162 359,113 392,175 400,195 409,150 444,108 455,120 501,187 504,150 508,102 554,125 567,100 599,125 617,83 646,45 653,58 670,100 705,83 752,70 735,98 726,128 731,175 768,200 806,213 819,255 812,275 825,287 795,300 815,310 800,320 797,330 789,335 770,358 755,375 751,400 733,412 724,428 700,430 655,455 633,470 603,500 555,525 505,545 470,562 455,570 428,566 395,553 355,546 338,530 315,512 287,492 269,492 247,497 215,503 Z"/>
+
+      <!-- ice caps -->
+      <path class="ice" d="M535,390 L548,362 575,340 615,328 655,325 690,340 706,362 700,390 672,408 636,415 596,414 560,402 Z"/>
+      <path class="ice" d="M648,408 L664,410 638,448 Z"/>
+      <path class="ice" d="M572,410 L586,412 579,452 Z"/>
+      <ellipse class="ice" cx="349" cy="352" rx="16" ry="32" transform="rotate(20 349 352)"/>
+      <circle class="ice" cx="450" cy="330" r="21"/>
+      <ellipse class="ice" cx="437" cy="517" rx="22" ry="15"/>
+      <circle class="ice" cx="396" cy="522" r="9"/>
+      <circle class="ice" cx="201" cy="108" r="9"/>
+      <circle class="ice" cx="84" cy="322" r="7"/>
+      <text class="lbl" x="570" y="374">VATNAJÖKULL</text>
+
+      <!-- lakes -->
+      <ellipse class="lake" cx="288" cy="437" rx="11" ry="9"/>
+      <ellipse class="lake" cx="578" cy="203" rx="10" ry="8"/>
+
+      <!-- Route 1: the Ring Road, on land -->
+      <path class="road" d="M231,443 L236,430 228,414 232,377 250,340 262,310 283,278 305,240 318,225 347,206 372,205 396,202 440,200 470,196 501,187 520,186 539,186 560,190 578,196 585,196 592,193 610,200 640,210 668,235 692,262 720,258 762,257 778,270 795,300 800,318 798,327 797,330 789,335 770,358 755,375 748,395 730,410 712,424 704,424 690,432 655,450 632,454 610,458 580,462 545,478 500,500 470,522 437,560 420,552 401,545 384,538 367,531 348,520 330,510 302,494 280,480 258,468 240,455 231,443"/>
+
+      <!-- spurs: side roads off the ring -->
+      <path class="spur" d="M231,443 L260,430 291,420 318,418 345,415 358,412 350,432 330,448 305,462 280,480"/>
+      <path class="spur" d="M232,377 L205,362 180,352 150,340 128,330 111,339 92,341 80,325 105,317 134,310 174,290 205,302 222,340 232,377"/>
+      <path class="spur" d="M232,377 L262,368 298,350"/>
+      <path class="spur" d="M316,228 L322,212 322,199"/>
+      <path class="spur" d="M634,206 L628,185 621,164"/>
+      <path class="spur" d="M692,262 L697,273"/>
+      <path class="spur" d="M762,257 L776,257 789,257"/>
+      <path class="spur" d="M706,426 L714,426 721,426"/>
+      <path class="spur" d="M437,560 L429,566 M437,560 L436,566"/>
+      <path class="spur" d="M500,500 L495,505 M367,531 L368,524 M632,454 L636,459 M234,450 L229,447"/>
+
+      <!-- stops -->
+      <g id="dots">
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=64.14202,-21.92655" target="_blank" rel="noopener"><circle class="dot" data-k="s01" style="--a:var(--d1)" cx="231" cy="443"><title>01 · Hallgrímskirkja</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=64.28217,-21.07645" target="_blank" rel="noopener"><circle class="dot" data-k="s02" style="--a:var(--d1)" cx="291" cy="420"><title>02 · Þingvellir</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=64.31271,-20.30072" target="_blank" rel="noopener"><circle class="dot" data-k="s03" style="--a:var(--d1)" cx="345" cy="415"><title>03 · Strokkur</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=64.32707,-20.11995" target="_blank" rel="noopener"><circle class="dot" data-k="s04" style="--a:var(--d1)" cx="358" cy="412"><title>04 · Gullfoss</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=63.61562,-19.98857" target="_blank" rel="noopener"><circle class="dot" data-k="s05" style="--a:var(--d2)" cx="367" cy="531"><title>05 · Seljalandsfoss</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=63.62086,-19.98645" target="_blank" rel="noopener"><circle class="dot" data-k="s06" style="--a:var(--d2)" cx="368" cy="524"><title>06 · Gljúfrabúi</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=63.53205,-19.51137" target="_blank" rel="noopener"><circle class="dot" data-k="s07" style="--a:var(--d2)" cx="401" cy="545"><title>07 · Skógafoss</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=63.40468,-19.11855" target="_blank" rel="noopener"><circle class="dot" data-k="s08" style="--a:var(--d2)" cx="429" cy="566"><title>08 · Dyrhólaey</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=63.40574,-19.07162" target="_blank" rel="noopener"><circle class="dot" data-k="s09" style="--a:var(--d2)" cx="436" cy="566"><title>09 · Reynisfjara</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=63.77128,-18.17182" target="_blank" rel="noopener"><circle class="dot" data-k="s10" style="--a:var(--d3)" cx="495" cy="505"><title>10 · Fjaðrárgljúfur</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=64.02753,-16.97531" target="_blank" rel="noopener"><circle class="dot" data-k="s11" style="--a:var(--d3)" cx="580" cy="462"><title>11 · Svartifoss</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=64.07845,-16.23055" target="_blank" rel="noopener"><circle class="dot" data-k="s12" style="--a:var(--d3)" cx="632" cy="454"><title>12 · Jökulsárlón</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=64.04433,-16.17766" target="_blank" rel="noopener"><circle class="dot" data-k="s13" style="--a:var(--d3)" cx="636" cy="459"><title>13 · Diamond Beach</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=64.24641,-14.96986" target="_blank" rel="noopener"><circle class="dot" data-k="s14" style="--a:var(--d3)" cx="721" cy="426"><title>14 · Stokksnes</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=64.25519,-15.20884" target="_blank" rel="noopener"><circle class="dot" data-k="s15" style="--a:var(--d4)" cx="704" cy="424"><title>15 · Höfn</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=64.83544,-13.88063" target="_blank" rel="noopener"><circle class="dot" data-k="s16" style="--a:var(--d4)" cx="798" cy="327"><title>16 · Petra's Stones</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=65.26062,-14.00971" target="_blank" rel="noopener"><circle class="dot" data-k="s17" style="--a:var(--d4)" cx="789" cy="257"><title>17 · Seyðisfjörður</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=65.16327,-15.30693" target="_blank" rel="noopener"><circle class="dot" data-k="s18" style="--a:var(--d5)" cx="697" cy="273"><title>18 · Stuðlagil</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=65.81467,-16.38458" target="_blank" rel="noopener"><circle class="dot" data-k="s19" style="--a:var(--d5)" cx="621" cy="164"><title>19 · Dettifoss</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=65.64091,-16.80931" target="_blank" rel="noopener"><circle class="dot" data-k="s20" style="--a:var(--d5)" cx="592" cy="193"><title>20 · Hverir</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=65.63089,-16.84761" target="_blank" rel="noopener"><circle class="dot" data-k="s21" style="--a:var(--d5)" cx="584" cy="199"><title>21 · Earth Lagoon</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=65.68278,-17.55019" target="_blank" rel="noopener"><circle class="dot" data-k="s22" style="--a:var(--d5)" cx="539" cy="186"><title>22 · Goðafoss</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=65.68255,-18.09069" target="_blank" rel="noopener"><circle class="dot" data-k="s23" style="--a:var(--d6)" cx="501" cy="186"><title>23 · Akureyri</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=65.60638,-20.63524" target="_blank" rel="noopener"><circle class="dot" data-k="s24" style="--a:var(--d6)" cx="322" cy="199"><title>24 · Hvítserkur</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=64.70290,-20.97717" target="_blank" rel="noopener"><circle class="dot" data-k="s25" style="--a:var(--d6)" cx="298" cy="350"><title>25 · Hraunfossar</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=64.82169,-23.38403" target="_blank" rel="noopener"><circle class="dot" data-k="s26" style="--a:var(--d7)" cx="128" cy="330"><title>26 · Búðakirkja</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=64.76431,-23.62487" target="_blank" rel="noopener"><circle class="dot" data-k="s27" style="--a:var(--d7)" cx="111" cy="339"><title>27 · Arnarstapi</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=64.75229,-23.90052" target="_blank" rel="noopener"><circle class="dot" data-k="s28" style="--a:var(--d7)" cx="92" cy="341"><title>28 · Djúpalónssandur</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=64.93987,-23.30647" target="_blank" rel="noopener"><circle class="dot" data-k="s29" style="--a:var(--d7)" cx="134" cy="310"><title>29 · Kirkjufell</title></circle></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=64.11649,-21.94629" target="_blank" rel="noopener"><circle class="dot" data-k="s30" style="--a:var(--d7)" cx="229" cy="447"><title>30 · Sky Lagoon</title></circle></a>
+      </g>
+      <!-- scale -->
+      <g class="scale">
+        <line x1="30" y1="572" x2="180" y2="572"/>
+        <line x1="30" y1="567" x2="30" y2="577"/>
+        <line x1="180" y1="567" x2="180" y2="577"/>
+        <text x="105" y="562" text-anchor="middle">100 KM</text>
+      </g>
+    </svg>
+    <div class="mapui">
+      <button id="zin" aria-label="Zoom in">+</button>
+      <button id="zout" aria-label="Zoom out">−</button>
+      <button id="zreset" aria-label="Reset view">⌂</button>
+    </div>
+    <div class="maphint">scroll · pinch · drag</div>
+  </div>
+
+  <ul class="notes">
+    <li><b>Reynisfjara:</b> never turn your back on the sea.</li>
+    <li><b>Book ahead:</b> Earth Lagoon, Sky Lagoon, Jökulsárlón zodiacs.</li>
+    <li><b>Mývatn</b> means midge-lake — pack a head net.</li>
+    <li><b>Gravel spurs</b> at Hvítserkur &amp; Stuðlagil: any car, go slow.</li>
+    <li><b>Fuel</b> whenever you see a pump in the east.</li>
+    <li class="credit">Photos © their Google Maps contributors.</li>
+  </ul>
+
+</div>
+
+<main class="week">
+
+  <section class="day" style="--a:var(--d1);--i:0">
+    <header><span class="num">LEG 01</span><h2>Golden Circle</h2><p class="meta">≈230 km</p></header>
+    <ol>
+      <li data-k="s01">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=64.14202,-21.92655" target="_blank" rel="noopener"><img loading="lazy" alt="Hallgrímskirkja" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAJXGS-h5u98rPGgOTougx98sW6dzh8LFKRJsp1jT227HVfryw1_MlTJjutE0-60PRfno1B4jZTVn3yRP0IzRrsfVswJyw7CXl2p2LiQjYau9Fo1ZuUy_85RkfAvgbY_VXVKYAv8D1rKE1BHMo=s4800-w800-h600"></a>
+        <b>Hallgrímskirkja</b><small>tower lift, city panorama</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=64.14202,-21.92655" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Hallgr%C3%ADmskirkja" target="_blank" rel="noopener">wiki</a><a href="https://www.hallgrimskirkja.is/" target="_blank" rel="noopener">site</a></span></li>
+      <li data-k="s02">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=64.28217,-21.07645" target="_blank" rel="noopener"><img loading="lazy" alt="Þingvellir" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDXzCfhM8U0kAD06cAVb7tWvenOQhfQPKq7-zzWdxvU0PpbKfGCmazPaWCtA_Xv5aHPfW56cvF8f6_w17abpUd1kdGOsYsPiwz5w2SnrIXsiVrRgOrKLrOpG-K1BvzW0Y-3A_491T7Qxnb9tA=s4800-w800-h600"></a>
+        <b>Þingvellir</b><small>walk the rift between continents</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=64.28217,-21.07645" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/%C3%9Eingvellir" target="_blank" rel="noopener">wiki</a><a href="https://www.thingvellir.is/" target="_blank" rel="noopener">site</a></span></li>
+      <li data-k="s03">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=64.31271,-20.30072" target="_blank" rel="noopener"><img loading="lazy" alt="Strokkur" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCQ9HjDQ9OXpJZIIAy3QHLROROEuqTtfC3cZFPVb3OM3D7UTWpQzB1soV2jmQ37X6vKZTT3lyBDRF3_c0Hi9HUf0C8LXWLqkWt_FMCO4sU1jtDMoVTHXM3oybTH5tLjXFPlQEL4vxfCOhZZAQ=s4800-w800-h600"></a>
+        <b>Strokkur</b><small>erupts every 5–10 minutes</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=64.31271,-20.30072" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Strokkur" target="_blank" rel="noopener">wiki</a></span></li>
+      <li data-k="s04">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=64.32707,-20.11995" target="_blank" rel="noopener"><img loading="lazy" alt="Gullfoss" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCgkaa4u8cN56lrNMFJs1fTSlWvHueB3_lJy_sLSEiAtAd67xNac6IBdTXK-1B1t9-UizYKdkPqI5hSzOdFxBfA6YM7Qoz9ZXU26Ig4a-IHTeSU-m7tFvYIb2DIm3HBoxFtIKIh-YrMK1VS=s4800-w800-h600"></a>
+        <b>Gullfoss</b><small>lower path, into the spray</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=64.32707,-20.11995" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Gullfoss" target="_blank" rel="noopener">wiki</a></span></li>
+    </ol>
+  </section>
+
+  <section class="day" style="--a:var(--d2);--i:1">
+    <header><span class="num">LEG 02</span><h2>South Coast</h2><p class="meta">≈160 km</p></header>
+    <ol>
+      <li data-k="s05">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=63.61562,-19.98857" target="_blank" rel="noopener"><img loading="lazy" alt="Seljalandsfoss" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCdd7659u8xkxPfXGmMnI8DuN-19LX1uvxQUaJOGff8ca5-qsdSVehQkJDHkoAxNPAvdRHLSsLntoBgNjgxVYDDZa4GApWHA5zvg-p03FAUl0HgIT_HEIFJGgO0ccQzX6Fi6LV_Mn0lThE5cg=s4800-w800-h600"></a>
+        <b>Seljalandsfoss</b><small>walk behind the falls</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=63.61562,-19.98857" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Seljalandsfoss" target="_blank" rel="noopener">wiki</a></span></li>
+      <li data-k="s06">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=63.62086,-19.98645" target="_blank" rel="noopener"><img loading="lazy" alt="Gljúfrabúi" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDgMTquXRiQkzq07i2TVYku3_RKtGzV-aOH1tbPn_3KIFJ1TvGNiAPBP_lhjdetZc5uRMiVGnWp7CkbMkx9EoNenyIBlc9uTuZGgA3b11eCNgtc-FxzsF0Wx77ptz2zaewrnJGYIg2AuZ0J=s4800-w800-h600"></a>
+        <b>Gljúfrabúi</b><small>hidden in a slot canyon</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=63.62086,-19.98645" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Glj%C3%BAfrafoss" target="_blank" rel="noopener">wiki</a></span></li>
+      <li data-k="s07">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=63.53205,-19.51137" target="_blank" rel="noopener"><img loading="lazy" alt="Skógafoss" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCN6Llm9URAFow5BKeUYC73zU4Dd5LzMIc6sSelBUTO7KEJdJTgT6U6a_1m4AMLHt2yqQOHdtV_qyzWlsZcrYHZmSHRLtUPm1HRc6xDQ_sbYiP8dycadtVrgeFnFenq1lzFvrn2zxIAgBelz6c=s4800-w800-h600"></a>
+        <b>Skógafoss</b><small>527 steps to the top</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=63.53205,-19.51137" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Sk%C3%B3gafoss" target="_blank" rel="noopener">wiki</a></span></li>
+      <li data-k="s08">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=63.40468,-19.11855" target="_blank" rel="noopener"><img loading="lazy" alt="Dyrhólaey" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAjNyLOULjNTAmf2SgswZyUf1XuRx6EyMRqCd2JXQIk139XPma4sB0mXuI0oBc2jMg8dVGqwDgpih2ET9mb2M5Ts9jqyM31YTVDKn5lnQbQlMIMkdgnvRngq81o7PdUK3fxw8yZgGtdI_1RaIE=s4800-w800-h600"></a>
+        <b>Dyrhólaey</b><small>puffins until early August</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=63.40468,-19.11855" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Dyrh%C3%B3laey" target="_blank" rel="noopener">wiki</a><a href="https://www.south.is/is/stadur/dyrholaey" target="_blank" rel="noopener">site</a></span></li>
+      <li data-k="s09">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=63.40574,-19.07162" target="_blank" rel="noopener"><img loading="lazy" alt="Reynisfjara" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDeReO9ArEF8XqcOe7OqehG_HLDjVy7q6U6OxwNGdIa08gk9910HwKDaWj_PtPzNkhk-mWOBSboFcwfpOu2-WmYZnFkAiaWSL665IPsO3wjS2MB6utB9-tbfiOOPTkI6YtptsWBWQGvvkux=s4800-w800-h600"></a>
+        <b>Reynisfjara</b><small>basalt columns · sneaker waves</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=63.40574,-19.07162" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Reynisfjara" target="_blank" rel="noopener">wiki</a></span></li>
+    </ol>
+  </section>
+
+  <section class="day" style="--a:var(--d3);--i:2">
+    <header><span class="num">LEG 03</span><h2>Glacier Country</h2><p class="meta">≈270 km</p></header>
+    <ol>
+      <li data-k="s10">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=63.77128,-18.17182" target="_blank" rel="noopener"><img loading="lazy" alt="Fjaðrárgljúfur" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCx-pfbdpsHWKTctIcCUZzDEmqTfkRIEvbmjnwMUh-8PtKzBywBlw0xqGrqhjCJ-xBi7mBSw84dHKkjzZhpFZDVgin-6K9l7TRRb4SEQ4DTpD3geJXrIX5Nawj-ZX-bbNFbJura9pOMKlzAsA=s4800-w800-h600"></a>
+        <b>Fjaðrárgljúfur</b><small>2M-year serpentine canyon</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=63.77128,-18.17182" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Fja%C3%B0r%C3%A1rglj%C3%BAfur" target="_blank" rel="noopener">wiki</a></span></li>
+      <li data-k="s11">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=64.02753,-16.97531" target="_blank" rel="noopener"><img loading="lazy" alt="Svartifoss" src="https://lh3.googleusercontent.com/place-photos/AG9NLjD_tB8DtQu8WE_aVW_LbBfJw9eDJ-u-s58Zq3rEOWZa4iUFgOCGD5JvzAs2ArlUviTiMTtIFwkINHPQA0w-zObM5ryMfrdPgjIg7LPESAfnEG8eLNpDxqb4TMR7Ddg1VHDYFuu4MIrwRCxG1eU=s4800-w800-h600"></a>
+        <b>Svartifoss</b><small>basalt organ pipes, short hike</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=64.02753,-16.97531" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Svartifoss" target="_blank" rel="noopener">wiki</a></span></li>
+      <li data-k="s12">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=64.07845,-16.23055" target="_blank" rel="noopener"><img loading="lazy" alt="Jökulsárlón" src="https://lh3.googleusercontent.com/place-photos/AG9NLjB-viZInqY7OO2m4Q0pKZjN9LuhfmdHZ3xZL76npbhVWNEJQrUbX-JiYW4zBe7xGOxuCbVlyKaTzCiup5Yi5jIoyVmru6gguouRBd0xVicLcWHxjHqSvVv9U39Yy4xiaONInS8cbkuQFdTWwK_D14QhEQ=s4800-w800-h600"></a>
+        <b>Jökulsárlón</b><small>calving icebergs · zodiac tours</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=64.07845,-16.23055" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/J%C3%B6kuls%C3%A1rl%C3%B3n" target="_blank" rel="noopener">wiki</a></span></li>
+      <li data-k="s13">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=64.04433,-16.17766" target="_blank" rel="noopener"><img loading="lazy" alt="Diamond Beach" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCK9O27KYE6kvB9AU_OSDQK1XaLreNC544fBWA3_ptPQbjfDmlqs8esX8l1fTwWw2FevDd6zo1O-SV3dZ4HOYK3cEf2WVwQVeALB1ilP-1xd1jSGGMjrm9H1CVlHVjhCTNIMAjNtkEjjLLT=s4800-w800-h600"></a>
+        <b>Diamond Beach</b><small>ice glitter on black sand</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=64.04433,-16.17766" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Brei%C3%B0amerkursandur" target="_blank" rel="noopener">wiki</a></span></li>
+      <li data-k="s14">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=64.24641,-14.96986" target="_blank" rel="noopener"><img loading="lazy" alt="Stokksnes — Vestrahorn" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDz1R0aUkWF_zjKnS5VFgaYT-pUDFKKOskoDjByFuZn5FuOb6jZ__jysbq98jfCjuaLdN4U0KzRXHAXJcumoa0m_jJxbop5rfxIJ2M4c_7fOoen9yADVm0DcAaboWeCOomcDkobdMLLSF7rY2Q=s4800-w800-h600"></a>
+        <b>Stokksnes</b><small>Vestrahorn over mirror dunes</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=64.24641,-14.96986" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Stokksnes" target="_blank" rel="noopener">wiki</a></span></li>
+    </ol>
+  </section>
+
+  <section class="day" style="--a:var(--d4);--i:3">
+    <header><span class="num">LEG 04</span><h2>East Fjords</h2><p class="meta">≈260 km</p></header>
+    <ol>
+      <li data-k="s15">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=64.25519,-15.20884" target="_blank" rel="noopener"><img loading="lazy" alt="Höfn" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAN5ogzSGSDGcIcpx_xBBkmfpDUzyS30PPVUs7IUy27sZqHGqtdzoACqF88ZlFnHhw2l0KWnk14JKh6Gu6taCkDR7-2_Pz7E0s599rjYZir3ToZ1E6aJGL4N9FC0PuBFyiIYnYzfwVpdlo3Pts=s4800-w800-h600"></a>
+        <b>Höfn</b><small>langoustine capital, harbour walk</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=64.25519,-15.20884" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/H%C3%B6fn" target="_blank" rel="noopener">wiki</a></span></li>
+      <li data-k="s16">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=64.83544,-13.88063" target="_blank" rel="noopener"><img loading="lazy" alt="Petra's Stone Collection" src="https://lh3.googleusercontent.com/place-photos/AG9NLjB0qDsze45N2oryQ_7IGZmx-XgK1nMQULPnEu2PHDUJJ1ONrmJN8EmBRJaHYarU6jl6fiD55xnBpRcO0mH2uAfIWjU73tPklPNdylsVcWm7SK05KrnIQAg-lZFBX2-ACW3bE53-T5IZAz4nBwQ=s4800-w800-h600"></a>
+        <b>Petra's Stones</b><small>one woman's 80-year collection</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=64.83544,-13.88063" target="_blank" rel="noopener">pin</a><a href="http://www.steinapetra.is/" target="_blank" rel="noopener">site</a></span></li>
+      <li data-k="s17">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=65.26062,-14.00971" target="_blank" rel="noopener"><img loading="lazy" alt="Seyðisfjörður rainbow street" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDS8YDis9SozgbKgHUJJw097vpiGhmeujGvfB57YZYBp5sop8VMQm4zXhES5ccgJk6UeD7l13BTMMcgj8Ao_k3XyVfk6gU3Mp5LH_RiBgi5-n6Y776j6ICYk--z9IuPTsUDdVsKDxZtz0gtgyCA7jctqg=s4800-w800-h600"></a>
+        <b>Seyðisfjörður</b><small>rainbow street, epic pass drive</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=65.26062,-14.00971" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Sey%C3%B0isfj%C3%B6r%C3%B0ur" target="_blank" rel="noopener">wiki</a></span></li>
+    </ol>
+  </section>
+
+  <section class="day" style="--a:var(--d5);--i:4">
+    <header><span class="num">LEG 05</span><h2>Mývatn &amp; North</h2><p class="meta">≈250 km</p></header>
+    <ol>
+      <li data-k="s18">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=65.16327,-15.30693" target="_blank" rel="noopener"><img loading="lazy" alt="Stuðlagil Canyon" src="https://lh3.googleusercontent.com/place-photos/AG9NLjC3HaipUCHC8O4wqnfCyqPkm1B04QB55f-fknf_XrzCPL5ug5-xiSXUtyTEgXnviCX5-kJIskuPkI0OsVWaIbBP4L9lNAdqXKYC-Jdd0wlmTpX1n5VVyX89bOnghPhPsYXNJuJYyKiA8Q53Jes=s4800-w800-h600"></a>
+        <b>Stuðlagil</b><small>turquoise river, basalt walls</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=65.16327,-15.30693" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Stu%C3%B0lagil" target="_blank" rel="noopener">wiki</a><a href="https://www.east.is/en/place/studlagil-canyon" target="_blank" rel="noopener">site</a></span></li>
+      <li data-k="s19">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=65.81467,-16.38458" target="_blank" rel="noopener"><img loading="lazy" alt="Dettifoss" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAUT4lmlmqFZz_1TQAk10tRU2FeTPNx-wBGIzUCzYcYJZj-gkOj_guqSflGFajhQ_F_RdORWLlxzAWZcWIqlvkDhBrDahxasgkc8zEt_FA6Y9_-3VIDNqrJC_gSvL8u4RLJ1xEEoqL2Wn3YCh8=s4800-w800-h600"></a>
+        <b>Dettifoss</b><small>Europe's most powerful falls</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=65.81467,-16.38458" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Dettifoss" target="_blank" rel="noopener">wiki</a></span></li>
+      <li data-k="s20">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=65.64091,-16.80931" target="_blank" rel="noopener"><img loading="lazy" alt="Hverir geothermal area" src="https://lh3.googleusercontent.com/place-photos/AG9NLjBWG03y8qZJpRDEY2U-MKGGvu5BaA4C63TkJwDaNlkeySuPbi_MyNf_EgNyb51HPa1U3Z-9Ho0mF3zGAR6PU40ONE8UVuRXtP_AWWADvhETJjM3Khq-Sgdkn8WXcIB_y5QCUly1gztkgYsSOl4=s4800-w800-h600"></a>
+        <b>Hverir</b><small>boiling mud, Mars-orange earth</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=65.64091,-16.80931" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Hverir" target="_blank" rel="noopener">wiki</a><a href="https://www.hverir.com/" target="_blank" rel="noopener">site</a></span></li>
+      <li data-k="s21">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=65.63089,-16.84761" target="_blank" rel="noopener"><img loading="lazy" alt="Earth Lagoon Mývatn" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAEAdg_ulqm0h6gG6OVY9F18LqrsUeYHnBatYxq19DW8GKJ2Aqev9b6lepfj4YZZEGK_xCJCCNni2JMikZjFLzYd-D_Gpqc0YzmirzFAksf14ZZKfwGh0xkXnz3E2ekIugPMLPeEgxZQRnc6Bk=s4800-w800-h600"></a>
+        <b>Earth Lagoon</b><small>Mývatn's geothermal soak · book</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=65.63089,-16.84761" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/M%C3%BDvatn" target="_blank" rel="noopener">wiki</a><a href="https://www.earthlagoon.is/" target="_blank" rel="noopener">site</a></span></li>
+      <li data-k="s22">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=65.68278,-17.55019" target="_blank" rel="noopener"><img loading="lazy" alt="Goðafoss" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCpFwXiJ2XfmRRe9mEqw9WqR8Y5mxYqmqaD_t3j72L4AuEFz7EwwrhUzUggNsAonv6a04tLEV_agraX3oTA-jQu356P1G0Qlp4Ajxs3h7gBWLcX1q14C0t509twLr-ql2bSOoYI4rENKqKBKQ=s4800-w800-h600"></a>
+        <b>Goðafoss</b><small>the gods went overboard, 1000 AD</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=65.68278,-17.55019" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Go%C3%B0afoss" target="_blank" rel="noopener">wiki</a></span></li>
+    </ol>
+  </section>
+
+  <section class="day" style="--a:var(--d6);--i:5">
+    <header><span class="num">LEG 06</span><h2>Long Haul West</h2><p class="meta">≈450 km</p></header>
+    <ol>
+      <li data-k="s23">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=65.68255,-18.09069" target="_blank" rel="noopener"><img loading="lazy" alt="Akureyri" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCCW2ms8lzkC8DJ7iuTPA0gHSrOJ_8W_YbegHz-7URiIbyGNo5OEtGVMU_Wp3TkLLU8zDn_9qYp3QIu2tblgL7ZAEmMyGWJ1sNwiJijouBiG5gbrg5WvuB3OMwg8QYDqe89f1opgI_vMcZyiw=s4800-w800-h600"></a>
+        <b>Akureyri</b><small>heart lights, botanic garden</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=65.68255,-18.09069" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Akureyri" target="_blank" rel="noopener">wiki</a><a href="https://www.akureyri.is/" target="_blank" rel="noopener">site</a></span></li>
+      <li data-k="s24">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=65.60638,-20.63524" target="_blank" rel="noopener"><img loading="lazy" alt="Hvítserkur" src="https://lh3.googleusercontent.com/place-photos/AG9NLjBApXZ5uGXuOuv_pWsFJokKwiCAO52N3MtR4EWcMPibjQWGJkzGYfNZ_kY3ELMAK-PvUbzyyrmP4M7rOPhirlIzEXpv8UdC5xdqoNPJ5tLZOIPENYJWM-Zg1VKvXR2SXzOH6DGpmsfOYqRK=s4800-w800-h600"></a>
+        <b>Hvítserkur</b><small>basalt dragon, seals at low tide</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=65.60638,-20.63524" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Hv%C3%ADtserkur" target="_blank" rel="noopener">wiki</a></span></li>
+      <li data-k="s25">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=64.70290,-20.97717" target="_blank" rel="noopener"><img loading="lazy" alt="Hraunfossar" src="https://lh3.googleusercontent.com/place-photos/AG9NLjC_vgJxheLC4U9X5qnmy9b24vrE_vp4lE0qrNlPDfXUWrIU-ER4LstGOZiOqJ7M0T8mfcjAkme15ClnCzuaSMkzGiQ3jY9ivE58LVQg3CYbKYWQChgN1PO8YTTU2rmJbhcFwTjMsiIjc6zxJg6MNMZp=s4800-w800-h600"></a>
+        <b>Hraunfossar</b><small>a lava field leaking waterfalls</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=64.70290,-20.97717" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Hraunfossar" target="_blank" rel="noopener">wiki</a></span></li>
+    </ol>
+  </section>
+
+  <section class="day" style="--a:var(--d7);--i:6">
+    <header><span class="num">LEG 07</span><h2>Snæfellsnes</h2><p class="meta">≈300 km · closes the loop</p></header>
+    <ol>
+      <li data-k="s26">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=64.82169,-23.38403" target="_blank" rel="noopener"><img loading="lazy" alt="Búðakirkja" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAD6dJNUHUppeKiDetVOZb_0h2epKZ__SMEuAEXxrBK9wpSSdbfLQCIjXfknfeLr5-vXA0TTsLfEBwnulotE6Bp7IC7yxE4_z0Vgw81fDKxh4w5Q5wsYNBVvM668JnGyBxb6DhJEp2uEqzwAvW-je0O1w=s4800-w800-h600"></a>
+        <b>Búðakirkja</b><small>lone black church, 1848</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=64.82169,-23.38403" target="_blank" rel="noopener">pin</a><a href="http://www.budakirkja.is/" target="_blank" rel="noopener">site</a></span></li>
+      <li data-k="s27">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=64.76431,-23.62487" target="_blank" rel="noopener"><img loading="lazy" alt="Arnarstapi cliffs" src="https://lh3.googleusercontent.com/place-photos/AG9NLjA6GICpZrlTgfG-PsFAHWbhVei32YkY0E-4kkDqgJ9KT9q-ca6cJDsdFGdmHPtKosdDilReV1KRYtjvaL969w8-59WxT3OeYE5vY286hY9tmJQkUeaWIhlS8wC6qoXsI2b6CYm-cJibX8STMs4=s4800-w800-h600"></a>
+        <b>Arnarstapi</b><small>cliff walk to Gatklettur arch</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=64.76431,-23.62487" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Arnarstapi" target="_blank" rel="noopener">wiki</a></span></li>
+      <li data-k="s28">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=64.75229,-23.90052" target="_blank" rel="noopener"><img loading="lazy" alt="Djúpalónssandur" src="https://lh3.googleusercontent.com/place-photos/AG9NLjBAWxzHBmTllXmmRPn9Mc5c5_ipaZIUF9b_AESz_lArgSOdK545Kt9-chZrbmAsD6wmQT6ooGXQaLUfHQnITRW_Q9Ys6vS2ISzAYyy2ifZYTR1Y0drL-NPNa6zCjS6HRBQ03q2-cBZZIBYITI-UKhAhdA=s4800-w800-h600"></a>
+        <b>Djúpalónssandur</b><small>pearl beach, wreck, lifting stones</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=64.75229,-23.90052" target="_blank" rel="noopener">pin</a><a href="http://www.snaefellsjokull.com/djupalonssandur/" target="_blank" rel="noopener">site</a></span></li>
+      <li data-k="s29">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=64.93987,-23.30647" target="_blank" rel="noopener"><img loading="lazy" alt="Kirkjufell" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAJ_kQJ_Bcjqr29FIgraQZ9-xD2TlqiolGStfM4qNO5qCKguwecKSCJKaSJcPLrtcn82PJ4Y1MNWpFpVuN-jpAc51FEa-1glfrvcxfUJ3uTapTCPClDRQdtY_sGHfQhM1pDDDSGS1OMcTuD=s4800-w614-h600"></a>
+        <b>Kirkjufell</b><small>the most photographed mountain</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=64.93987,-23.30647" target="_blank" rel="noopener">pin</a><a href="https://en.wikipedia.org/wiki/Kirkjufell" target="_blank" rel="noopener">wiki</a></span></li>
+      <li data-k="s30">
+        <a class="ph" href="https://www.google.com/maps/search/?api=1&amp;query=64.11649,-21.94629" target="_blank" rel="noopener"><img loading="lazy" alt="Sky Lagoon" src="https://lh3.googleusercontent.com/place-photos/AG9NLjC5M92azNPa7_LIvMS_kmMs4nmLBUuDRGUgyEN58M_MWIK8Nb5B-mwR4DiGCkic2uAqW0wVGOfHSYR7NJOG9r5UWTxvyLfYX1_Z7-3cMNKA7I0uRC_HIRyfAFcatAG4Op8xTlljqXCMYmR6=s4800-w800-h600"></a>
+        <b>Sky Lagoon</b><small>infinity edge, 7-step ritual</small>
+        <span class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=64.11649,-21.94629" target="_blank" rel="noopener">pin</a><a href="https://www.skylagoon.com/" target="_blank" rel="noopener">site</a></span></li>
+    </ol>
+  </section>
+
+</main>
+
+<script>
+(() => {
+  /* ---- cross-highlight: list <-> map ---- */
+  const link = (k, on) =>
+    document.querySelectorAll('[data-k="' + k + '"]').forEach(el => el.classList.toggle('hot', on));
+  document.querySelectorAll('[data-k]').forEach(el => {
+    el.addEventListener('mouseenter', () => link(el.dataset.k, true));
+    el.addEventListener('mouseleave', () => link(el.dataset.k, false));
+  });
+
+  /* ---- map zoom & pan ---- */
+  const svg = document.getElementById('map');
+  const HOME = { x: 0, y: 0, w: 860, h: 600 };
+  let vb = { ...HOME };
+  const MIN_W = 860 / 10, MAX_W = 860 * 1.2;
+
+  const apply = () => {
+    svg.setAttribute('viewBox', vb.x + ' ' + vb.y + ' ' + vb.w + ' ' + vb.h);
+    document.documentElement.style.setProperty('--z', vb.w / 860);
+  };
+
+  const toSvg = (cx, cy) => {
+    const r = svg.getBoundingClientRect();
+    const s = Math.min(r.width / vb.w, r.height / vb.h);
+    const ox = (r.width - vb.w * s) / 2, oy = (r.height - vb.h * s) / 2;
+    return { x: vb.x + (cx - r.left - ox) / s, y: vb.y + (cy - r.top - oy) / s };
+  };
+
+  const zoomAt = (px, py, factor) => {
+    const w = Math.min(MAX_W, Math.max(MIN_W, vb.w * factor));
+    const f = w / vb.w;
+    vb = { x: px - (px - vb.x) * f, y: py - (py - vb.y) * f, w, h: w * 600 / 860 };
+    apply();
+  };
+
+  svg.addEventListener('wheel', e => {
+    e.preventDefault();
+    const p = toSvg(e.clientX, e.clientY);
+    zoomAt(p.x, p.y, Math.exp(e.deltaY * 0.0022));
+  }, { passive: false });
+
+  svg.addEventListener('dblclick', e => {
+    const p = toSvg(e.clientX, e.clientY);
+    zoomAt(p.x, p.y, 1 / 1.7);
+  });
+
+  const pts = new Map();
+  let moved = false, last = null, lastDist = 0;
+
+  svg.addEventListener('pointerdown', e => {
+    svg.setPointerCapture(e.pointerId);
+    pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    moved = false;
+    if (pts.size === 1) { last = { x: e.clientX, y: e.clientY }; svg.classList.add('dragging'); }
+    if (pts.size === 2) {
+      const [a, b] = [...pts.values()];
+      lastDist = Math.hypot(a.x - b.x, a.y - b.y);
+    }
+  });
+
+  svg.addEventListener('pointermove', e => {
+    if (!pts.has(e.pointerId)) return;
+    pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pts.size === 1 && last) {
+      const dx = e.clientX - last.x, dy = e.clientY - last.y;
+      if (Math.abs(dx) + Math.abs(dy) > 3) moved = true;
+      const r = svg.getBoundingClientRect();
+      const s = Math.min(r.width / vb.w, r.height / vb.h);
+      vb.x -= dx / s; vb.y -= dy / s;
+      last = { x: e.clientX, y: e.clientY };
+      apply();
+    } else if (pts.size === 2) {
+      moved = true;
+      const [a, b] = [...pts.values()];
+      const d = Math.hypot(a.x - b.x, a.y - b.y);
+      if (lastDist > 0) {
+        const mid = toSvg((a.x + b.x) / 2, (a.y + b.y) / 2);
+        zoomAt(mid.x, mid.y, lastDist / d);
+      }
+      lastDist = d;
+    }
+  });
+
+  const lift = e => {
+    pts.delete(e.pointerId);
+    if (pts.size === 0) { last = null; svg.classList.remove('dragging'); }
+    if (pts.size < 2) lastDist = 0;
+  };
+  svg.addEventListener('pointerup', lift);
+  svg.addEventListener('pointercancel', lift);
+
+  svg.addEventListener('click', e => {
+    if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+  }, true);
+
+  const center = () => ({ x: vb.x + vb.w / 2, y: vb.y + vb.h / 2 });
+  document.getElementById('zin').addEventListener('click', () => { const c = center(); zoomAt(c.x, c.y, 1 / 1.5); });
+  document.getElementById('zout').addEventListener('click', () => { const c = center(); zoomAt(c.x, c.y, 1.5); });
+  document.getElementById('zreset').addEventListener('click', () => { vb = { ...HOME }; apply(); });
+
+  apply();
+})();
+</script>
+
+</body>
+</html>
