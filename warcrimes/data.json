@@ -52,6 +52,22 @@
         {
           "url": "https://www.middleeasteye.net/news/hind-rajab-palestinian-girl-found-dead-after-being-trapped-under-israeli-fire-days",
           "source": "Middle East Eye"
+        },
+        {
+          "url": "https://www.bbc.co.uk/news/world-middle-east-68261286",
+          "source": "BBC"
+        },
+        {
+          "url": "https://www.independent.co.uk/voices/israel-palestine-rafah-massacre-unrwa-aid-b2498168.html",
+          "source": "The Independent"
+        },
+        {
+          "url": "https://www.telegraph.co.uk/news/2024/02/11/for-israels-sake-netanyahu-must-go-now/",
+          "source": "The Telegraph"
+        },
+        {
+          "url": "https://www.theguardian.com/world/2024/feb/11/cousin-of-hind-rajab-6-haunted-by-her-last-call-after-family-car-shot-at-in-gaza",
+          "source": "The Guardian"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Killing_of_Hind_Rajab",
@@ -64,7 +80,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Demonstrator_grieves_Hind_at_a_Palestine_solidarity_demonstration_in_Lisbon.jpg",
         "credit": "Lua Eva Blue",
         "license": "CC BY 4.0"
-      }
+      },
+      "bullets": [
+        "335 bullets fired into a car carrying children, from metres away — Forensic Architecture's count.",
+        "Six years old, hours on the phone with rescuers: “Come take me. I'm so scared.”",
+        "The two paramedics sent to save her were killed too — their ambulance struck on arrival."
+      ]
     },
     {
       "id": "nasser-double-tap",
@@ -100,6 +121,34 @@
         {
           "url": "https://news.un.org/en/story/2025/08/1165719",
           "source": "UN News"
+        },
+        {
+          "url": "https://www.middleeasteye.net/live-blog/live-blog-update/safe-and-sustained-access-food-and-medicines-gaza-needed-says-who",
+          "source": "Middle East Eye"
+        },
+        {
+          "url": "https://news.sky.com/story/five-journalists-among-20-killed-in-israeli-strikes-on-hospital-gaza-health-ministry-says-13418236",
+          "source": "Sky News"
+        },
+        {
+          "url": "https://www.theguardian.com/world/2025/aug/25/journalists-among-people-killed-by-israeli-strike-on-gaza-hospital",
+          "source": "The Guardian"
+        },
+        {
+          "url": "https://www.independent.co.uk/news/world/middle-east/israel-gaza-war-palestine-journalist-deaths-nasser-hospital-latest-b2813550.html",
+          "source": "The Independent"
+        },
+        {
+          "url": "https://www.cbc.ca/news/world/gaza-condemnation-journalists-reaction-1.7617757",
+          "source": "CBC"
+        },
+        {
+          "url": "https://www.haaretz.com/israel-news/2025-08-28/ty-article/journalists-final-images-show-gaza-hospital-where-she-was-killed-in-israeli-strike/00000198-ed89-decf-a7fd-fdaf46510001",
+          "source": "Haaretz"
+        },
+        {
+          "url": "https://www.bbc.co.uk/news/articles/c80d2zrdj7vo",
+          "source": "BBC"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/2025_Nasser_Hospital_strikes",
@@ -110,7 +159,12 @@
       "photo": {
         "url": "https://www.cnn.com/2025/08/25/middleeast/more-than-dozen-killed-israeli-strikes-gaza-hospital-journalists-intl",
         "source": "CNN"
-      }
+      },
+      "bullets": [
+        "The second missile was for the rescuers — fired as they pulled bodies from the first.",
+        "Killed live on air: a Reuters camera streamed its own operator's death.",
+        "Five journalists from Reuters, AP and Al Jazeera died; the army said it was aiming at “a Hamas camera.”"
+      ]
     },
     {
       "id": "hospital-rocket-jump",
@@ -150,6 +204,26 @@
         {
           "url": "https://www.democracynow.org/2024/10/15/headlines/gaza_teen_burned_to_death_in_israeli_strike_on_hospital_identified_as_shaban_al_dalou",
           "source": "Democracy Now"
+        },
+        {
+          "url": "https://edition.cnn.com/world/live-news/israel-iran-palestine-gaza-war-10-28-24/",
+          "source": "CNN"
+        },
+        {
+          "url": "https://apnews.com/article/israel-hamas-war-news-10-18-2024-c49911f11a40b7d81b21bc8568ecfe11",
+          "source": "AP"
+        },
+        {
+          "url": "https://www.cbsnews.com/losangeles/news/drone-strike-benjamin-netanyahu-israel-gaza-lebanon-hamas/",
+          "source": "CBS News"
+        },
+        {
+          "url": "https://www.dw.com/en/israel-says-4-soldiers-killed-in-hezbollah-drone-attack/live-70483519",
+          "source": "DW"
+        },
+        {
+          "url": "https://news.sky.com/story/drone-launched-at-benjamin-netanyahus-house-13236321",
+          "source": "Sky News"
         }
       ],
       "verify": "Best-documented match for the viral clip; the exact strike behind the footage is unconfirmed — verify against the video. Card image shows the 4 Aug 2024 bombing of the same tent camp.",
@@ -163,7 +237,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Israeli_bombing_of_the_tents_of_the_displaced_in_Al-Aqsa_Martyrs_Hospital,_Deir_el-Balah,_Gaza_Strip.jpg",
         "credit": "Ashraf Amra / UNRWA",
         "license": "CC BY-SA 3.0 IGO"
-      }
+      },
+      "bullets": [
+        "People burned alive in their tents — one man still attached to his IV drip.",
+        "It was a hospital courtyard: marked, known, full of displaced families.",
+        "MSF said it knew nothing of the “Hamas command center” Israel claimed to hit."
+      ]
     },
     {
       "id": "ghf-aid-shootings",
@@ -207,6 +286,26 @@
         {
           "url": "https://www.pbs.org/newshour/world/israeli-gunfire-kills-more-gaza-aid-seekers-as-u-s-envoy-meets-with-hostages-families",
           "source": "PBS"
+        },
+        {
+          "url": "https://www.middleeasteye.net/live-blog/live-blog-update/us-backed-gaza-humanitarian-foundation-says-20-people-killed",
+          "source": "Middle East Eye"
+        },
+        {
+          "url": "https://www.dw.com/en/us-backed-gaza-aid-group-says-5-killed-in-hamas-attack/live-72877526",
+          "source": "DW"
+        },
+        {
+          "url": "https://www.theguardian.com/world/live/2025/may/27/israel-gaza-war-ghf-aid-operations-live-news-updates",
+          "source": "The Guardian"
+        },
+        {
+          "url": "https://www.bbc.co.uk/news/live/c335236e0n1t",
+          "source": "BBC"
+        },
+        {
+          "url": "https://abcnews.go.com/Politics/wfps-cindy-mccain-gaza-humanitarian-catastrophe/story?id=122392707",
+          "source": "ABC News"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/2025_Gaza_Strip_aid_distribution_killings",
@@ -219,7 +318,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Gaza_map_GHF_distribution-IDF_invasion_June_2025.png",
         "credit": "Wickey (Wikimedia Commons user)",
         "license": "CC BY-SA 4.0"
-      }
+      },
+      "bullets": [
+        "“It's a killing field” — an Israeli soldier describing his own orders, to Haaretz.",
+        "994 people killed near GHF sites in eleven weeks, by UN count — shot waiting for food.",
+        "Soldiers said commanders ordered live fire at unarmed crowds — one compared it to “red light, green light.”"
+      ]
     },
     {
       "id": "jenin-execution",
@@ -267,6 +371,26 @@
         {
           "url": "https://www.euronews.com/2025/11/28/video-shows-israeli-forces-killing-two-palestinian-men-after-apparent-surrender",
           "source": "Euronews"
+        },
+        {
+          "url": "https://www.independent.co.uk/news/world/europe/israel-west-bank-palestine-men-footage-b2874205.html",
+          "source": "The Independent"
+        },
+        {
+          "url": "https://www.cbc.ca/news/world/west-bank-two-men-killed-israeli-forces-footage-9.6995092",
+          "source": "CBC"
+        },
+        {
+          "url": "https://www.dw.com/en/israel-forces-shoot-2-palestinians-dead-in-jenin-west-bank/a-74932585",
+          "source": "DW"
+        },
+        {
+          "url": "https://news.sky.com/story/israeli-forces-kill-two-palestinian-men-in-west-bank-after-they-appear-to-surrender-13476319",
+          "source": "Sky News"
+        },
+        {
+          "url": "https://www.bbc.co.uk/news/articles/c8dyqzm0rp4o",
+          "source": "BBC"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Iron_Wall_(Israeli_military_operation)",
@@ -277,7 +401,12 @@
       "photo": {
         "url": "https://www.aljazeera.com/news/2025/11/27/israeli-troops-kill-two-palestinians-in-jenin-as-they-try-to-surrender",
         "source": "Al Jazeera"
-      }
+      },
+      "bullets": [
+        "Hands up, shirts lifted, surrendering on camera — then shot.",
+        "The UN called it what the video shows: “a summary execution.”",
+        "The surrender procedure had been underway for hours before they were killed."
+      ]
     },
     {
       "id": "baby-cigarette",
@@ -321,6 +450,10 @@
         {
           "url": "https://electronicintifada.net/blogs/nora-barrows-friedman/israeli-soldiers-torture-baby-cigarettes",
           "source": "The Electronic Intifada"
+        },
+        {
+          "url": "https://www.independent.co.uk/news/world/middle-east/gaza-toddler-torture-idf-israel-detention-b2947167.html",
+          "source": "The Independent"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Jawad_Abu_Nassar",
@@ -333,7 +466,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Nuseirat,_Maghazi_and_Bureij_refugee_camps_in_the_OCHA_OpT_September_2023_map_of_the_Gaza_Strip.png",
         "credit": "OCHA OpT (UN Office for the Coordination of Humanitarian Affairs)",
         "license": "Public domain (UN map)"
-      }
+      },
+      "bullets": [
+        "A 21-month-old returned from detention with circular burns doctors said match cigarettes.",
+        "Ten hours in military custody; his father did not come back with him.",
+        "X-rays ruled out the army's shrapnel explanation, Gaza doctors said."
+      ]
     },
     {
       "id": "sde-teiman-dogs",
@@ -377,6 +515,34 @@
         {
           "url": "https://www.amnesty.org/en/latest/news/2026/03/israel-opt-decision-to-drop-charges-against-soldiers-accused-of-abuse-of-palestinian-detainees-disgraceful/",
           "source": "Amnesty International"
+        },
+        {
+          "url": "https://www.bbc.co.uk/news/articles/crgygdr7vezo",
+          "source": "BBC"
+        },
+        {
+          "url": "https://www.theguardian.com/world/live/2024/may/10/israel-gaza-war-live-rafah-offensive-hamas-unga-new-palestinian-vote?filterKeyEvents=false&page=with%3Ablock-663de8198f08ce655a70a9bf",
+          "source": "The Guardian"
+        },
+        {
+          "url": "https://www.haaretz.com/israel-news/2024-07-09/ty-article/.premium/netanyahu-tells-top-court-all-efforts-must-be-made-to-clear-prisoners-out-of-sde-teiman/00000190-9677-d1c5-a1d6-beff09b60000",
+          "source": "Haaretz"
+        },
+        {
+          "url": "https://www.spiegel.de/international/world/fists-boots-rifle-butts-and-clubs-abuse-of-palestinian-prisoners-in-israeli-detention-facilities-a-724d3f70-2175-4ced-a23d-4452cd81024f",
+          "source": "Der Spiegel"
+        },
+        {
+          "url": "https://www.dw.com/en/israel-hamas-war-dozens-reported-dead-in-rafah-strike/live-69190614",
+          "source": "DW"
+        },
+        {
+          "url": "https://www.washingtonpost.com/world/2024/07/05/israel-gaza-hamas-negotiations-breakthrough/",
+          "source": "Washington Post"
+        },
+        {
+          "url": "https://abcnews.go.com/International/wireStory/latest-israeli-delegation-arrives-cairo-gaza-cease-fire-112056318",
+          "source": "ABC News"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Sde_Teiman_detention_camp",
@@ -389,7 +555,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:%D7%A4%D7%A8%D7%A9%D7%AA_%D7%92%D7%99%D7%90_%D7%A4%D7%9C%D7%92_%E2%80%93_%D7%94%D7%A1%D7%A8%D7%98%D7%95%D7%9F_%D7%94%D7%9E%D7%A4%D7%95%D7%A8%D7%A1%D7%9D.png",
         "credit": "IDF security camera footage (uploaded to Commons by אור גנוז)",
         "license": "Public domain (PD-automated: fixed CCTV footage, ineligible for copyright)"
-      }
+      },
+      "bullets": [
+        "Attack dogs set on shackled, blindfolded detainees — documented by the UN.",
+        "Israeli whistleblowers described amputations caused by round-the-clock zip-tie restraints.",
+        "The UN found the torture systematic — policy, not incidents."
+      ]
     },
     {
       "id": "organs-missing",
@@ -433,6 +604,18 @@
         {
           "url": "https://euromedmonitor.org/en/article/6889/Clear-evidence-of-brutal-torture:-Condition-of-Palestinian-bodies-released-from-Israeli-prisons-demands-urgent-int%E2%80%99l-investigation",
           "source": "Euro-Med Human Rights Monitor"
+        },
+        {
+          "url": "https://www.lemonde.fr/en/international/article/2025/11/20/ngo-warns-explosive-weapons-killed-record-number-of-children-in-2024_6747645_4.html",
+          "source": "Le Monde"
+        },
+        {
+          "url": "https://www.independent.co.uk/news/world/middle-east/israel-palestine-detainees-prison-gaza-b2866785.html",
+          "source": "The Independent"
+        },
+        {
+          "url": "https://www.cbsnews.com/news/israel-palestinian-prisoner-deaths-since-oct-7-2023-alarming-rights-group-phri/",
+          "source": "CBS News"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Israeli_razing_of_cemeteries_and_necroviolence_against_Palestinians",
@@ -443,7 +626,12 @@
       "photo": {
         "url": "https://www.aljazeera.com/gallery/2025/10/23/gaza-funerals-held-for-unidentified-palestinians-bodies-returned-by-israel",
         "source": "Al Jazeera"
-      }
+      },
+      "bullets": [
+        "Bodies returned bound and blindfolded — some, doctors say, missing corneas, livers, kidneys.",
+        "Gaza's forensics cannot verify organ theft: the labs that could are destroyed.",
+        "Israel admitted taking organs from Palestinians without consent in the 1990s — the precedent is on record."
+      ]
     },
     {
       "id": "right-to-rape",
@@ -487,6 +675,38 @@
         {
           "url": "https://www.timesofisrael.com/idf-chief-formally-dismisses-ex-military-advocate-general-over-sde-teiman-scandal/",
           "source": "The Times of Israel"
+        },
+        {
+          "url": "https://www.cbc.ca/news/world/ibrahim-salem-sde-teiman-detainee-1.7291048",
+          "source": "CBC"
+        },
+        {
+          "url": "https://www.middleeasteye.net/news/us-zero-tolerance-sexual-abuse-palestinian-detainees-israeli-detention-facility",
+          "source": "Middle East Eye"
+        },
+        {
+          "url": "https://www.washingtonpost.com/opinions/2024/07/31/israel-prison-abuse-hamas-palestinians/",
+          "source": "Washington Post"
+        },
+        {
+          "url": "https://www.latimes.com/world-nation/story/2024-07-29/israeli-soldiers-under-investigation-over-alleged-abuse-of-detainee-at-shadowy-military-facility",
+          "source": "LA Times"
+        },
+        {
+          "url": "https://www.bbc.com/news/articles/c2q07kd3ld6o",
+          "source": "BBC"
+        },
+        {
+          "url": "https://www.theguardian.com/world/article/2024/jul/30/deep-moral-deterioration-is-being-normalised-in-the-israeli-palestinian-conflict",
+          "source": "The Guardian"
+        },
+        {
+          "url": "https://www.nytimes.com/2024/07/31/world/middleeast/israel-army-bases-riots.html",
+          "source": "NYT"
+        },
+        {
+          "url": "https://www.independent.co.uk/news/world/middle-east/israel-prison-idf-soldiers-arrest-palestine-rape-b2587997.html",
+          "source": "The Independent"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Sde_Teiman_gang_rape",
@@ -499,7 +719,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:ProtestAtBietLid.jpg",
         "credit": "Tolkienay",
         "license": "CC BY-SA 4.0"
-      }
+      },
+      "bullets": [
+        "Soldiers were arrested for gang-raping a detainee — so a mob, ministers included, stormed the base to free them.",
+        "Israeli television hosted a debate on whether soldiers have a “right” to abuse prisoners.",
+        "The army's top lawyer went to jail over the case — for leaking the video, not for the rape."
+      ]
     },
     {
       "id": "wck-strike",
@@ -543,6 +768,38 @@
         {
           "url": "https://www.dfat.gov.au/sites/default/files/special-advisers-public-report-israels-response-wck-strikes-august-2024.pdf",
           "source": "Australian Government (DFAT)"
+        },
+        {
+          "url": "https://www.independent.co.uk/news/world/middle-east/world-central-kitchen-aid-worker-injured-b2526687.html",
+          "source": "The Independent"
+        },
+        {
+          "url": "https://apnews.com/article/israel-palestinians-aid-workers-killed-2d08786a9839dfc402632c7ca745acca",
+          "source": "AP"
+        },
+        {
+          "url": "https://www.nbcnews.com/politics/white-house/biden-calls-chef-jose-andres-israeli-strike-kills-world-central-kitche-rcna146075",
+          "source": "NBC News"
+        },
+        {
+          "url": "https://www.france24.com/en/live-news/20240404-aid-worker-killed-by-israel-felt-need-to-help-parents-say",
+          "source": "France24"
+        },
+        {
+          "url": "https://www.cbc.ca/news/world/world-central-kitchen-israeli-missile-strike-1.7162074",
+          "source": "CBC"
+        },
+        {
+          "url": "https://www.lemonde.fr/en/international/article/2024/04/05/spanish-ngo-open-arms-suspends-operations-in-gaza_6667445_4.html",
+          "source": "Le Monde"
+        },
+        {
+          "url": "https://www.latimes.com/world-nation/story/2024-04-03/family-and-friends-recall-dedication-of-world-central-kitchen-aid-workers-killed-in-gaza",
+          "source": "LA Times"
+        },
+        {
+          "url": "https://www.bbc.com/news/world-middle-east-68732215",
+          "source": "BBC"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/World_Central_Kitchen_aid_convoy_attack",
@@ -555,7 +812,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Foreign_Minister_Penny_Wong_Wreath_Laying_at_International_Humanitarian_Memorial_(000148167).jpg",
         "credit": "Alexandra Peek / Department of Foreign Affairs and Trade (Australia)",
         "license": "CC BY 4.0"
-      }
+      },
+      "bullets": [
+        "Three precision strikes, one vehicle after another, chasing survivors down the road.",
+        "The convoy's route was pre-approved by the army that destroyed it.",
+        "Seven aid workers from five countries, killed delivering food Israel had cleared."
+      ]
     },
     {
       "id": "children-sniped",
@@ -599,6 +861,18 @@
         {
           "url": "https://www.aa.com.tr/en/middle-east/gaza-doctors-find-disturbing-pattern-of-gunshot-wounds-in-head-and-chest-among-children/3686876",
           "source": "Anadolu Agency"
+        },
+        {
+          "url": "https://news.sky.com/story/middle-east-latest-israel-kills-dozens-in-airstrike-on-school-sheltering-displaced-people-in-gaza-palestinian-officials-say-12978800",
+          "source": "Sky News"
+        },
+        {
+          "url": "https://www.bbc.co.uk/news/articles/c8xez14e7lro",
+          "source": "BBC"
+        },
+        {
+          "url": "https://www.middleeasteye.net/news/how-many-other-shuvael-ben-natans-are-gaza-now-fired-enthusiasm",
+          "source": "Middle East Eye"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Effect_of_the_Gaza_war_on_children_in_the_Gaza_Strip",
@@ -611,7 +885,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:An_injured_child_receives_treatment_at_Al-Aqsa_Martyrs_Hospital_after_Israeli_airstrike_of_the_Nuseirat_refugee_camp,_Gaza_Strip.jpg",
         "credit": "Ashraf Amra / UNRWA",
         "license": "CC BY-SA 3.0 IGO"
-      }
+      },
+      "bullets": [
+        "Volunteer surgeons kept treating the same wound: one bullet, one child's head.",
+        "44 of 65 American clinicians surveyed saw children shot in the head or chest — repeatedly.",
+        "BBC verified 95 children hit in head or chest; forensic experts said the pattern fits deliberate aimed fire."
+      ]
     },
     {
       "id": "flour-massacre",
@@ -651,6 +930,14 @@
         {
           "url": "https://www.axios.com/2024/02/29/gaza-aid-palestinians-killed-israel-idf-hamas",
           "source": "Axios"
+        },
+        {
+          "url": "https://www.lemonde.fr/en/international/article/2024/03/16/gaza-israeli-army-again-denies-having-opened-fire-on-crowds-waiting-for-aid-killing-twenty-people_6624686_4.html",
+          "source": "Le Monde"
+        },
+        {
+          "url": "https://www.washingtonpost.com/world/2024/03/01/gaza-humanitarian-catastrophe/",
+          "source": "Washington Post"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Flour_Massacre",
@@ -663,7 +950,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Palestinians_during_the_Flour_massacre.png",
         "credit": "Unknown; IDF (Israel Defense Forces), via NBC News",
         "license": "CC BY 3.0"
-      }
+      },
+      "bullets": [
+        "Over 100 killed and some 750 wounded around a flour convoy — people starving in line.",
+        "CNN's forensic review found gunfire began before the army's own timeline says the crossing started.",
+        "Israel said victims were trampled; the hospitals counted gunshot wounds."
+      ]
     },
     {
       "id": "doctors-under-fire",
@@ -711,6 +1003,30 @@
         {
           "url": "https://www.ohchr.org/en/press-releases/2026/07/israel-must-release-dr-hussam-abu-safiya-and-all-palestinian-medical?sub-site=HRC",
           "source": "UN OHCHR"
+        },
+        {
+          "url": "https://www.haaretz.com/israel-news/2024-12-30/ty-article/report-missing-gazan-hospital-director-arrested-by-idf-located-in-sde-teiman-prison/00000194-179c-da93-a9dc-9fbdde690000",
+          "source": "Haaretz"
+        },
+        {
+          "url": "https://www.nbcnews.com/news/world/israel-detention-kamal-adwan-hospital-raid-doctor-abu-safiya-gaza-rcna186224",
+          "source": "NBC News"
+        },
+        {
+          "url": "https://www.bbc.co.uk/news/articles/cj30deeggd7o",
+          "source": "BBC"
+        },
+        {
+          "url": "https://www.theguardian.com/global-development/2024/dec/30/gaza-hospital-director-israeli-prison",
+          "source": "The Guardian"
+        },
+        {
+          "url": "https://news.sky.com/story/israel-confirms-it-is-holding-gaza-hospital-director-dr-hussam-abu-safiya-13283251",
+          "source": "Sky News"
+        },
+        {
+          "url": "https://www.euronews.com/2024/12/28/israeli-army-detains-dozens-of-workers-at-hospital-in-northern-gaza",
+          "source": "Euronews"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Killing_of_health_workers_in_the_Gaza_war",
@@ -723,7 +1039,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Palestine_Red_Crescent_Society%27s_ambulance_after_being_targeted_by_Israeli_missile_in_Khan_Yunis.png",
         "credit": "Tasnim News Agency",
         "license": "CC BY 4.0"
-      }
+      },
+      "bullets": [
+        "Around 250 Gaza health workers taken into detention; at least six died there.",
+        "Al-Shifa's chief orthopedic surgeon, Dr. Adnan al-Bursh, died in an Israeli prison.",
+        "The BBC commissioned the film about it — then dropped it. Channel 4 aired it."
+      ]
     },
     {
       "id": "genocidal-rhetoric",
@@ -767,6 +1088,18 @@
         {
           "url": "https://www.amnesty.org/en/latest/news/2024/01/israel-must-comply-with-key-icj-ruling-ordering-it-do-all-in-its-power-to-prevent-genocide-against-palestinians-in-gaza/",
           "source": "Amnesty International"
+        },
+        {
+          "url": "https://www.telegraph.co.uk/world-news/2023/11/05/netanyahu-suspends-israel-minister-nuke-gaza/",
+          "source": "The Telegraph"
+        },
+        {
+          "url": "https://www.theguardian.com/world/2023/nov/20/ireland-palestine-ceasefire-gaza",
+          "source": "The Guardian"
+        },
+        {
+          "url": "https://www.euronews.com/2023/11/06/israeli-minister-says-nuking-gaza-an-option-communications-blackout-palestinian-icon-arres",
+          "source": "Euronews"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/List_of_statements_by_Israeli_officials_cited_as_genocidal",
@@ -779,7 +1112,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Amichai_Eliyahu.jpg",
         "credit": "Yossi Logasi Plashman",
         "license": "CC BY-SA 3.0"
-      }
+      },
+      "bullets": [
+        "A sitting minister called a nuclear bomb on Gaza “an option” — on the radio.",
+        "“Flatten,” “erase,” “no non-combatants”: the quotes came from officials, not the fringe.",
+        "The World Court ordered Israel to prevent and punish incitement to genocide."
+      ]
     },
     {
       "id": "journalist-legs",
@@ -835,7 +1173,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:A_Palestinian_refugee_carries_his_injured_grandchildren_from_the_Israeli_bombing_of_Nuseirat_Camp,_Gaza_Strip.jpg",
         "credit": "Ashraf Amra / UNRWA",
         "license": "CC BY-SA 3.0 IGO"
-      }
+      },
+      "bullets": [
+        "PRESS on the vest, PRESS on the car — the strike came anyway.",
+        "“Where is my leg?” — asked on camera, on a stretcher.",
+        "CPJ demanded a probe into why journalists in marked gear keep being hit."
+      ]
     },
     {
       "id": "anas-al-sharif",
@@ -879,6 +1222,34 @@
         {
           "url": "https://www.pbs.org/newshour/world/israel-targets-and-kills-al-jazeera-correspondent-anas-al-sharif-in-gaza-airstrike-as-journalist-toll-grows",
           "source": "PBS NewsHour"
+        },
+        {
+          "url": "https://www.middleeasteye.net/live-blog/live-blog-update/israel-assassinates-prominent-al-jazeera-journalists-gaza",
+          "source": "Middle East Eye"
+        },
+        {
+          "url": "https://www.haaretz.com/israel-news/2025-08-11/ty-article/.premium/al-jazeera-reporter-in-gaza-anas-al-sharif-killed-by-israeli-strike-idf-says/00000198-95e1-df6c-abbd-f5f52c0e0000",
+          "source": "Haaretz"
+        },
+        {
+          "url": "https://www.cbsnews.com/news/israel-gaza-nasser-hospital-strike-journalists-killed-officials-say/",
+          "source": "CBS News"
+        },
+        {
+          "url": "https://news.sky.com/story/journalist-killed-in-israeli-strike-feared-his-own-assassination-as-idf-claims-he-was-a-terrorist-13409945",
+          "source": "Sky News"
+        },
+        {
+          "url": "https://www.cbc.ca/news/world/al-jazeera-correspondent-anas-al-sharif-killed-gaza-city-israel-1.7605557",
+          "source": "CBC"
+        },
+        {
+          "url": "https://www.independent.co.uk/news/world/middle-east/gaza-israel-al-jazeera-journalists-palestine-occupation-netanyahu-latest-news-b2805865.html",
+          "source": "The Independent"
+        },
+        {
+          "url": "https://www.bbc.com/news/articles/c05ed10zqj8o",
+          "source": "BBC"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Assassination_of_Anas_Al-Sharif",
@@ -891,14 +1262,19 @@
         "page": "https://commons.wikimedia.org/wiki/File:Mega_Marcha_por_Palestina_en_la_Ciudad_de_M%C3%A9xico_14.jpg",
         "credit": "ProtoplasmaKid",
         "license": "CC BY-SA 4.0"
-      }
+      },
+      "bullets": [
+        "A journalists' tent outside a hospital, struck deliberately — Israel confirmed he was the target.",
+        "CPJ warned the smear campaign against him read like preparation for a killing. It was.",
+        "The deadliest war for journalists ever recorded — more than both world wars, Korea, Vietnam, Yugoslavia and Afghanistan combined."
+      ]
     },
     {
       "id": "terrorist-label",
       "section": "main",
       "title": "The expanding \"terrorist\" label: Palestine Action proscription and mass protest arrests; journalists and medics branded militants",
-      "date": "July 2025 – ongoing (proscription 5 July 2025; arrests continuing into 2026)",
-      "summary": "The UK proscribed the protest group Palestine Action under the Terrorism Act in July 2025 — making support punishable by up to 14 years in prison — and police have since arrested more than 2,000 people, many of them elderly, for holding signs supporting the group, a ban UN human rights chief Volker Türk called a \"disturbing\" misuse of counter-terrorism legislation and Amnesty International UK called disproportionate legal overreach. Rights groups paired this with Israel's practice of labeling journalists and medics it killed or detained as terrorists: the Committee to Protect Journalists said Israel produced no credible evidence for its claim that Al Jazeera correspondent Anas al-Sharif, killed in a targeted August 2025 strike, was a Hamas operative — a pattern also applied to detained Kamal Adwan hospital director Dr. Hussam Abu Safiya.",
+      "date": "Proscription 5 Jul 2025; arrests ongoing; judicial review Feb–Jun 2026",
+      "summary": "The UK proscribed the protest group Palestine Action under the Terrorism Act in July 2025 — making support punishable by up to 14 years in prison — and police have since arrested more than 2,000 people, many of them elderly, for holding signs supporting the group, a ban UN human rights chief Volker Türk called a \"disturbing\" misuse of counter-terrorism legislation and Amnesty International UK called disproportionate legal overreach. Rights groups paired this with Israel's practice of labeling journalists and medics it killed or detained as terrorists: the Committee to Protect Journalists said Israel produced no credible evidence for its claim that Al Jazeera correspondent Anas al-Sharif, killed in a targeted August 2025 strike, was a Hamas operative — a pattern also applied to detained Kamal Adwan hospital director Dr. Hussam Abu Safiya. The ban was challenged by judicial review brought by Palestine Action co-founder Huda Ammori: the Divisional Court held the proscription unlawful on 13 February 2026, but the Court of Appeal allowed the Home Secretary's appeal that June, leaving the proscription in force pending any further appeal.",
       "links": [
         {
           "url": "https://www.ohchr.org/en/press-releases/2025/07/uk-palestine-action-ban-disturbing-misuse-uk-counter-terrorism-legislation",
@@ -931,6 +1307,38 @@
         {
           "url": "https://www.pbs.org/newshour/world/israel-targets-and-kills-al-jazeera-correspondent-anas-al-sharif-in-gaza-airstrike-as-journalist-toll-grows",
           "source": "PBS"
+        },
+        {
+          "url": "https://www.judiciary.uk/wp-content/uploads/2026/02/R-Ammori-v-SSHD-OPEN-Judgment-final.pdf",
+          "source": "Judiciary of England and Wales — R (Ammori) v SSHD judgment"
+        },
+        {
+          "url": "https://www.libertyhumanrights.org.uk/issue/breaking-down-the-court-of-appeal-judgment-on-palestine-actions-proscription/",
+          "source": "Liberty — Court of Appeal judgment explained"
+        },
+        {
+          "url": "https://www.theguardian.com/uk-news/2025/jul/19/palestine-action-protests-uk-london-arrests",
+          "source": "The Guardian"
+        },
+        {
+          "url": "https://www.middleeasteye.net/live-blog/live-blog-update/london-protesters-arrested-showing-support-palestine-action",
+          "source": "Middle East Eye"
+        },
+        {
+          "url": "https://www.bbc.com/news/articles/c4gd3pkr9x1o",
+          "source": "BBC"
+        },
+        {
+          "url": "https://news.sky.com/story/police-arrest-palestine-action-protesters-in-parliament-square-13398744",
+          "source": "Sky News"
+        },
+        {
+          "url": "https://www.independent.co.uk/news/uk/politics/palestine-action-terror-group-protests-yvette-cooper-b2783173.html",
+          "source": "The Independent"
+        },
+        {
+          "url": "https://www.euronews.com/culture/2025/07/09/former-pink-floyd-roger-waters-faces-possible-prosecution-over-support-for-palestine-actio",
+          "source": "Euronews"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Palestine_Action",
@@ -939,7 +1347,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Palestine_Action_Protest,_London,_Saturday_6th_September_-_01.jpg",
         "credit": "Indigo Nolan (Flickr: indigonolan)",
         "license": "CC BY 4.0"
-      }
+      },
+      "bullets": [
+        "Pensioners arrested under terrorism law for cardboard signs.",
+        "2,000+ arrests; the UN human rights chief called the ban a “disturbing” misuse of counter-terror law.",
+        "One court found the ban unlawful; a higher court restored it; the arrests never stopped."
+      ]
     },
     {
       "id": "doha-strike",
@@ -963,6 +1376,22 @@
         {
           "url": "https://www.npr.org/2025/09/10/g-s1-87942/qatar-israeli-strikes-hamas-gaza-ceasefire",
           "source": "NPR"
+        },
+        {
+          "url": "https://www.middleeasteye.net/live-blog/live-blog-update/hamas-says-chief-negotiator-survived-israel-strike-qatar",
+          "source": "Middle East Eye"
+        },
+        {
+          "url": "https://www.haaretz.com/us-news/2025-09-21/ty-article/.premium/trump-to-discuss-gaza-war-with-arab-leaders-on-un-general-assembly-sidelines-source-says/00000199-6dc9-d04a-adfd-7dc923120000",
+          "source": "Haaretz"
+        },
+        {
+          "url": "https://www.bbc.com/news/articles/cq5jl77ygv4o",
+          "source": "BBC"
+        },
+        {
+          "url": "http://www.cbsnews.com/news/israel-attack-doha-qatar-hamas-leadership/",
+          "source": "CBS News"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Israeli_attack_on_Doha",
@@ -976,7 +1405,12 @@
         "credit": "Unknown author (fixed CCTV camera); uploaded to Commons from a social media post by X user iihtishamm",
         "license": "Public domain (ineligible for copyright: automated CCTV footage without human input)"
       },
-      "comment": "Killing the negotiators is the ultimate statement of your negotiating position."
+      "comment": "Killing the negotiators is the ultimate statement of your negotiating position.",
+      "bullets": [
+        "The negotiators were bombed while reading the ceasefire proposal.",
+        "Six dead in a third country's capital — including an officer of a US ally hosting America's largest regional base.",
+        "The Security Council condemned it; Netanyahu claimed “full responsibility,” then expressed regret."
+      ]
     },
     {
       "id": "christians",
@@ -1012,6 +1446,38 @@
         {
           "url": "https://www.haaretz.com/opinion/editorial/2023-10-04/ty-article-opinion/a-spit-in-the-face-anti-christian-incidents-in-jlem-spread-epidemic-of-jewish-supremacy/0000018a-f716-db7e-affb-f73737900000",
           "source": "Haaretz"
+        },
+        {
+          "url": "https://www.bbc.co.uk/news/av/world-middle-east-67742052",
+          "source": "BBC"
+        },
+        {
+          "url": "https://www.theguardian.com/world/2023/dec/18/women-mother-daughter-gaza-church-israel-cardinal-vincent-nichols",
+          "source": "The Guardian"
+        },
+        {
+          "url": "https://www.telegraph.co.uk/world-news/2023/12/17/christian-mother-and-daughter-shot-dead-by-israeli-sniper-i/",
+          "source": "The Telegraph"
+        },
+        {
+          "url": "https://news.sky.com/story/mp-layla-moran-worried-family-trapped-in-gaza-church-will-not-survive-one-week-before-christmas-13033171",
+          "source": "Sky News"
+        },
+        {
+          "url": "https://www.euronews.com/2023/12/17/pope-francis-celebrates-his-87th-birthday",
+          "source": "Euronews"
+        },
+        {
+          "url": "https://www.france24.com/en/live-news/20231217-pope-francis-deplores-the-death-of-two-women-in-gaza-parish",
+          "source": "France24"
+        },
+        {
+          "url": "https://www.middleeasteye.net/news/israel-kills-palestinians-shifa-hospital-shipping-giants-swerve-red-sea",
+          "source": "Middle East Eye"
+        },
+        {
+          "url": "https://www.cbc.ca/news/world/christmas-mourning-christ-gaza-1.7069157",
+          "source": "CBC"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Killing_of_Nahida_and_Samar_Anton",
@@ -1024,7 +1490,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Saint_Porphyrius_Church_in_Gaza-_Gaza_war_2023-2025_2.jpg",
         "credit": "Rawanmurad2025",
         "license": "CC BY 4.0"
-      }
+      },
+      "bullets": [
+        "Clergy spat on in Jerusalem's Old City — monitors logged at least one attack a day.",
+        "A mother and daughter shot “in cold blood” inside Gaza's Catholic parish, per the Latin Patriarchate.",
+        "Eighteen people sheltering in a church killed two months earlier; the Pope condemned both."
+      ]
     },
     {
       "id": "rafah-paramedics",
@@ -1068,6 +1539,18 @@
         {
           "url": "https://www.democracynow.org/2025/4/7/gaza_massacre",
           "source": "Democracy Now"
+        },
+        {
+          "url": "https://www.middleeasteye.net/live-blog/live-blog-update/report-israeli-soldier-ordered-killing-15-rescue-workers-works-mercenary",
+          "source": "Middle East Eye"
+        },
+        {
+          "url": "https://www.theguardian.com/world/2025/mar/31/israel-killed-15-palestinian-paramedics-and-rescue-workers-one-by-one-says-un",
+          "source": "The Guardian"
+        },
+        {
+          "url": "https://news.sky.com/story/two-hours-of-terror-sky-news-investigation-reveals-how-israels-deadly-attack-on-aid-workers-unfolded-13348776",
+          "source": "Sky News"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Rafah_paramedic_massacre",
@@ -1078,7 +1561,12 @@
       "photo": {
         "url": "https://www.aljazeera.com/features/2025/4/1/rescue-workers-israel-killed-found-in-mass-grave-in-gaza-what-to-know",
         "source": "Al Jazeera"
-      }
+      },
+      "bullets": [
+        "Fifteen rescue workers killed “one by one,” then buried with their crushed ambulances.",
+        "The recovered phone video showed flashing emergency lights — the army's story said there were none.",
+        "A week in a shallow mass grave before anyone was allowed to reach them."
+      ]
     },
     {
       "id": "human-shields",
@@ -1122,6 +1610,26 @@
         {
           "url": "https://www.democracynow.org/2025/5/29/israeli_soldiers_using_palestinians_human_shields",
           "source": "Democracy Now"
+        },
+        {
+          "url": "https://www.theguardian.com/world/2025/may/24/israel-investigates-use-of-palestinians-as-human-shields-by-its-forces-in-gaza",
+          "source": "The Guardian"
+        },
+        {
+          "url": "https://www.cbsnews.com/news/gaza-hamas-israel-military-air-strikes-latest/",
+          "source": "CBS News"
+        },
+        {
+          "url": "https://www.latimes.com/world-nation/story/2025-05-24/israeli-use-of-human-shields-in-gaza-was-systematic-soldiers-and-former-detainees-tell-the-ap",
+          "source": "LA Times"
+        },
+        {
+          "url": "https://www.independent.co.uk/news/world/middle-east/israel-gaza-mohammed-sinwar-b2766238.html",
+          "source": "The Independent"
+        },
+        {
+          "url": "https://www.smh.com.au/world/middle-east/inside-the-secret-tunnel-where-israel-says-a-senior-hamas-leader-died-20250609-p5m60k.html",
+          "source": "Sydney Morning Herald"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Use_of_human_shields_by_Israeli_forces",
@@ -1134,7 +1642,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:IDF_Soldiers_Found_Terror_Tunnel_in_Gaza_(14754151084).jpg",
         "credit": "Israel Defense Forces Spokesperson's Unit, via Flickr",
         "license": "CC BY-SA 2.0"
-      }
+      },
+      "bullets": [
+        "Soldiers called it the “mosquito procedure”: civilians sent first into tunnels and rigged houses.",
+        "Teenagers and the elderly used as shields — by an army citing human shields as its justification.",
+        "The soldiers themselves testified it was systemic, not rogue."
+      ]
     },
     {
       "id": "docket-netanyahu",
@@ -1178,6 +1691,34 @@
         {
           "url": "https://www.hrw.org/news/2024/11/21/palestine-icc-warrants-revive-hope-long-delayed-justice",
           "source": "Human Rights Watch"
+        },
+        {
+          "url": "https://www.dw.com/en/middle-east-orban-to-defy-icc-arrest-warrant-invite-netanyahu/live-70855484",
+          "source": "DW"
+        },
+        {
+          "url": "https://news.sky.com/story/arrest-warrants-issued-for-israeli-pm-netanyahu-and-former-defence-secretary-gallant-and-senior-hamas-commander-over-alleged-war-crimes-13257801",
+          "source": "Sky News"
+        },
+        {
+          "url": "https://www.telegraph.co.uk/politics/2024/11/21/starmer-supports-icc-arrest-warrant-for-netanyahu/",
+          "source": "The Telegraph"
+        },
+        {
+          "url": "https://www.nbcnews.com/news/world/hungarys-orban-breaks-neighbors-dismiss-iccs-arrest-warrant-netanyahu-rcna181305",
+          "source": "NBC News"
+        },
+        {
+          "url": "https://www.independent.co.uk/news/world/middle-east/netanyahu-arrest-warrant-icc-court-israel-gaza-b2652380.html",
+          "source": "The Independent"
+        },
+        {
+          "url": "https://www.middleeasteye.net/trending/icc-arrest-warrants-netanyahu-gallant-spark-celebration-and-call-action-online",
+          "source": "Middle East Eye"
+        },
+        {
+          "url": "https://abcnews.go.com/International/wireStory/france-work-closely-netanyahu-despite-international-arrest-warrant-116267533",
+          "source": "ABC News"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Benjamin_Netanyahu",
@@ -1190,7 +1731,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Benjamin_Netanyahu_Portrait_February_2023_(3x4_cropped).jpg",
         "credit": "Avi Ohayon, Government Press Office of Israel",
         "license": "CC BY-SA 3.0"
-      }
+      },
+      "bullets": [
+        "Wanted by the ICC: starvation of civilians as a method of warfare.",
+        "“Remember what Amalek has done to you” — a biblical extermination reference, to troops, on video.",
+        "125 states are treaty-bound to arrest him on arrival."
+      ]
     },
     {
       "id": "docket-gallant",
@@ -1234,6 +1780,38 @@
         {
           "url": "https://www.amnesty.org/en/latest/news/2024/11/israel-opt-netanyahu-gallant-and-al-masri-must-face-justice-at-the-icc-for-charges-of-war-crimes-and-crimes-against-humanity/",
           "source": "Amnesty International"
+        },
+        {
+          "url": "https://www.dw.com/en/middle-east-orban-to-defy-icc-arrest-warrant-invite-netanyahu/live-70855484",
+          "source": "DW"
+        },
+        {
+          "url": "https://news.sky.com/story/arrest-warrants-issued-for-israeli-pm-netanyahu-and-former-defence-secretary-gallant-and-senior-hamas-commander-over-alleged-war-crimes-13257801",
+          "source": "Sky News"
+        },
+        {
+          "url": "https://www.telegraph.co.uk/politics/2024/11/21/starmer-supports-icc-arrest-warrant-for-netanyahu/",
+          "source": "The Telegraph"
+        },
+        {
+          "url": "https://www.nbcnews.com/news/world/hungarys-orban-breaks-neighbors-dismiss-iccs-arrest-warrant-netanyahu-rcna181305",
+          "source": "NBC News"
+        },
+        {
+          "url": "https://www.bbc.co.uk/news/articles/cm273g1jm51o",
+          "source": "BBC"
+        },
+        {
+          "url": "https://www.theguardian.com/world/2024/nov/21/icc-issues-arrest-warrant-for-benjamin-netanyahu-israel",
+          "source": "The Guardian"
+        },
+        {
+          "url": "https://www.aljazeera.com/news/2024/12/2/icc-president-warns-threats-and-sanctions-from-us-put-court-in-jeopardy",
+          "source": "Al Jazeera"
+        },
+        {
+          "url": "https://www.independent.co.uk/news/world/middle-east/netanyahu-arrest-warrant-icc-court-israel-gaza-b2652380.html",
+          "source": "The Independent"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Yoav_Gallant",
@@ -1246,7 +1824,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Yoav_Galant_1.jpg",
         "credit": "Avi Ohayon / Government Press Office of Israel",
         "license": "CC BY-SA 3.0"
-      }
+      },
+      "bullets": [
+        "“No electricity, no food, no fuel… we are fighting human animals.”",
+        "Ordered a total siege of 2.2 million people on day two.",
+        "ICC warrant: co-perpetrator — starvation, murder, persecution."
+      ]
     },
     {
       "id": "docket-ben-gvir",
@@ -1290,6 +1873,38 @@
         {
           "url": "https://time.com/7292990/israel-ben-gvir-smotrich-sanctions-west-bank-gaza/",
           "source": "TIME"
+        },
+        {
+          "url": "https://www.euronews.com/2025/06/11/rubio-criticises-uk-over-gaza-related-sanctions-on-israeli-ministers",
+          "source": "Euronews"
+        },
+        {
+          "url": "https://www.independent.co.uk/news/uk/home-news/israel-ministers-sanctioned-gaza-b2767204.html",
+          "source": "The Independent"
+        },
+        {
+          "url": "https://abcnews.go.com/International/wireStory/uk-canada-australia-new-zealand-norway-sanction-2-122689718",
+          "source": "ABC News"
+        },
+        {
+          "url": "https://www.nbcnews.com/world/middle-east/uk-canada-australia-others-sanction-2-far-right-israeli-ministers-inci-rcna212252",
+          "source": "NBC News"
+        },
+        {
+          "url": "https://www.latimes.com/world-nation/story/2025-06-10/uk-and-others-sanction-2-far-right-israeli-cabinet-ministers-over-violence-in-the-occupied-west-bank",
+          "source": "LA Times"
+        },
+        {
+          "url": "https://www.theguardian.com/australia-news/2025/jun/11/australia-sanctions-two-extremist-israeli-ministers-for-inciting-violence-against-palestinians",
+          "source": "The Guardian"
+        },
+        {
+          "url": "https://www.aljazeera.com/news/2025/6/11/israels-smotrich-could-collapse-palestinian-economy-by-ending-bank-waiver",
+          "source": "Al Jazeera"
+        },
+        {
+          "url": "https://www.cbc.ca/news/politics/canada-sanctions-israeli-ministers-1.7556968",
+          "source": "CBC"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Itamar_Ben-Gvir",
@@ -1302,7 +1917,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Itamar_Ben_Gvir_3.jpg",
         "credit": "Alon Nuriel (אלון נוריאל)",
         "license": "CC BY-SA 3.0"
-      }
+      },
+      "bullets": [
+        "“The summer camps are over” — a minister boasting about worsening prison conditions.",
+        "Sanctioned by five Western democracies for inciting violence against Palestinians.",
+        "Called for “encouraging the emigration” of Gaza's population while fighting aid deliveries."
+      ]
     },
     {
       "id": "docket-smotrich",
@@ -1338,6 +1958,38 @@
         {
           "url": "https://news.un.org/en/story/2024/08/1153001",
           "source": "UN News"
+        },
+        {
+          "url": "https://www.euronews.com/2025/06/11/rubio-criticises-uk-over-gaza-related-sanctions-on-israeli-ministers",
+          "source": "Euronews"
+        },
+        {
+          "url": "https://www.independent.co.uk/news/uk/home-news/israel-ministers-sanctioned-gaza-b2767204.html",
+          "source": "The Independent"
+        },
+        {
+          "url": "https://abcnews.go.com/International/wireStory/uk-canada-australia-new-zealand-norway-sanction-2-122689718",
+          "source": "ABC News"
+        },
+        {
+          "url": "https://www.latimes.com/world-nation/story/2025-06-10/uk-and-others-sanction-2-far-right-israeli-cabinet-ministers-over-violence-in-the-occupied-west-bank",
+          "source": "LA Times"
+        },
+        {
+          "url": "https://www.theguardian.com/australia-news/2025/jun/11/australia-sanctions-two-extremist-israeli-ministers-for-inciting-violence-against-palestinians",
+          "source": "The Guardian"
+        },
+        {
+          "url": "https://www.cbc.ca/news/politics/canada-sanctions-israeli-ministers-1.7556968",
+          "source": "CBC"
+        },
+        {
+          "url": "https://www.smh.com.au/politics/federal/australia-imposes-sanctions-on-israeli-ministers-20250611-p5m6fu.html",
+          "source": "Sydney Morning Herald"
+        },
+        {
+          "url": "https://www.cbsnews.com/news/uk-sanctions-israel-smotrich-ben-gvir-palestinians-west-bank-violence-gaza-war/",
+          "source": "CBS News"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Bezalel_Smotrich",
@@ -1350,7 +2002,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Bezalel_Smotrich_(R_H_4464).jpg",
         "credit": "Ronen Horesh / Knesset Archives",
         "license": "CC BY-SA 4.0"
-      }
+      },
+      "bullets": [
+        "“The village of Huwara needs to be wiped out.”",
+        "Said starving two million Gazans might be “justified and moral.”",
+        "Sanctioned by the UK, Canada, Australia, New Zealand and Norway."
+      ]
     },
     {
       "id": "docket-eliyahu",
@@ -1394,6 +2051,14 @@
         {
           "url": "https://www.arabnews.com/node/2403541/middle-east",
           "source": "Arab News"
+        },
+        {
+          "url": "https://www.telegraph.co.uk/world-news/2023/11/05/netanyahu-suspends-israel-minister-nuke-gaza/",
+          "source": "The Telegraph"
+        },
+        {
+          "url": "https://www.euronews.com/2023/11/06/israeli-minister-says-nuking-gaza-an-option-communications-blackout-palestinian-icon-arres",
+          "source": "Euronews"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Amihai_Eliyahu",
@@ -1406,7 +2071,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Amichai_Eliyahu.jpg",
         "credit": "Yossi Logassi Fleishman, via Wikimedia Commons",
         "license": "CC BY-SA 3.0"
-      }
+      },
+      "bullets": [
+        "“A nuclear bomb on Gaza is an option.”",
+        "“There are no non-combatants in Gaza” — same interview.",
+        "Suspended from cabinet meetings; kept the ministry."
+      ]
     },
     {
       "id": "docket-herzog",
@@ -1450,6 +2120,34 @@
         {
           "url": "https://www.middleeastmonitor.com/20231012-israeli-president-enraged-by-questions-on-civilian-deaths-in-gaza-at-press-conference/",
           "source": "Middle East Monitor"
+        },
+        {
+          "url": "https://www.aljazeera.com/news/2024/1/19/criminal-complaints-filed-against-israeli-president-herzog-in-switzerland",
+          "source": "Al Jazeera"
+        },
+        {
+          "url": "https://www.bbc.com/news/world-middle-east-67942983",
+          "source": "BBC"
+        },
+        {
+          "url": "https://www.dw.com/en/un-court-ruling-on-gaza-hard-to-ignore-for-israels-allies/a-68099139",
+          "source": "DW"
+        },
+        {
+          "url": "https://www.independent.co.uk/news/uk/politics/jeremy-corbyn-israel-genocide-hague-south-africa-b2477497.html",
+          "source": "The Independent"
+        },
+        {
+          "url": "https://www.theguardian.com/commentisfree/2024/jan/11/the-guardian-view-on-israel-and-allegations-of-genocide-a-case-that-needs-to-be-heard",
+          "source": "The Guardian"
+        },
+        {
+          "url": "https://www.latimes.com/opinion/story/2024-01-27/icj-israel-south-africa-gaza-genocide-court-ruling",
+          "source": "LA Times"
+        },
+        {
+          "url": "https://edition.cnn.com/middleeast/live-news/israel-hamas-war-gaza-news-01-12-24/",
+          "source": "CNN"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Isaac_Herzog",
@@ -1462,7 +2160,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Isaac_Herzog_2021_(cropped).JPG",
         "credit": "Avi Ohayon / Government Press Office of Israel",
         "license": "CC BY-SA 3.0"
-      }
+      },
+      "bullets": [
+        "“It is an entire nation out there that is responsible” — the head of state, on camera.",
+        "Quoted back at the World Court as evidence of intent at the top.",
+        "His defense: taken out of context."
+      ]
     },
     {
       "id": "docket-halevi",
@@ -1514,7 +2217,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Herzi_Halevi_RAV_ALUF.jpg",
         "credit": "IDF Spokesperson's Unit",
         "license": "CC BY-SA 3.0"
-      }
+      },
+      "bullets": [
+        "“Lavender”: AI flagged some 37,000 people as targets, with a known error rate, per +972.",
+        "Officers could pre-authorize double-digit civilian deaths for a single junior militant, soldiers said.",
+        "Chief of staff through all of it; named in universal-jurisdiction complaints abroad."
+      ]
     },
     {
       "id": "docket-alian",
@@ -1550,6 +2258,10 @@
         {
           "url": "https://mondoweiss.net/2023/10/operation-al-aqsa-flood-day-4-you-wanted-hell-you-will-get-hell-israeli-army-chief-says-calling-palestinians-human-animals/",
           "source": "Mondoweiss"
+        },
+        {
+          "url": "https://www.nytimes.com/2023/10/15/opinion/israel-united-states-gaza.html",
+          "source": "NYT"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Ghassan_Alian",
@@ -1562,7 +2274,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Ghassan_Alian.jpg",
         "credit": "IDF Spokesperson's Unit",
         "license": "CC BY-SA 3.0"
-      }
+      },
+      "bullets": [
+        "“Human animals must be treated as such… You wanted hell, you will get hell.”",
+        "He ran COGAT — the agency controlling every calorie entering Gaza.",
+        "His words appear in South Africa's genocide application at the ICJ."
+      ]
     },
     {
       "id": "docket-vach",
@@ -1614,7 +2331,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Yehuda_Vach,_February_2022_(cropped).jpg",
         "credit": "IDF Spokesperson's Unit",
         "license": "CC BY-SA 3.0"
-      }
+      },
+      "bullets": [
+        "Drew an “imaginary line” in Gaza: anyone who crossed it was shot.",
+        "“There are no innocents in Gaza,” he told his troops — per Haaretz.",
+        "His own soldiers exposed him; the international press barely printed his name."
+      ]
     },
     {
       "id": "docket-eiland",
@@ -1654,6 +2376,38 @@
         {
           "url": "https://www.timesofisrael.com/liveblog_entry/netanyahu-tells-lawmakers-hes-considering-generals-plan-to-lay-siege-to-northern-gaza/",
           "source": "The Times of Israel"
+        },
+        {
+          "url": "https://www.cnn.com/2024/09/22/middleeast/netanyahu-gaza-hamas-expulsions-plan-intl/",
+          "source": "CNN"
+        },
+        {
+          "url": "https://news.sky.com/story/ex-israeli-general-calls-for-siege-of-northern-gaza-amid-claims-tactic-is-illegal-13233750",
+          "source": "Sky News"
+        },
+        {
+          "url": "https://www.bbc.co.uk/news/articles/c1e82yy0wxno",
+          "source": "BBC"
+        },
+        {
+          "url": "https://www.theguardian.com/world/2024/sep/21/israeli-strike-on-beirut-lebanon-hezbollah-escalation",
+          "source": "The Guardian"
+        },
+        {
+          "url": "https://www.telegraph.co.uk/world-news/2024/10/05/yahya-sinwar-clues-that-israels-most-wanted-man-may-dead/",
+          "source": "The Telegraph"
+        },
+        {
+          "url": "https://abcnews.go.com/International/aid-agencies-warn-impending-humanitarian-disaster-northern-gaza/story?id=114782352",
+          "source": "ABC News"
+        },
+        {
+          "url": "https://www.independent.co.uk/news/world/americas/ap-hamas-israel-benjamin-netanyahu-lebanon-b2631267.html",
+          "source": "The Independent"
+        },
+        {
+          "url": "https://www.dw.com/en/is-israel-trying-to-force-residents-out-of-northern-gaza/a-70499619",
+          "source": "DW"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Giora_Eiland",
@@ -1666,7 +2420,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Giora_Eiland._U.S._Embassy_in_Israel._July_4th_2015_(19351073586)_(cropped).jpg",
         "credit": "U.S. Embassy Tel Aviv",
         "license": "CC BY-SA 2.0"
-      }
+      },
+      "bullets": [
+        "The “Generals' Plan”: seal northern Gaza, give a week to leave, treat whoever stays as a combatant.",
+        "Wrote that epidemics in Gaza would “bring victory closer.”",
+        "Reporting from late 2024 suggests the plan stopped being hypothetical."
+      ]
     },
     {
       "id": "hamas-oct7",
@@ -1690,6 +2449,38 @@
         {
           "url": "https://www.aljazeera.com/news/2024/7/17/hamas-committed-numerous-crimes-against-humanity-on-oct-7-hrw",
           "source": "Al Jazeera (HRW report and Hamas response)"
+        },
+        {
+          "url": "https://www.independent.co.uk/news/world/middle-east/israel-hamas-hostages-captured-killed-b2430040.html",
+          "source": "The Independent"
+        },
+        {
+          "url": "https://www.aljazeera.com/features/2023/10/7/buzzing-tel-avivs-streets-empty-as-conflict-escalates",
+          "source": "Al Jazeera"
+        },
+        {
+          "url": "https://edition.cnn.com/middleeast/live-news/israel-hamas-war-gaza-10-11-23/h_da642257df354fdb9c5c12a4a62ae50e",
+          "source": "CNN"
+        },
+        {
+          "url": "https://www.france24.com/en/middle-east/20231009-hamas-s-hostages-held-in-gaza-create-tough-predicament-for-israel",
+          "source": "France24"
+        },
+        {
+          "url": "https://www.timesofisrael.com/in-coded-doc-hamas-instructed-terrorists-to-kill-civilians-take-captives-report/",
+          "source": "Times of Israel"
+        },
+        {
+          "url": "https://www.nytimes.com/live/2023/10/15/world/israel-news-hamas-war-gaza",
+          "source": "NYT"
+        },
+        {
+          "url": "https://www.euronews.com/my-europe/2023/10/12/please-help-us-get-them-out-israeli-hostages-relatives-call-for-their-release-in-brussels-",
+          "source": "Euronews"
+        },
+        {
+          "url": "https://www.smh.com.au/world/middle-east/hamas-israel-conflict-live-updates-chilled-every-australian-heart-pm-addresses-parliament-biden-warns-iran-to-stay-out-of-war-ahead-of-possible-middle-east-visit-20231015-p5ecfr.html",
+          "source": "Sydney Morning Herald"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/October_7_attacks",
@@ -1702,7 +2493,12 @@
         "page": "https://commons.wikimedia.org/wiki/File:Memorial_of_those_murdered_at_the_Nova_Music_Festival_on_7_October_2023.jpg",
         "credit": "Relspas",
         "license": "CC BY-SA 4.0"
-      }
+      },
+      "bullets": [
+        "About 1,200 killed in a single day — most of them civilians.",
+        "251 people taken hostage, from a music festival and their own kitchens.",
+        "UN inquiry: war crimes and crimes against humanity. ICC: arrest warrant for Mohammed Deif."
+      ]
     },
     {
       "id": "hamas-designations",
@@ -1726,6 +2522,38 @@
         {
           "url": "https://www.aljazeera.com/news/2021/11/19/uk-moves-to-ban-hamas-as-terrorist-organisation",
           "source": "Al Jazeera"
+        },
+        {
+          "url": "https://abcnews.go.com/International/wireStory/uk-make-hamas-banned-terrorist-organization-81274454",
+          "source": "ABC News"
+        },
+        {
+          "url": "https://apnews.com/article/europe-middle-east-israel-militant-groups-gaza-strip-a50b423567b9efcdf95452deac39399f",
+          "source": "AP"
+        },
+        {
+          "url": "https://www.bbc.com/news/uk-59346441",
+          "source": "BBC"
+        },
+        {
+          "url": "https://www.middleeasteye.net/news/hamas-terrorist-organisation-british-government",
+          "source": "Middle East Eye"
+        },
+        {
+          "url": "https://www.reuters.com/world/uk/britain-set-proscribe-hamas-terrorist-organisation-uk-media-reports-2021-11-19/",
+          "source": "Reuters"
+        },
+        {
+          "url": "https://www.latimes.com/world-nation/story/2021-11-19/uk-says-it-will-make-hamas-a-banned-terrorist-organization",
+          "source": "LA Times"
+        },
+        {
+          "url": "https://www.timesofisrael.com/uk-officially-bans-hamas-in-its-entirety-as-a-terrorist-group/",
+          "source": "Times of Israel"
+        },
+        {
+          "url": "https://www.theguardian.com/world/2021/nov/19/hamas-to-be-declared-terrorist-organisation-and-supporting-it-unlawful",
+          "source": "The Guardian"
         }
       ],
       "wikipedia": "https://en.wikipedia.org/wiki/Hamas",
@@ -1739,7 +2567,64 @@
         "page": "https://commons.wikimedia.org/wiki/File:Harry_S._Truman_Building_Front_(54629010445).jpg",
         "credit": "U.S. Department of State (Issac D. Pacheco)",
         "license": "Public domain (work of a US Department of State employee)"
-      }
+      },
+      "bullets": [
+        "Designated terrorists in Washington (1997), Brussels (2003), London (2021).",
+        "Donating to Hamas: up to 20 years in a US federal prison.",
+        "Voicing support is an offense under the UK Terrorism Act."
+      ]
+    },
+    {
+      "id": "deproscription",
+      "section": "hamas",
+      "title": "Deproscription: the lawful route to challenge a terrorist designation",
+      "date": "Terrorism Act 2000 ss.4–10; 8 U.S.C. § 1189; PMOI delisted UK 2008, EU 2009, US 2012; Palestine Action JR: High Court 13 Feb 2026, Court of Appeal Jun 2026",
+      "summary": "Section 4 of the UK's Terrorism Act 2000 lets a proscribed organisation, or any person affected by the ban, apply to the Home Secretary for deproscription, with appeal to the Proscribed Organisations Appeal Commission and onward to the Court of Appeal — and section 10 makes evidence of anything done in relation to such an application inadmissible in proceedings for a proscription offence; the US equivalent, 8 U.S.C. § 1189, lets a designated group petition the Secretary of State for revocation every two years, subject to review in the DC Circuit. Designations do get reversed: the People's Mojahedin Organization of Iran was deproscribed in the UK in June 2008 after the Court of Appeal upheld POAC's ruling that the refusal to deproscribe was “perverse”, was removed from the EU list in 2009 and delisted by the US State Department in 2012, while in the Palestine Action case the Divisional Court held the proscription unlawful in February 2026 before the Court of Appeal allowed the Home Secretary's appeal that June, leaving the ban in force pending any Supreme Court appeal.",
+      "links": [
+        {
+          "url": "https://www.gov.uk/government/publications/proscribed-terror-groups-or-organisations--2/proscribed-terrorist-groups-or-organisations-accessible-version",
+          "source": "GOV.UK — Home Office, 'Proscribed terrorist groups or organisations' (accessible version): sets out the section 4 deproscription application, the 90-day determination period, POAC appeal and onward appeal to the Court of Appeal"
+        },
+        {
+          "url": "https://www.legislation.gov.uk/ukpga/2000/11/enacted",
+          "source": "legislation.gov.uk — Terrorism Act 2000 as enacted (ss.4–6 deproscription and POAC; s.10 inadmissibility of deproscription-application evidence)"
+        },
+        {
+          "url": "https://homeofficemedia.blog.gov.uk/2023/09/15/factsheet-proscription/",
+          "source": "Home Office in the media blog — 'FACTSHEET: Proscription' (official Home Office factsheet describing the deproscription route and POAC)"
+        },
+        {
+          "url": "https://2009-2017.state.gov/r/pa/prs/ps/2012/09/198443.htm",
+          "source": "US Department of State — 'Delisting of the Mujahedin-e Khalq', 28 September 2012 (revocation of FTO designation under the Immigration and Nationality Act)"
+        },
+        {
+          "url": "https://www.judiciary.uk/wp-content/uploads/2026/02/R-Ammori-v-SSHD-OPEN-Judgment-final.pdf",
+          "source": "Judiciary of England and Wales — R (Huda Ammori) v Secretary of State for the Home Department [2026] EWHC 292 (Admin), open judgment, 13 February 2026"
+        },
+        {
+          "url": "https://www.libertyhumanrights.org.uk/issue/breaking-down-the-court-of-appeal-judgment-on-palestine-actions-proscription/",
+          "source": "Liberty — 'Breaking down the Court of Appeal judgment on Palestine Action's proscription' (June 2026 reversal; one month to seek permission to appeal to the Supreme Court)"
+        }
+      ],
+      "wikipedia": "https://en.wikipedia.org/wiki/Proscribed_Organisations_Appeal_Commission",
+      "official": {
+        "url": "https://www.gov.uk/government/publications/proscribed-terror-groups-or-organisations--2/proscribed-terrorist-groups-or-organisations-accessible-version",
+        "label": "GOV.UK — Home Office, \"Proscribed terrorist groups or organisations\": deproscription under section 4, Terrorism Act 2000",
+        "flag": "🏛️"
+      },
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Home_Office%2C_2_Marsham_Street%2C_London.jpg/960px-Home_Office%2C_2_Marsham_Street%2C_London.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Home_Office,_2_Marsham_Street,_London.jpg",
+        "credit": "Steph Gray — Home Office, 2 Marsham Street, London",
+        "license": "CC BY-SA 2.0"
+      },
+      "comment": "Supporting a proscribed group is a crime. Arguing that the proscription itself is wrong is not — it is the mechanism the statute provides.",
+      "verify": "The Home Office's published guidance sets out the s.4 route but does not itself say in terms that campaigning for deproscription is lawful; that rests on s.10 of the Act and on a Home Office letter of 11 Aug 2025, quoted by Novara Media, stating it is not an offence to criticise the decision to proscribe Palestine Action.",
+      "bullets": [
+        "The same law that bans a group provides the form to unban it.",
+        "The MEK went from “terrorists” to delisted — in London, Brussels and Washington.",
+        "Arguing a ban is wrong is lawful speech; the Act itself shields the application process."
+      ]
     }
   ]
 }
