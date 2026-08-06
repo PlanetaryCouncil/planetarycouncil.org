@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jimi Cohen — Press Desk</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7faf6; --panel:#ffffff; --line:#dce8dc; --line-soft:#eaf2e8;
+  --ink:#16241a; --dim:#5c7a63; --faint:#8aa891;
+  --green:#2f7d4f; --green-dk:#1f5c39; --green-lt:#e6f4ea;
+  --mono:'IBM Plex Mono',monospace; --sans:'IBM Plex Sans',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;
+  background-image:radial-gradient(circle at 85% -5%,#e8f5ea 0%,transparent 45%);}
+.wrap{max-width:1080px;margin:0 auto;padding:48px 24px 80px}
+header{border-bottom:2px solid var(--green);padding-bottom:26px;margin-bottom:32px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--green)}
+h1{font-size:clamp(30px,5vw,46px);font-weight:700;letter-spacing:-.02em;margin:10px 0 6px;color:var(--green-dk)}
+.sub{color:var(--dim);font-size:15px;max-width:64ch}
+.counters{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.counter{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 18px;min-width:104px;
+  box-shadow:0 1px 2px rgba(31,92,57,.05)}
+.counter .n{font-family:var(--mono);font-size:26px;font-weight:600;color:var(--green);line-height:1}
+.counter .l{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-top:6px}
+
+.controls{margin:32px 0 24px}
+.ctl-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:10px}
+.ctl-label{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--faint);min-width:62px}
+.controls button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  background:var(--panel);border:1px solid var(--line);color:var(--dim);padding:7px 13px;
+  border-radius:999px;cursor:pointer;transition:.15s}
+.controls button:hover{border-color:var(--green);color:var(--green-dk)}
+.controls button.on{background:var(--green);border-color:var(--green);color:#fff;font-weight:600}
+
+.timeline{display:flex;align-items:flex-end;gap:5px;margin:18px 0 6px;height:52px}
+.bar{flex:1;background:var(--green-lt);border:1px solid var(--line);border-bottom:none;
+  border-radius:4px 4px 0 0;position:relative;cursor:pointer;transition:.15s;min-height:6px}
+.bar:hover{background:#cfe8d6}
+.bar.on{background:var(--green)}
+.bar span{position:absolute;bottom:-19px;left:0;right:0;text-align:center;
+  font-family:var(--mono);font-size:9.5px;color:var(--faint)}
+.bar.on span{color:var(--green-dk);font-weight:600}
+.bar b{position:absolute;top:-15px;left:0;right:0;text-align:center;
+  font-family:var(--mono);font-size:10px;color:var(--dim)}
+.tl-pad{margin-bottom:26px}
+
+.region{margin-bottom:32px}
+.region h2{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--green-dk);
+  border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:14px;display:flex;justify-content:space-between}
+.item{display:block;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--line-soft);
+  border-radius:8px;padding:15px 18px;margin-bottom:9px;text-decoration:none;color:inherit;transition:.15s}
+.item:hover{border-color:var(--green);border-left-color:var(--green);
+  transform:translateX(3px);box-shadow:0 2px 8px rgba(31,92,57,.09)}
+.meta{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);
+  display:flex;flex-wrap:wrap;gap:10px;margin-bottom:6px;align-items:center}
+.flag{font-size:14px}
+.yr{color:var(--green);font-weight:600}
+.tier{padding:2px 7px;border-radius:4px;font-size:9.5px;letter-spacing:.1em;font-weight:500}
+.t-primary{background:#d6f0de;color:#175c33}
+.t-press{background:#dbeafe;color:#1e40af}
+.t-interview{background:#ede9fe;color:#5b21b6}
+.t-wire{background:#fef3c7;color:#92400e}
+.t-own{background:#eeeeee;color:#555}
+.title{font-size:15px;font-weight:600;line-height:1.4;color:var(--ink)}
+.note{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:7px;line-height:1.6}
+footer{border-top:1px solid var(--line);margin-top:48px;padding-top:22px;
+  font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.9}
+.legend{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-top:14px;display:flex;flex-wrap:wrap;gap:14px}
+.legend b{font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Press Desk · Compiled 05 Aug 2026</div>
+  <h1>Jimi Cohen</h1>
+  <p class="sub">Australian environmentalist. Founder, Treegens &amp; the 1B&nbsp;Tree GROWalition.
+  Held the Guinness World Record for most mangrove trees planted by an individual in 24 hours
+  (30,469 · Shimoni, Kwale, Kenya · 22 April 2024 – 30 April 2026).</p>
+  <div class="counters" id="counters"></div>
+  <div class="legend">
+    <span><b style="color:#175c33">■</b> Primary / official record</span>
+    <span><b style="color:#1e40af">■</b> Independent press</span>
+    <span><b style="color:#5b21b6">■</b> Interview / podcast</span>
+    <span><b style="color:#92400e">■</b> Wire / paid release</span>
+    <span><b style="color:#777">■</b> Own channel</span>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="ctl-row"><span class="ctl-label">Type</span><span id="f-tier"></span></div>
+  <div class="ctl-row"><span class="ctl-label">Year</span><span id="f-year"></span></div>
+</div>
+
+<div class="timeline" id="timeline"></div>
+<div class="tl-pad"></div>
+
+<div id="board"></div>
+
+<footer>
+  Sources are tagged by evidence class, not treated as equivalent. Wire releases and own channels
+  are listed for completeness, not as third-party verification.
+  Entries marked <b>Primary</b> were fetched and verified directly at source.<br>
+  v03 · edit the <code>ITEMS</code> array to add coverage.
+</footer>
+
+</div>
+
+<script>
+/* ─── EDIT HERE ────────────────────────────────────────────────
+   tier: primary | press | interview | wire | own
+   region: Africa | Asia | Europe | Americas
+   d: any date string containing a 4-digit year (used for filtering)
+──────────────────────────────────────────────────────────────── */
+const ITEMS = [
+
+ // ── PRIMARY ──
+ {t:"Most mangrove trees planted by an individual in 24 hours — 30,469",
+  o:"Guinness World Records", d:"22 Apr 2024", c:"United Kingdom", f:"🇬🇧", region:"Europe", tier:"primary",
+  n:"Official record page. Superseded 30 Apr 2026 by Antoine Moses (47,460).",
+  u:"https://www.guinnessworldrecords.com/world-records/744458-most-mangrove-trees-planted-by-an-individual-in-24-hours"},
+
+ {t:"Record superseded — Antoine Moses plants 47,460 mangroves in Mombasa",
+  o:"Guinness World Records", d:"27 May 2026", c:"United Kingdom", f:"🇬🇧", region:"Europe", tier:"primary",
+  n:"Context: marks the end of Cohen's two-year tenure as holder.",
+  u:"https://www.guinnessworldrecords.com/news/2026/5/tree-lover-takes-second-record-in-kenya-after-planting-over-45000-mangroves-in-one-day"},
+
+ // ── KENYA ──
+ {t:"Kenya-based environmentalist seeks to break World Record after planting 30,000 trees in a day",
+  o:"Eastleigh Voice", d:"23 Apr 2024", c:"Kenya", f:"🇰🇪", region:"Africa", tier:"press",
+  n:"Reporter Mishi Gongo. Names KFS warden Livingstone Kitawi and CFA chair Mshemanga Hamisi. Provisional count 30,279.",
+  u:"https://eastleighvoice.co.ke/news/36062/kenya-based-environmentalist-seeks-to-break-world-record-after-planting-30000-trees-in-a-day"},
+
+ {t:"Environmentalist seeks to break world record planting over 30,000 trees in a day",
+  o:"NTV Kenya", d:"23 Apr 2024", c:"Kenya", f:"🇰🇪", region:"Africa", tier:"press",
+  u:"https://ntvkenya.co.ke/news/environmentalist-seeks-to-break-world-record-planting-over-30000-trees-in-a-day/"},
+
+ {t:"Australian seeks to break Guinness world record by planting trees in Kilifi",
+  o:"Daily Nation", d:"24 Apr 2024", c:"Kenya", f:"🇰🇪", region:"Africa", tier:"press",
+  n:"Names KFS and the Pongwe-Kikoneni-Majoreni CFA; CFA members paid Sh1,000 each.",
+  u:"https://nation.africa/kenya/news/australian-seeks-to-break-guinness-world-record-by-planting-trees-in-kilifi-4602194"},
+
+ {t:"Australian environmentalist aims for Guinness record with mangrove planting marathon in Kenya",
+  o:"The Kenyan Diaspora", d:"24 Apr 2024", c:"Kenya", f:"🇰🇪", region:"Africa", tier:"press",
+  u:"https://thekenyandiaspora.com/stories/488/Australian-environmentalist-aims-for-Guinness-record-with-mangrove-planting-marathon-in-Kenya"},
+
+ {t:"Kenya sets new record in mangrove planting drive",
+  o:"Daily Nation", d:"28 Jul 2026", c:"Kenya", f:"🇰🇪", region:"Africa", tier:"press",
+  n:"Later mention — refers to Cohen as former individual record holder.",
+  u:"https://nation.africa/kenya/climate/kenya-sets-new-record-in-mangrove-planting-drive-5540058"},
+
+ // ── EUROPE / INTERNATIONAL ──
+ {t:"Rekortmen çevrecinin yeni hedefi 24 saatte 1 milyar ağaç dikmek",
+  o:"Anadolu Ajansı / Yeşilhat", d:"17 Dec 2024", c:"Türkiye", f:"🇹🇷", region:"Europe", tier:"press",
+  n:"Turkish. Interviewed at COP29, Baku, by Yeter Ada Şeko. Confirms 30,469; his account of the two failed attempts (no AI counter; camera failed in the Kenyan heat); 1.1M trees via projects (self-reported); 311+ partner organisations.",
+  u:"https://www.aa.com.tr/tr/yesilhat/cevre-hikayeleri/rekortmen-cevrecinin-yeni-hedefi-24-saatte-1-milyar-agac-dikmek/1824910"},
+
+ {t:"Jimi Cohen – Co-founder – Treegens (filmed interview, COP30 Belém)",
+  o:"Climate Home / Climate Change TV", d:"20 Nov 2025", c:"United Kingdom", f:"🇬🇧", region:"Europe", tier:"interview",
+  n:"Verified. Establishes COP30 presence, credentialed by an independent climate outlet.",
+  u:"https://www.climate-change.tv/12853"},
+
+ {t:"E13 — Jimi Cohen, Treegens (recorded in Tanzania)",
+  o:"Ferncast", d:"Feb 2023", c:"United Kingdom", f:"🇬🇧", region:"Europe", tier:"interview",
+  u:"https://soundcloud.com/ferncast/e13-jimi-cohen-treegens"},
+
+ // ── ASIA ──
+ {t:"Who is Jimi Cohen, who planted the most mangrove trees in 24 hours?",
+  o:"Ground Report", d:"28 Nov 2024", c:"India", f:"🇮🇳", region:"Asia", tier:"press",
+  n:"Fullest profile. Sources KFS warden Kitawi and CFA chair Hamisi. Largely follows Kenyan reporting.",
+  u:"https://www.groundreport.in/special-report-news-makers/who-is-jimi-cohen-who-planted-the-most-mangrove-trees-in-24-hours-7614549/"},
+
+ // ── AMERICAS ──
+ {t:"Australian Environmentalist Plants 30,279 Mangrove Trees in Kilifi for Guinness World Record",
+  o:"Mwakilishi", d:"24 Apr 2024", c:"United States", f:"🇺🇸", region:"Americas", tier:"press",
+  n:"Kenyan diaspora outlet.",
+  u:"https://mwakilishi.com/article/kenya-news/2024-04-24/australian-environmentalist-plants-30279-mangrove-trees-in-kilifi-for"},
+
+ {t:"TreeGens Breaks Guinness World Record With Over 30K Trees Planted in One Day",
+  o:"ESG News", d:"27 Feb 2025", c:"United States", f:"🇺🇸", region:"Americas", tier:"press",
+  n:"Confirms certified 30,469. Portions read as promotional — use for coverage, not verification.",
+  u:"https://esgnews.com/treegens-world-record-30k-trees-planted/"},
+
+ {t:"ReFi Roundup #38 — Cohen hosts 30+ hour online tree-planting event",
+  o:"ReFiDAO", d:"Oct 2022", c:"United States", f:"🇺🇸", region:"Americas", tier:"press",
+  n:"Earliest independent trace of his organising, pre-Guinness.",
+  u:"https://blog.refidao.com/refi-roundup-38-2/"},
+
+ {t:"10 projects using Web3 tools to boost tree planting and reforestation",
+  o:"Crypto Altruism", d:"Sep 2023", c:"United States", f:"🇺🇸", region:"Americas", tier:"press",
+  u:"https://www.cryptoaltruism.org/blog/10-projects-using-web3-tools-to-boost-tree-planting-and-reforestation"},
+
+ {t:"Topl Spotlight #11: Building ReFi Communities With Treegens' Jimi Cohen",
+  o:"Topl / Medium", d:"Jul 2023", c:"United States", f:"🇺🇸", region:"Americas", tier:"interview",
+  u:"https://medium.com/topl-blog/topl-spotlight-11-building-refi-communities-with-treegens-jimi-cohen-e888b6df1d77"},
+
+ {t:"Jimi Cohen: Harnessing Web3 for Positive Impact",
+  o:"CharmVerse", d:"12 Oct 2023", c:"United States", f:"🇺🇸", region:"Americas", tier:"interview",
+  u:"https://charmverse.io/post/harnessing-web3-for-positive-impact/"},
+
+ {t:"Ep. 11 — Let's Grow Treegens w/ Jimi Cohen (42 min, pre-record)",
+  o:"ReFi Generation", d:"29 Feb 2024", c:"United States", f:"🇺🇸", region:"Americas", tier:"interview",
+  n:"Dual-token model, blockchain monitoring, then-target of exceeding 560M trees in one day.",
+  u:"https://refigeneration.com/2221601/episodes/14603174-ep-11-let-s-grow-treegens-w-jimi-cohen"},
+
+ {t:"Ep. 158 — Decentralized, Permissionless Tree Planting with Jimi Cohen (54 min)",
+  o:"Crypto Altruists", d:"5 Jun 2024", c:"United States", f:"🇺🇸", region:"Americas", tier:"interview",
+  u:"https://www.cryptoaltruists.com/blog/crypto-altruists-episode-158-treegens-decentralized-permissionless-tree-planting-with-world-record-tree-planter-jimi-cohen"},
+
+ {t:"Web3 Magic — Treegens & Guinness World Records (31 min)",
+  o:"Web3 Magic / Pods.media", d:"22 Aug 2024", c:"United States", f:"🇺🇸", region:"Americas", tier:"interview",
+  u:"https://pods.media/web3-magic"},
+
+ // ── WIRE ──
+ {t:"Metasphere Labs Announces Record-Breaking Achievement by Jimi Cohen",
+  o:"GlobeNewswire / Yahoo Finance", d:"30 Apr 2024", c:"Canada", f:"🇨🇦", region:"Americas", tier:"wire",
+  n:"Paid corporate release (Cboe Canada: LABZ). Claims a 'third consecutive year' of records — inconsistent with the Guinness register. Do not repeat.",
+  u:"https://finance.yahoo.com/news/metasphere-labs-announces-record-breaking-113000304.html"},
+
+ {t:"Bluesphere Carbon & Treegens LLP partner to develop Treegens ReFi project",
+  o:"EIN Presswire", d:"Jul 2023", c:"United Kingdom", f:"🇬🇧", region:"Europe", tier:"wire",
+  n:"Documents the unofficial Tanzania attempt — 25,244 mangroves in 21.5 hrs. Conflicts with the 25,650 figure given in the Topl interview.",
+  u:"https://www.einpresswire.com/article/635613245/bluesphere-carbon-treegens-llp-partner-to-develop-innovative-treegens-refi-project"},
+
+ // ── CORPORATE RECORD (verified at source) ──
+ {t:"TREEGENS LLP (OC447389) — incorporated 18 May 2023, DISSOLVED 22 Oct 2024",
+  o:"UK Companies House", d:"22 Oct 2024", c:"United Kingdom", f:"🇬🇧", region:"Europe", tier:"primary",
+  n:"PSCs: James Cohen (Australian, 50–75% voting) and Bluesphere Carbon (US, 25–50%). Office: 56 Shoreditch High St, London. Compulsory strike-off — commonly a filings failure, not wrongdoing.",
+  u:"https://find-and-update.company-information.service.gov.uk/company/OC447389"},
+
+ {t:"WE MAKE IMPACT LTD (14637039) — incorporated 3 Feb 2023, DISSOLVED 9 Jul 2024",
+  o:"UK Companies House", d:"9 Jul 2024", c:"United Kingdom", f:"🇬🇧", region:"Europe", tier:"primary",
+  u:"https://find-and-update.company-information.service.gov.uk/company/14637039"},
+
+ {t:"WRITTEN ROI LTD (14584543) — incorporated 11 Jan 2023, dissolved 18 Jun 2024",
+  o:"UK Companies House", d:"18 Jun 2024", c:"United Kingdom", f:"🇬🇧", region:"Europe", tier:"primary",
+  n:"Reported but not yet fetched at source — verify before citing.",
+  u:"https://find-and-update.company-information.service.gov.uk/company/14584543"},
+
+ // ── OWN CHANNELS ──
+ {t:"Treegens — official site", o:"Treegens", d:"2026", c:"—", f:"🌐", region:"Europe", tier:"own",
+  u:"https://treegens.org/"},
+ {t:"1B Tree GROWalition", o:"GROWalition", d:"2026", c:"—", f:"🌐", region:"Europe", tier:"own",
+  u:"https://www.growalition.org/"},
+ {t:"Growlympics — sponsor deck", o:"Treegens", d:"2026", c:"—", f:"🌐", region:"Europe", tier:"own",
+  u:"https://hackmd.io/h8n8shS7QmGj8kGAm-TPIQ"},
+ {t:"Guinness record recap (video)", o:"YouTube", d:"Feb 2025", c:"—", f:"🌐", region:"Americas", tier:"own",
+  u:"https://www.youtube.com/watch?v=bDIcyNZrLRY"}
+];
+
+const TIER_LABEL={primary:"Primary",press:"Press",interview:"Interview",wire:"Wire",own:"Own channel"};
+const ORDER=["Africa","Asia","Europe","Americas"];
+const yearOf=i=>{const m=String(i.d).match(/(19|20)\d{2}/);return m?m[0]:"n/a";};
+let fTier="all", fYear="all";
+
+const match=i=>(fTier==='all'||i.tier===fTier)&&(fYear==='all'||yearOf(i)===fYear);
+
+function render(){
+  const board=document.getElementById('board'); board.innerHTML='';
+  const shown=ITEMS.filter(match);
+  ORDER.forEach(r=>{
+    const g=shown.filter(i=>i.region===r); if(!g.length)return;
+    const sec=document.createElement('section'); sec.className='region';
+    sec.innerHTML=`<h2><span>${r}</span><span>${g.length}</span></h2>`;
+    g.sort((a,b)=>yearOf(a).localeCompare(yearOf(b))).forEach(i=>{
+      const a=document.createElement('a');
+      a.className='item'; a.href=i.u; a.target='_blank'; a.rel='noopener';
+      a.innerHTML=`<div class="meta">
+          <span class="flag">${i.f}</span>
+          <span>${i.o}</span><span class="yr">${i.d}</span>
+          <span class="tier t-${i.tier}">${TIER_LABEL[i.tier]}</span>
+        </div>
+        <div class="title">${i.t}</div>
+        ${i.n?`<div class="note">↳ ${i.n}</div>`:''}`;
+      sec.appendChild(a);
+    });
+    board.appendChild(sec);
+  });
+  if(!shown.length) board.innerHTML='<p style="color:var(--dim)">No entries for this combination.</p>';
+  drawTimeline();
+  counters();
+}
+
+function counters(){
+  const s=ITEMS.filter(match);
+  const countries=new Set(s.filter(i=>i.c!=='—').map(i=>i.c));
+  const regions=new Set(s.map(i=>i.region));
+  const outlets=new Set(s.map(i=>i.o));
+  const indep=s.filter(i=>['press','interview','primary'].includes(i.tier)).length;
+  const data=[[s.length,'Entries'],[indep,'Independent'],[outlets.size,'Outlets'],
+              [countries.size,'Countries'],[regions.size,'Regions']];
+  document.getElementById('counters').innerHTML=
+    data.map(([n,l])=>`<div class="counter"><div class="n">${n}</div><div class="l">${l}</div></div>`).join('');
+}
+
+const YEARS=[...new Set(ITEMS.map(yearOf))].filter(y=>y!=="n/a").sort();
+
+function drawTimeline(){
+  const base=ITEMS.filter(i=>fTier==='all'||i.tier===fTier);
+  const counts=YEARS.map(y=>base.filter(i=>yearOf(i)===y).length);
+  const max=Math.max(...counts,1);
+  document.getElementById('timeline').innerHTML=YEARS.map((y,k)=>{
+    const h=counts[k]?Math.max(12,Math.round(counts[k]/max*46)):6;
+    return `<div class="bar ${fYear===y?'on':''}" data-y="${y}" style="height:${h}px"
+      title="${counts[k]} entries in ${y}"><b>${counts[k]||''}</b><span>${y}</span></div>`;
+  }).join('');
+  document.querySelectorAll('.bar').forEach(b=>{
+    b.onclick=()=>{fYear=(fYear===b.dataset.y)?'all':b.dataset.y;syncButtons();render();};
+  });
+}
+
+function syncButtons(){
+  document.querySelectorAll('#f-year button').forEach(x=>
+    x.classList.toggle('on',x.dataset.y===fYear));
+  document.querySelectorAll('#f-tier button').forEach(x=>
+    x.classList.toggle('on',x.dataset.t===fTier));
+}
+
+function buildControls(){
+  const tiers=['all',...new Set(ITEMS.map(i=>i.tier))];
+  document.getElementById('f-tier').innerHTML=
+    tiers.map(t=>`<button data-t="${t}">${t==='all'?'All':TIER_LABEL[t]}</button>`).join(' ');
+  document.getElementById('f-year').innerHTML=
+    ['all',...YEARS].map(y=>`<button data-y="${y}">${y==='all'?'All years':y}</button>`).join(' ');
+  document.querySelectorAll('#f-tier button').forEach(b=>{
+    b.onclick=()=>{fTier=b.dataset.t;syncButtons();render();};});
+  document.querySelectorAll('#f-year button').forEach(b=>{
+    b.onclick=()=>{fYear=b.dataset.y;syncButtons();render();};});
+  syncButtons();
+}
+
+buildControls(); render();
+</script>
+</body>
+</html>
