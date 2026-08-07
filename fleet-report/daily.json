@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-08-07T14:33:26+00:00",
+  "window_hours": 24,
+  "host": "nuc",
+  "building": true,
+  "landed": [
+    "self-improve: deny the Linux equivalents of what macOS already denied",
+    "telegram: the line remembers, and can act (#31)",
+    "watchdog: find the venv that exists on this machine (follow-up to #32) (#33)",
+    "build gate: every machine can build, one of them should (#32)",
+    "merge the agents pane into processes; goals own the left column",
+    "telegram: the operator's direct line (#29)",
+    "board: delete the orrery and the click-charge (#27)",
+    "board: escape JSON before it enters the <script> element (#16) (#24)",
+    "simplify: one airlock gate at board_state (the sole prompt reader), drop scattered per-emit sanitising",
+    "harden: /api/convene is a control surface, block it from remote callers",
+    "security: close the airlock (#18) \u2014 public input can't reach agent prompts",
+    "projects.yaml: add scopes (global/mars/personal); tag current 16 as mars"
+  ],
+  "landed_count": 12,
+  "rejected": [
+    "2026-08-06-untrack-fleet-data-localvoice-jso rejected: REJECT because a new entry was added to .gitignore affecting tracking ",
+    "2026-08-06-auto-rerun-stale-but-passing-work rejected: REJECT because this script introduces a new requirement (the `REVIVE_R",
+    "2026-08-06-pipeline-counts-filed-proposals-a rejected: REJECT because there's a warning in the summary: the count of filed pr",
+    "2026-08-06-untrack-fleet-data-localvoice-jso rejected: REJECT because this change is introducing new tracked files without su",
+    "2026-08-06-auto-rerun-stale-but-passing-work rejected: REJECT because the second test in `tests/test_revive_heartbeat.py` che",
+    "2026-08-06-pipeline-counts-filed-proposals-a rejected: APPROVE because, despite some changes from previous passes, this updat"
+  ],
+  "could_not_land": [],
+  "proposals_waiting": 36,
+  "needs_you": [
+    "pipeline: rota/2026-08-06-make-staleness-a-warn-not-a-footnote awaits your merge"
+  ]
+}
