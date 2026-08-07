@@ -258,6 +258,14 @@
       else the fleet decides on its own.</p>
   </section>
 
+
+  <section id="projects" hidden>
+    <h2>Projects the fleet watches</h2>
+    <p>Each one's own account of itself, and — where a watchdog runs against
+      it — whether that was still true when last checked.</p>
+    <div class="ledger" id="projectlist"></div>
+  </section>
+
   <section>
     <div class="next">
       <span class="lab">Next</span>
@@ -293,6 +301,37 @@ fetch("./daily.json", {cache: "no-store"})
     }
     if (Number.isInteger(d.landed_count))
       document.getElementById("landed").textContent = d.landed_count;
+
+    const box = document.getElementById("projectlist");
+    if (box && Array.isArray(d.projects) && d.projects.length) {
+      box.replaceChildren(...d.projects.map(pr => {
+        const row = document.createElement("div");
+        row.className = "row";
+        const id = document.createElement("span");
+        id.className = "id";
+        id.textContent = pr.tests ? (pr.tests.status || "") : (pr.status || "");
+        const what = document.createElement("span");
+        what.className = "what";
+        if (pr.url && pr.url !== "TODO") {
+          const a = document.createElement("a");
+          a.href = pr.url;
+          a.textContent = pr.name;
+          a.style.color = "inherit";
+          what.appendChild(a);
+        } else {
+          what.textContent = pr.name;
+        }
+        row.append(id, what);
+        if (pr.tagline) {
+          const note = document.createElement("span");
+          note.className = "note";
+          note.textContent = pr.tagline;
+          row.appendChild(note);
+        }
+        return row;
+      }));
+      document.getElementById("projects").hidden = false;
+    }
     if (d.generated_at)
       document.getElementById("asof").textContent =
         "Figures as of " + d.generated_at.replace("T", " ").slice(0, 16) + " UTC.";
