@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-07T14:33:26+00:00",
+  "generated_at": "2026-08-07T14:55:24+00:00",
   "window_hours": 24,
   "host": "nuc",
   "building": true,
   "landed": [
+    "land in a worktree, and publish the figures to the site each morning",
+    "daily: the same figures as JSON, for a page to render",
+    "progress page: 16 GB, lowercase Nuc, and Gaia's real core count",
+    "progress page: one night of the fleet, as a page",
+    "the fleet lands its own work, and reports once a day",
     "self-improve: deny the Linux equivalents of what macOS already denied",
     "telegram: the line remembers, and can act (#31)",
     "watchdog: find the venv that exists on this machine (follow-up to #32) (#33)",
     "build gate: every machine can build, one of them should (#32)",
     "merge the agents pane into processes; goals own the left column",
     "telegram: the operator's direct line (#29)",
-    "board: delete the orrery and the click-charge (#27)",
-    "board: escape JSON before it enters the <script> element (#16) (#24)",
-    "simplify: one airlock gate at board_state (the sole prompt reader), drop scattered per-emit sanitising",
-    "harden: /api/convene is a control surface, block it from remote callers",
-    "security: close the airlock (#18) \u2014 public input can't reach agent prompts",
-    "projects.yaml: add scopes (global/mars/personal); tag current 16 as mars"
+    "board: delete the orrery and the click-charge (#27)"
   ],
   "landed_count": 12,
   "rejected": [
@@ -27,7 +27,7 @@
     "2026-08-06-pipeline-counts-filed-proposals-a rejected: APPROVE because, despite some changes from previous passes, this updat"
   ],
   "could_not_land": [],
-  "proposals_waiting": 36,
+  "proposals_waiting": 43,
   "needs_you": [
     "pipeline: rota/2026-08-06-make-staleness-a-warn-not-a-footnote awaits your merge"
   ]
