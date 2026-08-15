@@ -1,0 +1,133 @@
+{
+  "generated_at": "2026-08-08T08:00:32+00:00",
+  "window_hours": 24,
+  "host": "nuc",
+  "building": true,
+  "landed": [
+    "rota: the projects are the point, the machine goes last",
+    "daily: the project list, joined to what the watchdogs proved",
+    "council: skip a turn when the board has not materially changed",
+    "Hard 90s wall-clock timeout on the localvoice ollama ping",
+    "Give each proposal a unique branch slug",
+    "rota: file narrated-prompt turns as unusable, not proposed",
+    "council: the operator can ask it something (#35)",
+    "land in a worktree, and publish the figures to the site each morning",
+    "daily: the same figures as JSON, for a page to render",
+    "progress page: 16 GB, lowercase Nuc, and Gaia's real core count",
+    "progress page: one night of the fleet, as a page",
+    "the fleet lands its own work, and reports once a day"
+  ],
+  "landed_count": 12,
+  "rejected": [
+    "2026-08-06-pipeline-counts-filed-proposals-a rejected: REJECT because there's a warning in the summary: the count of filed pr",
+    "2026-08-06-untrack-fleet-data-localvoice-jso rejected: REJECT because this change is introducing new tracked files without su",
+    "2026-08-06-auto-rerun-stale-but-passing-work rejected: REJECT because the second test in `tests/test_revive_heartbeat.py` che",
+    "2026-08-06-pipeline-counts-filed-proposals-a rejected: APPROVE because, despite some changes from previous passes, this updat",
+    "2026-08-07-stop-truncating-the-pipeline-summ rejected: REJECT. The diff indicates that some entries are being truncated while",
+    "2026-08-07-stop-truncating-the-pipeline-summ rejected: REJECT. The added fields `_fit` and `summary` are causing unexpected b"
+  ],
+  "could_not_land": [
+    "2026-08-07-preflight-gate-agent-commands-nev could not land: push: behind its remote\nhint: counterpart. If you want to in"
+  ],
+  "proposals_waiting": 418,
+  "needs_you": [
+    "pipeline: rota/2026-08-07-preflight-gate-agent-commands-never-file could not lan"
+  ],
+  "projects": [
+    {
+      "name": "Planetary Council",
+      "url": "https://planetarycouncil.org",
+      "tagline": "Changing the world through art and culture \u2014 an upgrade to global governance",
+      "status": "active"
+    },
+    {
+      "name": "BaseX",
+      "url": "https://basex.com",
+      "tagline": "A new definition of value \u2014 triple bottom line (people, planet, prosperity)",
+      "status": "awaiting-deployment"
+    },
+    {
+      "name": "Money from the Future",
+      "url": "https://moneyfromthefuture.com",
+      "tagline": "The best way to make money is to make money",
+      "status": "active"
+    },
+    {
+      "name": "Network State Genesis",
+      "url": "TODO",
+      "tagline": "A new model of a state with aligned values",
+      "status": "active"
+    },
+    {
+      "name": "Future Vision XPRIZE",
+      "url": "TODO",
+      "tagline": "Imagination athlete \u2014 expanding the horizons of the imaginable",
+      "status": "active"
+    },
+    {
+      "name": "Live Agent Fleet (Command & Control Dashboard)",
+      "url": "TODO",
+      "tagline": "A transparent, public AI-agent operations dashboard",
+      "status": "active"
+    },
+    {
+      "name": "Haiku Command-Line Poems",
+      "url": "https://poems.planetarycouncil.org",
+      "tagline": "Two-line closing poems from the terminal",
+      "status": "active"
+    },
+    {
+      "name": "AI Brain Farts",
+      "url": "https://brainfarts.planetarycouncil.org",
+      "tagline": "Logged cases of confidently-wrong AI output, scored on a four-axis scale",
+      "status": "active"
+    },
+    {
+      "name": "Personal Wiki",
+      "url": "https://wiki.secondrenaissance.net/wiki/Mars_Robertson",
+      "tagline": "Open, contributable wiki",
+      "status": "active"
+    },
+    {
+      "name": "Artizen.fund projects",
+      "url": "https://artizen.fund",
+      "tagline": "Art funded on Artizen",
+      "status": "active"
+    },
+    {
+      "name": "Solarpunk Estates",
+      "url": "https://solarpunkestates.org",
+      "tagline": "Building one billion regenerative homes \u2014 coliving, rent-to-own, rooted in nature, powered by the sun",
+      "status": "active"
+    },
+    {
+      "name": "Independent Tribunal",
+      "url": "https://independenttribunal.org",
+      "tagline": "An independent tribunal",
+      "status": "active"
+    },
+    {
+      "name": "Dating Relating",
+      "url": "https://datingrelating.com",
+      "tagline": "Dating and relating \u2014 a fresh take on connection",
+      "status": "active"
+    },
+    {
+      "name": "Legal Screenshot",
+      "url": "https://legalscreenshot.com",
+      "tagline": "Timestamped, legally-defensible screenshots (domain for sale, with legalprintscreen.com)",
+      "status": "for-sale"
+    },
+    {
+      "name": "Ultra Magic Hands",
+      "url": "https://ultramagichands.com",
+      "tagline": "Massage",
+      "status": "active"
+    },
+    {
+      "name": "Ministry of Memes and Better Propaganda",
+      "tagline": "The good guys need better propaganda than the bad guys \u2014 memes to end the war through awareness and education",
+      "status": "active"
+    }
+  ]
+}
