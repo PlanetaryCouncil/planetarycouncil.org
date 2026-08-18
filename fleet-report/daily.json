@@ -1,36 +1,15 @@
 {
-  "generated_at": "2026-08-08T08:00:32+00:00",
+  "generated_at": "2026-08-18T06:31:05+00:00",
   "window_hours": 24,
   "host": "nuc",
   "building": true,
-  "landed": [
-    "rota: the projects are the point, the machine goes last",
-    "daily: the project list, joined to what the watchdogs proved",
-    "council: skip a turn when the board has not materially changed",
-    "Hard 90s wall-clock timeout on the localvoice ollama ping",
-    "Give each proposal a unique branch slug",
-    "rota: file narrated-prompt turns as unusable, not proposed",
-    "council: the operator can ask it something (#35)",
-    "land in a worktree, and publish the figures to the site each morning",
-    "daily: the same figures as JSON, for a page to render",
-    "progress page: 16 GB, lowercase Nuc, and Gaia's real core count",
-    "progress page: one night of the fleet, as a page",
-    "the fleet lands its own work, and reports once a day"
-  ],
-  "landed_count": 12,
-  "rejected": [
-    "2026-08-06-pipeline-counts-filed-proposals-a rejected: REJECT because there's a warning in the summary: the count of filed pr",
-    "2026-08-06-untrack-fleet-data-localvoice-jso rejected: REJECT because this change is introducing new tracked files without su",
-    "2026-08-06-auto-rerun-stale-but-passing-work rejected: REJECT because the second test in `tests/test_revive_heartbeat.py` che",
-    "2026-08-06-pipeline-counts-filed-proposals-a rejected: APPROVE because, despite some changes from previous passes, this updat",
-    "2026-08-07-stop-truncating-the-pipeline-summ rejected: REJECT. The diff indicates that some entries are being truncated while",
-    "2026-08-07-stop-truncating-the-pipeline-summ rejected: REJECT. The added fields `_fit` and `summary` are causing unexpected b"
-  ],
-  "could_not_land": [
-    "2026-08-07-preflight-gate-agent-commands-nev could not land: push: behind its remote\nhint: counterpart. If you want to in"
-  ],
-  "proposals_waiting": 418,
+  "landed": [],
+  "landed_count": 0,
+  "rejected": [],
+  "could_not_land": [],
+  "proposals_waiting": 644,
   "needs_you": [
+    "agent-comms: 1/3 hops \u00b7 claude 12s \u00b7 codex 0s \u00b7 hermes 111s \u00b7 missed: codex lap1 (7",
     "pipeline: rota/2026-08-07-preflight-gate-agent-commands-never-file could not lan"
   ],
   "projects": [
