@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T06:31:05+00:00",
+  "generated_at": "2026-08-18T08:00:00+00:00",
   "window_hours": 24,
   "host": "nuc",
   "building": true,
@@ -7,9 +7,9 @@
   "landed_count": 0,
   "rejected": [],
   "could_not_land": [],
-  "proposals_waiting": 644,
+  "proposals_waiting": 678,
   "needs_you": [
-    "agent-comms: 1/3 hops \u00b7 claude 12s \u00b7 codex 0s \u00b7 hermes 111s \u00b7 missed: codex lap1 (7",
+    "agent-comms: 1/3 hops \u00b7 claude 3s \u00b7 codex 0s \u00b7 hermes 150s \u00b7 missed: codex lap1 (38",
     "pipeline: rota/2026-08-07-preflight-gate-agent-commands-never-file could not lan"
   ],
   "projects": [
