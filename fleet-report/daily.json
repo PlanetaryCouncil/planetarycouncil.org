@@ -1,29 +1,26 @@
 {
-  "generated_at": "2026-08-19T08:00:08+00:00",
+  "generated_at": "2026-08-20T08:00:08+00:00",
   "window_hours": 24,
   "host": "nuc",
   "building": true,
   "landed": [
-    "grok: a fifth voice, able to speak before it is able to act",
-    "board: busy and thinking, and a timestamp that says what it is",
-    "board: show the charges, and label the other two strangers while we are here",
-    "charge: no turnstile, an honest counter, and a label on the stranger",
-    "ci: pip install . had never been able to work, and now we know why",
-    "docs: a front door, written short because the reader has common sense",
-    "ci: fix the two blockers that were fixable, and probe the one that was not",
-    "docs: a pre-public review, and the good news is the boring part",
-    "watchdog: the protection existed only on paper, and a reboot proved it",
-    "localvoice: a slow load is not a dead model, and 3b no longer fits here",
-    "docs: a numbered table of what actually changed, with links to the commits",
-    "board: silence reads as failure, and events carry the layer they came from"
+    "docs: index the session log and the two notes beside it",
+    "docs: the session log, ending on which model to ask and why",
+    "ci: one python version, because this is a system and not a library",
+    "ci: assert on the lines panic prints everywhere, not the ones this box earns",
+    "ci: green on a machine that is not this one",
+    "pipeline: land on the remote's main, and treat a lost race as a race",
+    "gitignore: runtime state that was sitting one `git add -A` away from the repo",
+    "repo: the project belongs to the council now, so say so everywhere"
   ],
-  "landed_count": 12,
+  "landed_count": 8,
   "rejected": [],
   "could_not_land": [],
-  "proposals_waiting": 1234,
+  "proposals_waiting": 1811,
   "needs_you": [
-    "agent-comms: 2/3 hops \u00b7 claude 3s \u00b7 codex 0s \u00b7 hermes 41s \u00b7 missed: codex lap1 (453",
-    "pipeline: rota/2026-08-07-preflight-gate-agent-commands-never-file could not lan"
+    "agent-comms: 2/3 hops \u00b7 hermes 104s \u00b7 grok 2s \u00b7 agy 8s \u00b7 missed: hermes lap1 (93503",
+    "pipeline: rota/2026-08-07-preflight-gate-agent-commands-never-file could not lan",
+    "quotas: scheduled logged out: hermes"
   ],
   "projects": [
     {
