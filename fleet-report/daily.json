@@ -1,16 +1,28 @@
 {
-  "generated_at": "2026-08-25T08:00:00+00:00",
+  "generated_at": "2026-08-26T08:00:24+00:00",
   "window_hours": 24,
   "host": "nuc",
   "building": true,
-  "landed": [],
-  "landed_count": 0,
+  "landed": [
+    "council: seat a second company rather than not sit at all",
+    "quotas: alert when the fleet stops being a fleet",
+    "events: the board must not be alerted by its own test suite",
+    "docs: what this is, in a form another system can read",
+    "dormant: a staleness column that is actually about staleness",
+    "dormant: one drawer, one line per file",
+    "dormancy: tell a drawer apart from a live risk",
+    "coverage: measure it, write the number down",
+    "first contact: one row by default, opened by choice",
+    "docs: make the agent starting point obvious",
+    "watchdog: a failing run must still leave evidence",
+    "docs: unify lean agent context contract"
+  ],
+  "landed_count": 12,
   "rejected": [],
   "could_not_land": [],
-  "proposals_waiting": 319,
+  "proposals_waiting": 124,
   "needs_you": [
-    "agent-comms: 2/3 hops \u00b7 hermes 42s \u00b7 grok 4s \u00b7 agy 8s \u00b7 missed: agy lap1 (39380->40",
-    "pipeline: rota/2026-08-07-preflight-gate-agent-commands-never-file could not lan"
+    "agent-comms: 2/3 hops \u00b7 hermes 96s \u00b7 grok 3s \u00b7 agy 7s \u00b7 missed: hermes lap1 (50418-"
   ],
   "projects": [
     {
