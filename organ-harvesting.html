@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>the cold room — an evidence dossier on organ removal from Palestinian bodies</title>
+<meta name="description" content="A tiered evidence dossier: what is admitted, what is testified, what is alleged, and what is unsupported — with every primary source linked.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Spectral:ital,wght@0,300;0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --slate:#1b2126;
+  --slate-2:#222a30;
+  --slate-3:#2b353c;
+  --ice:#dfe7ec;
+  --ice-dim:#a8b8c2;
+  --steel:#788b97;
+  --amber:#d8a13a;
+  --cyan:#6fb3c4;
+  --rust:#b5654f;
+  --rule:#37444c;
+  --measure:34rem;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--slate);
+  color:var(--ice);
+  font-family:"Spectral",Georgia,serif;
+  font-weight:300;
+  font-size:17px;
+  line-height:1.62;
+  letter-spacing:.005em;
+}
+a{color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(111,179,196,.35)}
+a:hover{border-bottom-color:var(--cyan)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+.wrap{max-width:78rem;margin:0 auto;padding:0 1.5rem}
+
+/* ---------- masthead ---------- */
+header.mast{border-bottom:1px solid var(--rule);padding:5rem 0 2.5rem}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--steel);margin:0 0 1.75rem
+}
+h1{
+  font-family:"Spectral",serif;font-weight:800;font-size:clamp(2.4rem,6.5vw,4.6rem);
+  line-height:1.02;letter-spacing:-.02em;margin:0 0 1.25rem;text-transform:lowercase;
+}
+h1 em{font-style:normal;color:var(--steel)}
+.standfirst{max-width:var(--measure);font-size:1.13rem;color:var(--ice-dim);margin:0 0 2.25rem}
+.mastmeta{
+  display:flex;flex-wrap:wrap;gap:.5rem 2.25rem;font-family:"IBM Plex Mono",monospace;
+  font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--steel)
+}
+
+/* ---------- tier system (signature) ---------- */
+.tierbar{
+  position:sticky;top:0;z-index:20;background:rgba(27,33,38,.94);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);
+}
+.tierbar-inner{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;padding:.7rem 0}
+.tierbar .lbl{
+  font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--steel);margin-right:.6rem
+}
+.tbtn{
+  font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.08em;
+  background:transparent;color:var(--ice-dim);border:1px solid var(--rule);
+  padding:.34rem .68rem;cursor:pointer;border-radius:2px;transition:background .15s,color .15s,border-color .15s
+}
+.tbtn:hover{border-color:var(--steel);color:var(--ice)}
+.tbtn[aria-pressed="true"]{background:var(--slate-3);color:var(--ice);border-color:var(--steel)}
+
+.chip{
+  display:inline-flex;align-items:center;gap:.4rem;font-family:"IBM Plex Mono",monospace;
+  font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:.2rem .5rem;border-radius:2px;white-space:nowrap;border:1px solid;
+}
+.chip.a{color:var(--amber);border-color:rgba(216,161,58,.5);background:rgba(216,161,58,.09)}
+.chip.b{color:var(--cyan);border-color:rgba(111,179,196,.45);background:rgba(111,179,196,.08)}
+.chip.c{color:var(--ice-dim);border-color:var(--rule);background:rgba(255,255,255,.03)}
+.chip.d{color:var(--rust);border-color:rgba(181,101,79,.45);background:rgba(181,101,79,.08)}
+
+/* ---------- legend ---------- */
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.5rem;padding:2.5rem 0 3rem;border-bottom:1px solid var(--rule)}
+.legend .l h4{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.1em;margin:0 0 .55rem;font-weight:500}
+.legend .l p{margin:0;font-size:.92rem;color:var(--ice-dim);line-height:1.5}
+
+/* ---------- sections / entries ---------- */
+section{padding:4rem 0;border-bottom:1px solid var(--rule)}
+.sechead{display:flex;align-items:baseline;gap:1rem;margin-bottom:.5rem}
+.secnum{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--steel);letter-spacing:.14em}
+h2{font-weight:800;font-size:clamp(1.6rem,3.4vw,2.3rem);letter-spacing:-.015em;margin:0;text-transform:lowercase}
+.secintro{max-width:var(--measure);color:var(--ice-dim);margin:1rem 0 2.75rem}
+
+.entry{
+  display:grid;grid-template-columns:11rem minmax(0,var(--measure));gap:2.5rem;
+  padding:1.9rem 0;border-top:1px solid rgba(55,68,76,.55);
+  transition:opacity .25s ease
+}
+.entry:first-of-type{border-top:none}
+.entry.muted{opacity:.16}
+.gutter{display:flex;flex-direction:column;gap:.55rem;align-items:flex-start}
+.gdate{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--steel);letter-spacing:.08em}
+.entry h3{font-size:1.06rem;font-weight:600;margin:0 0 .5rem;line-height:1.35}
+.entry p{margin:0 0 .75rem}
+.entry p:last-child{margin-bottom:0}
+.srcline{font-family:"IBM Plex Mono",monospace;font-size:.74rem;color:var(--steel);line-height:1.9}
+.srcline a{border-bottom-color:rgba(120,139,151,.4)}
+
+blockquote{
+  margin:1.1rem 0;padding:.1rem 0 .1rem 1.1rem;border-left:2px solid var(--rule);
+  font-style:italic;color:var(--ice-dim)
+}
+
+.callout{
+  background:var(--slate-2);border:1px solid var(--rule);border-left:3px solid var(--amber);
+  padding:1.5rem 1.6rem;margin:2rem 0;max-width:calc(var(--measure) + 8rem)
+}
+.callout h4{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin:0 0 .8rem;font-weight:500}
+.callout p{margin:0 0 .8rem;font-size:.96rem}
+.callout p:last-child{margin:0}
+
+/* ---------- source index ---------- */
+.idx{width:100%;border-collapse:collapse;font-size:.9rem}
+.idx th{
+  text-align:left;font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--steel);font-weight:500;padding:0 1rem .7rem 0;
+  border-bottom:1px solid var(--rule)
+}
+.idx td{padding:.85rem 1rem .85rem 0;border-bottom:1px solid rgba(55,68,76,.4);vertical-align:top}
+.idx td:first-child{white-space:nowrap;font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--steel)}
+.idx .note{color:var(--steel);font-size:.82rem;display:block;margin-top:.2rem}
+.tablescroll{overflow-x:auto}
+
+ul.plain{max-width:var(--measure);padding-left:1.1rem;margin:0 0 1.5rem}
+ul.plain li{margin-bottom:.7rem}
+
+footer{padding:4rem 0 6rem;color:var(--steel);font-size:.88rem}
+footer p{max-width:var(--measure)}
+
+@media (max-width:760px){
+  .entry{grid-template-columns:1fr;gap:.9rem}
+  .gutter{flex-direction:row;align-items:center;gap:.75rem}
+  header.mast{padding-top:3rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <p class="eyebrow">evidence dossier &nbsp;·&nbsp; v03 &nbsp;·&nbsp; open for correction</p>
+    <h1>the cold room</h1>
+    <p class="standfirst">Since the October 2025 ceasefire, Israel has returned hundreds of Palestinian bodies to Gaza. Doctors there say some came back with organs missing. The allegation is thirty-five years old, and part of the record is admitted by the Israeli state. Part rests on named witnesses. Part is unverifiable by the people making it. Part is false. Almost every article on this subject blends all four. This page separates them and links the sources so you can check.</p>
+    <div class="mastmeta">
+      <span>scope: 1988 &ndash; present</span>
+      <span>method: tiered claims</span>
+      <span>sources: 40+ linked</span>
+    </div>
+  </div>
+</header>
+
+<div class="tierbar">
+  <div class="wrap tierbar-inner">
+    <span class="lbl">filter by evidentiary tier</span>
+    <button class="tbtn" data-t="all" aria-pressed="true">all</button>
+    <button class="tbtn" data-t="a" aria-pressed="false">A — admitted</button>
+    <button class="tbtn" data-t="b" aria-pressed="false">B — testified</button>
+    <button class="tbtn" data-t="c" aria-pressed="false">C — alleged</button>
+    <button class="tbtn" data-t="d" aria-pressed="false">D — unsupported</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="legend">
+    <div class="l"><h4><span class="chip a">tier A</span></h4><p>Admitted by the accused party, confirmed by an Israeli state body, or established in an Israeli court or plea bargain. This is not in dispute.</p></div>
+    <div class="l"><h4><span class="chip b">tier B</span></h4><p>Documented by named, identifiable witnesses with direct access — insiders, pathologists, published academics — but not formally admitted.</p></div>
+    <div class="l"><h4><span class="chip c">tier C</span></h4><p>Alleged by a party with an interest, or reported at second hand, without independent forensic verification. May well be true. Not established.</p></div>
+    <div class="l"><h4><span class="chip d">tier D</span></h4><p>Circulating claims that are unsupported, retracted, or refuted. Included deliberately: knowing what is false is part of knowing what is true.</p></div>
+  </div>
+</div>
+
+<!-- =========== 01 =========== -->
+<section>
+<div class="wrap">
+  <div class="sechead"><span class="secnum">01</span><h2>october 2025 — the ceasefire returns</h2></div>
+  <p class="secintro">This is the live case, and the reason this page exists. Under the ceasefire that took effect on 10 October 2025, Israel began returning the bodies of Palestinians held in its custody through the Red Cross. What came back is documented by international press who sent their own reporters. What was found inside those bodies is contested, and the contest is the whole problem.</p>
+
+  <div class="entry" data-tier="a">
+    <div class="gutter"><span class="gdate">from 10 Oct 2025</span><span class="chip a">tier A</span></div>
+    <div>
+      <h3>The mechanics of the return</h3>
+      <p>Bodies were handed over at a ratio of fifteen Palestinian dead for each Israeli body returned by Hamas, moving through the Kerem Shalom crossing in refrigerated trucks, in batches, wrapped in plastic shrouds. They arrived identified by number only. Gaza has no DNA capability, so identification fell to families viewing remains. At least 195 had been returned by late October.</p>
+      <p>None of this is disputed by any party. It is the frame every other claim on this page sits inside: bodies arriving anonymous, frozen and unaccompanied by any record of what was done to them.</p>
+      <p class="srcline">→ <a href="https://en.ara.cat/international/gaza-forensic-experts-accuse-israel-of-stealing-organs-from-dead-palestinians_1_5579037.html">Ara — the fullest account of the handover mechanics</a><br>
+      → <a href="https://mondoweiss.net/2025/10/israel-returns-195-dead-bodies-to-gaza-many-mutilated-with-hands-bound-signs-of-torture/">Mondoweiss — running count of returns</a><br>
+      → <a href="https://euromedmonitor.org/en/article/6889/Clear-evidence-of-brutal-torture:-Condition-of-Palestinian-bodies-released-from-Israeli-prisons-demands-urgent-int%E2%80%99l-investigation">Euro-Med Monitor — condition of bodies released from Israeli prisons</a></p>
+    </div>
+  </div>
+
+  <div class="entry" data-tier="b">
+    <div class="gutter"><span class="gdate">15–16 Oct 2025</span><span class="chip b">tier B</span></div>
+    <div>
+      <h3>Torture and execution injuries, reported by named doctors to international press</h3>
+      <p>Dr Ahmed al-Farra, head of paediatrics at Nasser Hospital, told the Guardian that of 90 bodies received, almost all had been blindfolded and bound, with gunshot wounds between the eyes, and bore scarring and discoloured skin consistent with beating before death.</p>
+      <p>This is tier B rather than C: named clinicians, externally visible injuries they were competent to assess, reported to outlets that sent their own journalists.</p>
+      <p class="srcline">→ <a href="https://theguardian.com/world/2025/oct/15/palestinian-bodies-returned-by-israel-show-signs-of-torture-and-execution-say-doctors">The Guardian, 15 Oct 2025</a><br>
+      → <a href="https://bbc.com/news/articles/c4gz3r46e37o">BBC News</a><br>
+      → <a href="https://www.malaymail.com/news/world/2025/10/16/gaza-doctors-allege-torture-execution-after-examining-90-bodies-returned-by-israel/194755">Malay Mail (Guardian wire copy, sometimes accessible when the original is not)</a><br>
+      → <a href="https://mondoweiss.net/2025/10/israel-returns-195-dead-bodies-to-gaza-many-mutilated-with-hands-bound-signs-of-torture/">Mondoweiss</a></p>
+    </div>
+  </div>
+
+  <div class="entry" data-tier="c">
+    <div class="gutter"><span class="gdate">17 Oct 2025</span><span class="chip c">tier C</span></div>
+    <div>
+      <h3>Gaza government media office alleges organ theft</h3>
+      <p>Ismail Thawabta, director of the Gaza government media office, said 120 bodies had been returned over three days, that most showed evidence of field executions and systematic torture, and that parts of many were missing, including eyes, corneas and other organs — which he said confirmed that organs had been stolen.</p>
+      <p>Tier C, and the reason is structural rather than political: the office making the claim is a government information body, not a forensic one, and the conclusion ("this confirms theft") outruns the observation ("parts are missing").</p>
+      <p class="srcline">→ <a href="https://aa.com.tr/en/middle-east/gaza-authorities-accuse-israel-of-stealing-organs-from-released-palestinian-bodies/3719641">Anadolu Agency</a><br>
+      → <a href="https://www.trtworld.com/article/1b2af22cc446">TRT World</a><br>
+      → <a href="https://newindianexpress.com/world/2025/Oct/19/gaza-authorities-flag-missing-organs-signs-of-torture-in-palestinian-bodies-returned-by-israel">New Indian Express</a></p>
+    </div>
+  </div>
+
+  <div class="entry" data-tier="c">
+    <div class="gutter"><span class="gdate">Nov 2025</span><span class="chip c">tier C</span></div>
+    <div>
+      <h3>Ghassan Abu Sittah's assessment from photographs</h3>
+      <p>The British-Palestinian surgeon, shown images by Al Jazeera, said the missing organs were exactly those routinely transplanted — heart, lungs, liver, kidneys, corneas — that the ribcage had been opened with a bone saw and the sternum lifted, and that remaining organs were undamaged, implying extraction by an experienced surgeon.</p>
+      <p>Abu Sittah is a serious clinician and was not making the claim lightly. But this is an opinion formed from photographs, of bodies that were never fully autopsied, and the features he describes are also the features of a routine forensic autopsy. See section 04.</p>
+      <p class="srcline">→ <a href="https://www.newarab.com/news/israel-returns-palestinian-bodies-organs-expertly-cut-out">The New Arab</a><br>
+      → <a href="https://www.wrmea.org/israel-palestine/israel-accused-of-stealing-palestinian-body-parts.html">Washington Report on Middle East Affairs</a></p>
+    </div>
+  </div>
+
+  <div class="entry" data-tier="c">
+    <div class="gutter"><span class="gdate">Nov 2025</span><span class="chip c">tier C</span></div>
+    <div>
+      <h3>Munir al-Bursh: incisions, missing organs, liquid nitrogen traces</h3>
+      <p>Gaza's director general of health told the Catalan daily Ara that bodies showed neck-to-pubis incisions with the sternum cut, with heart, kidneys or liver missing, and that traces of liquid nitrogen — used in organ preservation — had been found. He said he was a direct witness and that it was documented photographically.</p>
+      <p>The Ara piece is the most careful reporting in this cluster: the paper was shown around twenty photographs and states plainly that the ministry could not perform full autopsies and that verification is impossible without an international team.</p>
+      <p class="srcline">→ <a href="https://en.ara.cat/international/gaza-forensic-experts-accuse-israel-of-stealing-organs-from-dead-palestinians_1_5579037.html">Ara (English edition)</a></p>
+    </div>
+  </div>
+
+  <div class="entry" data-tier="c">
+    <div class="gutter"><span class="gdate">Oct 2025 – Feb 2026</span><span class="chip c">tier C</span></div>
+    <div>
+      <h3>Individual family cases</h3>
+      <p>Families at Nasser Hospital described severed body parts and long stitched incisions on returned relatives. Separately, the family of Dr Adnan al-Barsh — the orthopaedic surgeon who died in Israeli custody in April 2024 — say his body was transferred to Abu Kabir and has never been released, with no autopsy report provided.</p>
+      <p>Individual, named, documentable cases are worth more than aggregate ministry statements. The al-Barsh case in particular has a paper trail and a living family able to litigate.</p>
+      <p class="srcline">→ <a href="https://www.middleeasteye.net/news/palestinian-bodies-returned-israel-signs-torture-incisions">Middle East Eye</a><br>
+      → <a href="https://gazaherald.com/2026/02/05/israeli-120/">Gaza Herald, Feb 2026 (advocacy outlet — use for leads, not as evidence)</a></p>
+    </div>
+  </div>
+
+  <div class="entry" data-tier="d">
+    <div class="gutter"><span class="gdate">Nov 2025</span><span class="chip d">tier D</span></div>
+    <div>
+      <h3>"Victims were alive at the time of extraction"</h3>
+      <p>Reported as an aside in The New Arab's write-up of the Abu Sittah interview, attributed to unnamed witness testimonies. There is no supporting evidence in the public record for live organ extraction, and it does not appear in the Guardian, BBC, Ara or Middle East Eye reporting.</p>
+      <p>This is placed at tier D not because it is disproven but because it is unsupported, unattributable, and the single most damaging thing you could repeat. Anything it touches gets dismissed wholesale.</p>
+      <p class="srcline">→ <a href="https://www.newarab.com/news/israel-returns-palestinian-bodies-organs-expertly-cut-out">The New Arab</a></p>
+    </div>
+  </div>
+
+  
+
+  <div class="entry" data-tier="a">
+    <div class="gutter"><span class="gdate">Dec 2009</span><span class="chip a">tier A</span></div>
+    <div>
+      <h3>The Israeli military confirms it, and says it ended</h3>
+      <p>Responding to the Channel 2 broadcast, the IDF stated that the activity had taken place and had ended a decade earlier. Channel 2 reported that skin, corneas, heart valves and bones had been taken from the bodies of Israeli soldiers, Israeli civilians, Palestinians and foreign workers.</p>
+      <p>Two things follow, and both matter. The practice is not an allegation — it is confirmed. And it was not confined to Palestinians, which is the single strongest argument against the "targeted at Palestinians" framing.</p>
+      <p class="srcline">→ <a href="https://www.foxnews.com/story/israel-harvested-organs-without-families-permission">IDF statement as carried by Channel 2 / AP</a></p>
+    </div>
+  </div>
+
+  <div class="entry" data-tier="a">
+    <div class="gutter"><span class="gdate">2003 / court</span><span class="chip a">tier A</span></div>
+    <div>
+      <h3>Rachel Corrie</h3>
+      <p>Hiss testified in court that he performed a second autopsy on the American activist Rachel Corrie, killed by an Israeli bulldozer in Gaza in 2003, and retained tissue and organs from her body. This is useful precisely because it is not a Palestinian case: it shows the retention practice operating on a body the world was watching.</p>
+      <p class="srcline">→ <a href="https://novaramedia.com/2025/10/29/israeli-military-accused-of-palestinian-organ-theft-again/">Novara Media, 29 Oct 2025</a> (secondary — the court record itself is the document to obtain)</p>
+    </div>
+  </div>
+
+  <div class="entry" data-tier="a">
+    <div class="gutter"><span class="gdate">23 Dec 2009</span><span class="chip a">tier A</span></div>
+    <div>
+      <h3>The Knesset opens hearings, and an Israeli official admits it on the floor</h3>
+      <p>Israel's parliament took testimony on the organ theft allegations on Wednesday 23 December 2009. Al Jazeera, reporting from Jerusalem, described it as a shift: where officials had previously avoided confirming or denying, this was a public admission by an Israeli official that organ theft had taken place. The health ministry's position was that it belonged to the past.</p>
+      <p>The Israeli Health Ministry had already told Channel 2 that guidelines at the time were unclear, and that Abu Kabir had operated according to ethics and Jewish law for the previous decade — a formulation that concedes the practice while dating it.</p>
+      <p class="srcline">→ <a href="https://www.aljazeera.com/news/2009/12/23/israel-opens-organ-theft-hearing">Al Jazeera, 23 Dec 2009 — Israel opens organ theft hearing</a><br>
+      → <a href="https://www.nbcnews.com/id/wbna34503294">NBC News / AP, 20 Dec 2009 — carries the Health Ministry's statement verbatim</a><br>
+      → <a href="https://oknesset.org/committees/852.html">Open Knesset — independent archive of Labor, Welfare and Health Committee protocols (Hebrew; the December 2009 protocol should be locatable here)</a></p>
+    </div>
+  </div>
+
+  <div class="entry" data-tier="b">
+    <div class="gutter"><span class="gdate">23 Dec 2009</span><span class="chip b">tier B</span></div>
+    <div>
+      <h3>Ahmed Tibi tells parliament the practice did not stop</h3>
+      <p>In the same session, the Palestinian-Israeli MK Ahmed Tibi challenged the ministry's "it ended in the nineties" line with a named, dated, contemporary case: Fadul Ordul Shaheen, from Gaza, who died of diabetes in 2009. Tibi said the body was returned to the family with the eyes bleeding and a deep cut through the torso, and that the family believed the corneas and kidneys had been taken. He asked whether the ministry would investigate whether organs were still being harvested from Palestinian prisoners.</p>
+      <p>Deputy health minister Yaacov Litzman replied that he would look into the case seriously. This dossier has found no published outcome of that undertaking. Whether Litzman ever reported back is a live, answerable question — and the single cleanest test of the official "it ended in 2000" position.</p>
+      <p class="srcline">→ <a href="https://www.aljazeera.com/news/2009/12/23/israel-opens-organ-theft-hearing">Al Jazeera, 23 Dec 2009 — full exchange, with Tibi and Litzman quoted</a><br>
+      → <a href="https://novaramedia.com/2025/10/29/israeli-military-accused-of-palestinian-organ-theft-again/">Novara Media (secondary account of the same testimony)</a></p>
+    </div>
+  </div>
+<div class="entry" data-tier="d">
+    <div class="gutter"><span class="gdate">2009</span><span class="chip d">tier D</span></div>
+    <div>
+      <h3>Aftonbladet: that Israel kills Palestinians in order to harvest their organs</h3>
+      <p>Donald Boström's August 2009 piece connected the American Rosenbaum trafficking case to Abu Kabir and alleged young Palestinian men were being taken and returned with abdominal incisions. It caused a diplomatic rupture with Sweden. Boström subsequently defended the piece while conceding he was not certain he had adequate evidence, and had hoped it would prompt an investigation.</p>
+      <p>This is the origin of the modern controversy and the reason the whole subject carries a blood-libel charge. Anyone building on this topic has to deal with it explicitly rather than route around it.</p>
+  <div class="callout" style="border-left-color:var(--cyan)">
+    <h4 style="color:var(--cyan)">why the 2025 claims are not starting from zero</h4>
+    <p>If the allegations above were the first of their kind, they would be thin. They are not. Israel has already admitted, through its own military and its own state inquiry, that the head of its national forensic institute took organs, bone and tissue from bodies — including Palestinian bodies — without asking families. That admission is the subject of the next section, and it is why serious people do not simply dismiss what Gaza's doctors are saying now.</p>
+    <p>It is also why precision matters more here than anywhere else. The documented history supports one claim strongly and a different claim not at all. Sections 02 to 04 separate them.</p>
+  </div>
+</div>
+</section>
+
+<!-- =========== 02 =========== -->
+<section>
+<div class="wrap">
+  <div class="sechead"><span class="secnum">02</span><h2>the admitted core</h2></div>
+  <p class="secintro">Everything else in this dossier is argued about. This section is not. Israel's own military and its own state inquiry confirmed the essential facts, and the pathologist responsible admitted them under a plea bargain.</p>
+
+  <div class="entry" data-tier="a">
+    <div class="gutter"><span class="gdate">1988–2004</span><span class="chip a">tier A</span></div>
+    <div>
+      <h3>Yehuda Hiss ran the Abu Kabir Forensic Institute and took organs, bone and tissue from 125 bodies without consent</h3>
+      <p>Hiss directed Israel's National Institute of Forensic Medicine at Abu Kabir from 1988. In a 2005 plea bargain he admitted the unauthorised removal of organs, bone and tissue from 125 bodies during the 1990s. Israel says the practice stopped in 2000.</p>
+      <p class="srcline">→ <a href="https://en.wikipedia.org/wiki/Abu_Kabir_Forensic_Institute">Abu Kabir Forensic Institute (Wikipedia, with citations to the plea bargain)</a><br>
+      → <a href="https://en.wikipedia.org/wiki/Yehuda_Hiss">Yehuda Hiss (Wikipedia — sourced timeline of inquiries and disciplinary action)</a></p>
+    </div>
+  </div>
+
+  <div class="entry" data-tier="a">
+    <div class="gutter"><span class="gdate">21 Jul 2000</span><span class="chip a">tier A</span></div>
+    <div>
+      <h3>Hiss describes the practice on tape, to an American anthropologist</h3>
+      <p>Nancy Scheper-Hughes of UC Berkeley, co-founder of the Organs Watch project, recorded Hiss describing the harvesting of corneas for Israeli hospitals. He said no permission was sought from families, and that the arrangement was informal. He described gluing eyelids shut, and avoiding families likely to open them.</p>
+      <p>The tape sat unreleased for nine years. Scheper-Hughes gave it to Israel's Channel 2 in December 2009, during the Aftonbladet controversy — explicitly to correct that story, not to endorse it.</p>
+      <p class="srcline">→ <a href="https://www.cnn.com/2009/WORLD/meast/12/21/israel.organs/index.html">CNN, 21 Dec 2009 — Israel harvested organs without permission, officials say</a><br>
+      → <a href="https://abcnews.com/International/israel-harvested-organs-permission-families-dead/story?id=9390407">ABC News, 21 Dec 2009</a><br>
+      → <a href="https://www.foxnews.com/story/israel-harvested-organs-without-families-permission">Fox News, Dec 2009 — includes the fullest quotation of the broadcast</a></p>
+    </div>
+  </div>
+
+  </div>
+</section>
+
+<!-- =========== 03 =========== -->
+<section>
+<div class="wrap">
+  <div class="sechead"><span class="secnum">03</span><h2>the insider testimony</h2></div>
+  <p class="secintro">Named people with direct access to the Institute have said, on the record, that the practice was easier to apply to Palestinians and that the army facilitated it. This is the strongest material in the case, and it is also the material most often quoted third-hand by people who have not read it.</p>
+
+  <div class="entry" data-tier="b">
+    <div class="gutter"><span class="gdate">2014</span><span class="chip b">tier B</span></div>
+    <div>
+      <h3>Meira Weiss, <em>Over Their Dead Bodies</em></h3>
+      <p>A former Institute employee and anthropologist, Weiss wrote that the army permitted harvesting from Palestinians by way of a military regulation requiring an autopsy on every killed Palestinian — so autopsy and harvest travelled together. She reported that staff referred to the First Intifada as "the good days", when harvesting ran freely.</p>
+      <p>This book is load-bearing for nearly every article on the subject, and almost nobody quoting it has read past those two sentences. If you do one thing from this dossier, read the book and check the surrounding pages.</p>
+      <p class="srcline">Meira Weiss, <em>Over Their Dead Bodies: A Critical Anthropology of the Israeli Forensic Institute</em> (2014). Obtain via a university library — no legitimate free full text exists.</p>
+    </div>
+  </div>
+
+  <div class="entry" data-tier="b">
+    <div class="gutter"><span class="gdate">1999–present</span><span class="chip b">tier B</span></div>
+    <div>
+      <h3>Chen Kugel, the whistleblower who now runs the Institute</h3>
+      <p>Kugel joined as a pathologist under Hiss in 1999 and reported the abuses internally and then to the Israeli government, triggering an investigation. He told Scheper-Hughes that although material was taken from all bodies, complaints from Palestinian families could be dismissed because they were the enemy and would not be believed.</p>
+      <p>Kugel is alive, is the current director of the institute that received Gaza bodies during the war, and has given candid interviews for two decades. He is the highest-value interview in this entire story and nobody appears to have put the 2023–25 questions to him directly.</p>
+      <p class="srcline">→ <a href="https://www.researchgate.net/publication/265810598_The_Body_of_the_Terrorist_Blood_Libels_Bio-Piracy_and_the_Spoils_of_War_at_the_Israeli_Forensic_Institute">Scheper-Hughes, "The Body of the Terrorist" (2011) — the scholarly version, with the Hiss transcript listed as an appendix</a></p>
+    </div>
+  </div>
+
+  <div class="entry" data-tier="b">
+    <div class="gutter"><span class="gdate">2010 / 2011</span><span class="chip b">tier B</span></div>
+    <div>
+      <h3>Scheper-Hughes' own published account</h3>
+      <p>She published an early version in CounterPunch in October 2010 and the full scholarly article in 2011. Crucially, she has consistently said she does not believe Israel killed Palestinians for organs. Her argument is narrower and harder to dismiss: that the state treated enemy dead as a resource, and that the symbolism of taking skin from an occupied population for military burn victims deserves to be reckoned with.</p>
+      <p>Cite her accurately or not at all. She is routinely misquoted in both directions.</p>
+      <p class="srcline">→ <a href="https://www.researchgate.net/publication/265810598_The_Body_of_the_Terrorist_Blood_Libels_Bio-Piracy_and_the_Spoils_of_War_at_the_Israeli_Forensic_Institute">"The Body of the Terrorist: Blood Libels, Bio-Piracy, and the Spoils of War at the Israeli Forensic Institute"</a><br>
+      → <a href="https://ia-forum.org/Files/HDSQLC.pdf">"Organ Trafficking During Times of War and Political Conflict" (PDF) — her account of the Channel 2 release</a><br>
+      → <a href="https://www.cnn.com/2009/WORLD/meast/12/21/israel.organs/index.html">CNN, quoting her rejection of the murder-for-organs claim</a></p>
+    </div>
+  </div>
+
+  <div class="entry" data-tier="b">
+    <div class="gutter"><span class="gdate">ongoing</span><span class="chip b">tier B</span></div>
+    <div>
+      <h3>Body retention as state policy</h3>
+      <p>Separate from any organ question, and far better documented: Israel withholds Palestinian bodies, buries them unidentified in closed military zones known as "cemeteries of numbers", and has legislated to secure that power. Returned bodies routinely arrive frozen, decomposed or unidentifiable, and families receive no autopsy report.</p>
+      <p>This is the stronger legal story. It is provable, it is admitted policy, and it does not depend on resolving the organ question at all. It is also the precondition that makes the organ question unanswerable.</p>
+      <p class="srcline">→ <a href="https://www.middleeasteye.net/news/palestinian-bodies-returned-israel-signs-torture-incisions">Middle East Eye — families and forensic staff on the condition of returns</a><br>
+      → <a href="https://euromedmonitor.org/en/article/6889/Clear-evidence-of-brutal-torture:-Condition-of-Palestinian-bodies-released-from-Israeli-prisons-demands-urgent-int%E2%80%99l-investigation">Euro-Med Human Rights Monitor</a></p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- =========== 04 =========== -->
+<section>
+<div class="wrap">
+  <div class="sechead"><span class="secnum">04</span><h2>the confound nobody addresses</h2></div>
+  <p class="secintro">If you publish on this, you will be attacked here first. Deal with it up front.</p>
+
+  <div class="callout">
+    <h4>autopsy produces the same findings as harvesting</h4>
+    <p>A standard forensic autopsy involves a neck-to-pubis incision, the sternum sawn and lifted, and the internal organs removed. Organs are frequently retained for histology and not replaced. Corneas cloud and are sometimes removed. All of it leaves a body with a long incision and missing organs, performed with evident skill and minimal damage to what remains.</p>
+    <p>Israel autopsies Palestinian bodies at the National Institute of Forensic Medicine as a matter of routine. So the observation "surgical incision plus missing organs" cannot by itself distinguish trafficking from autopsy. Not one of the articles listed on this page confronts that.</p>
+    <p>This does not make the claims false, and it does not make the practice lawful. Non-consensual retention is exactly the documented Abu Kabir pattern, it is a grave breach in itself, and refusing families an autopsy report is a violation regardless of where the organs went. But "harvested for transplant" and "retained during an unconsented autopsy" are different accusations with different legal consequences, and the second is far easier to prove.</p>
+  </div>
+
+  <p class="secintro" style="margin-bottom:1.25rem">What would actually settle it:</p>
+  <ul class="plain">
+    <li>Independent forensic pathologists with access to the bodies before burial — not photographs.</li>
+    <li>Histology. Transplant-grade extraction and post-mortem retention leave different tissue signatures, and cold-ischaemia handling is detectable.</li>
+    <li>Chain-of-custody records from the Israeli side: which institute, which date, which procedure, on whose authority.</li>
+    <li>Israeli transplant registry data for the war period, cross-checked against donor consent records.</li>
+    <li>The autopsy reports themselves. Families have a right to them and are refused. That refusal is itself the most documentable violation on this page.</li>
+  </ul>
+  <p class="secintro">Every one of these requires access Israel has not granted. Which is why this has stayed unresolved for thirty-five years, and why the access question — not the organ question — is where pressure should be applied.</p>
+</div>
+</section>
+
+<!-- =========== 05 =========== -->
+<section>
+<div class="wrap">
+  <div class="sechead"><span class="secnum">05</span><h2>what the institutions say</h2></div>
+  <p class="secintro">Read against yourself. If your case only survives inside sympathetic sources, it is not a case.</p>
+
+  <div class="entry" data-tier="b">
+    <div class="gutter"><span class="gdate">standing</span><span class="chip b">tier B</span></div>
+    <div>
+      <h3>The major human rights organisations have not made the claim</h3>
+      <p>Human Rights Watch and Amnesty International have not produced findings confirming organ harvesting, though both have pressed on Israel's handling of Palestinian bodies. The UN Commission of Inquiry's report on attacks against Gaza's healthcare system made no reference to organ removal. Euro-Med Human Rights Monitor is the outlier: it has repeatedly said the condition of returned bodies raises grave suspicion and has demanded independent forensic access, which has not been granted.</p>
+      <p>That pattern is informative. These organisations are not shy about accusing Israel of war crimes and have done so repeatedly and at length. Their silence on this specific claim reflects an evidence threshold, not a political one.</p>
+      <p class="srcline">→ <a href="https://www.ohchr.org/en/hr-bodies/hrc/co-israel/index">UN Independent International Commission of Inquiry on the OPT — all reports</a><br>
+      → <a href="https://euromedmonitor.org/en/article/6889/Clear-evidence-of-brutal-torture:-Condition-of-Palestinian-bodies-released-from-Israeli-prisons-demands-urgent-int%E2%80%99l-investigation">Euro-Med Monitor's call for investigation</a></p>
+    </div>
+  </div>
+
+  <div class="entry" data-tier="a">
+    <div class="gutter"><span class="gdate">state inquiry</span><span class="chip a">tier A</span></div>
+    <div>
+      <h3>The Israeli state inquiry's finding, and why it cuts both ways</h3>
+      <p>The inquiry concluded there was no evidence Hiss targeted Palestinians specifically — that he treated every body reaching his morgue as available, and that families of dead Israeli soldiers were among the complainants.</p>
+      <p>Defenders read this as exoneration of the "targeting" charge. It is. It is also an official Israeli finding that the head of the state forensic institute treated all dead bodies, including his own soldiers', as material. Both readings are true simultaneously, and honest writing on this has to hold both.</p>
+      <p class="srcline">→ <a href="https://www.adl.org/resources/article/unfounded-claims-organ-harvesting-reignite-embers-decades-old-hospital-scandal">ADL — the fullest published account of the inquiry finding in English</a><br>
+      → <a href="https://www.jpost.com/middle-east/article-779845">Jerusalem Post — the Israeli press framing of recurrence</a></p>
+    </div>
+  </div>
+
+  <div class="entry" data-tier="c">
+    <div class="gutter"><span class="gdate">context</span><span class="chip c">tier C</span></div>
+    <div>
+      <h3>The trafficking context</h3>
+      <p>Israeli nationals have been implicated in international organ trafficking networks prosecuted elsewhere — the 2003 South African network and the Rosenbaum case in the United States. Israel historically had low donor rates for religious reasons and high demand.</p>
+      <p>This is genuine context and it is also where arguments go to die. It establishes motive and opportunity in a general sense. It establishes nothing whatsoever about any specific body returned to Gaza. Use it as background or not at all.</p>
+      <p class="srcline">→ <a href="https://ia-forum.org/Files/HDSQLC.pdf">"Organ Trafficking During Times of War and Political Conflict" (PDF)</a></p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- =========== 06 =========== -->
+<section>
+<div class="wrap">
+  <div class="sechead"><span class="secnum">06</span><h2>source index</h2></div>
+  <p class="secintro">Every link used above, plus what I could not verify. Sources are graded for what they are, not for what they conclude. An advocacy outlet can be right; it just cannot be the only place a fact appears.</p>
+
+  <div class="tablescroll">
+  <table class="idx">
+    <thead><tr><th>date</th><th>source</th><th>weight</th></tr></thead>
+    <tbody>
+      <tr><td>2011</td><td><a href="https://www.researchgate.net/publication/265810598_The_Body_of_the_Terrorist_Blood_Libels_Bio-Piracy_and_the_Spoils_of_War_at_the_Israeli_Forensic_Institute">Scheper-Hughes, "The Body of the Terrorist"</a><span class="note">Peer-reviewed. The Hiss interview transcript is listed among its appendices. Start here.</span></td><td>primary / scholarly</td></tr>
+      <tr><td>n.d.</td><td><a href="https://ia-forum.org/Files/HDSQLC.pdf">"Organ Trafficking During Times of War and Political Conflict" (PDF)</a><span class="note">Scheper-Hughes' own narrative of the Channel 2 release and her work with Kugel.</span></td><td>primary / scholarly</td></tr>
+      <tr><td>2014</td><td>Meira Weiss, <em>Over Their Dead Bodies</em><span class="note">Book. Not online. The most-cited and least-read source in the entire literature.</span></td><td>primary / insider</td></tr>
+      <tr><td>2009</td><td><a href="https://www.cnn.com/2009/WORLD/meast/12/21/israel.organs/index.html">CNN — Israel harvested organs without permission</a></td><td>major wire</td></tr>
+      <tr><td>2009</td><td><a href="https://abcnews.com/International/israel-harvested-organs-permission-families-dead/story?id=9390407">ABC News</a></td><td>major wire</td></tr>
+      <tr><td>2009</td><td><a href="https://www.foxnews.com/story/israel-harvested-organs-without-families-permission">Fox News / AP<span class="note">Carries the longest quotation of the Channel 2 broadcast and the IDF response.</span></a></td><td>major wire</td></tr>
+      <tr><td>2025</td><td><a href="https://theguardian.com/world/2025/oct/15/palestinian-bodies-returned-by-israel-show-signs-of-torture-and-execution-say-doctors">The Guardian — torture and execution signs</a></td><td>major, own reporting</td></tr>
+      <tr><td>2025</td><td><a href="https://bbc.com/news/articles/c4gz3r46e37o">BBC News</a></td><td>major, own reporting</td></tr>
+      <tr><td>2025</td><td><a href="https://en.ara.cat/international/gaza-forensic-experts-accuse-israel-of-stealing-organs-from-dead-palestinians_1_5579037.html">Ara (Catalonia)<span class="note">The most methodologically honest piece in the 2025 cluster — states its own limits.</span></a></td><td>major, own reporting</td></tr>
+      <tr><td>2025</td><td><a href="https://www.middleeasteye.net/news/palestinian-bodies-returned-israel-signs-torture-incisions">Middle East Eye — family testimony, Nasser Hospital</a></td><td>regional, own reporting</td></tr>
+      <tr><td>2025</td><td><a href="https://aa.com.tr/en/middle-east/gaza-authorities-accuse-israel-of-stealing-organs-from-released-palestinian-bodies/3719641">Anadolu Agency</a> · <a href="https://www.trtworld.com/article/1b2af22cc446">TRT World</a><span class="note">Turkish state media. Reliable for what officials said; not independent verification.</span></td><td>state media</td></tr>
+      <tr><td>2025</td><td><a href="https://newindianexpress.com/world/2025/Oct/19/gaza-authorities-flag-missing-organs-signs-of-torture-in-palestinian-bodies-returned-by-israel">New Indian Express</a></td><td>wire aggregation</td></tr>
+      <tr><td>2025</td><td><a href="https://www.newarab.com/news/israel-returns-palestinian-bodies-organs-expertly-cut-out">The New Arab — Abu Sittah</a><span class="note">Contains the unsupported "alive at extraction" line. Handle carefully.</span></td><td>regional</td></tr>
+      <tr><td>2025</td><td><a href="https://euromedmonitor.org/en/article/6889/Clear-evidence-of-brutal-torture:-Condition-of-Palestinian-bodies-released-from-Israeli-prisons-demands-urgent-int%E2%80%99l-investigation">Euro-Med Human Rights Monitor</a></td><td>NGO</td></tr>
+      <tr><td>2025</td><td><a href="https://novaramedia.com/2025/10/29/israeli-military-accused-of-palestinian-organ-theft-again/">Novara Media</a><span class="note">Best-organised secondary history of the 1990s material. Advocacy framing, sound sourcing.</span></td><td>secondary</td></tr>
+      <tr><td>2025</td><td><a href="https://mondoweiss.net/2025/02/a-brief-history-of-israels-theft-and-trafficking-of-palestinian-organs/">Mondoweiss — historical piece (Feb)</a><span class="note">Better sourced than the October piece. Rhetoric is heavy; the citations underneath are checkable.</span></td><td>secondary / advocacy</td></tr>
+      <tr><td>2025</td><td><a href="https://mondoweiss.net/2025/10/israel-returns-195-dead-bodies-to-gaza-many-mutilated-with-hands-bound-signs-of-torture/">Mondoweiss — 195 bodies returned</a></td><td>secondary / advocacy</td></tr>
+      <tr><td>2025</td><td><a href="https://www.wrmea.org/israel-palestine/israel-accused-of-stealing-palestinian-body-parts.html">Washington Report on Middle East Affairs</a></td><td>secondary / advocacy</td></tr>
+      <tr><td>2024</td><td><a href="https://www.adl.org/resources/article/unfounded-claims-organ-harvesting-reignite-embers-decades-old-hospital-scandal">ADL — the counter-case</a><span class="note">Partisan against. Also the only English source giving the state inquiry's wording and Boström's concession. Read it.</span></td><td>counter-case</td></tr>
+      <tr><td>2023</td><td><a href="https://www.jpost.com/middle-east/article-779845">Jerusalem Post</a></td><td>counter-case</td></tr>
+      <tr><td>—</td><td><a href="https://en.wikipedia.org/wiki/Yehuda_Hiss">Wikipedia: Yehuda Hiss</a> · <a href="https://en.wikipedia.org/wiki/Abu_Kabir_Forensic_Institute">Abu Kabir Forensic Institute</a><span class="note">Use only as a citation index to the underlying 1999–2005 Israeli press reporting.</span></td><td>index</td></tr>
+      <tr><td>ongoing</td><td><a href="https://www.ohchr.org/en/hr-bodies/hrc/co-israel/index">UN Commission of Inquiry on the OPT</a></td><td>institutional</td></tr>
+      <tr><td>2025</td><td><a href="https://www.bricup.org.uk/activities/medical-campaign-israel-accused-of-stealing-organs-from-dead-or-killed-palestinians-for-profit/">BRICUP medical campaign page</a></td><td>advocacy</td></tr>
+      <tr><td>2025–26</td><td><a href="https://gazaherald.com/2025/10/23/israels-13/">Gaza Herald</a> · <a href="https://wrp.org.uk/features/harvest-of-horror-systematic-organ-harvesting-by-israeli-occupation/">Workers Revolutionary Party</a> · <a href="https://21stcenturywire.com/2025/11/03/the-long-shadow-of-allegation-israel-palestine-and-the-controversy-over-organ-theft/">21st Century Wire</a> · <a href="https://www.thenorthstar.com/p/palestinian-bodies-returned-to-gaza">The North Star</a><span class="note">Aggregators and advocacy outlets. Useful for leads and for tracking how the claim propagates. Carry no evidentiary weight — do not cite these as sources for facts.</span></td><td>low weight</td></tr>
+      <tr><td>2009</td><td>Donald Boström, Aftonbladet, "Våra söner plundras på sina organ"<span class="note">Not linked: the original is paywalled and partially delisted, and mirrors are unreliable. Obtain via a Swedish library or press archive. Read it before writing about it.</span></td><td>primary / disputed</td></tr>
+      <tr><td>2009</td><td><a href="https://www.aljazeera.com/news/2009/12/23/israel-opens-organ-theft-hearing">Al Jazeera — Israel opens organ theft hearing</a><span class="note">Contemporaneous report from the 23 Dec 2009 session. Quotes Tibi and Litzman directly. The best available English record of the hearing.</span></td><td>major, own reporting</td></tr>
+      <tr><td>2009</td><td><a href="https://www.nbcnews.com/id/wbna34503294">NBC News / AP</a><span class="note">Carries the Israeli Health Ministry's own statement to Channel 2 in full.</span></td><td>major wire</td></tr>
+      <tr><td>—</td><td><a href="https://oknesset.org/committees/852.html">Open Knesset — Labor, Welfare and Health Committee protocols</a><span class="note">Independent archive of Knesset committee transcripts, Hebrew, full text. The December 2009 protocol should be here. Retrieving and translating it remains the clearest open task on this page.</span></td><td>primary / archive</td></tr>
+      <tr><td>2009</td><td><a href="https://en.wikipedia.org/wiki/2009_Aftonbladet_Israel_controversy">Wikipedia: 2009 Aftonbladet Israel controversy</a><span class="note">Citation index to the diplomatic fallout and the December 2009 admissions.</span></td><td>index</td></tr>
+      <tr><td>2009</td><td><a href="https://www.arabnews.com/node/327549">Arab News — Alison Weir, "Israeli organ harvesting the new blood libel?"</a><span class="note">Contains earlier Knesset material: MK Anat Maor's 2002 demand for Hiss's suspension, the Buzgallo family's High Court petition. Strongly partisan; the underlying Israeli press citations are checkable.</span></td><td>secondary / advocacy</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+</section>
+
+<!-- =========== 07 =========== -->
+<section>
+<div class="wrap">
+  <div class="sechead"><span class="secnum">07</span><h2>open tasks</h2></div>
+  <p class="secintro">What is missing from the public record, in order of how tractable it is.</p>
+  <ul class="plain">
+    <li><strong>Put the 2023–25 questions to Chen Kugel.</strong> He runs the institute that received Gaza bodies. He has a whistleblowing history. Nobody has asked him on the record what the protocol was, whether tissue was retained, and whether reports were withheld.</li>
+    <li><strong>Retrieve and translate the 23 December 2009 Knesset committee protocol.</strong> Cited constantly, read by nobody outside Israel. Start at the <a href="https://oknesset.org/committees/852.html">Open Knesset archive</a> for the Labor, Welfare and Health Committee.</li>
+    <li><strong>Find out what Litzman did.</strong> He undertook, in parliament, to investigate the Fadul Ordul Shaheen case seriously. There is no published outcome. A written parliamentary question or an FOI to the health ministry would establish whether that investigation ever happened — and if it didn't, that is a documented broken undertaking on the record, which is worth more than another allegation.</li>
+    <li><strong>Read Weiss and Scheper-Hughes in full</strong> and publish accurate extended quotation with page numbers, so the third-hand quoting stops.</li>
+    <li><strong>Litigate the autopsy reports.</strong> Families are refused them. That refusal is documentable, provable and actionable now, independent of the organ question.</li>
+    <li><strong>Approach Forensic Architecture.</strong> Photogrammetric analysis of images where physical access is denied is precisely their method.</li>
+    <li><strong>Ask Al-Haq, Al Mezan and Adalah</strong> what they have and have not been able to substantiate, and why. Their reticence is data.</li>
+    <li><strong>Get the Corrie court record</strong> for Hiss's testimony on retained tissue — a documented, non-Palestinian instance of the same practice.</li>
+  </ul>
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+  <p><strong>Method.</strong> Claims are tiered by the strength of evidence behind them, not by whether they are sympathetic. Tier A claims are admitted by the accused. Tier D claims are included so they can be identified and set aside. Where a claim appears only in advocacy media, it is marked as such regardless of whether it is likely true.</p>
+  <p style="margin-top:1.25rem">This dossier makes one argument: that the documented core — non-consensual removal and retention of organs and tissue from Palestinian bodies, admitted by Israel for the 1990s, alongside a continuing policy of withholding bodies and refusing autopsy reports — is serious, provable and sufficient. Claims that outrun it weaken it. The organ-trafficking allegation for 2023–25 remains unverified because Israel has not granted the access that would verify or refute it, and that refusal is the thing to press on.</p>
+  <p style="margin-top:1.25rem">Corrections are wanted. If a tier is wrong, the tier moves.</p>
+  <p class="mono" style="margin-top:2rem;font-size:.72rem;letter-spacing:.12em;color:var(--rule)">v03 — compiled august 2026</p>
+</div>
+</footer>
+
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.tbtn'));
+  var entries=[].slice.call(document.querySelectorAll('.entry'));
+  function apply(t){
+    entries.forEach(function(e){
+      e.classList.toggle('muted', t!=='all' && e.dataset.tier!==t);
+    });
+    btns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.t===t)); });
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ apply(b.dataset.t); }); });
+})();
+</script>
+</body>
+</html>
