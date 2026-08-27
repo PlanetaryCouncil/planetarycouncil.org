@@ -1,29 +1,30 @@
 {
-  "generated_at": "2026-08-26T08:00:24+00:00",
+  "generated_at": "2026-08-27T08:00:24+00:00",
   "window_hours": 24,
   "host": "nuc",
   "building": true,
   "landed": [
-    "council: seat a second company rather than not sit at all",
-    "quotas: alert when the fleet stops being a fleet",
-    "events: the board must not be alerted by its own test suite",
-    "docs: what this is, in a form another system can read",
-    "dormant: a staleness column that is actually about staleness",
-    "dormant: one drawer, one line per file",
-    "dormancy: tell a drawer apart from a live risk",
-    "coverage: measure it, write the number down",
-    "first contact: one row by default, opened by choice",
-    "docs: make the agent starting point obvious",
-    "watchdog: a failing run must still leave evidence",
-    "docs: unify lean agent context contract"
+    "basex: architecture, waitlist, and impact score on the landing page",
+    "dashboard: a silent worker is stale, not still passing",
+    "artizen: a public page so members can see how funding lands",
+    "tribunal: a public page so the dashboard link is not a tautology",
+    "brainfarts: collect scored mistakes; drafts stay unpublished",
+    "poems: keep the closing couplet and serve it as a feed",
+    "basex: a public page so the dashboard link is not a dead end",
+    "xprize: shrink the page so the reviewer sees the tests",
+    "xprize: a public page so the dashboard link is not a dead end",
+    "pipeline: don't send the reviewer an empty diff",
+    "pipeline: the reviewer reads the same ref the merge used",
+    "rota: skip a turn when the board has not materially changed"
   ],
   "landed_count": 12,
-  "rejected": [],
-  "could_not_land": [],
-  "proposals_waiting": 124,
-  "needs_you": [
-    "agent-comms: 2/3 hops \u00b7 hermes 96s \u00b7 grok 3s \u00b7 agy 7s \u00b7 missed: hermes lap1 (50418-"
+  "rejected": [
+    "2026-08-06-0405-1-the-e2e-run-at-03-07-51-si rejected: REJECT conflicts with main: fatal: refusing to merge unrelated histori",
+    "2026-08-06-1013-1-the-watchdog-s-kickstart-r rejected: REJECT The diff contains a truncated, syntactically broken script in `"
   ],
+  "could_not_land": [],
+  "proposals_waiting": 0,
+  "needs_you": [],
   "projects": [
     {
       "name": "Planetary Council",
