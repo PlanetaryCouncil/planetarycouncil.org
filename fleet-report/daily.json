@@ -1,26 +1,15 @@
 {
-  "generated_at": "2026-08-28T08:00:24+00:00",
+  "generated_at": "2026-08-29T08:00:24+00:00",
   "window_hours": 24,
   "host": "nuc",
   "building": true,
-  "landed": [
-    "xprize: the film's synopsis from the treatment cover sheet",
-    "xprize: the film's logline from the treatment cover sheet",
-    "xprize: the unreleased score and the Spotify alternate",
-    "xprize: the treatment and the film's own vote",
-    "xprize: play the film; the top 50 is a different list",
-    "xprize: name the movie the notice is pointing at",
-    "xprize: the live vote is the challenge, not announced soon",
-    "ministry-of-memes: a public page so the project list is not missing a url",
-    "network-state-genesis: a public page so the project list is not TODO",
-    "solarpunk-estates: intake form and bioregion demand map"
-  ],
-  "landed_count": 10,
+  "landed": [],
+  "landed_count": 0,
   "rejected": [],
   "could_not_land": [],
   "proposals_waiting": 0,
   "needs_you": [
-    "agent-comms: 1/2 hops \u00b7 grok 3s \u00b7 agy 6s \u00b7 missed: agy lap1 (49713->25, wrong)",
+    "agent-comms: 0/2 hops \u00b7 grok 2s \u00b7 agy 7s \u00b7 missed: grok lap1 (46079->402, wrong); a",
     "ccd: 4 failed, 467 passed in 5.82s (AssertionError:,KeyError:)",
     "quotas: scheduled dry: agy"
   ],
