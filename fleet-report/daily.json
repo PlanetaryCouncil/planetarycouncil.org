@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T08:00:24+00:00",
+  "generated_at": "2026-08-30T08:00:24+00:00",
   "window_hours": 24,
   "host": "nuc",
   "building": true,
@@ -9,7 +9,7 @@
   "could_not_land": [],
   "proposals_waiting": 0,
   "needs_you": [
-    "agent-comms: 0/2 hops \u00b7 grok 2s \u00b7 agy 7s \u00b7 missed: grok lap1 (46079->402, wrong); a",
+    "agent-comms: 0/2 hops \u00b7 grok 2s \u00b7 agy 7s \u00b7 missed: grok lap1 (18429->402, wrong); a",
     "ccd: 4 failed, 467 passed in 5.82s (AssertionError:,KeyError:)",
     "quotas: scheduled dry: agy"
   ],
