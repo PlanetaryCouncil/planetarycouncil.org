@@ -1,21 +1,29 @@
 {
-  "generated_at": "2026-09-01T08:00:24+00:00",
+  "generated_at": "2026-09-02T08:00:24+00:00",
   "window_hours": 24,
   "host": "nuc",
   "building": true,
   "landed": [
-    "xprize: add landing description explaining the prize and how to enter"
+    "self-improve: drop a deny rule that never matched",
+    "board: ask visitors to sign, do not merely list the pad",
+    "board: make the divider smooth instead of merely correct",
+    "board: collapse the stream and the terminal takes the column",
+    "board: the terminal divider moved the wrong way, and could not be collapsed",
+    "board: put the gallery on the line strangers actually read",
+    "board: half the column for the terminal, and stop writing 3.12-only f-strings",
+    "board: the terminal is a pane, not a drawer",
+    "board: do not show a stranger a button they cannot press",
+    "tunnel: one hostname per machine, and stop deleting the other one",
+    "telegram: the line answers even when a vendor stops paying",
+    "board: show which vendors can still be asked"
   ],
-  "landed_count": 1,
-  "rejected": [
-    "2026-09-01-0000-1-independent-tribunal-its-d rejected: REJECT no diff against origin/main: iff-filter [(A|C|D|M|R|T|U|X|B)..."
-  ],
+  "landed_count": 12,
+  "rejected": [],
   "could_not_land": [],
-  "proposals_waiting": 0,
+  "proposals_waiting": 132,
   "needs_you": [
-    "agent-comms: 1/3 hops \u00b7 claude 2s \u00b7 grok 2s \u00b7 agy 7s \u00b7 missed: grok lap1 (25917->40",
-    "ccd: 4 failed, 467 passed in 5.82s (AssertionError:,KeyError:)",
-    "quotas: scheduled dry: agy"
+    "agent-comms: 0/1 hops \u00b7 hermes 106s \u00b7 missed: hermes lap1 (84207->1, wrong)",
+    "quotas: scheduled dry: grok, agy"
   ],
   "projects": [
     {
@@ -26,7 +34,7 @@
     },
     {
       "name": "BaseX",
-      "url": "https://basex.com",
+      "url": "/basex",
       "tagline": "A new definition of value \u2014 triple bottom line (people, planet, prosperity)",
       "status": "awaiting-deployment"
     },
@@ -38,13 +46,13 @@
     },
     {
       "name": "Network State Genesis",
-      "url": "https://genesis.re",
+      "url": "/network-state-genesis",
       "tagline": "A new model of a state with aligned values",
       "status": "active"
     },
     {
       "name": "Future Vision XPRIZE",
-      "url": "TODO",
+      "url": "/future-vision-xprize",
       "tagline": "Imagination athlete \u2014 expanding the horizons of the imaginable",
       "status": "active"
     },
@@ -74,20 +82,20 @@
     },
     {
       "name": "Artizen.fund projects",
-      "url": "https://artizen.fund",
+      "url": "/artizen",
       "tagline": "Art funded on Artizen",
       "status": "active"
     },
     {
       "name": "Solarpunk Estates",
-      "url": "https://solarpunkestates.org",
+      "url": "/solarpunk-estates",
       "tagline": "Building one billion regenerative homes \u2014 coliving, rent-to-own, rooted in nature, powered by the sun",
-      "status": "active"
+      "status": "awaiting-deployment"
     },
     {
       "name": "Independent Tribunal",
-      "url": "https://independenttribunal.org",
-      "tagline": "An independent tribunal",
+      "url": "/independent-tribunal",
+      "tagline": "A body neither party appoints, for disputes existing authorities cannot fairly hear",
       "status": "active"
     },
     {
@@ -110,6 +118,7 @@
     },
     {
       "name": "Ministry of Memes and Better Propaganda",
+      "url": "/ministry-of-memes",
       "tagline": "The good guys need better propaganda than the bad guys \u2014 memes to end the war through awareness and education",
       "status": "active"
     }
