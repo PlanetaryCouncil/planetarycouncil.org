@@ -1,29 +1,20 @@
 {
-  "generated_at": "2026-09-02T08:00:24+00:00",
+  "generated_at": "2026-09-03T08:00:00+00:00",
   "window_hours": 24,
   "host": "nuc",
   "building": true,
   "landed": [
-    "self-improve: drop a deny rule that never matched",
-    "board: ask visitors to sign, do not merely list the pad",
-    "board: make the divider smooth instead of merely correct",
-    "board: collapse the stream and the terminal takes the column",
-    "board: the terminal divider moved the wrong way, and could not be collapsed",
-    "board: put the gallery on the line strangers actually read",
-    "board: half the column for the terminal, and stop writing 3.12-only f-strings",
-    "board: the terminal is a pane, not a drawer",
-    "board: do not show a stranger a button they cannot press",
-    "tunnel: one hostname per machine, and stop deleting the other one",
-    "telegram: the line answers even when a vendor stops paying",
-    "board: show which vendors can still be asked"
+    "terminal: a reload resumes the transcript instead of starting over",
+    "board: paste a screenshot into the terminal and get a path",
+    "telegram: the operator's own line is not where the fleet economises",
+    "fleet: commit the two builder scripts that were never in the repo"
   ],
-  "landed_count": 12,
+  "landed_count": 4,
   "rejected": [],
   "could_not_land": [],
-  "proposals_waiting": 132,
+  "proposals_waiting": 149,
   "needs_you": [
-    "agent-comms: 0/1 hops \u00b7 hermes 106s \u00b7 missed: hermes lap1 (84207->1, wrong)",
-    "quotas: scheduled dry: grok, agy"
+    "agent-comms: 0/1 hops \u00b7 hermes 106s \u00b7 missed: hermes lap1 (84207->1, wrong)"
   ],
   "projects": [
     {
