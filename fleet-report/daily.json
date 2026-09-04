@@ -1,20 +1,30 @@
 {
-  "generated_at": "2026-09-03T08:00:00+00:00",
+  "generated_at": "2026-09-04T08:00:19+00:00",
   "window_hours": 24,
   "host": "nuc",
   "building": true,
   "landed": [
-    "terminal: a reload resumes the transcript instead of starting over",
-    "board: paste a screenshot into the terminal and get a path",
-    "telegram: the operator's own line is not where the fleet economises",
-    "fleet: commit the two builder scripts that were never in the repo"
+    "fable is in the pool, and the slot runs current code",
+    "the 09:00 message becomes a generated unit, not an orphan",
+    "eleven timers become six, and two of them were the same command",
+    "fable 5.1 leads the pack, and one builder runs at a time",
+    "nuc brief: GrokBot's login in full, and why hermes has no cloud brain",
+    "nuc task: lean the box \u2014 kill the builder loop, ollama daily, GrokBot login",
+    "next: the board terminal stops pretending to be a terminal",
+    "a reattached page gets one screen, not the whole history",
+    "report: 2026-09-03 fleet summary",
+    "the board knows what the repo is doing",
+    "a daily report, and the three orgs beside the three sites",
+    "report: 2026-09-03 fleet summary"
   ],
-  "landed_count": 4,
-  "rejected": [],
+  "landed_count": 12,
+  "rejected": [
+    "2026-09-04-0211-backlog-sh-s-exit-trap-calls rejected: [stderr] jetski: no output produced \u2014 a tool required the \"command\" pe"
+  ],
   "could_not_land": [],
-  "proposals_waiting": 149,
+  "proposals_waiting": 11,
   "needs_you": [
-    "agent-comms: 0/1 hops \u00b7 hermes 106s \u00b7 missed: hermes lap1 (84207->1, wrong)"
+    "quotas: scheduled logged out: hermes"
   ],
   "projects": [
     {
