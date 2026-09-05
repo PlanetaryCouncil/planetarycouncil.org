@@ -1,29 +1,23 @@
 {
-  "generated_at": "2026-09-04T08:00:19+00:00",
+  "generated_at": "2026-09-05T08:00:35+00:00",
   "window_hours": 24,
   "host": "nuc",
   "building": true,
   "landed": [
-    "fable is in the pool, and the slot runs current code",
-    "the 09:00 message becomes a generated unit, not an orphan",
-    "eleven timers become six, and two of them were the same command",
-    "fable 5.1 leads the pack, and one builder runs at a time",
-    "nuc brief: GrokBot's login in full, and why hermes has no cloud brain",
-    "nuc task: lean the box \u2014 kill the builder loop, ollama daily, GrokBot login",
-    "next: the board terminal stops pretending to be a terminal",
-    "a reattached page gets one screen, not the whole history",
-    "report: 2026-09-03 fleet summary",
-    "the board knows what the repo is doing",
-    "a daily report, and the three orgs beside the three sites",
-    "report: 2026-09-03 fleet summary"
+    "setup-grokbot: an apostrophe in a ${VAR:-default} ate the last line",
+    "setup-grokbot: the password line was a SIGPIPE trap",
+    "setup-grokbot: say which line failed",
+    "setup-grokbot: useradd, not adduser",
+    "setup-grokbot.sh: a desktop for the agent, no sudo",
+    "an error is not a proposal: stop filing the drama",
+    "silence is not a rejection, and the ledger is a queue not an archive"
   ],
-  "landed_count": 12,
-  "rejected": [
-    "2026-09-04-0211-backlog-sh-s-exit-trap-calls rejected: [stderr] jetski: no output produced \u2014 a tool required the \"command\" pe"
-  ],
+  "landed_count": 7,
+  "rejected": [],
   "could_not_land": [],
-  "proposals_waiting": 11,
+  "proposals_waiting": 9,
   "needs_you": [
+    "localvoice: llama3.2:1b did not answer (0.0s)",
     "quotas: scheduled logged out: hermes"
   ],
   "projects": [
