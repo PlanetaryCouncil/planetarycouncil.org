@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Three Tankers — Source Page</title>
+  <meta name="description" content="A compact source page on the three Iranian tankers hit on 5 September 2026, with Iranian primary texts and competing timeline claims." />
+  <style>
+    :root{
+      --bg:#f6f6f2;
+      --panel:#ffffff;
+      --text:#11130f;
+      --muted:#65685f;
+      --line:#d9dbd3;
+      --accent:#c9382e;
+      --accent2:#1d5a46;
+      --soft:#eceee7;
+      --max:980px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .wrap{width:min(var(--max), calc(100% - 36px)); margin:0 auto}
+    header{
+      padding:72px 0 44px;
+      border-bottom:1px solid var(--line);
+    }
+    .kicker{
+      font-size:.78rem;
+      font-weight:800;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--accent);
+      margin-bottom:14px;
+    }
+    h1{
+      margin:0;
+      font-size:clamp(2.7rem, 7vw, 6.6rem);
+      line-height:.92;
+      letter-spacing:-.055em;
+      max-width:900px;
+    }
+    .dek{
+      margin:26px 0 0;
+      max-width:760px;
+      font-size:clamp(1.15rem, 2.1vw, 1.55rem);
+      color:#2f322c;
+    }
+    .dek strong{color:var(--text)}
+    .ships{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:34px;
+    }
+    .ship{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:18px 18px 16px;
+    }
+    .ship .label{
+      display:block;
+      font-size:.73rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:5px;
+    }
+    .ship strong{font-size:1.18rem}
+    main{padding:48px 0 80px}
+    section{margin:0 0 54px}
+    h2{
+      font-size:1.55rem;
+      letter-spacing:-.02em;
+      margin:0 0 16px;
+    }
+    .plain{
+      font-size:1.26rem;
+      max-width:820px;
+      margin:0;
+    }
+    .callout{
+      border-left:5px solid var(--accent);
+      padding:6px 0 6px 20px;
+      margin:26px 0 0;
+      max-width:820px;
+      font-size:1.15rem;
+    }
+    .timeline{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+    .tl{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:22px;
+    }
+    .tl h3{margin:0 0 8px;font-size:1rem}
+    .tl p{margin:0;color:#373a34}
+    .tl.us{border-top:5px solid #2c4b79}
+    .tl.ir{border-top:5px solid var(--accent2)}
+    .note{
+      margin-top:14px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .sources{
+      display:grid;
+      gap:12px;
+    }
+    .source{
+      display:grid;
+      grid-template-columns:140px 1fr auto;
+      gap:16px;
+      align-items:center;
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px 18px;
+      text-decoration:none;
+      transition:transform .15s ease,border-color .15s ease;
+    }
+    .source:hover{transform:translateY(-1px);border-color:#aeb1a8}
+    .src-org{
+      font-weight:800;
+      font-size:.86rem;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+    }
+    .src-title{font-weight:650}
+    .arrow{font-size:1.25rem;color:var(--muted)}
+    .small{
+      color:var(--muted);
+      font-size:.92rem;
+      margin-top:10px;
+    }
+    .language{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      align-items:start;
+    }
+    .quote{
+      background:#11130f;
+      color:white;
+      border-radius:18px;
+      padding:26px;
+      font-size:1.35rem;
+      line-height:1.35;
+    }
+    .quote em{color:#d2d7cf}
+    .bullets{
+      background:var(--soft);
+      border-radius:18px;
+      padding:22px 24px;
+    }
+    .bullets ul{margin:0;padding-left:20px}
+    .bullets li+li{margin-top:10px}
+    footer{
+      border-top:1px solid var(--line);
+      padding:24px 0 38px;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    .stamp{
+      display:inline-block;
+      padding:7px 10px;
+      background:var(--soft);
+      border-radius:999px;
+      font-size:.78rem;
+      letter-spacing:.04em;
+      margin-bottom:12px;
+    }
+    @media (max-width:760px){
+      header{padding-top:44px}
+      .ships,.timeline,.language{grid-template-columns:1fr}
+      .source{grid-template-columns:1fr auto}
+      .src-org{grid-column:1 / -1}
+      h1{font-size:clamp(3rem,15vw,5rem)}
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0e100d;
+        --panel:#151815;
+        --text:#f1f3ee;
+        --muted:#a1a79e;
+        --line:#2d332e;
+        --soft:#1c211c;
+      }
+      .dek,.tl p{color:#d8ddd5}
+      .quote{background:#f1f3ee;color:#11130f}
+      .quote em{color:#4f5750}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="kicker">5 September 2026 · source page</div>
+      <h1>THREE TANKERS</h1>
+      <p class="dek"><strong>“Permanently disabled”</strong> is a staff-officer phrase. In simple words: a working ship was badly wrecked after the crew were told to get off.</p>
+
+      <div class="ships" aria-label="The three tankers">
+        <div class="ship"><span class="label">Tanker 01</span><strong>M/T Downy</strong></div>
+        <div class="ship"><span class="label">Tanker 02</span><strong>M/T Stark 1</strong></div>
+        <div class="ship"><span class="label">Tanker 03</span><strong>M/T Kylo</strong></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>What happened</h2>
+      <p class="plain">Iranian reporting says the ships were <strong>hit</strong>, <strong>set on fire</strong>, and their crews were <strong>told to abandon them</strong>. Early reports said the three crews survived. That does not mean nothing happened. It only means no crew deaths were reported on these three ships at that time.</p>
+      <div class="callout">This war has already killed tanker sailors. Iranian officials also place the reported wedding strike in Sirik and the reported school strike in Minab in the same broader file of attacks.</div>
+    </section>
+
+    <section>
+      <h2>Two timelines are still on the table</h2>
+      <div class="timeline">
+        <div class="tl us">
+          <h3>U.S. / CENTCOM account</h3>
+          <p>Missiles directed at a U.S. carrier and a destroyer came first; the tanker strikes followed.</p>
+        </div>
+        <div class="tl ir">
+          <h3>Iranian state-media sequence</h3>
+          <p>Iranian media reported the Kharg tanker hit first, before reporting the later exchange.</p>
+        </div>
+      </div>
+      <p class="note">Neither side has shown a clear, independent timeline proving exactly what happened first. Both sides are involved in the war, so treat both claims carefully.</p>
+    </section>
+
+    <section>
+      <h2>Iranian sources — the actual offices</h2>
+      <div class="sources">
+        <a class="source" href="https://en.irna.ir/news/86255891/Iran-condemns-US-attacks-on-oil-tankers-as-violation-of-international" target="_blank" rel="noopener">
+          <span class="src-org">IRNA English</span>
+          <span class="src-title">Foreign Ministry: tanker attacks described as a UN Charter violation / “war crime”</span>
+          <span class="arrow">↗</span>
+        </a>
+
+        <a class="source" href="https://en.irna.ir/news/86255880/Iran-warns-US-of-more-severe-blows-to-warships-if-aggression" target="_blank" rel="noopener">
+          <span class="src-org">IRNA English</span>
+          <span class="src-title">Khatam al-Anbiya warning if the blockade continues</span>
+          <span class="arrow">↗</span>
+        </a>
+
+        <a class="source" href="https://en.irna.ir/news/86255906/IRGC-Navy-Commander-Do-not-be-deceived-by-US-Any-suspicious" target="_blank" rel="noopener">
+          <span class="src-org">IRNA English</span>
+          <span class="src-title">IRGC Navy: “this morning” the U.S. hit three Iranian tankers</span>
+          <span class="arrow">↗</span>
+        </a>
+
+        <a class="source" href="https://en.mehrnews.com/news/247468/IRGC-Navy-issues-stark-warning-to-vessels-in-Hormuz" target="_blank" rel="noopener">
+          <span class="src-org">Mehr English</span>
+          <span class="src-title">IRGC Navy warning to vessels in the Strait of Hormuz</span>
+          <span class="arrow">↗</span>
+        </a>
+
+        <a class="source" href="https://www.mehrnews.com/news/6938243/" target="_blank" rel="noopener">
+          <span class="src-org">مهر / Persian</span>
+          <span class="src-title">CENTCOM claim, presented in Mehr’s wording</span>
+          <span class="arrow">↗</span>
+        </a>
+
+        <a class="source" href="https://english.news.cn/20260906/aa422349dc6349c6939c3c9a139d6d3b/c.html" target="_blank" rel="noopener">
+          <span class="src-org">Xinhua</span>
+          <span class="src-title">Report quoting Sepah News (IRGC) and Iranian state TV</span>
+          <span class="arrow">↗</span>
+        </a>
+      </div>
+      <p class="small">Tasnim’s first Kharg item — reporting four projectiles, no casualties, and crew evacuation — was picked up the same morning by Reuters and Xinhua. A durable Tasnim English permalink was not available in the supplied source set.</p>
+    </section>
+
+    <section>
+      <h2>Language matters</h2>
+      <div class="language">
+        <div class="quote">“Permanently disabled”<br><em>→ damaged so badly it could no longer work as a normal ship.</em></div>
+        <div class="bullets">
+          <ul>
+            <li>Use <strong>hit</strong> when that is what the source says.</li>
+            <li>Use <strong>set on fire</strong> when fire is documented.</li>
+            <li>Use <strong>abandon ship</strong> when crews were ordered off.</li>
+            <li>Do not turn “no reported casualties” into “nothing happened.”</li>
+            <li>Always say clearly who is making the claim.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Source standard</h2>
+      <p class="plain">The page uses Iranian official and state-linked sources when showing Iran’s position, and keeps outside reporting separate. It does not treat either side’s press office as neutral proof.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="stamp">Sources first · clear wording · different claims kept separate</div><br>
+      This page summarizes the sources listed above. It does not prove every wartime claim, and it does not decide who is legally responsible.
+    </div>
+  </footer>
+</body>
+</html>
