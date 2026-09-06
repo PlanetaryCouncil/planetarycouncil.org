@@ -1,21 +1,13 @@
 {
-  "generated_at": "2026-09-05T08:00:35+00:00",
+  "generated_at": "2026-09-06T08:00:35+00:00",
   "window_hours": 24,
   "host": "nuc",
   "building": true,
-  "landed": [
-    "setup-grokbot: an apostrophe in a ${VAR:-default} ate the last line",
-    "setup-grokbot: the password line was a SIGPIPE trap",
-    "setup-grokbot: say which line failed",
-    "setup-grokbot: useradd, not adduser",
-    "setup-grokbot.sh: a desktop for the agent, no sudo",
-    "an error is not a proposal: stop filing the drama",
-    "silence is not a rejection, and the ledger is a queue not an archive"
-  ],
-  "landed_count": 7,
+  "landed": [],
+  "landed_count": 0,
   "rejected": [],
   "could_not_land": [],
-  "proposals_waiting": 9,
+  "proposals_waiting": 14,
   "needs_you": [
     "localvoice: llama3.2:1b did not answer (0.0s)",
     "quotas: scheduled logged out: hermes"
