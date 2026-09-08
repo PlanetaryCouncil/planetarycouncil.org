@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T08:00:35+00:00",
+  "generated_at": "2026-09-08T08:00:35+00:00",
   "window_hours": 24,
   "host": "nuc",
   "building": true,
@@ -7,7 +7,7 @@
   "landed_count": 0,
   "rejected": [],
   "could_not_land": [],
-  "proposals_waiting": 15,
+  "proposals_waiting": 18,
   "needs_you": [
     "localvoice: llama3.2:1b did not answer (0.0s)",
     "quotas: scheduled logged out: hermes"
