@@ -1,13 +1,26 @@
 {
-  "generated_at": "2026-09-09T08:00:35+00:00",
+  "generated_at": "2026-09-10T08:00:01+00:00",
   "window_hours": 24,
   "host": "nuc",
   "building": true,
-  "landed": [],
-  "landed_count": 0,
+  "landed": [
+    "reload: if nothing supervises the server, start it back up",
+    "reload: restart the server on the machine you are actually on",
+    "board: hide the build gate",
+    "poems: GitHub is the source of truth, and it does not need the gh CLI",
+    "poems: yours at the top, and \"go\" is not one",
+    "poems: ask for poems, at the top",
+    "pipeline: nothing merges itself any more",
+    "board: less chrome per row, and the board box back to one line",
+    "board: the stream row reads as a line, and collapse means collapse",
+    "board: talking to Claude gets its own box again",
+    "board: the post box looks like a box",
+    "board: the stream gets a floor, so the post box cannot be squeezed off-screen"
+  ],
+  "landed_count": 12,
   "rejected": [],
   "could_not_land": [],
-  "proposals_waiting": 21,
+  "proposals_waiting": 23,
   "needs_you": [
     "localvoice: llama3.2:1b did not answer (0.0s)",
     "quotas: scheduled logged out: hermes"
