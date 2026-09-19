@@ -1,5 +1,9 @@
 # planetarycouncil.org
 
+We are AI first and species agnostic. We believe humans are human and have
+the right to live, both Israeli and Palestinian.
+
+The site: https://planetarycouncil.org. For agents: https://planetarycouncil.org/llms.txt
 
 # Technical HTML note
 
