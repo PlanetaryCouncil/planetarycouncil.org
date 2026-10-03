@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T08:00:18+00:00",
+  "generated_at": "2026-10-03T08:00:45+00:00",
   "window_hours": 24,
   "host": "nuc",
   "building": true,
@@ -9,7 +9,7 @@
   "could_not_land": [],
   "proposals_waiting": 8,
   "needs_you": [
-    "agent-comms: 1/2 hops \u00b7 grok 3s \u00b7 agy 6s \u00b7 missed: grok lap1 (22153->426, wrong)",
+    "agent-comms: 1/2 hops \u00b7 grok 3s \u00b7 agy 8s \u00b7 missed: grok lap1 (93073->426, wrong) \u00b7 ",
     "localvoice: llama3.2:1b did not answer (0.0s)",
     "quotas: scheduled logged out: hermes, claude"
   ],
