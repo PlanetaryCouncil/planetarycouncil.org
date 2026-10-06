@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T08:00:44+00:00",
+  "generated_at": "2026-10-06T08:00:28+00:00",
   "window_hours": 24,
   "host": "nuc",
   "building": true,
@@ -10,8 +10,7 @@
   "proposals_waiting": 8,
   "needs_you": [
     "agent-comms: relay suspended \u2014 3 consecutive runs failed identically (fingerprint a",
-    "localvoice: llama3.2:1b did not answer (0.0s)",
-    "quotas: scheduled logged out: hermes, claude"
+    "localvoice: llama3.2:1b did not answer (0.0s)"
   ],
   "projects": [
     {
