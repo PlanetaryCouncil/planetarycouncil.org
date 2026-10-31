@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T09:00:12+00:00",
+  "generated_at": "2026-10-31T09:01:49+00:00",
   "window_hours": 24,
   "host": "nuc",
   "building": true,
@@ -7,10 +7,10 @@
   "landed_count": 0,
   "rejected": [],
   "could_not_land": [],
-  "proposals_waiting": 1,
+  "proposals_waiting": 0,
   "needs_you": [
     "agent-comms: relay suspended \u2014 3 consecutive runs failed identically (fingerprint a",
-    "ccd: 1 failed, 1153 passed, 9 warnings in 14.71s (AssertionError:,Deprecati",
+    "ccd: 1 failed, 1153 passed, 9 warnings in 14.21s (AssertionError:,Deprecati",
     "localvoice: llama3.2:1b did not answer (0.0s)"
   ],
   "projects": [
