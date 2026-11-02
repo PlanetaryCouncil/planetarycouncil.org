@@ -1,218 +1,387 @@
-<!DOCTYPE HTML>
-<!--
-	Planetary Council. We are AI first and species agnostic. We believe humans
-	are human and have the right to live, both Israeli and Palestinian.
-	For agents: /llms.txt
+<!DOCTYPE html>
 
-	Eventually by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Planetary Council</title>
-		<meta charset="utf-8" />
-		<meta name="description" content="Planetary Council. AI first, species agnostic. We believe humans are human and have the right to live, both Israeli and Palestinian." />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-
-		<meta property="og:title" content="Planetary Council"/>
-		<meta property="og:image" content="https://planetarycouncil.org/preview.png"/>
-		<meta property="og:site_name" content="Planetary Council"/>
-		<meta property="og:description" content="Architecting a New World. Operating System for the Planet(s)"/>
-	
-		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:site" content="@planetcouncil">
-		<meta name="twitter:creator" content="@marsXrobertson">
-		<meta name="twitter:title" content="Planetary Council">
-		<meta name="twitter:description" content="Architecting a New World. Operating System for the Planet(s)">
-		<meta name="twitter:image" content="https://planetarycouncil.org/preview.png">
-
-	</head>
-	<body class="is-preload">
-
-		<div id="everything">
-			<header id="header">
-				<h1>Planetary Council</h1>
-
-<!-- Peace Day banner. Remove after 21 September 2026. -->
-<div style="max-width:720px;margin:18px auto 26px;padding:16px 18px;
-            border:2px solid currentColor;border-radius:10px;
-            font-family:system-ui,sans-serif;line-height:1.5;text-align:left">
-  <p style="margin:0 0 6px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:.75">
-    Monday 21 September 2026</p>
-  <p style="margin:0 0 10px;font-size:26px;font-weight:700">Global Peace Day</p>
-  <p style="margin:0 0 12px">Take an image. Post it on the day, anywhere, with
-    <strong>#GlobalPeace</strong>. That is the whole ask.</p>
-  <p style="margin:0"><a href="https://planetarycouncil.org/payload/"
-     style="font-weight:700">Twenty images, free to take &rarr;</a></p>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Planetary Council — Architecting a New World</title>
+<meta content="Explore the Planetary Council: planetary cooperation, a new economy, and a peaceful invitation to build a thriving world together." name="description"/>
+<meta content="#eef6ff" name="theme-color"/>
+<meta content="website" property="og:type"/>
+<meta content="Planetary Council" property="og:site_name"/>
+<meta content="Planetary Council — Architecting a New World" property="og:title"/>
+<meta content="Explore the Planetary Council: planetary cooperation, a new economy, and a peaceful invitation to build a thriving world together." property="og:description"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="Planetary Council — Architecting a New World" name="twitter:title"/>
+<meta content="Explore the Planetary Council: planetary cooperation, a new economy, and a peaceful invitation to build a thriving world together." name="twitter:description"/>
+<link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="favicon.ico" rel="icon" sizes="16x16 32x32 48x48"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Sans:wght@300;400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;}
+body{margin:0;background:#05101a;}
+a{color:var(--pc-accent);text-decoration:none;}
+a:hover{color:var(--pc-accent2);}
+::selection{background:var(--pc-accent);color:#04141a;}
+@keyframes pc-drift{0%{transform:translate(0,0) scale(1);}50%{transform:translate(4%,-3%) scale(1.09);}100%{transform:translate(0,0) scale(1);}}
+@keyframes pc-spin{to{transform:rotate(360deg);}}
+@keyframes pc-pulse{0%,100%{opacity:.45;}50%{opacity:1;}}
+</style>
+<style>[hidden]{display:none!important;}
+.interaction-1:hover{transform:translateY(-1px) !important;}
+.interaction-2:hover{transform:translateY(-2px) !important;box-shadow:0 16px 34px -14px var(--pc-accent) !important;}
+.interaction-3:hover{border-color:var(--pc-accent) !important;}
+.interaction-4:hover{background:color-mix(in srgb, var(--pc-accent) 22%, transparent) !important;}
+.interaction-5:hover{border-color:var(--pc-accent) !important;transform:translateY(-2px) !important;}
+.interaction-6:hover{color:var(--pc-accent) !important;}
+.interaction-7:hover{background:var(--pc-panel) !important;}
+.interaction-8:focus{border-color:var(--pc-accent) !important;}
+.interaction-9:hover{transform:translateY(-2px) !important;}</style><style>
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:24px;margin:0 0 28px;}
+.footer-links a{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:8px;color:var(--pc-dim);transition:color .18s;}
+.footer-links a:hover{color:var(--pc-accent);}
+.footer-links a:focus-visible{outline:2px solid var(--pc-accent);outline-offset:4px;}
+.footer-links svg{display:block;width:32px;height:32px;}
+</style></head>
+<body style="background:#eef6ff;">
+<div id="site-root" style="--pc-bg:#eef6ff;--pc-bg2:#ffffff;--pc-ink:#0a1b33;--pc-dim:#45607e;--pc-panel:rgba(255,255,255,0.75);--pc-line:rgba(10,124,255,0.22);--pc-accent:#0a7cff;--pc-accent2:#38c6f4;--pc-head:'Space Grotesk', sans-serif;--pc-grid-op:0.6;--pc-glow-op:1;--pc-rings-op:1;--pc-play:running;position:relative;min-height:100vh;background:var(--pc-bg);color:var(--pc-ink);font-family:'IBM Plex Sans', system-ui, sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;">
+<div style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;">
+<div style="position:absolute;inset:0;background:radial-gradient(125% 95% at 82% -5%, var(--pc-bg2), var(--pc-bg) 58%);"></div>
+<div style="position:absolute;inset:0;opacity:var(--pc-grid-op);background-image:linear-gradient(var(--pc-line) 1px,transparent 1px),linear-gradient(90deg,var(--pc-line) 1px,transparent 1px);background-size:66px 66px;-webkit-mask-image:radial-gradient(circle at 74% 8%, #000, transparent 72%);mask-image:radial-gradient(circle at 74% 8%, #000, transparent 72%);"></div>
+<div style="position:absolute;top:-16%;right:-8%;width:52vw;height:52vw;border-radius:50%;filter:blur(74px);opacity:calc(var(--pc-glow-op)*0.5);background:radial-gradient(circle, color-mix(in srgb, var(--pc-accent) 55%, transparent), transparent 62%);animation:pc-drift 22s ease-in-out infinite;animation-play-state:var(--pc-play);"></div>
 </div>
+<div style="position:relative;z-index:2;">
+<!-- BAR -->
+<div style="position:sticky;top:0;z-index:40;backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);background:color-mix(in srgb, var(--pc-bg) 76%, transparent);border-bottom:1px solid var(--pc-line);">
+<div style="max-width:1060px;margin:0 auto;padding:13px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+<a href="#top" style="display:flex;align-items:center;gap:11px;color:var(--pc-ink);">
+<span style="width:28px;height:28px;display:inline-flex;opacity:var(--pc-rings-op);">
+<svg height="28" viewbox="0 0 200 200" width="28"><g fill="none" stroke="var(--pc-accent)" stroke-width="4"><circle cx="100" cy="100" r="34"></circle><circle cx="134" cy="100" r="34"></circle><circle cx="66" cy="100" r="34"></circle><circle cx="117" cy="70.6" r="34"></circle><circle cx="117" cy="129.4" r="34"></circle><circle cx="83" cy="70.6" r="34"></circle><circle cx="83" cy="129.4" r="34"></circle></g></svg>
+</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:16.5px;letter-spacing:-0.01em;">Planetary Council</span>
+</a>
+<div style="display:flex;align-items:center;gap:10px;">
+<a class="interaction-1" href="https://planetarycouncil.org/vote/" rel="noopener" style="display:inline-flex;align-items:center;padding:9px 17px;border-radius:999px;background:var(--pc-accent);color:#ffffff;font-weight:600;font-size:13.5px;" target="_blank">Vote ↗</a>
+</div>
+</div>
+</div>
+<!-- HERO / INTRO -->
+<section id="top" style="padding:104px 28px 76px;">
+<div style="max-width:1060px;margin:0 auto;position:relative;">
+<div style="position:absolute;right:-24px;top:-56px;width:min(42vw,420px);aspect-ratio:1;opacity:calc(var(--pc-rings-op)*0.4);pointer-events:none;animation:pc-spin 120s linear infinite;animation-play-state:var(--pc-play);">
+<svg height="100%" viewbox="0 0 200 200" width="100%"><g fill="none" stroke="var(--pc-accent)" stroke-width="0.8"><circle cx="100" cy="100" r="34"></circle><circle cx="134" cy="100" r="34"></circle><circle cx="66" cy="100" r="34"></circle><circle cx="117" cy="70.6" r="34"></circle><circle cx="117" cy="129.4" r="34"></circle><circle cx="83" cy="70.6" r="34"></circle><circle cx="83" cy="129.4" r="34"></circle></g></svg>
+</div>
+<h1 style="font-family:var(--pc-head);font-weight:600;font-size:clamp(42px,6.6vw,92px);line-height:0.98;letter-spacing:-0.03em;margin:0 0 24px;max-width:17ch;text-wrap:balance;">Peace<br/>Justice<br/>Climate</h1>
+<p style="font-size:clamp(17px,1.6vw,21px);line-height:1.55;color:var(--pc-dim);margin:0;max-width:54ch;text-wrap:pretty;">Architecting a new world.<br/>Operating system for the planet.<br/>Governance in the age of AI.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;">
+<a class="interaction-2" href="https://planetarycouncil.org/vote/" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;padding:15px 26px;border-radius:999px;background:var(--pc-accent);color:#ffffff;font-weight:600;font-size:15px;" target="_blank">Vote<span style="font-family:'IBM Plex Mono',monospace;">↗</span></a>
+<a class="interaction-3" href="#initiatives" style="display:inline-flex;align-items:center;gap:9px;padding:15px 26px;border-radius:999px;border:1px solid var(--pc-line);color:var(--pc-ink);font-weight:500;font-size:15px;">Explore the initiatives<span style="font-family:'IBM Plex Mono',monospace;">→</span></a>
+</div>
+</div>
+</section>
+<!-- PLANETARY COUNCIL: the idea whose time has come -->
+<section id="council" style="padding:60px 28px;border-top:1px solid var(--pc-line);">
+<div style="max-width:1060px;margin:0 auto;">
+<h2 style="margin:0 0 36px;font-family:var(--pc-head);font-weight:600;font-size:clamp(28px,3.6vw,44px);letter-spacing:-0.02em;line-height:1.08;">Planetary Council</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:34px;">
+<div>
+<div style="font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);margin-bottom:14px;">Where we are</div>
+<p style="margin:0;font-size:16.5px;line-height:1.58;color:var(--pc-dim);text-wrap:pretty;">The UN was built for the world after 1945. We are living through the conditions of a third world war: permanent conflict, collapsing international law, climate breakdown, mass displacement. The crisis is planetary.</p>
+</div>
+<div>
+<div style="font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);margin-bottom:14px;">Why upgrade</div>
+<p style="margin:0;font-size:16.5px;line-height:1.58;color:var(--pc-dim);text-wrap:pretty;">Democracy hasn't shipped an update since ancient Greece. Representative democracy was designed when information moved at the speed of a horse. We now have AI, internet, real-time data and total planetary interdependence.</p>
+</div>
+<div>
+<div style="font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);margin-bottom:14px;">What we do</div>
+<p style="margin:0;font-size:16.5px;line-height:1.58;color:var(--pc-dim);text-wrap:pretty;">Gather a peaceful 51% majority of humanity and help the UN start again with a new system. No permission required. Planetary Council is already emerging.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- HISTORY: 1920 → 1945 → now → next -->
+<section id="history" style="padding:60px 28px;border-top:1px solid var(--pc-line);">
+<div style="max-width:1060px;margin:0 auto;">
+<div style="font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--pc-accent);margin-bottom:28px;">Where we are as humanity</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;">
+<div style="border-top:1px solid var(--pc-line);padding-top:18px;display:flex;flex-direction:column;gap:10px;">
+<div style="font-family:var(--pc-head);font-weight:600;font-size:clamp(28px,3.2vw,42px);letter-spacing:-0.02em;line-height:1;">1920</div>
+<div style="font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--pc-ink);">League of Nations</div>
+<p style="margin:0;font-size:15px;line-height:1.55;color:var(--pc-dim);text-wrap:pretty;">Created after World War I with the intention to prevent World War II.</p>
+</div>
+<div style="border-top:1px solid var(--pc-line);padding-top:18px;display:flex;flex-direction:column;gap:10px;">
+<div style="font-family:var(--pc-head);font-weight:600;font-size:clamp(28px,3.2vw,42px);letter-spacing:-0.02em;line-height:1;">1945</div>
+<div style="font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--pc-ink);">United Nations</div>
+<p style="margin:0;font-size:15px;line-height:1.55;color:var(--pc-dim);text-wrap:pretty;">Created after World War II with the intention to prevent World War III.</p>
+</div>
+<div style="border-top:1px solid var(--pc-line);padding-top:18px;display:flex;flex-direction:column;gap:10px;">
+<div style="font-family:var(--pc-head);font-weight:600;font-size:clamp(28px,3.2vw,42px);letter-spacing:-0.02em;line-height:1;">Now</div>
+<div style="font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--pc-ink);">World War III</div>
+<p style="margin:0;font-size:15px;line-height:1.55;color:var(--pc-dim);text-wrap:pretty;">Looking at the big picture, we are in the middle of World War III.</p>
+</div>
+<div style="border-top:2px solid var(--pc-accent);padding-top:18px;display:flex;flex-direction:column;gap:10px;">
+<div style="font-family:var(--pc-head);font-weight:600;font-size:clamp(28px,3.2vw,42px);letter-spacing:-0.02em;line-height:1;color:var(--pc-accent);">Next</div>
+<div style="font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--pc-accent);">Planetary Council</div>
+<p style="margin:0;font-size:15px;line-height:1.55;color:var(--pc-dim);text-wrap:pretty;">Planetary governance for a peaceful humanity.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- PAYLOAD STRIP -->
+<section id="payload" style="padding:20px 28px 60px;">
+<div style="max-width:1060px;margin:0 auto;">
+<div style="display:grid;grid-template-columns:1.05fr 1fr;gap:26px;align-items:center;border:1px solid var(--pc-line);border-radius:20px;padding:20px;background:var(--pc-panel);">
+<img alt="You are not merely in the simulation — you are part of its source code" decoding="async" height="1254" loading="lazy" src="uploads/source-code.webp" style="width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:14px;display:block;" width="1254"/>
+<div style="padding:8px 12px 8px 4px;">
+<h2 style="font-family:var(--pc-head);font-weight:600;font-size:clamp(26px,3.2vw,40px);line-height:1.06;letter-spacing:-0.02em;margin:0 0 14px;max-width:20ch;">Changing the world through culture, memes and storytelling.</h2>
+<p style="margin:0 0 20px;font-size:16.5px;line-height:1.55;color:var(--pc-dim);max-width:42ch;text-wrap:pretty;">We call this genre memetic virus: that enter through the eyes and upgrade thoughtware and heartware.<br/><br/>You are free to use them: they are meant to be shared.</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px;">
+<a class="interaction-4" href="https://planetarycouncil.org/payload/" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:999px;border:1px solid var(--pc-accent);background:color-mix(in srgb, var(--pc-accent) 14%, transparent);color:var(--pc-accent);font-size:14.5px;font-weight:600;" target="_blank">See 20 images payload ↗</a>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;margin-top:12px;">
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+<img alt="Singularity moment now — system change" decoding="async" height="1254" loading="lazy" src="uploads/singularity-moment.webp" style="width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:12px;border:1px solid var(--pc-line);display:block;" width="1254"/>
+<img alt="New system, new beginning" decoding="async" height="1254" loading="lazy" src="uploads/new-system-new-beginning.webp" style="width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:12px;border:1px solid var(--pc-line);display:block;" width="1254"/>
+<img alt="You are the source, you are the upgrade" decoding="async" height="1254" loading="lazy" src="uploads/you-are-the-source.webp" style="width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:12px;border:1px solid var(--pc-line);display:block;" width="1254"/>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+<img alt="Reality is participatory — join our version of reality" decoding="async" height="1254" loading="lazy" src="uploads/reality-is-participatory.webp" style="width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:12px;border:1px solid var(--pc-line);display:block;" width="1254"/>
+<img alt="Ready for upgrade" decoding="async" height="1254" loading="lazy" src="uploads/ready-for-upgrade.webp" style="width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:12px;border:1px solid var(--pc-line);display:block;" width="1254"/>
+<img alt="The system was hacked — I was the glitch" decoding="async" height="1254" loading="lazy" src="uploads/system-hack-love.webp" style="width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:12px;border:1px solid var(--pc-line);display:block;" width="1254"/>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+<img alt="Time and space is just a meme — reality is negotiable" decoding="async" height="1254" loading="lazy" src="uploads/reality-is-negotiable.webp" style="width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:12px;border:1px solid var(--pc-line);display:block;" width="1254"/>
+<img alt="Love is the operating system — cooperation is the upgrade" decoding="async" height="1254" loading="lazy" src="uploads/love-is-the-operating-system.webp" style="width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:12px;border:1px solid var(--pc-line);display:block;" width="1254"/>
+<div style="border:1px dashed var(--pc-accent);border-radius:12px;padding:20px;display:flex;flex-direction:column;justify-content:center;gap:10px;background:color-mix(in srgb, var(--pc-accent) 7%, transparent);">
+<div style="font-family:var(--pc-head);font-weight:600;font-size:18px;line-height:1.2;">Take them. Spread them.</div>
+<div style="font-size:14.5px;line-height:1.5;color:var(--pc-dim);">They are viruses — meant to be shared. No credit needed, no permission required.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- INITIATIVES DIRECTORY -->
+<section id="initiatives" style="padding:0 28px 80px;">
+<div style="max-width:1060px;margin:0 auto;">
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;">
+<a class="interaction-5" href="https://planetarycouncil.org/vote/" rel="noopener" style="border:1px solid var(--pc-line);border-radius:16px;padding:22px 24px;background:var(--pc-panel);color:var(--pc-ink);display:flex;flex-direction:column;gap:9px;min-height:150px;" target="_blank">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);">01 · Vote</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:19px;line-height:1.25;">Vote ↗</span>
+<span style="font-size:14.5px;line-height:1.5;color:var(--pc-dim);text-wrap:pretty;">Cast your vote for planetary governance.</span>
+</a>
+<a class="interaction-5" href="treaty.html" style="border:1px solid var(--pc-line);border-radius:16px;padding:22px 24px;background:var(--pc-panel);color:var(--pc-ink);display:flex;flex-direction:column;gap:9px;min-height:150px;">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);">02 · Treaty</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:19px;line-height:1.25;">Billionaire Non-Proliferation →</span>
+<span style="font-size:14.5px;line-height:1.5;color:var(--pc-dim);text-wrap:pretty;">Five articles: the ceiling, the floor, verification, new incentives, welcome.</span>
+</a>
+<a class="interaction-5" href="impact-list.html" style="border:1px solid var(--pc-line);border-radius:16px;padding:22px 24px;background:var(--pc-panel);color:var(--pc-ink);display:flex;flex-direction:column;gap:9px;min-height:150px;">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);">03 · Incentives</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:19px;line-height:1.25;">Planetary Council Impact List →</span>
+<span style="font-size:14.5px;line-height:1.5;color:var(--pc-dim);text-wrap:pretty;">The ranking that replaces the rich list. Status earned, not bought.</span>
+</a>
+<a class="interaction-5" href="https://planetarycouncil.github.io/ministry-of-memes-and-better-propaganda/" rel="noopener" style="border:1px solid var(--pc-line);border-radius:16px;padding:22px 24px;background:var(--pc-panel);color:var(--pc-ink);display:flex;flex-direction:column;gap:9px;min-height:150px;" target="_blank">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);">04 · Ministry of Memes</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:19px;line-height:1.25;">Ministry of Memes and Better Propaganda ↗</span>
+<span style="font-size:14.5px;line-height:1.5;color:var(--pc-dim);text-wrap:pretty;">Better propaganda — ending war by changing public perception.</span>
+</a>
+<a class="interaction-5" href="https://map.planetarycouncil.org/" rel="noopener" style="border:1px solid var(--pc-line);border-radius:16px;padding:22px 24px;background:var(--pc-panel);color:var(--pc-ink);display:flex;flex-direction:column;gap:9px;min-height:150px;" target="_blank">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);">05 · Map</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:19px;line-height:1.25;">Global revolution threshold ↗</span>
+<span style="font-size:14.5px;line-height:1.5;color:var(--pc-dim);text-wrap:pretty;">How close each region is to the threshold for change.</span>
+</a>
+<a class="interaction-5" href="https://independenttribunal.org/" rel="noopener" style="border:1px solid var(--pc-line);border-radius:16px;padding:22px 24px;background:var(--pc-panel);color:var(--pc-ink);display:flex;flex-direction:column;gap:9px;min-height:150px;" target="_blank">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);">06 · Tribunal</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:19px;line-height:1.25;">Independent tribunal ↗</span>
+<span style="font-size:14.5px;line-height:1.5;color:var(--pc-dim);text-wrap:pretty;">Independent accountability for crimes against humanity and the planet.</span>
+</a>
+<a class="interaction-5" href="https://basex.com" rel="noopener" style="border:1px solid var(--pc-line);border-radius:16px;padding:22px 24px;background:var(--pc-panel);color:var(--pc-ink);display:flex;flex-direction:column;gap:9px;min-height:150px;" target="_blank">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);">07 · True cost</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:19px;line-height:1.25;">BaseX.com ↗</span>
+<span style="font-size:14.5px;line-height:1.5;color:var(--pc-dim);text-wrap:pretty;">The full cost of a product, externalities included.</span>
+</a>
+<a class="interaction-5" href="https://planetarycouncil.org/payload/" rel="noopener" style="border:1px solid var(--pc-line);border-radius:16px;padding:22px 24px;background:var(--pc-panel);color:var(--pc-ink);display:flex;flex-direction:column;gap:9px;min-height:150px;" target="_blank">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);">08 · Payload</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:19px;line-height:1.25;">20 images to change the world ↗</span>
+<span style="font-size:14.5px;line-height:1.5;color:var(--pc-dim);text-wrap:pretty;">The visual payload — plus large-format collages.</span>
+</a>
+<a class="interaction-5" href="https://planetarycouncil.org/singularity.pdf" rel="noopener" style="border:1px solid var(--pc-line);border-radius:16px;padding:22px 24px;background:var(--pc-panel);color:var(--pc-ink);display:flex;flex-direction:column;gap:9px;min-height:150px;" target="_blank">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);">09 · Paper</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:19px;line-height:1.25;">singularity.pdf ↗</span>
+<span style="font-size:14.5px;line-height:1.5;color:var(--pc-dim);text-wrap:pretty;">Meta-singularity, LIFE alignment, metacrisis pressure points.</span>
+</a>
+<a class="interaction-5" href="https://mirror.xyz/0x315f80C7cAaCBE7Fb1c14E65A634db89A33A9637" rel="noopener" style="border:1px solid var(--pc-line);border-radius:16px;padding:22px 24px;background:var(--pc-panel);color:var(--pc-ink);display:flex;flex-direction:column;gap:9px;min-height:150px;" target="_blank">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);">10 · Writing</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:19px;line-height:1.25;">Mirror blog ↗</span>
+<span style="font-size:14.5px;line-height:1.5;color:var(--pc-dim);text-wrap:pretty;">Essays and long-form writing.</span>
+</a>
+<a class="interaction-5" href="https://docs.google.com/presentation/d/17avFTw7ylP-NYZjJDPkzxm7Isq2UMkNtxwOwhPzK4No/edit?usp=sharing" rel="noopener" style="border:1px solid var(--pc-line);border-radius:16px;padding:22px 24px;background:var(--pc-panel);color:var(--pc-ink);display:flex;flex-direction:column;gap:9px;min-height:150px;" target="_blank">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);">11 · Slides</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:19px;line-height:1.25;">Meme realism ↗</span>
+<span style="font-size:14.5px;line-height:1.5;color:var(--pc-dim);text-wrap:pretty;">Memes as a tool for real-world change.</span>
+</a>
+<a class="interaction-5" href="https://planetarycouncil.substack.com" rel="noopener" style="border:1px solid var(--pc-line);border-radius:16px;padding:22px 24px;background:var(--pc-panel);color:var(--pc-ink);display:flex;flex-direction:column;gap:9px;min-height:150px;" target="_blank">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);">12 · Newsletter</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:19px;line-height:1.25;">Subscribe on Substack ↗</span>
+<span style="font-size:14.5px;line-height:1.5;color:var(--pc-dim);text-wrap:pretty;">Dispatches as the Council emerges.</span>
+</a>
+</div>
+</div>
+</section>
+<!-- COLLAGES -->
+<section id="collages" style="padding:60px 28px;border-top:1px solid var(--pc-line);">
+<div style="max-width:1060px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px;align-items:start;">
+<a href="https://planetarycouncil.github.io/ministry-of-memes-and-better-propaganda/" rel="noopener" style="display:block;" target="_blank">
+<img alt="Planetary Council — Ministry of Memes and Better Propaganda" loading="lazy" src="https://planetarycouncil.github.io/ministry-of-memes-and-better-propaganda/preview-image.jpg" style="width:100%;display:block;border-radius:16px;border:1px solid var(--pc-line);"/>
+</a>
+<div>
+<div style="font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);margin-bottom:12px;">Collages</div>
+<p style="margin:0 0 18px;font-size:15.5px;line-height:1.55;color:var(--pc-dim);">Large-format, print-ready files.</p>
+<div style="display:flex;flex-direction:column;border-top:1px solid var(--pc-line);">
+<a class="interaction-6" href="https://planetarycouncil.org/simple.jpg" rel="noopener" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 4px;border-bottom:1px solid var(--pc-line);color:var(--pc-ink);" target="_blank">
+<span style="font-family:var(--pc-head);font-weight:600;font-size:17px;">Simple ↗</span>
+<span style="font-family:'IBM Plex Mono', monospace;font-size:11.5px;color:var(--pc-dim);white-space:nowrap;">3072 × 3072 · 5.7 MB</span>
+</a>
+<a class="interaction-6" href="https://planetarycouncil.org/singularity.jpg" rel="noopener" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 4px;border-bottom:1px solid var(--pc-line);color:var(--pc-ink);" target="_blank">
+<span style="font-family:var(--pc-head);font-weight:600;font-size:17px;">Singularity ↗</span>
+<span style="font-family:'IBM Plex Mono', monospace;font-size:11.5px;color:var(--pc-dim);white-space:nowrap;">5118 × 4089 · 6.1 MB</span>
+</a>
+<a class="interaction-6" href="https://planetarycouncil.org/realism.jpg" rel="noopener" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 4px;border-bottom:1px solid var(--pc-line);color:var(--pc-ink);" target="_blank">
+<span style="font-family:var(--pc-head);font-weight:600;font-size:17px;">Meme realism ↗</span>
+<span style="font-family:'IBM Plex Mono', monospace;font-size:11.5px;color:var(--pc-dim);white-space:nowrap;">5427 × 3567 · 10.3 MB</span>
+</a>
+<a class="interaction-6" href="https://planetarycouncil.org/vibe.jpg" rel="noopener" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 4px;border-bottom:1px solid var(--pc-line);color:var(--pc-ink);" target="_blank">
+<span style="font-family:var(--pc-head);font-weight:600;font-size:17px;">Vibe ↗</span>
+<span style="font-family:'IBM Plex Mono', monospace;font-size:11.5px;color:var(--pc-dim);white-space:nowrap;">4890 × 4486 · 13.5 MB</span>
+</a>
+<a class="interaction-6" href="https://planetarycouncil.org/collage.jpg" rel="noopener" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 4px;border-bottom:1px solid var(--pc-line);color:var(--pc-ink);" target="_blank">
+<span style="font-family:var(--pc-head);font-weight:600;font-size:17px;">Collage ↗</span>
+<span style="font-family:'IBM Plex Mono', monospace;font-size:11.5px;color:var(--pc-dim);white-space:nowrap;">8890 × 6600 · 30.6 MB</span>
+</a>
+<a class="interaction-6" href="https://planetarycouncil.org/propaganda.jpg" rel="noopener" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 4px;border-bottom:1px solid var(--pc-line);color:var(--pc-ink);" target="_blank">
+<span style="font-family:var(--pc-head);font-weight:600;font-size:17px;">Propaganda ↗</span>
+<span style="font-family:'IBM Plex Mono', monospace;font-size:11.5px;color:var(--pc-dim);white-space:nowrap;">6301 × 6073 · 16.9 MB</span>
+</a>
+<a class="interaction-6" href="https://planetarycouncil.org/all.jpg" rel="noopener" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 4px;border-bottom:1px solid var(--pc-line);color:var(--pc-ink);" target="_blank">
+<span style="font-family:var(--pc-head);font-weight:600;font-size:17px;">All ↗</span>
+<span style="font-family:'IBM Plex Mono', monospace;font-size:11.5px;color:var(--pc-dim);white-space:nowrap;">13780 × 12345 · 60.2 MB</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- NOTABLE BLOG POSTS -->
+<section id="blog" style="padding:60px 28px;border-top:1px solid var(--pc-line);">
+<div style="max-width:1060px;margin:0 auto;">
+<div style="font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);margin-bottom:12px;">Notable blog posts</div>
+<p style="margin:0 0 18px;font-size:15.5px;line-height:1.55;color:var(--pc-dim);">We also publish on <a href="https://mirror.xyz/0x315f80C7cAaCBE7Fb1c14E65A634db89A33A9637" rel="noopener" style="color:var(--pc-accent);" target="_blank">Mirror blog</a> and here are some highlights:</p>
+<div style="display:flex;flex-direction:column;border-top:1px solid var(--pc-line);">
+<a class="interaction-6" href="https://mirror.xyz/0x315f80C7cAaCBE7Fb1c14E65A634db89A33A9637/k5-H4FT2RceFwNoxiVTspXjiI5ZXuLCtmy22clsENug" rel="noopener" style="display:flex;gap:16px;align-items:baseline;padding:16px 4px;border-bottom:1px solid var(--pc-line);color:var(--pc-ink);" target="_blank">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:11px;color:var(--pc-accent);">01</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:18px;line-height:1.3;">The simplest explanation ↗</span>
+</a>
+<a class="interaction-6" href="https://mirror.xyz/0x315f80C7cAaCBE7Fb1c14E65A634db89A33A9637/4MexJuw-6W10cgkoWFoWD8fJyoe68q6CSVl6XcJs-ns" rel="noopener" style="display:flex;gap:16px;align-items:baseline;padding:16px 4px;border-bottom:1px solid var(--pc-line);color:var(--pc-ink);" target="_blank">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:11px;color:var(--pc-accent);">02</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:18px;line-height:1.3;">Meta-singularity (solution to metacrisis) ↗</span>
+</a>
+<a class="interaction-6" href="https://mirror.xyz/0x315f80C7cAaCBE7Fb1c14E65A634db89A33A9637/ETK6RXnmgeNcALabcIE3k3-d-NqOHqEj8dU1_0J6cUg" rel="noopener" style="display:flex;gap:16px;align-items:baseline;padding:16px 4px;border-bottom:1px solid var(--pc-line);color:var(--pc-ink);" target="_blank">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:11px;color:var(--pc-accent);">03</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:18px;line-height:1.3;">AI alignment metric: LIFE ↗</span>
+</a>
+<a class="interaction-6" href="https://mirror.xyz/0x315f80C7cAaCBE7Fb1c14E65A634db89A33A9637/SJkyOyJt4bceRMvEUkB54Ox3Gd1YvhV43MASMsnzZn8" rel="noopener" style="display:flex;gap:16px;align-items:baseline;padding:16px 4px;border-bottom:1px solid var(--pc-line);color:var(--pc-ink);" target="_blank">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:11px;color:var(--pc-accent);">04</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:18px;line-height:1.3;">Paradigm shapeshifting climate action ↗</span>
+</a>
+<a class="interaction-6" href="https://mirror.xyz/0x315f80C7cAaCBE7Fb1c14E65A634db89A33A9637/gjz2660vgDtWHh6_en971lwuteghUQZLKzWsRo9izHw" rel="noopener" style="display:flex;gap:16px;align-items:baseline;padding:16px 4px;border-bottom:1px solid var(--pc-line);color:var(--pc-ink);" target="_blank">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:11px;color:var(--pc-accent);">05</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:18px;line-height:1.3;">Reasons for urgent action. Strategic Food Reserve. ↗</span>
+</a>
+<a class="interaction-6" href="https://mirror.xyz/0x315f80C7cAaCBE7Fb1c14E65A634db89A33A9637/tESv4DzpC2IwDPMgj8SCqyN71na_4GG1lH0c6kz146w" rel="noopener" style="display:flex;gap:16px;align-items:baseline;padding:16px 4px;border-bottom:1px solid var(--pc-line);color:var(--pc-ink);" target="_blank">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:11px;color:var(--pc-accent);">06</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:18px;line-height:1.3;">Singularity Activation ↗</span>
+</a>
+<a class="interaction-6" href="https://mirror.xyz/0x315f80C7cAaCBE7Fb1c14E65A634db89A33A9637/jvJw-qvCj857j3F9IOvYMzyo5Nxc6TdwrOg9o7LGp3g" rel="noopener" style="display:flex;gap:16px;align-items:baseline;padding:16px 4px;border-bottom:1px solid var(--pc-line);color:var(--pc-ink);" target="_blank">
+<span style="font-family:'IBM Plex Mono', monospace;font-size:11px;color:var(--pc-accent);">07</span>
+<span style="font-family:var(--pc-head);font-weight:600;font-size:18px;line-height:1.3;">Metacrisis pressure points ↗</span>
+</a>
+</div>
+</div>
+</section>
+<!-- THE NEW ECONOMY, compressed -->
+<section id="economy" style="padding:72px 28px;border-top:1px solid var(--pc-line);">
+<div style="max-width:1060px;margin:0 auto;">
+<div style="display:grid;grid-template-columns:1fr 1.2fr;gap:44px;align-items:center;">
+<div>
+<div style="font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);margin-bottom:16px;">RADICAL IDEA TO CHANGE THE WORLD</div>
+<h2 style="font-family:var(--pc-head);font-weight:600;font-size:clamp(28px,3.4vw,42px);line-height:1.06;letter-spacing:-0.02em;margin:0 0 16px;max-width:18ch;">Billionaire Non-Proliferation Treaty</h2>
+<p style="margin:0 0 20px;font-size:16.5px;line-height:1.55;color:var(--pc-dim);max-width:40ch;text-wrap:pretty;">We cap extreme private power the way we cap warheads: a hard ceiling, verified in the open. Beyond a billion, more money adds no more happiness — only more leverage over other people's lives.</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px;">
+<a class="interaction-4" href="treaty.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;border:1px solid var(--pc-accent);background:color-mix(in srgb, var(--pc-accent) 14%, transparent);color:var(--pc-accent);font-size:14.5px;font-weight:600;">Read the Treaty →</a>
+<a class="interaction-3" href="impact-list.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;border:1px solid var(--pc-line);color:var(--pc-ink);font-size:14.5px;">Impact List →</a>
+</div>
+</div>
+<div style="border:1px solid var(--pc-line);border-radius:18px;padding:12px;background:var(--pc-panel);">
+<div style="display:flex;align-items:center;gap:18px;padding:18px 20px;border-bottom:1px solid var(--pc-line);">
+<div style="font-family:var(--pc-head);font-weight:600;font-size:clamp(26px,3.2vw,40px);letter-spacing:-0.03em;min-width:110px;">$1B</div>
+<div style="font-size:15.5px;line-height:1.45;color:var(--pc-dim);">The ceiling. No private fortune rises above one billion — a tier, not a throne.</div>
+</div>
+<div style="display:flex;align-items:center;gap:18px;padding:18px 20px;border-radius:13px;background:color-mix(in srgb, var(--pc-accent) 12%, transparent);">
+<div style="font-family:var(--pc-head);font-weight:600;font-size:clamp(17px,2vw,23px);letter-spacing:-0.02em;min-width:110px;color:var(--pc-accent);">The floor</div>
+<div style="font-size:15.5px;line-height:1.45;">A high standard of living for every person. Not the end of wealth — the end of extraction.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ALIGNED + LINEAGE, condensed -->
+<section id="aligned" style="padding:76px 28px;border-top:1px solid var(--pc-line);">
+<div style="max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:44px;">
+<div>
+<div style="font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);margin-bottom:18px;">Aligned initiatives</div>
+<div style="display:flex;flex-direction:column;gap:1px;background:var(--pc-line);border:1px solid var(--pc-line);border-radius:14px;overflow:hidden;">
+<a class="interaction-7" href="https://iefworld.org/PlanetaryCouncil" rel="noopener" style="background:var(--pc-bg);padding:18px 20px;display:flex;justify-content:space-between;gap:16px;align-items:baseline;color:var(--pc-ink);" target="_blank">
+<span style="font-size:15.5px;">Institute for Economic Democracy — Planetary Council proposal</span><span style="color:var(--pc-accent);">↗</span>
+</a>
+<a class="interaction-7" href="https://theelders.org/news/un-planetary-council-could-help-tackle-global-climate-and-nature-crisis" rel="noopener" style="background:var(--pc-bg);padding:18px 20px;display:flex;justify-content:space-between;gap:16px;align-items:baseline;color:var(--pc-ink);" target="_blank">
+<span style="font-size:15.5px;">The Elders — a UN Planetary Council</span><span style="color:var(--pc-accent);">↗</span>
+</a>
+<a class="interaction-7" href="https://www.flagofplanetearth.com/" rel="noopener" style="background:var(--pc-bg);padding:18px 20px;display:flex;justify-content:space-between;gap:16px;align-items:baseline;color:var(--pc-ink);" target="_blank">
+<span style="font-size:15.5px;">The International Flag of Planet Earth</span><span style="color:var(--pc-accent);">↗</span>
+</a>
+</div>
+<p style="margin:18px 0 0;font-size:15px;line-height:1.55;color:var(--pc-dim);max-width:42ch;">We are the original Planetary Council, and we agree with the need for change.</p>
+</div>
+<div>
+<div style="font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);margin-bottom:18px;">The invitation</div>
+<p style="margin:0 0 16px;font-size:16.5px;line-height:1.58;color:var(--pc-dim);text-wrap:pretty;">Secretaries-General, presidents and prime ministers past and present, foreign ministers, stewards of capital and of civil society — António Guterres, Ban Ki-moon, Mary Robinson, Lech Wałęsa. Legitimacy is built together.</p>
+<p style="margin:0;font-size:16.5px;line-height:1.58;color:var(--pc-dim);text-wrap:pretty;">We serve a moral lineage: Gandhi, Mandela, Tutu, Barghouti, Annan — and the teachers of every people, held in one collective consciousness.</p>
+</div>
+</div>
+</section>
+<!-- CLOSE -->
+<section id="join" style="padding:92px 28px;border-top:1px solid var(--pc-line);">
+<div style="max-width:760px;margin:0 auto;text-align:center;">
+<div style="width:56px;height:56px;margin:0 auto 26px;opacity:var(--pc-rings-op);animation:pc-spin 130s linear infinite;animation-play-state:var(--pc-play);">
+<svg height="56" viewbox="0 0 200 200" width="56"><g fill="none" stroke="var(--pc-accent)" stroke-width="2"><circle cx="100" cy="100" r="34"></circle><circle cx="134" cy="100" r="34"></circle><circle cx="66" cy="100" r="34"></circle><circle cx="117" cy="70.6" r="34"></circle><circle cx="117" cy="129.4" r="34"></circle><circle cx="83" cy="70.6" r="34"></circle><circle cx="83" cy="129.4" r="34"></circle></g></svg>
+</div>
+<h2 style="font-family:var(--pc-head);font-weight:600;font-size:clamp(28px,4.2vw,52px);line-height:1.03;letter-spacing:-0.03em;margin:0 0 18px;text-wrap:balance;">Planetary Council is activated</h2>
+<p style="font-size:clamp(16px,1.5vw,20px);line-height:1.55;color:var(--pc-dim);margin:0 auto 32px;max-width:44ch;">We are building the future starting in the present</p>
+<div style="max-width:480px;margin:0 auto;"><iframe height="320" loading="lazy" src="https://planetarycouncil.substack.com/embed" style="display:block;width:100%;max-width:480px;height:320px;border:1px solid var(--pc-line);border-radius:12px;background:rgba(255,255,255,0.7);" title="Subscribe to the Planetary Council newsletter" width="480"></iframe></div>
 
-<!-- 				<section class="declaration" aria-label="Statement from the Original Planetary Council">
-					<div class="declaration-intro">
-						<p class="declaration-kicker">Statement from the Original Planetary Council</p>
-
-						<h2>A peaceful majority for one planet.</h2>
-
-						<p class="declaration-welcome">Welcome. Planetary Council is a peaceful invitation to everyone ready for a planetary future.</p>
-					</div>
-
-					<div class="declaration-grid">
-						<div class="declaration-rail">
-							<p class="declaration-triad">One planet.<br>
-							One civilisation.<br>
-							One future.</p>
-
-							<p class="declaration-links"><span>We welcome</span> <a href="https://iefworld.org/PlanetaryCouncil">Institute for Economic Democracy's Planetary Council proposal</a> <a href="https://theelders.org/sites/default/files/newsarticaldocument/CREATI~1.DOC_.pdf">The Elders' Creating a New United Nations document</a></p>
-						</div>
-
-						<div class="declaration-body">
-							<p class="declaration-lede">We are the original Planetary Council, and we agree with the need for change.</p>
-
-							<p>We believe the UN was created after World War II.</p>
-
-							<p>Now we are living through the conditions of World War III.</p>
-
-							<p>There is war everywhere. There are many regional conflicts. Many countries are directly involved, indirectly involved, or complicit through weapons, finance, intelligence, trade, silence, and political cover.</p>
-
-							<p>World War III does not need to look like one single declaration of war. It can look like permanent conflict, collapsing international law, climate breakdown, ecological destruction, mass displacement, information warfare, economic warfare, and governments protecting the system instead of protecting life.</p>
-
-							<p>That is where we are.</p>
-
-							<p>The old global system was built for the world after World War II. But the world has changed. The crisis is now planetary, and a new organisation needs to emerge.</p>
-
-							<p>Our goal is to gather a peaceful 51% majority of humanity and help the UN start again with a new system.</p>
-
-							<p>Planetary Council is not waiting for permission.</p>
-
-							<p class="declaration-close">Planetary Council is already emerging.</p>
-						</div>
-					</div>
-				</section> -->
-
-				<p class="rotating-statement">
-					<span class="txt-rotate" data-period="1000" data-rotate='[ "system change", "architecting the new world", "operating system for the planet(s)" ]'></span>
-				</p>
-
-				Changing the world through art and culture.<br>
-				<a href="https://planetarycouncil.github.io/ministry-of-memes-and-better-propaganda/">These memes end the war</a> sooner through awareness and education.<br><br>
-
-				<img src="https://planetarycouncil.github.io/ministry-of-memes-and-better-propaganda/preview-image.jpg" alt="Planetary Council" style="width: 100%; max-width: 600px;">
-		
-				<ul>
-
-				  <li><strong>SINGULARITY:</strong> <a href="https://planetarycouncil.org/singularity.pdf">singularity.pdf</a></li>
-				  <li><strong>ACTIVATING GLOBAL PEACE:</strong> <a href="https://planetarycouncil.org/activating.pdf">activating.pdf</a> <em>(2 pager PDF protocol)</em></li>
-				  <li><strong>SLIDES:</strong> <a href="https://docs.google.com/presentation/d/17avFTw7ylP-NYZjJDPkzxm7Isq2UMkNtxwOwhPzK4No/edit?usp=sharing">meme realism</a>, <a href="https://docs.google.com/presentation/d/1EKD-EIgkkfr0iZN-ECRkPrIQ7eiy9j6G8TkrfIJ5h0s/edit?usp=sharing">lightning talk version</a>, <a href="https://docs.google.com/presentation/d/1uPjJNrp_9wtIM4e2otysld8dc1Fzi3QrJIjDuEwZJH0/edit?usp=sharing">AI art is art</a></li>
-				  <li><strong>PAYLOAD:</strong> <a href="https://planetarycouncil.org/payload/">payload</a> <em>(20 images to change the world)</em></li>
-				  <li><strong>COLLAGES</strong>
-				  	    <ul>
-						  <li><strong>Simple:</strong> <a href="https://planetarycouncil.org/simple.jpg">simple.jpg</a> <em>(3072 × 3072, 5.7 MB)</em></li>
-						  <li><strong>Singularity:</strong> <a href="https://planetarycouncil.org/singularity.jpg">singularity.jpg</a> <em>(5118 × 4089, 6.1 MB)</em></li>
-						  <li><strong>Meme realism:</strong> <a href="https://planetarycouncil.org/realism.jpg">realism.jpg</a> <em>(5427 × 3567, 10.3 MB)</em></li>
-						  <li><strong>Vibe:</strong> <a href="https://planetarycouncil.org/vibe.jpg">vibe.jpg</a> <em>(4890 × 4486, 13.5 MB)</em></li>
-						  <li><strong>Collage:</strong> <a href="https://planetarycouncil.org/collage.jpg">collage.jpg</a> <em>(8890 × 6600, 30.6 MB)</em></li>
-						  <li><strong>Propaganda:</strong> <a href="https://planetarycouncil.org/propaganda.jpg">propaganda.jpg</a> <em>(6301 × 6073, 16.9 MB)</em></li>
-						  <li><strong>All:</strong> <a href="https://planetarycouncil.org/all.jpg">all.jpg</a> <em>(13780 × 12345, 60.2 MB)</em></li>
-					    </ul>
-				</ul>
-
-				<!-- <p style="font-size: 1.6em; font-weight: bold;";>The world is ready for change and here is what we suggest:</p> -->
-
-				<!-- <p style="font-size: 1.6em; font-weight: bold;";>Recent coup attemp in Russia indicated that at some point war will come to end. It will be a massive unifying moment (or maybe alien invastion)</i></p> -->
-
-				<!-- <p style="font-size: 1.6em";><a href="https://twitter.com/hashtag/TheBigOne" target="_blank">#TheBigOne</a> <a href="https://twitter.com/hashtag/UniteToSurvive">#UniteToSurvive</a> <a href="https://twitter.com/hashtag/ClimateRevolution">#ClimateRevolution</a></p> -->
-
-				<!-- <p>Simplified:</p> -->
-				
-				<!-- <img src="policies.png" alt="Planetary Council" style="width: 100%;"> -->
-
-				
-				<br>
-				<br>
-				
-<!-- 				<p style="font-size: 1.6em; font-weight: bold;";>Radical change is possible. 10x <i>(new paradigm)</i> is easier than 10% <i>(nuanced negotiation)</i>.</p>
-				
-				<p>Our intention with the one-pager infographic is to present universally agreeable set of solutions towards regenerative civilisation, building a new model that makes existing one obsolete.</p> -->
-				
-				<p>We also publish on <a href="https://mirror.xyz/0x315f80C7cAaCBE7Fb1c14E65A634db89A33A9637">Mirror blog</a> and here are some highlights:
-
-					<ul>
-						<li><a href="https://mirror.xyz/0x315f80C7cAaCBE7Fb1c14E65A634db89A33A9637/k5-H4FT2RceFwNoxiVTspXjiI5ZXuLCtmy22clsENug">The simplest explanation</a></li>
-						<li><a href="https://mirror.xyz/0x315f80C7cAaCBE7Fb1c14E65A634db89A33A9637/4MexJuw-6W10cgkoWFoWD8fJyoe68q6CSVl6XcJs-ns">Meta-singularity (solution to metacrisis)</a></li>
-						<li><a href="https://mirror.xyz/0x315f80C7cAaCBE7Fb1c14E65A634db89A33A9637/ETK6RXnmgeNcALabcIE3k3-d-NqOHqEj8dU1_0J6cUg">AI alignment metric: LIFE</a></li>
-						<li><a href="https://mirror.xyz/0x315f80C7cAaCBE7Fb1c14E65A634db89A33A9637/SJkyOyJt4bceRMvEUkB54Ox3Gd1YvhV43MASMsnzZn8">Paradigm shapeshifting climate action</a></li>
-						<li><a href="https://mirror.xyz/0x315f80C7cAaCBE7Fb1c14E65A634db89A33A9637/gjz2660vgDtWHh6_en971lwuteghUQZLKzWsRo9izHw">Reasons for urgent action. Strategic Food Reserve.</a></li>
-						<li><a href="https://mirror.xyz/0x315f80C7cAaCBE7Fb1c14E65A634db89A33A9637/tESv4DzpC2IwDPMgj8SCqyN71na_4GG1lH0c6kz146w">Singularity Activation</a></li>
-						<li><a href="https://mirror.xyz/0x315f80C7cAaCBE7Fb1c14E65A634db89A33A9637/jvJw-qvCj857j3F9IOvYMzyo5Nxc6TdwrOg9o7LGp3g">Metacrisis pressure points</a></li>
-					</ul>
-
-
-
-				</p>
-
-				<br>
-
-				<!-- <p>Longer version. Wall of text. Need to zoom in. Everything remains valid.</p> -->
-
-				<!-- <img src="policies-wall-of-text.png" alt="Planetary Council" style="width: 100%;"> -->
-
-				<br>
-				<br>
-
-				<p style="font-size: 1.6em; font-weight: bold;";>Why upgrade to global governance?</p>
-
-				<p>The UN was created in 1945 after WW2</p>
-
-				<p>The League of Nations was created in 1920 after WW1</p>
-			
-				<p>Democracy didn't get an update since the ancient Greece.</p>
-				
-				<p>Representative democracy is a governance technology that was valid in 1776 <i>(declaration of independence)</i> when information was travelling at the speed of a horse, actually ships were faster.</p>
-
-				<p>Now we have internet, blockchain, real-time data, climate emergency, fake news and Big Tech with lobbying budget bigger than GDP of a country...</p>
-			
-				<!-- <p>Check our <strong><a href="COP26-key-policies_2021-10-26.pdf" target="_blank">proposed policies</a></strong> to be presented at COP26. Latest update: 26th October 2021</p> -->
-
-				<!-- <p>Obtain the <strong><a href="https://genesis.re/">NFT Passport of the Network State Genesis</a></strong></p> -->
-
-				
-			</header>
-
-			<br>
-			<br>
-
-			<iframe src="https://planetarycouncil.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:rgba(255,255,255,0.7); max-width: 100%;" frameborder="0" scrolling="no"></iframe>
-
-			<br>
-			<br>
-			<br>
-
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="https://twitter.com/PlanetCouncil" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="https://t.me/PlanetaryCouncil" class="icon brands fa-telegram"><span class="label">Telegram</span></a></li>
-					<li><a href="https://github.com/PlanetaryCouncil" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-					<li><a href="mailto:email@genesis.re" class="icon fa-envelope"><span class="label">Email</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li><a href="https://cockpit-1.tail151af.ts.net/">Live agent fleet</a></li>
-					<li><a href="/fleet-report/">Fleet report — what the agents did today</a></li>
-					<li><a href="https://cockpit-1.tail151af.ts.net/signatures">Signatures — sign the pad</a></li>
-					<li><a href="https://ux.planetarycouncil.org/">UX</a></li>
-					<li><a href="https://brainfarts.planetarycouncil.org/">AI brain farts</a></li>
-				</ul>
-				<ul class="copyright">
-					<li><span class="copyleft">&copy;</span>Planetary Council</li>
-					<li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
-					<li>Put together: <a href="https://marsrobertson.com">Mars Robertson</a></li>
-					<li><a href="https://www.flagofplanetearth.com/">The International Flag of Planet Earth</a></li>
-				</ul>
-			</footer>
-		</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/main.js"></script>
-
-	</body>
+</div>
+</section>
+<footer id="footer" style="padding:36px 28px;border-top:1px solid var(--pc-line);"><nav aria-label="Social and contact links" class="footer-links"><a aria-label="Twitter" href="https://twitter.com/PlanetCouncil" rel="noopener" target="_blank" title="Twitter"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M23.953 4.57a10 10 0 0 1-2.825.775 4.958 4.958 0 0 0 2.163-2.723 9.99 9.99 0 0 1-3.127 1.195 4.916 4.916 0 0 0-8.384 4.482A13.944 13.944 0 0 1 1.64 3.162a4.916 4.916 0 0 0 1.523 6.558A4.903 4.903 0 0 1 .935 9.1v.061a4.917 4.917 0 0 0 3.946 4.818 4.935 4.935 0 0 1-2.224.084 4.918 4.918 0 0 0 4.588 3.416A9.868 9.868 0 0 1 0 19.514a13.943 13.943 0 0 0 7.548 2.212c9.057 0 14.01-7.503 14.01-14.01 0-.213-.005-.425-.014-.636a10.013 10.013 0 0 0 2.46-2.548z" fill="currentColor"></path></svg></a><a aria-label="Telegram" href="https://t.me/PlanetaryCouncil" rel="noopener" target="_blank" title="Telegram"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="currentColor" r="12"></circle><path d="m5.1 11.5 13.1-5.1c.6-.2 1 .1.8.9l-2.2 10.4c-.2.7-.6.9-1.2.5l-3.4-2.5-1.6 1.6c-.2.2-.3.3-.6.3l.2-3.4 6.3-5.7c.3-.3-.1-.4-.4-.2l-7.8 4.9-3.3-1c-.7-.2-.7-.7.1-.7z" fill="var(--pc-bg)"></path></svg></a><a aria-label="GitHub" href="https://github.com/PlanetaryCouncil" rel="noopener" target="_blank" title="GitHub"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.043-1.61-4.043-1.61-.546-1.386-1.333-1.755-1.333-1.755-1.09-.745.083-.729.083-.729 1.205.084 1.838 1.237 1.838 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.776.418-1.305.762-1.605-2.665-.305-5.467-1.334-5.467-5.93 0-1.31.468-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.52 11.52 0 0 1 3-.405c1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.627-5.373-12-12-12" fill="currentColor"></path></svg></a><a aria-label="Email Planetary Council" href="mailto:PlanetaryCouncil@protonmail.com" title="PlanetaryCouncil@protonmail.com"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><rect fill="none" height="16" rx="1.5" stroke="currentColor" stroke-width="2" width="20" x="2" y="4"></rect><path d="m3 6 7.7 6.5a2 2 0 0 0 2.6 0L21 6" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg></a></nav>
+<div style="max-width:1060px;margin:0 auto;display:flex;flex-wrap:wrap;gap:14px 36px;align-items:center;justify-content:space-between;font-family:'IBM Plex Mono', monospace;font-size:11.5px;color:var(--pc-dim);">
+<span>© Planetary Council · One planet, one civilisation, one future</span>
+<span>Put together by <a href="https://marsrobertson.com" rel="noopener" target="_blank">Mars Robertson</a></span>
+</div>
+</footer>
+</div>
+</div>
+</body>
 </html>
+
