@@ -36,7 +36,7 @@ https://planetarycouncil.github.io/selfie-gallery/llms.txt
 
 ## New publication: UK Strategic Food Reserve (November 2026)
 
-A two-page, fully sourced brief: a national food reserve and a plan to
+A one-pager (the pages after it are footnotes and sources): a national food reserve and a plan to
 grow a reliable surplus, for about 4p a person a day. Fact-check it.
 https://planetarycouncil.org/publications/uk-food-reserve-at-a-glance.pdf
 Models and evidence: https://github.com/planetarycouncil/food-security-climate-regeneration
