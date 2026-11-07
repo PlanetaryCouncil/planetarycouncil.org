@@ -1,13 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>People Are People</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Every tradition already says it: people are people. Scripture, war and the exceptions people make, with a link to check every quote. Inspired by Israel's war on Gaza.">
+<link rel="canonical" href="https://planetarycouncil.org/publications/people-are-people.html">
+<link rel="icon" type="image/svg+xml" href="people-are-people-icon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="people-are-people-icon-32.png">
+<link rel="apple-touch-icon" href="people-are-people-icon-180.png">
+<meta name="theme-color" content="#0B5CC4">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Planetary Council">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="People Are People">
+<meta property="og:description" content="Every tradition already says it: people are people. Scripture, war and the exceptions people make, with a link to check every quote. Inspired by Israel's war on Gaza.">
+<meta property="og:url" content="https://planetarycouncil.org/publications/people-are-people.html">
+<meta property="og:image" content="https://planetarycouncil.org/publications/people-are-people-social.jpg">
+<meta property="og:image:secure_url" content="https://planetarycouncil.org/publications/people-are-people-social.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="People are people. The word human in seven languages, and the line from the United States Declaration of Independence: We hold these truths to be self-evident, that all men are created equal.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="People Are People">
+<meta name="twitter:description" content="Every tradition already says it: people are people. Scripture, war and the exceptions people make, with a link to check every quote. Inspired by Israel's war on Gaza.">
+<meta name="twitter:image" content="https://planetarycouncil.org/publications/people-are-people-social.jpg">
+<meta name="twitter:image:alt" content="People are people. The word human in seven languages, and the line from the United States Declaration of Independence: We hold these truths to be self-evident, that all men are created equal.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap">
 <style>
 /* Layout: one easy reading column on white and sky blue. Each voice: who said it on the left, the words and a link on the right. Gold marks the exceptions. Single bright theme by choice. */
 :root{
   color-scheme:light;
   --bg:#FFFFFF; --sky:#E6F2FF; --surface:#FFFFFF; --fg:#0B2545; --muted:#46607E; --rule:#CFE1F5;
-  --blue:#0B5CC4; --green:#15843C; --green-soft:#DCF5E4; --gold:#946600; --gold-line:#F2B705; --gold-soft:#FFF4D1;
+  --blue:#0B5CC4; --green:#946600; --green-soft:#FFF4D1; --gold:#946600; --gold-line:#F2B705; --gold-soft:#FFF4D1;
   --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --body:"Source Serif 4", Georgia, "Times New Roman", serif;
   --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
@@ -24,9 +52,9 @@ h1,h2,h3{font-family:var(--display); text-wrap:balance; line-height:1.05; margin
 header{padding-block:56px 44px}
 .words{color:var(--muted); font-size:1.05rem; display:flex; flex-wrap:wrap; gap:6px 16px; margin-bottom:24px}
 .words span{white-space:nowrap}
-.words span:last-child{color:var(--green); font-weight:600}
+.words span:last-child{color:var(--blue); font-weight:600}
 h1{font-size:clamp(3rem, 11vw, 6.2rem); font-weight:800; letter-spacing:-0.02em}
-h1 em{font-style:normal; color:var(--green)}
+h1 em{font-style:normal; color:var(--blue)}
 .goldline{height:3px; width:120px; background:var(--gold-line); border-radius:2px; margin:22px 0}
 .lede{font-size:1.25rem; max-width:60ch; margin:0}
 .lede strong{font-weight:600}
@@ -49,7 +77,7 @@ h2{font-size:clamp(1.9rem, 5vw, 2.7rem); font-weight:700; margin-bottom:14px}
 .rail,.body{min-width:0}
 .trad{font-family:var(--display); font-weight:700; font-size:1.1rem; color:var(--blue)}
 .who{font-size:.9rem; color:var(--muted); line-height:1.45; margin-top:4px}
-blockquote{margin:0; font-size:1.3rem; line-height:1.45}
+blockquote{margin:0 0 6px; font-family:"Cormorant Garamond", Georgia, serif; font-style:italic; font-weight:500; font-size:1.5rem; line-height:1.4; background:var(--gold-soft); border-left:3px solid var(--gold-line); border-radius:4px; padding:14px 18px}
 .note{margin:10px 0 0}
 .src{font-size:.88rem; color:var(--muted); margin:10px 0 0; overflow-wrap:anywhere}
 .asterisk .trad{color:var(--gold)}
@@ -75,11 +103,11 @@ blockquote{margin:0; font-size:1.3rem; line-height:1.45}
 .principles li::before{content:counter(p); font-family:var(--display); font-weight:800; font-size:1.6rem; color:var(--gold-line); line-height:1.1}
 
 .closing{font-family:var(--display); font-weight:700; font-size:clamp(1.6rem, 4.5vw, 2.3rem); line-height:1.2; max-width:24ch; margin:0; color:var(--blue)}
-.closing em{font-style:normal; color:var(--green)}
+.closing em{font-style:normal; color:var(--blue)}
 .video{position:relative; width:100%; max-width:720px; aspect-ratio:16/9; border-radius:12px; overflow:hidden; background:var(--sky); margin:0 0 16px}
 .video.short{aspect-ratio:9/16; max-width:320px}
 .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
-.track{display:flex; align-items:center; gap:18px; max-width:560px; padding:18px 20px; border-radius:12px; background:linear-gradient(135deg, var(--blue), var(--green)); color:#FFFFFF; text-decoration:none}
+.track{display:flex; align-items:center; gap:18px; max-width:560px; padding:18px 20px; border-radius:12px; background:var(--blue); color:#FFFFFF; text-decoration:none}
 .track:hover{filter:brightness(1.08)}
 .track:focus-visible{outline:3px solid var(--gold-line); outline-offset:3px}
 .play{flex:none; width:56px; height:56px; border-radius:50%; background:var(--gold-line); position:relative}
@@ -88,14 +116,26 @@ blockquote{margin:0; font-size:1.3rem; line-height:1.45}
 .track-text strong{font-family:var(--display); font-size:1.15rem; line-height:1.2}
 .track-text span{font-size:.9rem; opacity:.9}
 .verify p{max-width:62ch; margin:0 0 14px}
+header .eyebrow{margin-top:8px}
 footer{padding-block:28px 56px; font-size:.95rem; color:var(--muted); border-top:3px solid var(--gold-line); text-align:center}
 footer p{margin:0 0 8px}
 .footer-links{font-family:var(--display); font-weight:700; font-size:1.05rem}
 
 @media (max-width:640px){
-  body{font-size:18px}
+  body{font-size:17px}
+  header{padding-block:36px 32px}
+  .lede{font-size:1.1rem}
+  .rail{display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 10px}
+  .who{margin-top:0}
+  .voice{padding-block:18px}
+  .case{padding:16px}
+  .hyp{padding:14px 16px}
+  .principles li{grid-template-columns:1.6rem 1fr; gap:8px}
+  .track{padding:14px 16px; gap:12px}
+  .subhead{margin-top:28px}
+  video.clip{max-width:100%}
   .voice{grid-template-columns:1fr; gap:10px}
-  blockquote{font-size:1.18rem}
+  blockquote{font-size:1.35rem; padding:12px 14px}
   .rows{grid-template-columns:1fr; gap:2px}
   .rows dd{margin-bottom:10px}
 }
@@ -106,609 +146,351 @@ footer p{margin:0 0 8px}
   .words span:nth-child(6){animation-delay:.40s}.words span:nth-child(7){animation-delay:.48s}
   @keyframes fade{from{opacity:.15}to{opacity:1}}
 }
-</style>
 
-<div class="band sky">
-<div class="wrap">
+.panel{border:1px solid var(--rule); border-radius:10px; background:var(--surface); overflow:hidden; margin:8px 0 28px}
+.plist{max-height:none}
+.row{border-top:1px solid var(--rule)}
+.row:first-child{border-top:0}
+.row summary{list-style:none; cursor:pointer; padding:14px 18px; display:block}
+.row summary::-webkit-details-marker{display:none}
+.row .tag{display:block; font-family:var(--display); font-weight:700; font-size:.82rem; color:var(--blue); margin-bottom:4px}
+.row .q{display:block; font-family:"Cormorant Garamond", Georgia, serif; font-style:italic; font-weight:500; font-size:1.3rem; line-height:1.35; color:var(--fg)}
+.row .q.plain{font-family:var(--body); font-style:normal; font-size:1.05rem}
+.row[open] > summary, .row.active > summary{background:var(--gold-soft); box-shadow:inset 3px 0 0 var(--gold-line)}
+.exp{padding:4px 18px 16px; background:var(--gold-soft)}
+.exp p{margin:0 0 8px}
+.exp .who-d{display:none}
+.exp .fn{margin:6px 0 0}
+.pdetail{display:none}
+.fn{font-size:.85rem; line-height:1.5; color:var(--muted); max-width:62ch; margin:-20px 0 28px; padding-left:12px; border-left:2px solid var(--rule); overflow-wrap:anywhere}
+.fn::before{content:"Source: "; font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase}
+header .fn{margin:6px 0 0}
+header .fn + .lede, .lede + .lede{margin-top:16px}
+video.clip{display:block; width:100%; max-width:320px; border-radius:12px; background:#000; margin:0 0 30px}
+blockquote.opening{font-size:clamp(1.6rem, 5vw, 2.2rem); margin:0 0 18px}
+.pbar{display:flex; align-items:center; gap:14px; padding:10px 18px; border-bottom:1px solid var(--rule); background:var(--sky); font-family:var(--display); font-weight:700; font-size:.85rem; color:var(--blue)}
+.pcount{white-space:nowrap}
+.ask{font-style:italic; color:var(--blue); border-left:3px solid var(--gold-line); padding-left:10px}
+.ask::before{content:"Food for thought: "; font-style:normal; font-family:var(--display); font-weight:700}
+.voicebox{background:var(--gold-soft); border-left:4px solid var(--gold-line); border-radius:6px; padding:18px 20px; margin:0 0 12px; max-width:62ch}
+.voicebox blockquote{background:none; border:0; padding:0; margin:0 0 8px; font-size:1.45rem}
+.voicebox p{margin:0}
+.ptrack{flex:1; height:4px; background:var(--rule); border-radius:2px; overflow:hidden}
+.pfill{display:block; height:100%; width:0; background:var(--gold-line); border-radius:2px; transition:width .15s}
+@media (min-width:860px){
+  .panel{display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+  .pbar{grid-column:1 / -1}
+  .pdetail .pin{position:sticky; top:16px}
+  .panel.full .plist{max-height:none; overflow:visible}
+  .plist{max-height:640px; overflow:auto; border-right:1px solid var(--rule)}
+  .row .exp{display:none}
+  .row[open] > summary{background:none; box-shadow:none}
+  .row.active > summary{background:var(--gold-soft); box-shadow:inset 3px 0 0 var(--gold-line)}
+  .pdetail{display:block; padding:22px 24px; background:var(--gold-soft); position:relative}
+  .pdetail .who-d{display:block; font-family:var(--display); font-weight:700; color:var(--blue); margin:0 0 10px}
+  .pdetail p{margin:0 0 10px}
+  .pdetail .fn{margin:12px 0 0}
+}
+</style>
+</head>
+<body>
+
+<div class="band sky"><div class="wrap">
 <header>
-  <div class="words" aria-label="The word for a human being in several languages">
-    <span lang="he">אָדָם</span><span lang="ar">إنسان</span><span lang="hi">मानव</span><span lang="pa">ਮਨੁੱਖ</span><span lang="zh">人</span><span lang="pl">człowiek</span><span>human</span>
-  </div>
+  <div class="words" aria-label="The word for a human being in several languages"><span lang="he">אָדָם</span><span lang="ar">إنسان</span><span lang="hi">मानव</span><span lang="pa">ਮਨੁੱਖ</span><span lang="zh">人</span><span lang="pl">człowiek</span><span>human</span></div>
   <h1>People are <em>people.</em></h1>
   <div class="goldline"></div>
-  <p class="lede">Most people want to live in peace. Russians and Ukrainians, Israelis and Palestinians, Pakistanis and Indians, Americans too. <strong>Every religion and tradition already says it.</strong> Here are their own words, with a link to check every one.</p>
-  <p class="lede">This page was prompted by Israel's war on Gaza, and by the mindset behind it: from a politician who says the world must answer to Israel because “it says in the book”, to a teenager who tells Palestinians “leave or we'll kill you”. Both are quoted below. It is not neutral. It offers a perspective from outside Israel's official account, held to the same facts and the same rules for every side. On 7 October 2023 about 1,200 people were killed in Israel, most of them civilians, and 251 were taken hostage. That was a crime, and it is covered below. This page is mostly about what came after: two years of war, around 70,000 people killed in Gaza, and a ceasefire in which people are still being killed. <a href="#israel">Go straight to the part for Israel</a>.</p>
-  <p class="src">Last updated 5 November 2026.</p>
+  <p class="eyebrow">The United States Declaration of Independence · 4 July 1776</p>
+  <blockquote class="opening">“We hold these truths to be self-evident, that all men are created equal”</blockquote>
+  <p class="lede">An American founding text, and true everywhere. The Planetary Council's position: there is one race, the human race. Differences in how people look are adaptations to where their ancestors lived, like skin colour to sunlight.</p>
+  <p class="fn"><a href="https://www.archives.gov/founding-docs/declaration-transcript">Declaration of Independence, National Archives</a> · <a href="https://en.wikipedia.org/wiki/Human_skin_color">Skin colour and sunlight</a></p>
+  <p class="lede">This page is not trying to be neutral. It has one aim, and it was inspired by Israel's war on Gaza, which is why it is mostly about Israel and Palestine.</p>
+  <p class="lede">The 7 October 2023 attack was an atrocity: about 1,200 people killed in Israel, most of them civilians, and 251 taken hostage. Hamas's stated objective was to hit military sites and capture soldiers to exchange for Palestinian prisoners. More than 1,000 days later, Gaza's Ministry of Health reports 74,564 Palestinians killed.</p>
+  <p class="fn"><a href="https://www.palestinechronicle.com/wp-content/uploads/2024/01/PDF.pdf">Hamas, Our Narrative, January 2024</a> · <a href="https://almoqawma.com/2025/12/24/7908/">two years later, December 2025</a> · <a href="https://www.ochaopt.org/sites/default/files/Gaza_Reported_Impact_Snapshot_28_October_2026.pdf">UN OCHA, 28 October 2026</a></p>
+  <p class="lede"><strong>People are people.</strong> Yet again and again someone says: “it says in the book”, “it is not murder, it is a rightful killing”. Which book, translated by whom? That is intellectual gymnastics. This page keeps it simple. <a href="#israel">Go to the part for Israel</a>.</p>
+  <p class="src">Last updated 6 November 2026. On a computer, hover or click a line to read about it. On a phone, tap it.</p>
 </header>
-</div>
-</div>
+</div></div>
 
-<div class="band">
-<div class="wrap">
+<div class="band"><div class="wrap">
 <section style="border-top:0">
   <p class="eyebrow">In their own words</p>
   <h2>Every tradition says it</h2>
-
-  <div class="voices">
-    <article class="voice">
-      <div class="rail"><div class="trad">Jewish</div><div class="who">Torah · Genesis 1:27</div></div>
-      <div class="body">
-        <blockquote>“And God created humankind in the divine image”</blockquote>
-        <p class="note">This is about all people. It comes before any nation or tribe appears in the story.</p>
-        <p class="src"><a href="https://www.sefaria.org/Genesis.1.27">Read it on Sefaria</a></p>
-      </div>
-    </article>
-
-    <article class="voice">
-      <div class="rail"><div class="trad">Jewish</div><div class="who">Torah · Leviticus 19:34</div></div>
-      <div class="body">
-        <blockquote>“you shall love each one as yourself, for you were strangers in the land of Egypt”</blockquote>
-        <p class="note">Said about foreigners living among you. Treat them like your own people.</p>
-        <p class="src"><a href="https://www.sefaria.org/Leviticus.19.34">Read it on Sefaria</a></p>
-      </div>
-    </article>
-
-    <article class="voice">
-      <div class="rail"><div class="trad">Jewish</div><div class="who">Hillel the Elder · Talmud, Shabbat 31a</div></div>
-      <div class="body">
-        <blockquote>“That which is hateful to you do not do to another; that is the entire Torah, and the rest is its interpretation. Go study.”</blockquote>
-        <p class="note">His answer when someone asked him to explain the whole Torah while standing on one foot.</p>
-        <p class="src"><a href="https://www.sefaria.org/Shabbat.31a">Read it on Sefaria</a></p>
-      </div>
-    </article>
-
-    <article class="voice">
-      <div class="rail"><div class="trad">Jewish</div><div class="who">Mishnah, Sanhedrin 4:5 · about the year 200</div></div>
-      <div class="body">
-        <blockquote>“Adam the first man was created alone”</blockquote>
-        <p class="note">Why one first person? So that nobody can say <q>My father … is greater than your father.</q> All people share the same ancestor. The same passage says that destroying one life is like destroying a whole world. Be aware: the common version says one life <q>from the Jewish people</q>, while <a href="https://www.pthu.nl/en/bibleblog/2023/12/whoever-destroys-a-single-soul-destroys-an-entire-world/">some versions leave those words out</a>.</p>
-        <p class="src"><a href="https://www.sefaria.org/Mishnah_Sanhedrin.4.5">Read it on Sefaria</a></p>
-      </div>
-    </article>
-
-    <article class="voice">
-      <div class="rail"><div class="trad">The Chief Rabbi</div><div class="who">Rabbi Jonathan Sacks · Chief Rabbi of the United Hebrew Congregations of the Commonwealth, 1991 to 2013</div></div>
-      <div class="body">
-        <blockquote>“The supreme religious challenge is to see God’s image in one who is not in our image.”</blockquote>
-        <p class="src">The Dignity of Difference, page 51 · <a href="https://rabbisacks.org/quotes/seeing-gods-image-in-everyone/">rabbisacks.org</a></p>
-      </div>
-    </article>
-
-    <article class="voice">
-      <div class="rail"><div class="trad">Christian</div><div class="who">Paul · Galatians 3:28</div></div>
-      <div class="body">
-        <blockquote>“There is neither Jew nor Greek, there is neither bond nor free, there is neither male nor female”</blockquote>
-        <p class="note">Paul ends the verse: <q>for ye are all one in Christ Jesus.</q> He means unity in the faith. Jesus went further: <q>Love your enemies</q> (<a href="https://www.biblegateway.com/passage/?search=Matthew+5%3A44&amp;version=KJV">Matthew 5:44</a>).</p>
-        <p class="src">King James Bible · <a href="https://www.biblegateway.com/passage/?search=Galatians+3%3A28&amp;version=KJV">Bible Gateway</a></p>
-      </div>
-    </article>
-
-    <article class="voice">
-      <div class="rail"><div class="trad">The Pope</div><div class="who">Pope Leo XIV · his first blessing as Pope, 8 May 2025</div></div>
-      <div class="body">
-        <blockquote>“A peace that is unarmed and disarming, humble and persevering.”</blockquote>
-        <p class="note">In his message for 1 January 2026 he went further. He said nuclear weapons keep the world in fear, and warned against using faith to bless nationalism or excuse violence.</p>
-        <p class="src">Vatican · <a href="https://www.vatican.va/content/leo-xiv/en/messages/urbi/documents/20250508-prima-benedizione-urbietorbi.html">First blessing</a> · <a href="https://www.vatican.va/content/leo-xiv/en/messages/peace/documents/20251208-messaggio-pace.html">2026 peace message</a></p>
-      </div>
-    </article>
-
-    <article class="voice">
-      <div class="rail"><div class="trad">The Pope and the Imam</div><div class="who">Pope Francis and the Grand Imam of al-Azhar · Abu Dhabi, 4 February 2019</div></div>
-      <div class="body">
-        <blockquote>“God who has created all human beings equal in rights, duties and dignity”</blockquote>
-        <p class="note">Signed together by the head of the Catholic Church and the head of al-Azhar, Sunni Islam’s most prominent institution. It also says religions <q>must never incite war</q>.</p>
-        <p class="src">Vatican · <a href="https://www.vatican.va/content/francesco/en/travels/2019/outside/documents/papa-francesco_20190204_documento-fratellanza-umana.html">Document on Human Fraternity</a></p>
-      </div>
-    </article>
-
-    <article class="voice">
-      <div class="rail"><div class="trad">Muslim</div><div class="who">Quran 49:13</div></div>
-      <div class="body">
-        <blockquote>“O humanity! Indeed, We created you from a male and a female, and made you into peoples and tribes so that you may get to know one another.”</blockquote>
-        <p class="note">Spoken to all humanity. The verse goes on: <q>the most noble of you in the sight of Allah is the most righteous among you.</q></p>
-        <p class="src">Translation by Mustafa Khattab · <a href="https://quran.com/49/13">quran.com</a></p>
-      </div>
-    </article>
-
-    <article class="voice">
-      <div class="rail"><div class="trad">Muslim</div><div class="who">The Prophet Muhammad · Farewell Sermon, 632</div></div>
-      <div class="body">
-        <blockquote>“Arab has no merit over non-Arab other than godfearingness”</blockquote>
-        <p class="note">The sermon was written down in several versions. This line is from one of them.</p>
-        <p class="src">Translation by Nuh Ha Mim Keller · <a href="http://www.masud.co.uk/ISLAM/nuh/adab_of_islam.htm">The Adab of Islam</a> · <a href="https://en.wikipedia.org/wiki/Farewell_Sermon">about the versions</a></p>
-      </div>
-    </article>
-
-    <article class="voice">
-      <div class="rail"><div class="trad">Hindu</div><div class="who">Krishna · Bhagavad Gita 5.18</div></div>
-      <div class="body">
-        <blockquote>“The humble sages, by virtue of true knowledge, see with equal vision a learned and gentle brāhmaṇa, a cow, an elephant, a dog and a dog-eater [outcaste]”</blockquote>
-        <p class="note">The verse is about seeing every being with equal regard. One common reading: a priest and an outcast, the top and the bottom of the old caste system, are seen the same way.</p>
-        <p class="src">Translation by Prabhupada · <a href="https://vedabase.io/en/library/bg/5/18/">vedabase.io</a></p>
-      </div>
-    </article>
-
-    <article class="voice">
-      <div class="rail"><div class="trad">Hindu</div><div class="who">Maha Upanishad · <i>vasudhaiva kutumbakam</i></div></div>
-      <div class="body">
-        <blockquote>“For those who live magnanimously the entire world constitutes but a family.”</blockquote>
-        <p class="note">Small minds count “mine” and “theirs”. Big hearts see one family.</p>
-        <p class="src">Maha Upanishad 6.71 to 73 · <a href="https://vivekavani.com/maha-upanishad/">VivekaVani English text</a> · <a href="https://en.wikipedia.org/wiki/Vasudhaiva_Kutumbakam">About the phrase</a></p>
-      </div>
-    </article>
-
-    <article class="voice">
-      <div class="rail"><div class="trad">Buddhist</div><div class="who">The Buddha · Dhammapada, verse 5</div></div>
-      <div class="body">
-        <blockquote>“Hatred is never appeased by hatred in this world. By non-hatred alone is hatred appeased. This is a law eternal.”</blockquote>
-        <p class="src">Translation by Acharya Buddharakkhita · <a href="https://www.accesstoinsight.org/tipitaka/kn/dhp/dhp.01.budd.html">accesstoinsight.org</a></p>
-      </div>
-    </article>
-
-    <article class="voice">
-      <div class="rail"><div class="trad">Taoist</div><div class="who">Laozi · Tao Te Ching, chapter 31</div></div>
-      <div class="body">
-        <blockquote>“He who has killed multitudes of men should weep for them with the bitterest grief”</blockquote>
-        <p class="note">The same chapter says weapons bring bad luck, and that winning a war should be treated like a funeral.</p>
-        <p class="src">Translation by James Legge · <a href="https://www.gutenberg.org/files/216/216-h/216-h.htm">Project Gutenberg</a></p>
-      </div>
-    </article>
-    <article class="voice">
-      <div class="rail"><div class="trad">Confucian</div><div class="who">Confucius · Analects 15.23</div></div>
-      <div class="body">
-        <blockquote>“What you do not want done to yourself, do not do to others.”</blockquote>
-        <p class="note">His answer when a student asked for one word to live by. The word was reciprocity. Some editions number this 15.24.</p>
-        <p class="src"><a href="https://history.hanover.edu/courses/excerpts/261conf.html">Hanover College, Analects excerpts</a></p>
-      </div>
-    </article>
-
-    <article class="voice">
-      <div class="rail"><div class="trad">Sikh</div><div class="who">Kabir · Guru Granth Sahib, page 1349</div></div>
-      <div class="body">
-        <blockquote>“From the One Light, the entire universe welled up. So, who is good, and who is bad?”</blockquote>
-        <p class="note">On the same page: <q>If the Lord Allah lives only in the mosque, then to whom does the rest of the world belong?</q></p>
-        <p class="src">Translation by Sant Singh Khalsa · <a href="https://www.srigranth.org/servlet/gurbani.gurbani?Action=Page&amp;Param=1349">srigranth.org</a></p>
-      </div>
-    </article>
-
-    <article class="voice">
-      <div class="rail"><div class="trad">Southern Africa · Ubuntu</div><div class="who">Archbishop Desmond Tutu · No Future Without Forgiveness, 1999</div></div>
-      <div class="body">
-        <blockquote>“A person with Ubuntu is open and available to others, affirming of others…”</blockquote>
-        <p class="note">Ubuntu comes from the Zulu saying <em>umuntu ngumuntu ngabantu</em>: a person becomes fully human only through other people.</p>
-        <p class="src"><a href="https://en.wikipedia.org/wiki/Ubuntu_philosophy">About Ubuntu</a></p>
-      </div>
-    </article>
-    <article class="voice">
-      <div class="rail"><div class="trad">Bahá’í</div><div class="who">Bahá’u’lláh · 1800s</div></div>
-      <div class="body">
-        <blockquote>“The earth is but one country, and mankind its citizens.”</blockquote>
-        <p class="src"><a href="https://gutenberg.org/files/19268/19268-h/19268-h.html">Compilation on Peace, Project Gutenberg</a></p>
-      </div>
-    </article>
-
-    <article class="voice">
-      <div class="rail"><div class="trad">Revered by Rastafari</div><div class="who">Emperor Haile Selassie · United Nations, 4 October 1963</div></div>
-      <div class="body">
-        <blockquote>“until the philosophy which holds one race superior and another inferior is finally and permanently discredited and abandoned”</blockquote>
-        <p class="note">Until then, he said, Africa would not know peace. Bob Marley turned this speech into the song “War” in 1976. The line “everywhere is war” is Marley’s, not the Emperor’s.</p>
-        <p class="src"><a href="https://ethiopiancrown.org/?p=16298">Full speech</a> · <a href="https://digitallibrary.un.org/record/731800/files/A_PV-1229-EN.pdf">United Nations record</a> (this one blocks automatic checks, so open it yourself)</p>
-      </div>
-    </article>
-  </div>
+  <div class="panel"><div class="pbar"><span class="pcount">22 quotes</span><span class="ptrack"><span class="pfill"></span></span></div><div class="plist"><details class="row" open>
+  <summary><span class="tag">Jewish · Torah · Genesis 1:27</span><span class="q">“And God created humankind in the divine image”</span></summary>
+  <div class="exp"><p class="who-d">Jewish · Torah · Genesis 1:27</p><p>About all people, before any nation appears in the story.</p><p class="fn"><a href="https://www.sefaria.org/Genesis.1.27">Sefaria</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Jewish · Torah · Leviticus 19:34</span><span class="q">“you shall love each one as yourself, for you were strangers in the land of Egypt”</span></summary>
+  <div class="exp"><p class="who-d">Jewish · Torah · Leviticus 19:34</p><p>Said about foreigners living among you.</p><p class="fn"><a href="https://www.sefaria.org/Leviticus.19.34">Sefaria</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Jewish · Hillel · Talmud, Shabbat 31a</span><span class="q">“That which is hateful to you do not do to another; that is the entire Torah, and the rest is its interpretation. Go study.”</span></summary>
+  <div class="exp"><p class="who-d">Jewish · Hillel · Talmud, Shabbat 31a</p><p>The whole Torah, explained standing on one foot.</p><p class="fn"><a href="https://www.sefaria.org/Shabbat.31a">Sefaria</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Jewish · Mishnah, Sanhedrin 4:5</span><span class="q">“Adam the first man was created alone”</span></summary>
+  <div class="exp"><p class="who-d">Jewish · Mishnah, Sanhedrin 4:5</p><p>So nobody can say “my father is greater than your father”. The same passage says destroying one life is like destroying a whole world; the common version adds “from the Jewish people”.</p><p class="fn"><a href="https://www.sefaria.org/Mishnah_Sanhedrin.4.5">Sefaria</a> · <a href="https://www.pthu.nl/en/bibleblog/2023/12/whoever-destroys-a-single-soul-destroys-an-entire-world/">about the versions</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Jewish · Rabbi Jonathan Sacks · The Dignity of Difference, page 51</span><span class="q">“The supreme religious challenge is to see God’s image in one who is not in our image.”</span></summary>
+  <div class="exp"><p class="who-d">Jewish · Rabbi Jonathan Sacks · The Dignity of Difference, page 51</p><p>Chief Rabbi of the United Hebrew Congregations of the Commonwealth, 1991 to 2013.</p><p class="fn"><a href="https://rabbisacks.org/quotes/seeing-gods-image-in-everyone/">rabbisacks.org</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Christian · Paul · Galatians 3:28, King James Bible</span><span class="q">“There is neither Jew nor Greek, there is neither bond nor free, there is neither male nor female”</span></summary>
+  <div class="exp"><p class="who-d">Christian · Paul · Galatians 3:28, King James Bible</p><p>Paul means unity in the faith. Jesus went further: Love your enemies (Matthew 5:44).</p><p class="fn"><a href="https://www.biblegateway.com/passage/?search=Galatians+3%3A28&amp;version=KJV">Galatians 3:28</a> · <a href="https://www.biblegateway.com/passage/?search=Matthew+5%3A44&amp;version=KJV">Matthew 5:44</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Christian · Pope Leo XIV · first blessing, 8 May 2025</span><span class="q">“A peace that is unarmed and disarming, humble and persevering.”</span></summary>
+  <div class="exp"><p class="who-d">Christian · Pope Leo XIV · first blessing, 8 May 2025</p><p>In 2026 he warned against using faith to bless nationalism or excuse violence.</p><p class="fn"><a href="https://www.vatican.va/content/leo-xiv/en/messages/urbi/documents/20250508-prima-benedizione-urbietorbi.html">First blessing</a> · <a href="https://www.vatican.va/content/leo-xiv/en/messages/peace/documents/20251208-messaggio-pace.html">2026 peace message</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Christian and Muslim · Pope Francis and the Grand Imam of al-Azhar · Abu Dhabi, 2019</span><span class="q">“God who has created all human beings equal in rights, duties and dignity”</span></summary>
+  <div class="exp"><p class="who-d">Christian and Muslim · Pope Francis and the Grand Imam of al-Azhar · Abu Dhabi, 2019</p><p>Signed by the heads of the Catholic Church and of al-Azhar, Sunni Islam’s best-known institution.</p><p class="fn"><a href="https://www.vatican.va/content/francesco/en/travels/2019/outside/documents/papa-francesco_20190204_documento-fratellanza-umana.html">Document on Human Fraternity</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Muslim · Quran 49:13 · translation by Mustafa Khattab</span><span class="q">“O humanity! Indeed, We created you from a male and a female, and made you into peoples and tribes so that you may get to know one another.”</span></summary>
+  <div class="exp"><p class="who-d">Muslim · Quran 49:13 · translation by Mustafa Khattab</p><p>Spoken to all humanity, not one people.</p><p class="fn"><a href="https://quran.com/49/13">quran.com</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Muslim · The Prophet Muhammad · Farewell Sermon, 632</span><span class="q">“Arab has no merit over non-Arab other than godfearingness”</span></summary>
+  <div class="exp"><p class="who-d">Muslim · The Prophet Muhammad · Farewell Sermon, 632</p><p>From one of several recorded versions of the sermon, translated by Nuh Ha Mim Keller.</p><p class="fn"><a href="http://www.masud.co.uk/ISLAM/nuh/adab_of_islam.htm">The Adab of Islam</a> · <a href="https://en.wikipedia.org/wiki/Farewell_Sermon">about the versions</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Hindu · Bhagavad Gita 5.18 · translation by Prabhupada</span><span class="q">“The humble sages, by virtue of true knowledge, see with equal vision a learned and gentle brāhmaṇa, a cow, an elephant, a dog and a dog-eater [outcaste]”</span></summary>
+  <div class="exp"><p class="who-d">Hindu · Bhagavad Gita 5.18 · translation by Prabhupada</p><p>A priest and an outcast, the top and bottom of the old caste system, seen the same way.</p><p class="fn"><a href="https://vedabase.io/en/library/bg/5/18/">vedabase.io</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Hindu · Maha Upanishad 6.71 to 73</span><span class="q">“For those who live magnanimously the entire world constitutes but a family.”</span></summary>
+  <div class="exp"><p class="who-d">Hindu · Maha Upanishad 6.71 to 73</p><p>The idea known as vasudhaiva kutumbakam: small minds count “mine” and “theirs”, big hearts see one family.</p><p class="fn"><a href="https://vivekavani.com/maha-upanishad/">VivekaVani</a> · <a href="https://en.wikipedia.org/wiki/Vasudhaiva_Kutumbakam">about the phrase</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Buddhist · The Buddha · Dhammapada 5</span><span class="q">“Hatred is never appeased by hatred in this world. By non-hatred alone is hatred appeased. This is a law eternal.”</span></summary>
+  <div class="exp"><p class="who-d">Buddhist · The Buddha · Dhammapada 5</p><p>Translated by Acharya Buddharakkhita.</p><p class="fn"><a href="https://www.accesstoinsight.org/tipitaka/kn/dhp/dhp.01.budd.html">accesstoinsight.org</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Taoist · Laozi · Tao Te Ching 31</span><span class="q">“He who has killed multitudes of men should weep for them with the bitterest grief”</span></summary>
+  <div class="exp"><p class="who-d">Taoist · Laozi · Tao Te Ching 31</p><p>The same chapter says a victory should be treated like a funeral. Translated by James Legge.</p><p class="fn"><a href="https://www.gutenberg.org/files/216/216-h/216-h.htm">Project Gutenberg</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Confucian · Confucius · Analects 15.23</span><span class="q">“What you do not want done to yourself, do not do to others.”</span></summary>
+  <div class="exp"><p class="who-d">Confucian · Confucius · Analects 15.23</p><p>His one word to live by: reciprocity. Some editions number it 15.24.</p><p class="fn"><a href="https://history.hanover.edu/courses/excerpts/261conf.html">Hanover College</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Sikh · Kabir · Guru Granth Sahib, page 1349</span><span class="q">“From the One Light, the entire universe welled up. So, who is good, and who is bad?”</span></summary>
+  <div class="exp"><p class="who-d">Sikh · Kabir · Guru Granth Sahib, page 1349</p><p>Translated by Sant Singh Khalsa.</p><p class="fn"><a href="https://www.srigranth.org/servlet/gurbani.gurbani?Action=Page&amp;Param=1349">srigranth.org</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Ubuntu · Archbishop Desmond Tutu · No Future Without Forgiveness, 1999</span><span class="q">“A person with Ubuntu is open and available to others, affirming of others…”</span></summary>
+  <div class="exp"><p class="who-d">Ubuntu · Archbishop Desmond Tutu · No Future Without Forgiveness, 1999</p><p>From the Zulu saying umuntu ngumuntu ngabantu: a person becomes fully human through other people.</p><p class="fn"><a href="https://en.wikipedia.org/wiki/Ubuntu_philosophy">About Ubuntu</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Bahá’í · Bahá’u’lláh · 1800s</span><span class="q">“The earth is but one country, and mankind its citizens.”</span></summary>
+  <div class="exp"><p class="who-d">Bahá’í · Bahá’u’lláh · 1800s</p><p class="fn"><a href="https://gutenberg.org/files/19268/19268-h/19268-h.html">Project Gutenberg</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Rastafari · Emperor Haile Selassie · United Nations, 1963</span><span class="q">“until the philosophy which holds one race superior and another inferior is finally and permanently discredited and abandoned”</span></summary>
+  <div class="exp"><p class="who-d">Rastafari · Emperor Haile Selassie · United Nations, 1963</p><p>Until then, he said, there would be no peace. Bob Marley turned the speech into the song “War”; the line “everywhere is war” is Marley’s.</p><p class="fn"><a href="https://ethiopiancrown.org/?p=16298">Full speech</a> · <a href="https://digitallibrary.un.org/record/731800/files/A_PV-1229-EN.pdf">United Nations record</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">United States · President John F. Kennedy · 10 June 1963</span><span class="q">“We all breathe the same air. We all cherish our children&#x27;s future. And we are all mortal.”</span></summary>
+  <div class="exp"><p class="who-d">United States · President John F. Kennedy · 10 June 1963</p><p>Said about the Soviet Union, months after the Cuban missile crisis.</p><p class="fn"><a href="https://www.presidency.ucsb.edu/documents/commencement-address-american-university-washington">American Presidency Project</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Everyone · Universal Declaration of Human Rights · Article 1, 1948</span><span class="q">“All human beings are born free and equal in dignity and rights.”</span></summary>
+  <div class="exp"><p class="who-d">Everyone · Universal Declaration of Human Rights · Article 1, 1948</p><p>Hansa Mehta of India is credited with changing “all men” to “all human beings”.</p><p class="fn"><a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights">United Nations</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Science · Russell, Einstein and nine other scientists · 1955</span><span class="q">“We appeal, as human beings, to human beings: Remember your humanity, and forget the rest.”</span></summary>
+  <div class="exp"><p class="who-d">Science · Russell, Einstein and nine other scientists · 1955</p><p>No religion needed.</p><p class="fn"><a href="https://pugwashgroup.ca/russell-einstein-manifesto/">Canadian Pugwash Group</a></p></div>
+</details></div><aside class="pdetail" aria-live="polite"></aside></div>
 </section>
-
 <section>
-  <p class="eyebrow">Including Americans</p>
-  <h2>America and the world said it too</h2>
-  <div class="voices">
-    <article class="voice">
-      <div class="rail"><div class="trad">United States</div><div class="who">Declaration of Independence · 1776 · 250 years old this year</div></div>
-      <div class="body">
-        <blockquote>“We hold these truths to be self-evident, that all men are created equal”</blockquote>
-        <p class="src"><a href="https://www.archives.gov/founding-docs/declaration-transcript">National Archives</a></p>
-      </div>
-    </article>
-    <article class="voice">
-      <div class="rail"><div class="trad">United States</div><div class="who">President John F. Kennedy · 10 June 1963</div></div>
-      <div class="body">
-        <blockquote>“We all breathe the same air. We all cherish our children's future. And we are all mortal.”</blockquote>
-        <p class="note">He said this about the Soviet Union, America’s enemy at the time, months after the two nearly went to nuclear war over Cuba.</p>
-        <p class="src"><a href="https://www.presidency.ucsb.edu/documents/commencement-address-american-university-washington">American Presidency Project</a></p>
-      </div>
-    </article>
-    <article class="voice">
-      <div class="rail"><div class="trad">Everyone</div><div class="who">Universal Declaration of Human Rights · Article 1 · 1948</div></div>
-      <div class="body">
-        <blockquote>“All human beings are born free and equal in dignity and rights.”</blockquote>
-        <p class="note">Hansa Mehta from India is credited with changing “all men” to “all human beings”.</p>
-        <p class="src"><a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights">United Nations</a></p>
-      </div>
-    </article>
-    <article class="voice">
-      <div class="rail"><div class="trad">Science</div><div class="who">Bertrand Russell, Albert Einstein and nine other scientists · 9 July 1955</div></div>
-      <div class="body">
-        <blockquote>“We appeal, as human beings, to human beings: Remember your humanity, and forget the rest.”</blockquote>
-        <p class="note">Written in the first years of the hydrogen bomb, with no religion needed.</p>
-        <p class="src"><a href="https://pugwashgroup.ca/russell-einstein-manifesto/">Russell–Einstein Manifesto, Canadian Pugwash Group</a></p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section class="asterisk">
   <p class="eyebrow">The catch</p>
   <h2>The same books also make exceptions</h2>
-  <p class="intro">Nobody secretly rewrote these books. The rule and the exception sit side by side, sometimes in the same sentence. People choose which one wins.</p>
-  <div class="voices">
-    <article class="voice">
-      <div class="rail"><div class="trad">Jewish</div><div class="who">Torah · Deuteronomy 20:16</div></div>
-      <div class="body">
-        <blockquote>“you shall not let a soul remain alive”</blockquote>
-        <p class="note">An order about the towns of six Canaanite nations named in the next verse. Distant towns get the offer of peace in 20:10 instead. The same Torah says “do not murder”, and the Hebrew word means murder, not all killing. That small difference is where the exception lives.</p>
-        <p class="src"><a href="https://www.sefaria.org/Deuteronomy.20.16">Read it on Sefaria</a></p>
-      </div>
-    </article>
-    <article class="voice">
-      <div class="rail"><div class="trad">Muslim</div><div class="who">Quran 5:32</div></div>
-      <div class="body">
-        <blockquote>“whoever takes a life—unless as a punishment for murder or mischief in the land—it will be as if they killed all of humanity”</blockquote>
-        <p class="note">Almost the same teaching as the Mishnah above, and the Quran says it was first given to the Children of Israel. But see the exception in the middle. “Mischief in the land” is vague enough to be stretched.</p>
-        <p class="src">Translation by Mustafa Khattab · <a href="https://quran.com/5/32">quran.com</a></p>
-      </div>
-    </article>
-    <article class="voice">
-      <div class="rail"><div class="trad">Hindu</div><div class="who">Bhagavad Gita 2.31</div></div>
-      <div class="body">
-        <blockquote>“there is no better engagement for you than fighting on religious principles; and so there is no need for hesitation”</blockquote>
-        <p class="note">Krishna says this to a warrior on a battlefield, about his duty as a soldier. The translator’s own notes go further and say <q>religious violence is sometimes a necessary factor</q>.</p>
-        <p class="src">Translation by Prabhupada · <a href="https://vedabase.io/en/library/bg/2/31/">vedabase.io</a></p>
-      </div>
-    </article>
-    <article class="voice">
-      <div class="rail"><div class="trad">Christian</div><div class="who">Jesus · Matthew 10:34</div></div>
-      <div class="body">
-        <blockquote>“Think not that I am come to send peace on earth: I came not to send peace, but a sword.”</blockquote>
-        <p class="note">Most Christians read this as being about division inside families over faith, not a call to war. But the same Gospel that says <q>love your enemies</q> also contains this line.</p>
-        <p class="src">King James Bible · <a href="https://www.biblegateway.com/passage/?search=Matthew+10%3A34&amp;version=KJV">Bible Gateway</a></p>
-      </div>
-    </article>
-    <article class="voice">
-      <div class="rail"><div class="trad">United States</div><div class="who">Declaration of Independence, same page</div></div>
-      <div class="body">
-        <blockquote>“the merciless Indian Savages”</blockquote>
-        <p class="note">Written into the same document that says all men are created equal. Many of the men who signed it, including its main author Thomas Jefferson, owned slaves.</p>
-        <p class="src"><a href="https://www.archives.gov/founding-docs/declaration-transcript">National Archives</a></p>
-      </div>
-    </article>
-    <article class="voice">
-      <div class="rail"><div class="trad">The fix</div><div class="who">Mishnah, Makkot 1:10</div></div>
-      <div class="body">
-        <blockquote>“A Sanhedrin that executes a transgressor once in seven years is characterized as a destructive tribunal.”</blockquote>
-        <p class="note">The old rabbis kept the death penalty on paper but made it almost impossible to use. One said even once in seventy years was too much. Two said their court would never have executed anyone. Another warned this would mean more murders. They argued it out, and kept both sides.</p>
-        <p class="src"><a href="https://www.sefaria.org/Mishnah_Makkot.1.10">Read it on Sefaria</a></p>
-      </div>
-    </article>
-  </div>
+  <p class="intro">The rule and the exception sit side by side. People choose which one wins.</p>
+  <div class="panel full"><div class="pbar"><span class="pcount">6 quotes</span><span class="ptrack"><span class="pfill"></span></span></div><div class="plist"><details class="row" open>
+  <summary><span class="tag">Jewish · Torah · Deuteronomy 20:16</span><span class="q">“you shall not let a soul remain alive”</span></summary>
+  <div class="exp"><p class="who-d">Jewish · Torah · Deuteronomy 20:16</p><p>The order covers only the towns of six Canaanite nations named in the next verse; distant towns get an offer of peace first (20:10). Later rabbis ruled those nations had long since disappeared, so the command could no longer be applied.</p><p class="ask">Should an order about one war, three thousand years ago, guide anyone today?</p><p class="fn"><a href="https://www.sefaria.org/Deuteronomy.20.16">Sefaria</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Muslim · Quran 5:32 · translation by Mustafa Khattab</span><span class="q">“whoever takes a life—unless as a punishment for murder or mischief in the land—it will be as if they killed all of humanity”</span></summary>
+  <div class="exp"><p class="who-d">Muslim · Quran 5:32 · translation by Mustafa Khattab</p><p>The verse says every life is worth all of humanity, then allows taking one as punishment for murder or “mischief in the land”. That second phrase is vague, and different groups have stretched it to cover their enemies.</p><p class="ask">Who decides what counts as mischief, and should the one deciding also hold the weapon?</p><p class="fn"><a href="https://quran.com/5/32">quran.com</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Hindu · Bhagavad Gita 2.31 · translation by Prabhupada</span><span class="q">“there is no better engagement for you than fighting on religious principles; and so there is no need for hesitation”</span></summary>
+  <div class="exp"><p class="who-d">Hindu · Bhagavad Gita 2.31 · translation by Prabhupada</p><p>Krishna says this to the warrior Arjuna, who does not want to fight his own relatives, telling him that fighting is his duty. The translator’s notes add that religious violence is sometimes a necessary factor.</p><p class="ask">Is a duty to fight still a duty if the war itself is unjust?</p><p class="fn"><a href="https://vedabase.io/en/library/bg/2/31/">vedabase.io</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Christian · Jesus · Matthew 10:34, King James Bible</span><span class="q">“Think not that I am come to send peace on earth: I came not to send peace, but a sword.”</span></summary>
+  <div class="exp"><p class="who-d">Christian · Jesus · Matthew 10:34, King James Bible</p><p>The next verses say following him will set families against each other, so most Christians read the sword as that division. Yet the line has been quoted to bless real wars.</p><p class="ask">When one line can be read two ways, which reading should win?</p><p class="fn"><a href="https://www.biblegateway.com/passage/?search=Matthew+10%3A34-36&amp;version=KJV">Bible Gateway</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">United States · Declaration of Independence, 1776</span><span class="q">“the merciless Indian Savages”</span></summary>
+  <div class="exp"><p class="who-d">United States · Declaration of Independence, 1776</p><p>The same document that says all men are created equal calls Native Americans savages, and its main author, Thomas Jefferson, owned slaves. Equality was written for some people and not yet for others.</p><p class="ask">Who is left out of “all men” today?</p><p class="fn"><a href="https://www.archives.gov/founding-docs/declaration-transcript">National Archives</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">The fix · Mishnah, Makkot 1:10</span><span class="q">“A Sanhedrin that executes a transgressor once in seven years is characterized as a destructive tribunal.”</span></summary>
+  <div class="exp"><p class="who-d">The fix · Mishnah, Makkot 1:10</p><p>Not an exception but a limit on one: the death penalty stayed in the law, but the rabbis made it almost impossible to carry out. A court that executed even once in seven years was called destructive.</p><p class="ask">Could the exceptions people use in war today be limited the same way?</p><p class="fn"><a href="https://www.sefaria.org/Mishnah_Makkot.1.10">Sefaria</a></p></div>
+</details></div><aside class="pdetail" aria-live="polite"></aside></div>
 </section>
-</div>
-</div>
+</div></div>
 
-<div class="band sky">
-<div class="wrap">
+<div class="band sky"><div class="wrap">
 <section style="border-top:0">
   <p class="eyebrow">Real history</p>
-  <h2>What happened, when, and why</h2>
-  <div class="hyp">
-    <p><strong>The idea:</strong> most people prefer peace, but not at any price, and not always for everyone.</p>
-    <p>Wars usually come from the same few things: land and resources, money, power, fear and big ideas. Religion often gives the excuse. Sometimes it is a real reason too. Sometimes it holds people back.</p>
-  </div>
-
-  <h3 class="subhead">When the exception won</h3>
-  <div class="cases">
-    <article class="case war">
-      <h3>The First Crusade</h3>
-      <p class="when">1096 to 1099 · called by Pope Urban II in 1095</p>
-      <dl class="rows">
-        <dt>The reason given</dt><dd>Take back the Holy Land for Christians. Those who went were promised forgiveness for their sins.</dd>
-        <dt>Also true</dt><dd>Many believed it sincerely. But the Byzantine emperor had asked for soldiers, and some lords wanted land for themselves.</dd>
-        <dt class="cost">The cost</dt><dd>Jewish communities in Germany were attacked on the way in 1096, against Church teaching. Muslims and Jews were killed when Jerusalem fell in 1099.</dd>
-        <dt>Read more</dt><dd class="src" style="margin:0"><a href="https://en.wikipedia.org/wiki/First_Crusade">Wikipedia</a></dd>
-      </dl>
-    </article>
-    <article class="case war">
-      <h3>The Thirty Years' War</h3>
-      <p class="when">1618 to 1648 · central Europe</p>
-      <dl class="rows">
-        <dt>The reason given</dt><dd>Protestants against Catholics.</dd>
-        <dt>Also true</dt><dd>It became a fight between great powers. Catholic France even joined Protestant Sweden against the Catholic Habsburg emperor.</dd>
-        <dt class="cost">The cost</dt><dd>An estimated 4.5 to 8 million dead, from fighting, hunger and disease. Some parts of Germany lost over half their people.</dd>
-        <dt>Read more</dt><dd class="src" style="margin:0"><a href="https://en.wikipedia.org/wiki/Thirty_Years%27_War">Wikipedia</a></dd>
-      </dl>
-    </article>
-    <article class="case war">
-      <h3>The Partition of India</h3>
-      <p class="when">August 1947 · India and Pakistan</p>
-      <dl class="rows">
-        <dt>The reason given</dt><dd>Hindus and Muslims are two nations and need two countries.</dd>
-        <dt>Also true</dt><dd>Political talks failed, violence was already spreading, and Britain left in a hurry.</dd>
-        <dt class="cost">The cost</dt><dd>12 to 20 million Hindus, Muslims and Sikhs forced from their homes. Around 1 million dead is the figure most often used; older estimates run from 200,000 to 2 million, and a 2008 study estimated 3.4 million missing people from migration records.</dd>
-        <dt>Read more</dt><dd class="src" style="margin:0"><a href="https://en.wikipedia.org/wiki/Partition_of_India">Wikipedia</a> · <a href="https://news.harvard.edu/gazette/story/2018/04/harvard-scholars-take-fresh-look-at-the-partition-of-british-india-which-killed-millions">Harvard Gazette</a></dd>
-      </dl>
-    </article>
-    <article class="case war">
-      <h3>The Rohingya</h3>
-      <p class="when">From August 2017 · Myanmar</p>
-      <dl class="rows">
-        <dt>The reason given</dt><dd>Fighting terrorists after attacks on police posts.</dd>
-        <dt>Also true</dt><dd>The army drove the Rohingya out, took their farmland and later gave it to Buddhist settlers. Nationalist Buddhist monks stirred up hatred, even though the Buddha taught that hatred never ends hatred.</dd>
-        <dt class="cost">The cost</dt><dd>Over 700,000 people fled to Bangladesh. Death estimates differ by study and period: at least 6,700 in the first month (Médecins Sans Frontières), and over 24,000 in a 2018 estimate by the Ontario International Development Agency. The world court has announced its final judgment in the genocide case, brought by The Gambia, for 19 November 2026.</dd>
-        <dt>Read more</dt><dd class="src" style="margin:0"><a href="https://en.wikipedia.org/wiki/Rohingya_genocide">Wikipedia</a> · <a href="https://www.hrw.org/news/2026/11/03/world-court-set-to-rule-in-myanmar-genocide-case">Human Rights Watch</a></dd>
-      </dl>
-    </article>
-  </div>
-
-  <h3 class="subhead">How wars get sold</h3>
-  <p class="intro">If most people prefer peace, how do wars start? Usually with a big shock or a big story that turns fear into anger. Sometimes the shock is real. Sometimes the story turns out to be false.</p>
-  <div class="cases">
-    <article class="case war">
-      <h3>The Lusitania</h3>
-      <p class="when">7 May 1915 · First World War</p>
-      <dl class="rows">
-        <dt>What happened</dt><dd>A German submarine sank a British passenger liner off Ireland. About 1,200 people died, including 128 Americans.</dd>
-        <dt>The warning</dt><dd>The German embassy had sent a warning against travel, dated 22 April 1915, to about 50 American newspapers. It ran as the ship was about to leave New York on 1 May. The ship was also carrying ammunition and shell casings, listed on its cargo papers.</dd>
-        <dt class="cost">What followed</dt><dd>American opinion turned hard against Germany. The United States joined the war two years later, on 6 April 1917, after Germany restarted unlimited submarine attacks and offered Mexico an alliance in the Zimmermann Telegram.</dd>
-        <dt>Read more</dt><dd class="src" style="margin:0"><a href="https://en.wikipedia.org/wiki/RMS_Lusitania">Wikipedia</a></dd>
-      </dl>
-    </article>
-    <article class="case war">
-      <h3>Pearl Harbor</h3>
-      <p class="when">7 December 1941 · Second World War</p>
-      <dl class="rows">
-        <dt>What happened</dt><dd>Japan launched a surprise attack on the American fleet in Hawaii. The United States entered the war the next day.</dd>
-        <dt>Code "Purple"</dt><dd>American code-breakers had cracked Japan's diplomatic code, called Purple, in 1940, and were reading its messages before the attack. Some writers argue President Roosevelt knew what was coming and let it happen.</dd>
-        <dt class="cost">What is known</dt><dd>Most historians reject that theory. One decoded spy message, sent in September 1941, told Japan’s agent in Hawaii to divide Pearl Harbor into five areas and report on the ships there. But no decoded message gave the date or the plan of the attack, and official inquiries blamed missed signals, poor coordination and underestimating Japan.</dd>
-        <dt>Please note</dt><dd>The claim that Pearl Harbor was allowed to happen is speculation. No credible evidence supports it.</dd>
-        <dt>Read more</dt><dd class="src" style="margin:0"><a href="https://www.archives.gov/publications/prologue/1996/fall/butow.html">National Archives</a> · <a href="https://en.wikipedia.org/wiki/Pearl_Harbor_advance-knowledge_conspiracy_theory">Wikipedia</a></dd>
-      </dl>
-    </article>
-    <article class="case war">
-      <h3>9/11 and Iraq</h3>
-      <p class="when">2001 to 2003 · United States, United Kingdom and Iraq</p>
-      <dl class="rows">
-        <dt>What happened</dt><dd>Al-Qaeda attacked New York and Washington on 11 September 2001. In 2003 the United States and Britain invaded Iraq, saying it had weapons of mass destruction and links to al-Qaeda.</dd>
-        <dt class="cost">What was found</dt><dd>The stockpiles were not found. The official search team reported it had <q>not found evidence that Saddam Husayn possessed WMD stocks in 2003</q>. The 9/11 Commission found some contacts between Iraq and al-Qaeda, but no evidence that they developed into a <q>collaborative operational relationship</q>.</dd>
-        <dt>Read more</dt><dd class="src" style="margin:0"><a href="https://en.wikipedia.org/wiki/Iraq_Survey_Group">Iraq Survey Group</a> · <a href="https://carnegieendowment.org/europe/research/2004/06/no-terror-ties">The 9/11 Commission finding</a> · <a href="https://en.wikipedia.org/wiki/Rationale_for_the_Iraq_War">Reasons given for the war</a></dd>
-      </dl>
-    </article>
-  </div>
-  <p class="intro" style="margin-top:24px"><strong>Deception is part of war.</strong> Information is a weapon, and both sides use it. Before the Battle of Midway in 1942, the Americans had their base send a fake radio message saying its water supply had broken. When Japan repeated that "AF is short of water", the Americans knew Midway was the target. In 1943 British intelligence floated a dead body off Spain carrying fake secret papers, so that Germany would expect an invasion of Greece and Sardinia instead of Sicily. It worked. Read more: <a href="https://en.wikipedia.org/wiki/Battle_of_Midway">Battle of Midway</a> · <a href="https://en.wikipedia.org/wiki/Operation_Mincemeat">Operation Mincemeat</a></p>
-  <p class="intro"><strong>The pattern:</strong> people are people, and most people do not want to go to war. So a reason has to be found. Sometimes it is a real attack. Sometimes it is a story built to influence (manipulate) public opinion. Usually it is a shock, then fear and anger, then a story about who the enemy is. Asking for proof before the bombs fall is not betrayal. It is the lesson of Iraq.</p>
-
-  <h3 class="subhead">When people chose people</h3>
-  <div class="cases">
-    <article class="case peace">
-      <h3>The Christmas truce</h3>
-      <p class="when">Christmas 1914 · First World War</p>
-      <dl class="rows">
-        <dt>What happened</dt><dd>In parts of the front, British and German soldiers climbed out of their trenches. They swapped food and cigarettes, buried their dead together, sang carols and in places played football. Up to 100,000 may have taken part.</dd>
-        <dt class="cost">Why it matters</dt><dd>Generals ordered it not to happen again, and it never did on that scale. But for a few days, enemies chose to treat each other as people.</dd>
-        <dt>Read more</dt><dd class="src" style="margin:0"><a href="https://en.wikipedia.org/wiki/Christmas_truce">Wikipedia</a></dd>
-      </dl>
-    </article>
-    <article class="case peace">
-      <h3>The Good Friday Agreement</h3>
-      <p class="when">10 April 1998 · Northern Ireland</p>
-      <dl class="rows">
-        <dt>What happened</dt><dd>A peace deal that largely ended the Troubles, a 30-year conflict often split along Catholic and Protestant lines, which killed more than 3,500 people.</dd>
-        <dt class="cost">Why it matters</dt><dd>Ordinary people voted for it in referendums on 22 May 1998: 71 percent in Northern Ireland and 94 percent in the Republic of Ireland.</dd>
-        <dt>Read more</dt><dd class="src" style="margin:0"><a href="https://en.wikipedia.org/wiki/Good_Friday_Agreement">Wikipedia</a></dd>
-      </dl>
-    </article>
-    <article class="case peace">
-      <h3>The women of Liberia</h3>
-      <p class="when">2003 · Liberia and Ghana</p>
-      <dl class="rows">
-        <dt>What happened</dt><dd>Christian and Muslim women joined forces. They held protests and a sit-in, got the president to promise to join peace talks, then surrounded the negotiating room and kept up the pressure until the men made a deal.</dd>
-        <dt class="cost">Why it matters</dt><dd>Together with pressure from other countries, it helped end a 14-year civil war. Their leader, Leymah Gbowee, won the Nobel Peace Prize in 2011.</dd>
-        <dt>Read more</dt><dd class="src" style="margin:0"><a href="https://en.wikipedia.org/wiki/Women_of_Liberia_Mass_Action_for_Peace">Wikipedia</a></dd>
-      </dl>
-    </article>
-  </div>
+  <h2>The reason given, and the cost</h2>
+  <p class="intro">Wars usually come from land, money, power and fear. Religion often gives the excuse.</p>
+  <div class="panel"><div class="pbar"><span class="pcount">9 cases</span><span class="ptrack"><span class="pfill"></span></span></div><div class="plist"><details class="row" open>
+  <summary><span class="tag">When the exception won · The First Crusade · 1096 to 1099</span><span class="q plain">Take back the Holy Land; sins forgiven for those who go.</span></summary>
+  <div class="exp"><p class="who-d">The First Crusade · 1096 to 1099</p><p>Jewish communities in Germany were attacked in 1096. Muslims and Jews were killed when Jerusalem fell in 1099.</p><p class="fn"><a href="https://en.wikipedia.org/wiki/First_Crusade">Wikipedia</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">When the exception won · The Thirty Years&#x27; War · 1618 to 1648</span><span class="q plain">Protestants against Catholics.</span></summary>
+  <div class="exp"><p class="who-d">The Thirty Years&#x27; War · 1618 to 1648</p><p>Catholic France fought on the Protestant side. An estimated 4.5 to 8 million died.</p><p class="fn"><a href="https://en.wikipedia.org/wiki/Thirty_Years%27_War">Wikipedia</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">When the exception won · The Partition of India · 1947</span><span class="q plain">Hindus and Muslims are two nations and need two countries.</span></summary>
+  <div class="exp"><p class="who-d">The Partition of India · 1947</p><p>12 to 20 million were forced from their homes. Around 1 million dead is the figure most often used.</p><p class="fn"><a href="https://en.wikipedia.org/wiki/Partition_of_India">Wikipedia</a> · <a href="https://news.harvard.edu/gazette/story/2018/04/harvard-scholars-take-fresh-look-at-the-partition-of-british-india-which-killed-millions">Harvard Gazette</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">When the exception won · The Rohingya · Myanmar, from 2017</span><span class="q plain">Fighting terrorists after attacks on police posts.</span></summary>
+  <div class="exp"><p class="who-d">The Rohingya · Myanmar, from 2017</p><p>Over 700,000 fled to Bangladesh, and at least 6,700 were killed in the first month (Médecins Sans Frontières). The world court rules on genocide on 19 November 2026.</p><p class="fn"><a href="https://en.wikipedia.org/wiki/Rohingya_genocide">Wikipedia</a> · <a href="https://www.hrw.org/news/2026/11/03/world-court-set-to-rule-in-myanmar-genocide-case">Human Rights Watch</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">How wars get sold · The Lusitania · 1915</span><span class="q plain">A German submarine sinks a liner full of civilians.</span></summary>
+  <div class="exp"><p class="who-d">The Lusitania · 1915</p><p>About 1,200 died, 128 of them Americans; Germany had published warnings and the ship carried ammunition. American opinion turned, and the United States joined the war in 1917.</p><p class="fn"><a href="https://en.wikipedia.org/wiki/RMS_Lusitania">Wikipedia</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">How wars get sold · 9/11 and Iraq · 2001 to 2003</span><span class="q plain">Iraq has weapons of mass destruction and links to al-Qaeda.</span></summary>
+  <div class="exp"><p class="who-d">9/11 and Iraq · 2001 to 2003</p><p>No stockpiles were found, and the 9/11 Commission found no “collaborative operational relationship”. Asking for proof before the bombs fall is not betrayal.</p><p class="fn"><a href="https://en.wikipedia.org/wiki/Iraq_Survey_Group">Iraq Survey Group</a> · <a href="https://carnegieendowment.org/europe/research/2004/06/no-terror-ties">The 9/11 Commission finding</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">When people chose people · The Christmas truce · 1914</span><span class="q plain">British and German soldiers left their trenches, swapped food and played football.</span></summary>
+  <div class="exp"><p class="who-d">The Christmas truce · 1914</p><p>Generals made sure it never happened on that scale again.</p><p class="fn"><a href="https://en.wikipedia.org/wiki/Christmas_truce">Wikipedia</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">When people chose people · The Good Friday Agreement · 1998</span><span class="q plain">A peace deal for Northern Ireland after 30 years and more than 3,500 dead.</span></summary>
+  <div class="exp"><p class="who-d">The Good Friday Agreement · 1998</p><p>Voters backed it: 71 percent in Northern Ireland, 94 percent in Ireland.</p><p class="fn"><a href="https://en.wikipedia.org/wiki/Good_Friday_Agreement">Wikipedia</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">When people chose people · The women of Liberia · 2003</span><span class="q plain">Christian and Muslim women surrounded the peace talks until the men made a deal.</span></summary>
+  <div class="exp"><p class="who-d">The women of Liberia · 2003</p><p>It helped end a 14-year civil war. Leymah Gbowee won the 2011 Nobel Peace Prize.</p><p class="fn"><a href="https://en.wikipedia.org/wiki/Women_of_Liberia_Mass_Action_for_Peace">Wikipedia</a></p></div>
+</details></div><aside class="pdetail" aria-live="polite"></aside></div>
 </section>
-</div>
-</div>
+</div></div>
 
-<div class="band">
-<div class="wrap">
+<div class="band"><div class="wrap">
 <section id="israel" style="border-top:0">
   <p class="eyebrow">To Israel, with respect</p>
   <h2><span lang="he">שָׁלוֹם</span> Shalom, Israel</h2>
-  <div class="hyp">
-    <p>This part is for Israelis. Not because Israelis are worse or better than anyone else. The same message goes to Hamas, to Russia, to everyone. Hamas and Russia get the same treatment further down. If you are Israeli, your feedback is especially welcome: this page is mostly about your country's wars, so you are the reader best placed to say where it is wrong or unfair. <a href="https://planetarycouncil.org">planetarycouncil.org</a></p>
-    <p>As said at the top, the weight here is not equal, and that is deliberate. 7 October was one day of mass killing. What followed was two years of war, and then a ceasefire in which people are still being killed: more than 1,000 days, with around 70,000 people killed in Gaza. A UN Commission of Inquiry calls it genocide, which is a legal term. This page uses the broader word genocidal: showing the features of genocide. In July 2026 Hamas announced it had dissolved its civil government in Gaza, to hand over to a committee of technocrats. Whether it gives up its weapons is still disputed. <a href="https://www.youtube.com/watch?v=SPMAGgscOEI">Al Jazeera English</a></p>
-    <p>It is here because so many Israelis buried family and friends after 7 October 2023. The fear is real. The grief is real. This is not an attack on Israel or on Jews. It is Jewish tradition, in its own words.</p>
-    <p>Many Israelis have paid the highest price and still chosen the other path. Vivian Silver co-founded Women Wage Peace and was killed in her home in Be'eri on 7 October. The Parents Circle–Families Forum brings together more than 800 bereaved Israeli and Palestinian families who work for reconciliation. And Israel has made peace that held: with Egypt in 1979, and with Jordan in 1994. <a href="https://en.wikipedia.org/wiki/Vivian_Silver">Vivian Silver</a> · <a href="https://www.theparentscircle.org/en/about_eng-2/">Parents Circle–Families Forum</a> · <a href="https://avalon.law.yale.edu/20th_century/isregypt.asp">Egypt–Israel treaty</a></p>
-  </div>
+  <p class="intro">The fear after 7 October is real, and so is the grief. This is not an attack on Israel or on Jews: it is Jewish tradition, in its own words. Your feedback is especially welcome at <a href="https://planetarycouncil.org">planetarycouncil.org</a>.</p>
+  <p class="intro">Many Israelis have paid the highest price and still chosen peace. Vivian Silver, a co-founder of Women Wage Peace, was killed in her home in Be'eri on 7 October. The Parents Circle–Families Forum joins more than 800 bereaved Israeli and Palestinian families working for reconciliation.</p>
+  <p class="fn"><a href="https://en.wikipedia.org/wiki/Vivian_Silver">Vivian Silver</a> · <a href="https://www.theparentscircle.org/en/about_eng-2/">Parents Circle–Families Forum</a></p>
+  <div class="panel"><div class="pbar"><span class="pcount">9 quotes</span><span class="ptrack"><span class="pfill"></span></span></div><div class="plist"><details class="row" open>
+  <summary><span class="tag">Torah · Deuteronomy 20:10</span><span class="q">“When you approach a town to attack it, you shall offer it terms of peace.”</span></summary>
+  <div class="exp"><p class="who-d">Torah · Deuteronomy 20:10</p><p>The next verse sets hard terms, but the first move is an offer. Maimonides applied it to almost every war (Kings and Wars 6:1).</p><p class="fn"><a href="https://www.sefaria.org/Deuteronomy.20.10">Sefaria</a> · <a href="https://www.sefaria.org/Mishneh_Torah,_Kings_and_Wars.6.1">Kings and Wars 6:1</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Maimonides · Laws of Kings and Wars 6:7 · translation by Eliyahu Touger</span><span class="q">“A place should be left for the inhabitants to flee and for all those who desire, to escape with their lives”</span></summary>
+  <div class="exp"><p class="who-d">Maimonides · Laws of Kings and Wars 6:7 · translation by Eliyahu Touger</p><p>A city under siege must never be surrounded on all four sides.</p><p class="fn"><a href="https://www.sefaria.org/Mishneh_Torah%2C_Kings_and_Wars.6.7">Sefaria</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Talmud · Megillah 10b</span><span class="q">“The work of My hands, the Egyptians, are drowning at sea, and you wish to say songs?”</span></summary>
+  <div class="exp"><p class="who-d">Talmud · Megillah 10b</p><p>God stopped the angels celebrating as the enemy drowned.</p><p class="fn"><a href="https://www.sefaria.org/Megillah.10b">Sefaria</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Proverbs · Proverbs 24:17</span><span class="q">“If your enemies fall, do not exult; If they trip, let your heart not rejoice”</span></summary>
+  <div class="exp"><p class="who-d">Proverbs · Proverbs 24:17</p><p class="fn"><a href="https://www.sefaria.org/Proverbs.24.17">Sefaria</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Torah · Exodus 23:9</span><span class="q">“You shall not oppress a stranger, for you know the feelings of the stranger”</span></summary>
+  <div class="exp"><p class="who-d">Torah · Exodus 23:9</p><p>Because you were strangers in Egypt.</p><p class="fn"><a href="https://www.sefaria.org/Exodus.23.9">Sefaria</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">The rabbis · Avot de-Rabbi Natan 23</span><span class="q">“Who is mighty? Who turns an enemy into his friend.”</span></summary>
+  <div class="exp"><p class="who-d">The rabbis · Avot de-Rabbi Natan 23</p><p class="fn"><a href="https://www.sefaria.org/Avot_D&#x27;Rabbi_Natan.23.1">Sefaria</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Israel&#x27;s founding · Declaration of Independence · 14 May 1948</span><span class="q">“WE EXTEND our hand to all neighboring states and their peoples in an offer of peace and good neighborliness”</span></summary>
+  <div class="exp"><p class="who-d">Israel&#x27;s founding · Declaration of Independence · 14 May 1948</p><p>It also promises equal rights to all inhabitants, irrespective of religion, race or sex.</p><p class="fn"><a href="https://avalon.law.yale.edu/20th_century/israel.asp">Yale Law School</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Israel&#x27;s army · The Spirit of the IDF · purity of arms</span><span class="q">“IDF soldiers will not use their weapons and force to harm human beings who are not combatants or prisoners of war”</span></summary>
+  <div class="exp"><p class="who-d">Israel&#x27;s army · The Spirit of the IDF · purity of arms</p><p class="fn"><a href="https://en.wikipedia.org/wiki/Purity_of_arms">About purity of arms</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Yitzhak Rabin · White House · 13 September 1993</span><span class="q">“We, like you, are people. … enough of blood and tears. Enough!”</span></summary>
+  <div class="exp"><p class="who-d">Yitzhak Rabin · White House · 13 September 1993</p><p>Said to the Palestinians. In 1995 he was shot dead by a Jewish extremist who claimed a religious rule, din rodef, justified it.</p><p class="fn"><a href="https://www.csmonitor.com/1993/0916/16192.html">Christian Science Monitor</a> · <a href="https://jta.org/archive/killer-of-rabin-testifies-jewish-law-dictated-actions">JTA</a> · <a href="https://en.wikipedia.org/wiki/Oslo_Accords">Oslo Accords</a></p></div>
+</details></div><aside class="pdetail" aria-live="polite"></aside></div>
 
   <h3 class="subhead">What keeps being said</h3>
-  <p class="intro">"It is not murder. It is self-defence. They are terrorists." Armies often say something like this. Sometimes leaders reach for scripture too. On 28 October 2023 Prime Minister Netanyahu told Israelis: <q>You must remember what Amalek has done to you, says our Holy Bible. And we do remember.</q> That line comes from Deuteronomy 25:17; two verses later, 25:19 says to blot out Amalek's memory. A different passage, 1 Samuel 15:3, contains the order to destroy Amalek: <q>Spare no one, but kill alike men and women</q>. South Africa linked the two at the world court as a sign of genocidal intent. Netanyahu's office called that <q>false and preposterous</q>, and Israel's lawyer told the court the full quote shows Amalek meant Hamas. Widely reported: <a href="https://www.icj-cij.org/case/192">world court case file</a> · <a href="https://www.jta.org/2024/01/16/israel/netanyahu-rejects-south-africas-claim-that-his-quote-about-amalek-was-a-call-to-genocide">JTA</a> · <a href="https://forward.com/fast-forward/576433/netanyahu-rejects-south-africas-claim-that-his-quote-about-amalek-was-a-call-to-genocide">The Forward</a> · <a href="https://www.newarab.com/news/icj-decision-looms-netanyahu-denies-inciting-genocide">The New Arab</a>.</p>
-  <p class="intro">The same reflex is still on camera. In footage posted in late October 2026, Moshe Feiglin, elected to the Knesset on 27 October 2026 on a joint list with the Religious Zionist Party, answered a Canadian reporter who asked about Israel's image abroad: <q>When I see your people in Canada and in Europe going together and being on the Islamo-Nazi side, you have a very bad image here in Israel. And you have to know that the real moral international supreme court is the People of Israel, here in the Biblical Land. It's not a question of how you see us, it's a question of how we see you. And it says in the book, in the Bible, “Those who bless you will be blessed, and those who curse you will be cursed.”</q> In May 2025 he told Israeli television: <q>every child, every baby in Gaza is an enemy</q> (<a href="https://www.middleeasteye.net/live-blog/live-blog-update/far-right-israeli-figure-calls-every-child-gaza-enemy">Middle East Eye</a>). This is the argument the whole page answers: “it says in the book”. <a href="https://www.jpost.com/israel-election-2026/article-913702">Jerusalem Post, 3 November 2026</a></p>
-  <video controls preload="metadata" playsinline src="feiglin.mp4" style="display:block;width:100%;max-width:320px;margin:12px 0 24px;border-radius:12px;background:#000"></video>
-  <p class="intro">It reaches the young too. On Jerusalem Day in May 2026, a settler teenager who moved to Israel from Texas was asked by an ABC News reporter in Jerusalem's Old City what should happen to the Palestinians living there: <q>Leave or we'll kill you.</q> On Muslims: <q>I think Islam is cancer, and you don't transfer cancer to another patient. That's not moral. Destroy cancer.</q> Asked what destroy looks like: <q>Either kill or re-educate all Muslims.</q> Nobody is born thinking this. It is taught, and adults teach it. Neither of these two speaks for all Israelis, just as Hamas does not speak for all Palestinians. <a href="https://abcnews.com/video/133012968/">ABC News, 15 May 2026</a> · <a href="https://x.com/MiddleEastEye/status/2114580173190225990">Middle East Eye</a></p>
-
-  <h3 class="subhead">What Jewish tradition says</h3>
-  <div class="voices">
-    <article class="voice">
-      <div class="rail"><div class="trad">Torah</div><div class="who">Deuteronomy 20:10</div></div>
-      <div class="body">
-        <blockquote>“When you approach a town to attack it, you shall offer it terms of peace.”</blockquote>
-        <p class="note">Even in war, peace is offered first. To be honest about it, the next verse sets hard terms: a town that accepts must serve <q>at forced labor</q>. Still, the first move is an offer, not an attack. In the Torah the offer is for distant towns; Maimonides ruled that peace must be offered before almost every war, with Ammon and Moab the exceptions, and on hard terms (<a href="https://www.sefaria.org/Mishneh_Torah,_Kings_and_Wars.6.1">Kings and Wars 6:1</a>).</p>
-        <p class="src"><a href="https://www.sefaria.org/Deuteronomy.20.10">Read it on Sefaria</a></p>
-      </div>
-    </article>
-    <article class="voice">
-      <div class="rail"><div class="trad">Maimonides</div><div class="who">Mishneh Torah, Laws of Kings and Wars 6:7 · 1100s</div></div>
-      <div class="body">
-        <blockquote>“A place should be left for the inhabitants to flee and for all those who desire, to escape with their lives”</blockquote>
-        <p class="note">Maimonides, one of the most influential Jewish legal scholars, ruled that a city under siege must never be surrounded on all four sides. People who want to escape must have a way out.</p>
-        <p class="src">Translation by Eliyahu Touger · <a href="https://www.sefaria.org/Mishneh_Torah%2C_Kings_and_Wars.6.7">Read it on Sefaria</a></p>
-      </div>
-    </article>
-    <article class="voice">
-      <div class="rail"><div class="trad">Talmud</div><div class="who">Megillah 10b</div></div>
-      <div class="body">
-        <blockquote>“The work of My hands, the Egyptians, are drowning at sea, and you wish to say songs?”</blockquote>
-        <p class="note">When the Egyptian army drowned, the angels wanted to celebrate. God stopped them. The enemy who chased Israel to the sea was still God's own creation. The same page adds that God does not rejoice when the wicked fall, but lets others rejoice. Israel still sang its song at the sea.</p>
-        <p class="src"><a href="https://www.sefaria.org/Megillah.10b">Read it on Sefaria</a></p>
-      </div>
-    </article>
-    <article class="voice">
-      <div class="rail"><div class="trad">Proverbs</div><div class="who">Proverbs 24:17</div></div>
-      <div class="body">
-        <blockquote>“If your enemies fall, do not exult; If they trip, let your heart not rejoice”</blockquote>
-        <p class="note">The next verse gives the reason: <q>Lest GOD see it and be displeased, And avert God’s wrath from them.</q></p>
-        <p class="src"><a href="https://www.sefaria.org/Proverbs.24.17">Read it on Sefaria</a></p>
-      </div>
-    </article>
-    <article class="voice">
-      <div class="rail"><div class="trad">Torah</div><div class="who">Exodus 23:9</div></div>
-      <div class="body">
-        <blockquote>“You shall not oppress a stranger, for you know the feelings of the stranger”</blockquote>
-        <p class="note">Because you were strangers in Egypt. The verse asks readers to remember how vulnerable a stranger can be.</p>
-        <p class="src"><a href="https://www.sefaria.org/Exodus.23.9">Read it on Sefaria</a></p>
-      </div>
-    </article>
-    <article class="voice">
-      <div class="rail"><div class="trad">The rabbis</div><div class="who">Avot de-Rabbi Natan 23</div></div>
-      <div class="body">
-        <blockquote>“Who is mighty? Who turns an enemy into his friend.”</blockquote>
-        <p class="note">One of the rabbis' answers to the question of who is truly strong.</p>
-        <p class="src"><a href="https://www.sefaria.org/Avot_D'Rabbi_Natan.23.1">Read it on Sefaria</a></p>
-      </div>
-    </article>
+  <p class="intro">Prime Minister Netanyahu, 28 October 2023: <q>You must remember what Amalek has done to you, says our Holy Bible. And we do remember.</q> South Africa told the world court this pointed to an order to destroy Amalek; Israel said Amalek meant Hamas.</p>
+  <p class="fn"><a href="https://www.icj-cij.org/case/192">World court case file</a> · <a href="https://www.jta.org/2024/01/16/israel/netanyahu-rejects-south-africas-claim-that-his-quote-about-amalek-was-a-call-to-genocide">JTA</a> · <a href="https://forward.com/fast-forward/576433/netanyahu-rejects-south-africas-claim-that-his-quote-about-amalek-was-a-call-to-genocide">The Forward</a> · <a href="https://www.newarab.com/news/icj-decision-looms-netanyahu-denies-inciting-genocide">The New Arab</a></p>
+  <p class="intro">Moshe Feiglin, elected to the Knesset on 27 October 2026: <q>It's not a question of how you see us, it's a question of how we see you. And it says in the book, in the Bible, “Those who bless you will be blessed, and those who curse you will be cursed.”</q> In May 2025 he said <q>every child, every baby in Gaza is an enemy</q>.</p>
+  <p class="fn"><a href="https://www.jpost.com/israel-election-2026/article-913702">Jerusalem Post</a> · <a href="https://www.middleeasteye.net/live-blog/live-blog-update/far-right-israeli-figure-calls-every-child-gaza-enemy">Middle East Eye</a></p>
+  <video class="clip" controls preload="metadata" playsinline src="feiglin.mp4"></video>
+  <div class="voicebox">
+    <p class="tag-line"><strong>Jerusalem Day, May 2026.</strong> A settler teenager from Texas, asked by ABC News what should happen to Palestinians in the Old City:</p>
+    <blockquote>“Leave or we'll kill you.”</blockquote>
+    <p>On Muslims: <q>I think Islam is cancer, and you don't transfer cancer to another patient. That's not moral. Destroy cancer.</q> Asked what destroy looks like: <q>Either kill or re-educate all Muslims.</q></p>
   </div>
+  <p class="intro">Nobody is born thinking this. It is taught, and adults teach it. Neither of these two speaks for all Israelis, just as Hamas does not speak for all Palestinians.</p>
+  <p class="fn"><a href="https://abcnews.com/video/133012968/">ABC News, 15 May 2026</a> · <a href="https://x.com/MiddleEastEye/status/2114580173190225990">Middle East Eye</a></p>
+  <a class="track" href="https://abcnews.com/video/133012968/"><span class="play" aria-hidden="true"></span><span class="track-text"><strong>Watch: West Bank settlers on Jerusalem Day</strong><span>ABC News · 15 May 2026</span></span></a>
 
-  <h3 class="subhead">What Israel itself promised</h3>
-  <div class="voices">
-    <article class="voice">
-      <div class="rail"><div class="trad">Israel's founding</div><div class="who">Declaration of Independence · 14 May 1948</div></div>
-      <div class="body">
-        <blockquote>“WE EXTEND our hand to all neighboring states and their peoples in an offer of peace and good neighborliness”</blockquote>
-        <p class="note">The same declaration promises <q>complete equality of social and political rights to all its inhabitants irrespective of religion, race or sex</q>, and asks the Arab inhabitants of Israel to <q>preserve peace and participate in the upbuilding of the State</q>.</p>
-        <p class="src"><a href="https://avalon.law.yale.edu/20th_century/israel.asp">Full text, Yale Law School</a></p>
-      </div>
-    </article>
-    <article class="voice">
-      <div class="rail"><div class="trad">Israel's army</div><div class="who">The Spirit of the IDF · "purity of arms"</div></div>
-      <div class="body">
-        <blockquote>“IDF soldiers will not use their weapons and force to harm human beings who are not combatants or prisoners of war”</blockquote>
-        <p class="note">The same doctrine says soldiers must keep their humanity in combat.</p>
-        <p class="src"><a href="https://en.wikipedia.org/wiki/Purity_of_arms">About "purity of arms"</a></p>
-      </div>
-    </article>
-    <article class="voice">
-      <div class="rail"><div class="trad">An Israeli general</div><div class="who">Prime Minister Yitzhak Rabin · White House, 13 September 1993</div></div>
-      <div class="body">
-        <blockquote>“We, like you, are people.”</blockquote>
-        <blockquote>“we who have fought against you, the Palestinians, we say to you today in a loud and a clear voice enough of blood and tears. Enough!”</blockquote>
-        <p class="note">Said by a soldier who had fought in Israel's wars, on the day he shook hands with his enemy. On 4 November 1995 he was shot dead after a peace rally by Yigal Amir, a Jewish extremist who told the court that <q>din rodef</q> applied to the prime minister: a Jewish legal rule that allows killing a pursuer to stop him killing someone. Amir stretched it to a prime minister making peace. A rightful killing, by his own logic. The court rejected that defence and convicted him of murder; he is serving life in prison. Israel has mourned Rabin every year since. The Oslo peace process he signed collapsed in 2000. Peace has to be chosen again and again.</p>
-        <p class="src"><a href="https://www.csmonitor.com/1993/0916/16192.html">Christian Science Monitor, 1993</a> · <a href="https://en.wikipedia.org/wiki/Assassination_of_Yitzhak_Rabin">About his assassination</a> · <a href="https://jta.org/archive/killer-of-rabin-testifies-jewish-law-dictated-actions">JTA, his testimony</a> · <a href="https://en.wikipedia.org/wiki/Oslo_Accords">Oslo Accords</a></p>
-      </div>
-    </article>
-  </div>
-
-  <h3 class="subhead">Three questions, in the spirit of the tradition</h3>
+  <h3 class="subhead">Three questions</h3>
   <ol class="principles">
-    <li><span>Maimonides said to leave one side open. Do the people in Gaza who want to escape the fighting have a real way out?</span></li>
+    <li><span>Maimonides said to leave one side open. Do the people in Gaza who want to escape have a real way out?</span></li>
     <li><span>God stopped the angels from singing. When the other side's children die, is anyone celebrating?</span></li>
-    <li><span>Hillel said it in one line. If this were done to their own families, would anyone call it justice?</span></li>
+    <li><span>Hillel said it in one line. If this were done to your own family, would you call it justice?</span></li>
   </ol>
-  <p class="intro" style="margin-top:24px">Asking these questions is not being against Israel. They come from inside the tradition, and Rabin’s own words point the same way. Self-defence is real, and so are the people on the other side.</p>
 
   <h3 class="subhead">The same rules, for Hamas</h3>
-  <p class="intro">Hamas means Islamic Resistance Movement, and its emblem carries two crossed swords. Many Palestinians see it as resistance to occupation and to the blockade of Gaza. In its own account, published in January 2024, Hamas said the 7 October attack was meant to break the blockade and put the Palestinian cause back on the world's agenda, and claimed its fighters targeted only soldiers and armed men. That claim is false: at least 800 of the roughly 1,200 dead were civilians. It went on to fight a guerrilla war, from tunnels and ruined streets, until the ceasefire of 10 October 2025. Israeli strikes and deaths have continued since: 33 Palestinians were reported killed in the week of 20 to 26 October 2026 alone, and 1,559 since the ceasefire (Gaza Ministry of Health, reported by <a href="https://www.ochaopt.org/content/humanitarian-situation-report-29-october-2026">UN OCHA</a>). <a href="https://www.aa.com.tr/en/middle-east/hamas-releases-report-clarifying-operation-al-aqsa-flood/3115099">Hamas's account, reported by Anadolu</a></p>
-  <p class="intro">Hamas has reached for scripture too. Its 1988 charter quoted a hadith: <q>The stones and trees will say O Moslems, O Abdulla, there is a Jew behind me, come and kill him.</q> Its 2017 document said its conflict <q>is with the Zionist project not with the Jews because of their religion</q>. <a href="https://avalon.law.yale.edu/20th_century/hamas.asp">1988 charter, Yale Avalon Project</a> · <a href="https://en.wikipedia.org/wiki/2017_Hamas_charter">2017 document</a></p>
-  <p class="intro">Hamas leaders have spoken like Feiglin too. On 24 October 2023 Hamas politburo member Ghazi Hamad told Lebanese television: <q>We must teach Israel a lesson, and we will do this again and again. The Al-Aqsa Flood is just the first time, and there will be a second, a third, a fourth.</q> <a href="https://www.ynetnews.com/article/r1y31101m6">Ynet, citing the MEMRI translation</a></p>
-  <p class="intro">The UN Commission of Inquiry found otherwise: on 7 October fighters <q>deliberately killed, injured, mistreated, took hostages and committed sexual and gender-based violence against civilians</q>, and it called these war crimes. It also found that Israeli forces used the so-called Hannibal Directive in several places, likely killing up to 14 Israeli civilians (its summary says at least 14). Some details of that day are still disputed, and the <a href="https://independenttribunal.org">Independent Tribunal</a> has offered to examine them. The same commission found that Israel committed war crimes and crimes against humanity in Gaza. <a href="https://news.un.org/en/story/2024/06/1150946">UN News, June 2024</a> A cause can be just and a method can still be a crime. That is the double standard to avoid, on every side. Islam has its own words on war, and they bind Hamas too. The Quran says: <q>Do not let the hatred of a people lead you to injustice. Be just!</q> (5:8, translation by Mustafa Khattab, <a href="https://quran.com/5/8">quran.com</a>)</p>
-  <div class="voices">
-    <article class="voice">
-      <div class="rail"><div class="trad">Quran</div><div class="who">Quran 8:61</div></div>
-      <div class="body">
-        <blockquote>“If the enemy is inclined towards peace, make peace with them.”</blockquote>
-        <p class="src">Translation by Mustafa Khattab · <a href="https://quran.com/8/61">quran.com</a></p>
-      </div>
-    </article>
-    <article class="voice">
-      <div class="rail"><div class="trad">The first caliph</div><div class="who">Abu Bakr · orders to his army, 630s</div></div>
-      <div class="body">
-        <blockquote>“Do not kill women or children or an aged, infirm person.”</blockquote>
-        <p class="note">The first of ten orders he gave to an army leaving for war. Killing families in their homes and young people at a music festival, as happened on 7 October 2023, fails this test. So does killing children anywhere, whoever does it.</p>
-        <p class="src">Muwatta Malik 21.10 · <a href="https://hadithunlocked.com/malik:21-10">Hadith Unlocked</a></p>
-      </div>
-    </article>
-  </div>
+  <p class="intro">Hamas says <q>the Al-Qassam Brigades' fighters didn't target civilians</q>. That is false: at least 800 of the roughly 1,200 dead were civilians, and a UN Commission of Inquiry found deliberate killing, hostage-taking and sexual violence. The same commission found Israel committed war crimes in Gaza. <strong>A cause can be just and a method can still be a crime.</strong></p>
+  <p class="fn"><a href="https://www.palestinechronicle.com/wp-content/uploads/2024/01/PDF.pdf">Hamas, Our Narrative</a> · <a href="https://news.un.org/en/story/2024/06/1150946">UN News, June 2024</a></p>
+  <div class="panel"><div class="pbar"><span class="pcount">3 quotes</span><span class="ptrack"><span class="pfill"></span></span></div><div class="plist"><details class="row" open>
+  <summary><span class="tag">Quran · Quran 5:8 · translation by Mustafa Khattab</span><span class="q">“Do not let the hatred of a people lead you to injustice. Be just!”</span></summary>
+  <div class="exp"><p class="who-d">Quran · Quran 5:8 · translation by Mustafa Khattab</p><p class="fn"><a href="https://quran.com/5/8">quran.com</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">Quran · Quran 8:61 · translation by Mustafa Khattab</span><span class="q">“If the enemy is inclined towards peace, make peace with them.”</span></summary>
+  <div class="exp"><p class="who-d">Quran · Quran 8:61 · translation by Mustafa Khattab</p><p class="fn"><a href="https://quran.com/8/61">quran.com</a></p></div>
+</details><details class="row">
+  <summary><span class="tag">The first caliph · Abu Bakr · Muwatta Malik 21.10</span><span class="q">“Do not kill women or children or an aged, infirm person.”</span></summary>
+  <div class="exp"><p class="who-d">The first caliph · Abu Bakr · Muwatta Malik 21.10</p><p>Killing families at home and young people at a music festival on 7 October fails this test. So does killing children anywhere, whoever does it.</p><p class="fn"><a href="https://hadithunlocked.com/malik:21-10">Hadith Unlocked</a></p></div>
+</details></div><aside class="pdetail" aria-live="polite"></aside></div>
 
   <h3 class="subhead">The same rules, for Russia</h3>
-  <p class="intro">On 24 February 2022 President Putin announced the invasion of Ukraine and named its goal as the <q>demilitarization and denazification</q> of Ukraine, a country whose president, Volodymyr Zelensky, is Jewish. In March 2024 the World Russian People's Council, headed by Patriarch Kirill of Moscow, called the war a <q>Holy War</q>. In May 2023, Kirill had told the World Council of Churches that his holy war words <q>were related to the metaphysical realm</q>; the council says the decree contradicts this. In March 2023 the International Criminal Court issued an arrest warrant for Putin over the unlawful deportation of Ukrainian children (<a href="https://www.opb.org/article/2023/03/17/putin-arrest-warrant-icc">OPB</a>). The church's own Gospel says: Love your enemies (Matthew 5:44). <a href="https://en.wikipedia.org/wiki/On_conducting_a_special_military_operation">Putin's speech</a> · <a href="https://www.vaticannews.va/en/world/news/2024-04/wcc-russia-decree-war-ukraine-statement.html">Vatican News, April 2024</a></p>
+  <p class="intro">In 2022 Putin invaded Ukraine to <q>denazify</q> it, though its president is Jewish, and a church council headed by Patriarch Kirill called it a <q>Holy War</q>. The Gospel says: Love your enemies.</p>
+  <p class="fn"><a href="https://en.wikipedia.org/wiki/On_conducting_a_special_military_operation">Putin&#x27;s speech</a> · <a href="https://www.vaticannews.va/en/world/news/2024-04/wcc-russia-decree-war-ukraine-statement.html">Vatican News</a></p>
 
   <h3 class="subhead">Where the world stands</h3>
-  <p class="intro">The world has moved. In November 2024 the International Criminal Court issued arrest warrants for Prime Minister Netanyahu, his former defence minister Yoav Gallant and the Hamas commander Mohammed Deif. Deif's warrant was withdrawn in February 2025 after his death was confirmed. <a href="https://www.justiceinfo.net/en?p=142083">JusticeInfo</a> In January 2026 Israel's military was reported to accept that around 70,000 Palestinians had been killed in Gaza, broadly matching the count from Gaza's health authorities. <a href="https://www.theguardian.com/world/2026/jan/30/israel-military-gaza-death-toll-broadly-accurate">The Guardian, January 2026</a> In September 2025 the UN Commission of Inquiry concluded that Israel has committed genocide in Gaza; Israel rejected the finding. The world court has not yet ruled on South Africa's genocide case against Israel. <a href="https://www.un.org/unispal/document/israel-has-committed-genocide-in-the-gaza-strip-un-commission-finds-16sep25/">United Nations, 16 September 2025</a> The same month Britain, Canada, Australia and Portugal recognised the State of Palestine, with France and others following the next day. Palestine is now recognised by 157 of the 193 United Nations members. For comparison, Israel is recognised by between about 163 and 169 of the other 192, depending on the count. <a href="https://www.dawn.com/news/1943686">Dawn, September 2025</a> · <a href="https://en.wikipedia.org/wiki/International_recognition_of_Palestine">Recognition of Palestine</a> · <a href="https://en.wikipedia.org/wiki/International_recognition_of_Israel">Recognition of Israel</a> The United States still stands with Israel. Criticising a government's war is not hatred of Jews.</p>
-
-  <h3 class="subhead">See the record</h3>
-  <p class="intro">What has actually happened in Gaza and the West Bank since 2023, case by case, with sources, Israel's official response and what is still disputed. It has a section on Hamas too. <a href="https://warcrimes.planetarycouncil.org/">The War Crimes Safari: Gaza and the West Bank, 2023 to 2026</a></p>
+  <p class="intro">The International Criminal Court has issued arrest warrants for Netanyahu and Gallant. A UN Commission of Inquiry concluded in September 2025 that Israel has committed genocide in Gaza; Israel rejects this, and the world court has not yet ruled. 157 of 193 United Nations members now recognise Palestine. Criticising a government's war is not hatred of Jews.</p>
+  <p class="fn"><a href="https://www.un.org/unispal/document/israel-has-committed-genocide-in-the-gaza-strip-un-commission-finds-16sep25/">United Nations</a> · <a href="https://en.wikipedia.org/wiki/International_recognition_of_Palestine">Recognition of Palestine</a> · <a href="https://www.justiceinfo.net/en?p=142083">JusticeInfo</a></p>
+  <p class="intro">See the record, case by case: <a href="https://warcrimes.planetarycouncil.org/">The War Crimes Safari: Gaza and the West Bank, 2023 to 2026</a>.</p>
 
   <h3 class="subhead">Messiah Is Here?</h3>
   <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/OvrYSbfkExw" title="Messiah Is Here? (Shalom, Salaam, One World, One Heart)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-  <a class="track" href="https://www.youtube.com/watch?v=OvrYSbfkExw">
-    <span class="play" aria-hidden="true"></span>
-    <span class="track-text"><strong>Messiah Is Here? (Shalom, Salaam, One World, One Heart)</strong><span>Marsita the Ultra · Watch on YouTube</span></span>
-  </a>
+  <a class="track" href="https://www.youtube.com/watch?v=OvrYSbfkExw"><span class="play" aria-hidden="true"></span><span class="track-text"><strong>Messiah Is Here? (Shalom, Salaam, One World, One Heart)</strong><span>Marsita the Ultra · Watch on YouTube</span></span></a>
 </section>
 
 <section>
   <p class="eyebrow">Common sense</p>
   <h2>“It says in the book”</h2>
   <ol class="principles">
-    <li><span>“It says in the book” is an argument that can be used for anything, so on its own it settles nothing. People have many different books, and each group believes its own is the true one. Nobody can prove their book is better than everyone else's. Most were written centuries or thousands of years ago, copied by hand, translated, lost in translation and read in many different ways. Words on a page do not make anyone entitled to kill.</span></li>
-    <li><span>All people feel pain. All people love their children. Every person gets one life.</span></li>
-    <li><span>Before people kill in large numbers, they often stop calling the other side people. They say enemy, infidel, savage, barbarian, terrorist, collateral, human animals. See the evidence below.</span></li>
-    <li><span>So when you hear “it’s not murder, it’s justice” or “they’re not really people”, ask one question: would anyone accept the same thing if it were done to their own family?</span></li>
-    <li><span>Many groups have called themselves chosen. Christians are <a href="https://www.biblegateway.com/passage/?search=1+Peter+2%3A9&amp;version=KJV">“a chosen generation”</a>. Muslims are <a href="https://quran.com/3/110">“the best community ever raised for humanity”</a>. Puritan settlers, and later presidents, called America “a city upon a hill”. If being chosen means anything good, it means more responsibility, not more worth.</span></li>
+    <li><span>Which book, translated by whom? People have many books, and each can be quoted to justify anything. Words on a page do not make anyone entitled to kill.</span></li>
+    <li><span>Before people kill in large numbers, they stop calling the other side people: enemy, infidel, savage, terrorist, collateral, human animals.</span></li>
+    <li><span>So ask one question: would you accept the same thing if it were done to your own family?</span></li>
   </ol>
   <h3 class="subhead">The evidence: 9 October 2023</h3>
-  <p class="intro">Israel's defence minister Yoav Gallant, filmed in Beersheba two days after the 7 October attack: <q>We are imposing a complete siege on the city of Gaza. There will be no electricity, no food, no water, no fuel… We are fighting human animals and we are acting accordingly.</q> He spoke in Hebrew; this is the translation in the footage below. Other translations say <q>the Gaza Strip</q>, and some leave out water.</p>
-  <div class="video short"><iframe src="https://www.youtube-nocookie.com/embed/ZbPdR3E4hCk" title="Yoav Gallant, 9 October 2023" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-  <a class="track" href="https://www.youtube.com/shorts/ZbPdR3E4hCk">
-    <span class="play" aria-hidden="true"></span>
-    <span class="track-text"><strong>“We are fighting human animals”</strong><span>Euronews No Comment · Watch on YouTube</span></span>
-  </a>
-  <p class="intro" style="margin-top:20px">Collective punishment is a war crime. The Fourth Geneva Convention says: <q>No protected person may be punished for an offence he or she has not personally committed. Collective penalties and likewise all measures of intimidation or of terrorism are prohibited.</q> Cutting food and water from a whole city punishes everyone in it, not only fighters. The International Criminal Court later issued an arrest warrant for Gallant. He is allegedly responsible for <q>the war crimes of starvation as a method of warfare and of intentionally directing an attack against the civilian population</q>. There has been no trial and no final ruling, and Israel rejects the court's jurisdiction. <a href="https://avalon.law.yale.edu/20th_century/geneva07.asp">Geneva Convention IV, Article 33, Yale Law School</a> · <a href="https://www.icc-cpi.int/defendant/gallant">International Criminal Court</a></p>
-  <p class="intro"><strong>When a state rejects the court, the evidence still deserves a hearing.</strong> That is the job of the <a href="https://independenttribunal.org">Independent Tribunal</a>, part of the <a href="https://planetarycouncil.org">Planetary Council</a>. It builds justice from first principles: every claim is labelled by how strong it is (asserted, signed, supported, checked or found), so anyone can see what is proven and what is not. It looks at all sides, Israel and Hamas alike, and proposes solutions. It is not a state court and cannot arrest anyone. Its power is that everything is open, and nobody has to accept its jurisdiction for the facts to be set out.</p>
-
+  <p class="intro">Defence minister Yoav Gallant: <q>We are imposing a complete siege on the city of Gaza. There will be no electricity, no food, no water, no fuel… We are fighting human animals and we are acting accordingly.</q> This is the translation in the footage; others say <q>the Gaza Strip</q>.</p>
+  <video class="clip" controls preload="metadata" playsinline src="gallant.mp4"></video>
+  <p class="fn"><a href="https://www.youtube.com/shorts/ZbPdR3E4hCk">Euronews No Comment on YouTube</a></p>
+  <p class="intro">Collective punishment is a war crime: <q>No protected person may be punished for an offence he or she has not personally committed</q> (Fourth Geneva Convention, Article 33). The International Criminal Court says Gallant is allegedly responsible for starvation as a method of warfare. There has been no trial, and Israel rejects the court's jurisdiction.</p>
+  <p class="fn"><a href="https://avalon.law.yale.edu/20th_century/geneva07.asp">Geneva Convention IV</a> · <a href="https://www.icc-cpi.int/defendant/gallant">International Criminal Court</a></p>
+  <p class="intro"><strong>When a state rejects the court, the evidence still deserves a hearing.</strong> That is the job of the <a href="https://independenttribunal.org">Independent Tribunal</a>, part of the <a href="https://planetarycouncil.org">Planetary Council</a>: every claim labelled by how strong it is (asserted, signed, supported, checked or found), all sides heard, solutions proposed.</p>
 </section>
 
 <section>
   <p class="eyebrow">What everyone wants</p>
   <h2>A good life</h2>
-  <p class="intro" style="font-family:var(--display); font-weight:700; color:var(--blue); font-size:1.3rem; line-height:1.5">People drink water.<br>People eat food.<br>People go to sleep.<br>People wake up.<br>People have dreams and hopes.</p>
-  <p class="intro">Ask anyone, anywhere, what they want. The answer is almost always the same: a safe home, a loving family, good food on the table, good work, good friends, good vibes. Even people who have all that usually need to be sold a war before they will back one.</p>
-  <p class="intro">It already works. In London, New York and Dubai, people from every corner of the world live side by side. Different faiths, different languages, same metro, same Uber, same streets. Most of the time nobody even thinks about it. They just live together as people.</p>
-  <p class="intro">That is the wish behind this page: that kind of life, for all people, everywhere.</p>
-  <p class="closing" style="margin-top:28px">Same water, same food, same sleep, same dreams. <em>People are people.</em></p>
+  <p class="intro">A safe home, a loving family, good food, good work, good friends, good vibes. In London, New York and Dubai, people of every faith already live side by side.</p>
+  <p class="closing">Same water, same food, same sleep, same dreams. <em>People are people.</em></p>
 </section>
 
 <section class="verify">
   <p class="eyebrow">Don't take this page's word for it</p>
   <h2>Check it yourself</h2>
-  <p>Every link on this page was opened, and every quote compared with its source, except where a site blocks automatic checks. The whole page was then fact-checked over several rounds by many AI tools: ChatGPT, Claude, Gemini, Grok, Perplexity, DeepSeek, Mistral, Kimi and Qwen. It was corrected wherever they found real mistakes. AI checks help, but they are not proof. The links are there so anyone can check.</p>
-  <p>You can do the same. Select the whole page, copy it, and paste it into ChatGPT, Gemini, Grok, Perplexity or any other tool. Found a mistake? Say so at <a href="https://planetarycouncil.org">planetarycouncil.org</a>. Feedback from Israeli readers is especially welcome.</p>
+  <p>Every quote links to its source. The page was fact-checked over many rounds by ChatGPT, Claude, Gemini, Grok, Perplexity, DeepSeek, Mistral, Kimi and Qwen. AI checks help, but they are not proof. Found a mistake? Say so at <a href="https://planetarycouncil.org">planetarycouncil.org</a>; feedback from Israeli readers is especially welcome.</p>
 </section>
 
 <footer class="site-footer">
   <p class="footer-links"><a href="https://planetarycouncil.org">planetarycouncil.org</a> · <a href="https://independenttribunal.org">independenttribunal.org</a> · <a href="https://basex.com">basex.com</a></p>
   <p>Part of the planetary regeneration in the age of exponential AI.</p>
 </footer>
-</div>
-</div>
-
+</div></div>
+<script>
+(function(){
+  var mq=window.matchMedia('(min-width:860px)');
+  document.querySelectorAll('.panel').forEach(function(panel){
+    var det=panel.querySelector('.pdetail'), rows=panel.querySelectorAll('.row');
+    var list=panel.querySelector('.plist'), fill=panel.querySelector('.pfill'), count=panel.querySelector('.pcount'), total=rows.length, noun=count.textContent.replace(/^\d+ /,'').replace(/s$/,'');
+    function idx(row){return Array.prototype.indexOf.call(rows,row)}
+    function bar(row){
+      if(mq.matches){var m=list.scrollHeight-list.clientHeight; var f=m>0?(list.scrollTop/m):1; var k=row?idx(row)+1:1; fill.style.width=Math.max(f*100,(k/total)*100*(m>0?0:1))+'%'; count.textContent=noun.charAt(0).toUpperCase()+noun.slice(1)+' '+k+' of '+total}
+      else{var r=panel.getBoundingClientRect(), h=r.height-window.innerHeight; var f=h>0?Math.min(1,Math.max(0,-r.top/h)):1; fill.style.width=(f*100)+'%'; count.textContent=total+' '+noun+'s · tap one to open'}
+    }
+    var cur=rows[0];
+    function show(row){cur=row; rows.forEach(function(r){r.classList.toggle('active', r===row)}); det.innerHTML='<div class="pin">'+row.querySelector('.exp').innerHTML+'</div>'; bar(row)}
+    list.addEventListener('scroll',function(){bar(cur)},{passive:true});
+    window.addEventListener('scroll',function(){if(!mq.matches) bar(cur)},{passive:true});
+    rows.forEach(function(row){
+      var s=row.querySelector('summary');
+      s.addEventListener('mouseenter',function(){if(mq.matches) show(row)});
+      s.addEventListener('focus',function(){if(mq.matches) show(row)});
+      s.addEventListener('click',function(e){if(mq.matches){e.preventDefault(); show(row)}});
+    });
+    if(rows[0]) show(rows[0]);
+  });
+})();
+</script>
+</body>
+</html>
