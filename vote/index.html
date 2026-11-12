@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Solutions are easy, coordination is hard · Planetary Council</title>
 <meta name="description" content="Ten questions for the world. Say where you stand, get a sealed voting card.">
-<meta name="theme-color" content="#dcf0fa">
+<meta name="theme-color" content="#eef6ff">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://planetarycouncil.org/vote/">
 <meta property="og:site_name" content="Planetary Council">
@@ -26,12 +26,28 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="seal.png">
 <style>
 :root {
-  --bg: #dcf0fa;
-  --bg2: #a9d9f0;
+  /* Main site tokens — header, page chrome */
+  --pc-bg: #eef6ff;
+  --pc-bg2: #ffffff;
+  --pc-ink: #0a1b33;
+  --pc-dim: #45607e;
+  --pc-panel: rgba(255,255,255,0.75);
+  --pc-line: rgba(10,124,255,0.22);
+  --pc-accent: #0a7cff;
+  --pc-accent2: #38c6f4;
+  --pc-head: "Space Grotesk", sans-serif;
+  --pc-grid-op: 0.6;
+  --pc-glow-op: 1;
+  --pc-rings-op: 1;
+  --pc-play: running;
+  --pc-bar-h: 55px;
+  /* Vote ballot palette */
+  --bg: #eef6ff;
+  --bg2: #ffffff;
   --panel: #ffbdbd;
   --grid: #46b7e5;
   --accent: #fd868a;
@@ -46,56 +62,128 @@
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 *, *::before, *::after { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; background: var(--bg); }
-html { scroll-behavior: smooth; scroll-padding-top: 72px; }
-.q-card, #results { scroll-margin-top: 72px; }
+html, body { margin: 0; padding: 0; background: var(--pc-bg); }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--pc-bar-h) + 64px); }
+.q-card, #results { scroll-margin-top: calc(var(--pc-bar-h) + 64px); }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body { font-family: var(--font-body); color: var(--muted); min-height: 100vh; }
 a { color: var(--accentDark); text-decoration: none; }
 a:hover { color: var(--accent3); text-decoration: underline; }
 button { font-family: inherit; }
 :focus-visible { outline: 2px solid var(--accentDark); outline-offset: 2px; }
+::selection { background: var(--pc-accent); color: #04141a; }
+@keyframes pc-drift{0%{transform:translate(0,0) scale(1);}50%{transform:translate(4%,-3%) scale(1.09);}100%{transform:translate(0,0) scale(1);}}
+@keyframes pc-spin{to{transform:rotate(360deg);}}
+.interaction-1:hover{transform:translateY(-1px) !important;}
 
 .page {
   min-height: 100vh;
-  background: radial-gradient(1100px 620px at 50% -8%, var(--bg2) 0%, rgba(4,6,12,0) 70%), var(--bg);
+  background: var(--pc-bg);
   padding: 0 0 90px;
   position: relative;
   color: var(--muted);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
-.grid-bg {
-  position: absolute; inset: 0; pointer-events: none; opacity: .2;
-  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 56px 56px;
-  background-position: center top;
-  -webkit-mask-image: radial-gradient(800px 520px at 50% 6%, #000 0%, transparent 80%);
-  mask-image: radial-gradient(800px 520px at 50% 6%, #000 0%, transparent 80%);
+.pc-bg {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
 }
+.pc-bg .wash {
+  position: absolute; inset: 0;
+  background: radial-gradient(125% 95% at 82% -5%, var(--pc-bg2), var(--pc-bg) 58%);
+}
+.pc-bg .grid {
+  position: absolute; inset: 0; opacity: var(--pc-grid-op);
+  background-image: linear-gradient(var(--pc-line) 1px, transparent 1px), linear-gradient(90deg, var(--pc-line) 1px, transparent 1px);
+  background-size: 66px 66px;
+  -webkit-mask-image: radial-gradient(circle at 74% 8%, #000, transparent 72%);
+  mask-image: radial-gradient(circle at 74% 8%, #000, transparent 72%);
+}
+.pc-bg .glow {
+  position: absolute; top: -16%; right: -8%; width: 52vw; height: 52vw; border-radius: 50%;
+  filter: blur(74px); opacity: calc(var(--pc-glow-op)*0.5);
+  background: radial-gradient(circle, color-mix(in srgb, var(--pc-accent) 55%, transparent), transparent 62%);
+  animation: pc-drift 22s ease-in-out infinite;
+  animation-play-state: var(--pc-play);
+}
+@media (prefers-reduced-motion: reduce) {
+  .pc-bg .glow { animation: none; }
+}
+.pc-content { position: relative; z-index: 2; }
 
-.topnav {
-  position: relative;
-  max-width: 1100px;
+/* Main-site header bar */
+.pc-bar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  background: color-mix(in srgb, var(--pc-bg) 76%, transparent);
+  border-bottom: 1px solid var(--pc-line);
+}
+.pc-bar-inner {
+  max-width: 1060px;
   margin: 0 auto;
-  padding: 16px clamp(14px, 3vw, 24px) 0;
+  padding: 13px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  font-family: var(--font-head);
-  font-size: 12px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  font-weight: 600;
+  gap: 16px;
+  flex-wrap: wrap;
 }
-.topnav a { color: var(--muted); text-decoration: none; }
-.topnav a:hover { color: var(--text); text-decoration: none; }
-.topnav .edition-tag { color: var(--accentDark); }
+.pc-logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--pc-ink);
+  text-decoration: none;
+}
+.pc-logo:hover { color: var(--pc-ink); text-decoration: none; }
+.pc-logo-mark {
+  width: 28px; height: 28px;
+  display: inline-flex;
+  opacity: var(--pc-rings-op);
+  flex: 0 0 28px;
+}
+.pc-logo-name {
+  font-family: var(--pc-head);
+  font-weight: 600;
+  font-size: 16.5px;
+  letter-spacing: -0.01em;
+}
+.pc-bar-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.pc-bar-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 17px;
+  border-radius: 999px;
+  font-family: var(--pc-head);
+  font-weight: 600;
+  font-size: 13.5px;
+  text-decoration: none;
+  color: var(--pc-ink);
+  border: 1px solid var(--pc-line);
+  transition: transform .16s ease, border-color .16s ease, background .16s ease;
+}
+.pc-bar-links a:hover { color: var(--pc-ink); text-decoration: none; border-color: var(--pc-accent); }
+.pc-bar-links a.current {
+  background: var(--pc-accent);
+  color: #ffffff;
+  border-color: var(--pc-accent);
+}
+.pc-bar-links a.current:hover { color: #ffffff; }
+
 
 header.hero {
   position: relative;
   max-width: 1100px;
   margin: 0 auto;
-  padding: clamp(24px, 5vw, 48px) clamp(14px, 3vw, 24px) 44px;
+  padding: clamp(16px, 3.5vw, 36px) clamp(14px, 3vw, 24px) 36px;
 }
 .hero h1 {
   font-family: var(--font-head);
@@ -136,20 +224,11 @@ header.hero {
   text-decoration-thickness: 2px;
   text-decoration-color: var(--accentDark);
 }
-.video-wrap {
-  position: relative;
-  width: 100%;
-  max-width: 720px;
-  aspect-ratio: 16/9;
-  margin-top: 26px;
-  border: 1px solid color-mix(in oklab, var(--accent) 35%, transparent);
-  background: color-mix(in oklab, var(--bg) 70%, transparent);
-}
-.video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+
 
 .sticky-bar {
   position: sticky;
-  top: 0;
+  top: var(--pc-bar-h);
   z-index: 30;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -456,14 +535,24 @@ main.wrap {
   max-width: 552px;
 }
 .newsletter {
-  margin-top: 18px;
-  padding-top: 16px;
-  border-top: 1px solid color-mix(in oklab, var(--accent) 22%, transparent);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
+  border: 1px solid var(--pc-line);
+  background: var(--pc-panel);
+  border-radius: 20px;
+  padding: clamp(20px, 3vw, 32px);
 }
-.newsletter iframe { border: 1px solid #EEE; background: rgba(255,255,255,0.7); max-width: 100%; }
+.newsletter h2 {
+  font-family: var(--pc-head);
+  font-weight: 600;
+  font-size: clamp(22px, 3.2vw, 32px);
+  margin: 0;
+  letter-spacing: -0.02em;
+  color: var(--pc-ink);
+  line-height: 1.05;
+}
+.newsletter iframe { border: 1px solid var(--pc-line); border-radius: 12px; background: rgba(255,255,255,0.7); max-width: 100%; }
 
 #decoder {
   display: flex;
@@ -547,6 +636,9 @@ footer.site span { color: var(--muted); opacity: .7; }
 .noscript { margin: 24px auto; max-width: 640px; padding: 16px; font-size: 18px; color: var(--text); }
 
 @media (max-width: 759px) {
+  .pc-bar-inner { padding: 10px 16px 12px; }
+  .pc-bar-links { width: 100%; gap: 8px; }
+  .pc-bar-links a { padding: 7px 13px; font-size: 12.5px; }
   .scale-legend { display: block; }
   .dots { display: none; }
   .q-opts { max-width: none; width: 100%; margin-left: 0; }
@@ -558,14 +650,31 @@ footer.site span { color: var(--muted); opacity: .7; }
 }
 </style>
 </head>
-<body>
-<div class="page">
-  <div class="grid-bg" aria-hidden="true"></div>
+<body style="background:#eef6ff;">
+<div class="page" id="site-root">
+  <div class="pc-bg" aria-hidden="true">
+    <div class="wash"></div>
+    <div class="grid"></div>
+    <div class="glow"></div>
+  </div>
+  <div class="pc-content">
 
-  <nav class="topnav">
-    <a href="https://planetarycouncil.org/">Planetary Council</a>
-    <span class="edition-tag">World vote</span>
-  </nav>
+  <header class="pc-bar">
+    <div class="pc-bar-inner">
+      <a class="pc-logo" href="https://planetarycouncil.org/">
+        <span class="pc-logo-mark">
+          <svg height="28" viewBox="0 0 200 200" width="28" aria-hidden="true"><g fill="none" stroke="var(--pc-accent)" stroke-width="4"><circle cx="100" cy="100" r="34"></circle><circle cx="134" cy="100" r="34"></circle><circle cx="66" cy="100" r="34"></circle><circle cx="117" cy="70.6" r="34"></circle><circle cx="117" cy="129.4" r="34"></circle><circle cx="83" cy="70.6" r="34"></circle><circle cx="83" cy="129.4" r="34"></circle></g></svg>
+        </span>
+        <span class="pc-logo-name">Planetary Council</span>
+      </a>
+      <nav class="pc-bar-links" aria-label="Site">
+        <a href="https://planetarycouncil.org/">Home</a>
+        <a href="https://planetarycouncil.org/#council">The Council</a>
+        <a href="https://planetarycouncil.org/#people-are-people">Publications</a>
+        <a class="current interaction-1" href="https://planetarycouncil.org/vote/" aria-current="page">Vote</a>
+      </nav>
+    </div>
+  </header>
 
   <header class="hero">
     <h1>
@@ -575,9 +684,6 @@ footer.site span { color: var(--muted); opacity: .7; }
       <span class="big">hard</span>
     </h1>
     <div class="sub">SYSTEM UPGRADE<br><br>change is <s>possible</s> NOW</div>
-    <div class="video-wrap">
-      <iframe src="https://www.youtube-nocookie.com/embed/MGgz4cKPHp8" title="Count Binface" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-    </div>
   </header>
 
   <div class="sticky-bar">
@@ -621,20 +727,9 @@ footer.site span { color: var(--muted); opacity: .7; }
       </div>
     </section>
 
-    <section class="credits">
-      <div style="flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:12px">
-        <h2>Future Vision XPRIZE and AAIFF</h2>
-        <p>The video at the top was made possible thanks to <a class="emph" href="https://futurevisionxprize.com" target="_blank" rel="noopener">Future Vision XPRIZE</a> and <a class="emph" href="https://aaiff.ai/" target="_blank" rel="noopener">Astana AI Film Festival</a> (AAIFF).<br><br>Thank you for the inspiration and deadline that motivated us to put it together.<br><br>This is a companion page to enable a viral loop, activate critical mass and enable change now.</p>
-        <div style="margin-top:10px;padding-top:16px;border-top:1px solid color-mix(in oklab, var(--accent) 30%, transparent);display:flex;flex-direction:column;gap:8px">
-          <h3>Follow us on socials</h3>
-        </div>
-        <div class="social-grid" id="shared-links"></div>
-        <div id="brands"></div>
-        <div class="newsletter">
-          <h3>Signup to a newsletter</h3>
-          <iframe src="https://planetarycouncil.substack.com/embed" width="480" height="320" style="border:1px solid #EEE;background:rgba(255,255,255,0.7);max-width:100%" frameborder="0" scrolling="no" title="Planetary Council newsletter signup"></iframe>
-        </div>
-      </div>
+    <section class="newsletter" aria-labelledby="newsletter-heading">
+      <h2 id="newsletter-heading">Signup to a newsletter</h2>
+      <iframe src="https://planetarycouncil.substack.com/embed" width="480" height="320" style="border:1px solid var(--pc-line);border-radius:12px;background:rgba(255,255,255,0.7);max-width:100%" frameborder="0" scrolling="no" title="Planetary Council newsletter signup"></iframe>
     </section>
 
     <section id="decoder">
@@ -653,6 +748,7 @@ footer.site span { color: var(--muted); opacity: .7; }
       <span>PlanetaryCouncil.org</span>
     </footer>
   </main>
+  </div><!-- /.pc-content -->
 </div>
 <noscript><p class="noscript">This page needs JavaScript to record a vote and draw your I VOTED seal.</p></noscript>
 
@@ -736,17 +832,50 @@ const SCALE = [
    ------------------------------------------------------------------- */
 const SEAL_IMAGE = "seal.png";
 const SEAL_TEXT_AREA = {
-  x: 0.222,          // left
+  x: 0.222,          // left of cream box
   y: 0.724,          // top
   w: 0.556,          // width
   h: 0.064,          // height
+  padLeft: 0.026,    // padding from the left edge of the cream box (fraction of image width)
+  padRight: 0.026,
+  align: "left",
   color: "#0B4D2C",
   fontFamily: '"IBM Plex Mono", ui-monospace, monospace',
   fontWeight: "600",
-  fontSize: 0.018,   // preferred size as a fraction of image width; auto-shrinks to fit
-  lineHeight: 1.28,
+  fontSize: 0.017,   // preferred size as a fraction of image width; auto-shrinks to fit
+  lineHeight: 1.32,
   debug: false
 };
+
+/* Pretty, left-aligned block drawn on the seal. The Copy button and the
+   decoder still use the canonical WORLD-{SEED}_{b58} form. */
+function padPrefix(s, w) {
+  s = String(s);
+  while (s.length < w) s += " ";
+  return s;
+}
+function groupId(id) {
+  id = String(id || "");
+  if (id.length === 16) return id.slice(0, 8) + "  " + id.slice(8);
+  return id;
+}
+function parseEncoded(encoded) {
+  const s = String(encoded || "").trim();
+  const m = s.match(/^([A-Za-z]+)-([0-9A-Fa-f]+)_([123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz]+)$/);
+  if (m) return { tag: m[1].toUpperCase(), seed: m[2].toUpperCase(), payload: m[3] };
+  const m2 = s.match(/^([A-Za-z]+)[-:\s]+([0-9A-Fa-f]+)[_\s]+([123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz]+)$/);
+  if (m2) return { tag: m2[1].toUpperCase(), seed: m2[2].toUpperCase(), payload: m2[3] };
+  return null;
+}
+function sealDisplayLines(record) {
+  const parsed = parseEncoded(record.encoded) || { tag: EDITION.codeTag, seed: "", payload: record.encoded || "" };
+  const pw = Math.max(parsed.tag.length, 5); // WORLD / UKISH / UTC / ID
+  return [
+    padPrefix(parsed.tag, pw) + "  " + parsed.seed + "  " + parsed.payload,
+    padPrefix("UTC", pw) + "  " + (record.timestamp || ""),
+    padPrefix("ID", pw) + "  " + groupId(record.voteId)
+  ];
+}
 
 const STORAGE_VOTE  = "pc.vote." + EDITION.id + ".v1";
 const STORAGE_NONCE = "pc.vote.nonce";
@@ -815,7 +944,7 @@ function encodeAnswers(answers, padSeed, edition) {
 
 function decodeOne(raw) {
   let s = String(raw).trim();
-  const tagM = s.match(/^(UKISH|UK|WORLD|W)[-:]\s*/i);
+  const tagM = s.match(/^(UKISH|UK|WORLD|W)(?:[-:]|\s+)\s*/i);
   let tag = tagM ? tagM[1].toUpperCase().replace(/^UKISH$/, "UK") : "";
   if (tagM) s = s.slice(tagM[0].length);
   const parts = s.split(/[_\s]+/);
@@ -850,8 +979,8 @@ function decodeOne(raw) {
 
 function looksLikeCode(line) {
   const s = line.trim();
-  if (/^(UKISH|UK|WORLD|W)[-:]/i.test(s)) return true;
-  return /^[0-9A-Fa-f]{8}_[123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz]+$/.test(s);
+  if (/^(UKISH|UK|WORLD|W)(?:[-:]|\s)/i.test(s)) return true;
+  return /^[0-9A-Fa-f]{8}[_\s]+[123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz]+$/.test(s);
 }
 
 /* ---------- device snapshot + vote fingerprint ---------------------- */
@@ -967,22 +1096,22 @@ async function renderSeal(record) {
     ctx.restore();
   }
 
-  const lines = [
-    record.encoded,
-    record.timestamp,
-    "ID  " + record.voteId
-  ];
+  const lines = sealDisplayLines(record);
+  const padL = (area.padLeft || 0.026) * w;
+  const padR = (area.padRight || 0.026) * w;
+  const textW = Math.max(40, tw - padL - padR);
+  const tx = x + padL;
 
-  let fontSize = (area.fontSize || 0.018) * w;
+  let fontSize = (area.fontSize || 0.017) * w;
   const font = function (size) { return area.fontWeight + " " + size + "px " + area.fontFamily; };
-  const lineH = area.lineHeight || 1.28;
-  ctx.textAlign = "center";
+  const lineH = area.lineHeight || 1.32;
+  ctx.textAlign = area.align === "left" ? "left" : "center";
   ctx.textBaseline = "middle";
   while (fontSize > 8) {
     ctx.font = font(fontSize);
     const maxW = Math.max.apply(null, lines.map(function (l) { return ctx.measureText(l).width; }));
     const totalH = fontSize * lineH * lines.length;
-    if (maxW <= tw - 8 && totalH <= th - 4) break;
+    if (maxW <= textW && totalH <= th - 4) break;
     fontSize -= 0.5;
   }
   ctx.font = font(fontSize);
@@ -991,9 +1120,8 @@ async function renderSeal(record) {
   ctx.shadowBlur = 2;
   const totalH = fontSize * lineH * lines.length;
   let cy = y + th / 2 - totalH / 2 + (fontSize * lineH) / 2;
-  const cx = x + tw / 2;
   for (const line of lines) {
-    ctx.fillText(line, cx, cy, tw - 8);
+    ctx.fillText(line, tx, cy, textW);
     cy += fontSize * lineH;
   }
   ctx.shadowBlur = 0;
@@ -1002,105 +1130,6 @@ async function renderSeal(record) {
 
 function canvasBlob(canvas) {
   return new Promise(function (resolve) { canvas.toBlob(resolve, "image/png"); });
-}
-
-/* ---------- socials ------------------------------------------------- */
-const ICONS = {
-  web: { label: "Website", vb: "0 0 24 24", fill: "#0e7490", d: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2c1.4 0 3.3 2.6 3.8 6.5H8.2C8.7 6.6 10.6 4 12 4zM6.2 10.5H4.3A8 8 0 0 1 8.8 4.7 15 15 0 0 0 6.2 10.5zm-1.9 3h1.9c.2 2.2.9 4.2 2 5.8a8 8 0 0 1-3.9-5.8zM12 20c-1.4 0-3.3-2.6-3.8-6.5h7.6C15.3 17.4 13.4 20 12 20zm3.2-.7c1.1-1.6 1.8-3.6 2-5.8h1.9a8 8 0 0 1-3.9 5.8zm2-8.8a15 15 0 0 0-2.6-5.8 8 8 0 0 1 4.5 5.8h-1.9z" },
-  x: { label: "X", vb: "0 0 512 512", fill: "#111111", d: "M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L196.4 280.5 22.4 48h145.6l99.5 132.1L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z" },
-  youtube: { label: "YouTube", vb: "0 0 576 512", fill: "#ff0000", d: "M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.1 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z" },
-  instagram: { label: "Instagram", vb: "0 0 448 512", fill: "#e1306c", d: "M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" },
-  tiktok: { label: "TikTok", vb: "0 0 448 512", fill: "#111111", d: "M448 209.9a210.1 210.1 0 0 1-122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0h88a121.2 121.2 0 0 0 1.9 22.2A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z" },
-  facebook: { label: "Facebook", vb: "0 0 512 512", fill: "#0866ff", d: "M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" },
-  spotify: { label: "Spotify", vb: "0 0 496 512", fill: "#1db954", d: "M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm100.7 364.9c-4.2 0-6.8-1.3-10.7-3.6-62.4-37.6-135-39.2-206.7-24.5-3.9 1-9 2.6-11.9 2.6-9.7 0-15.8-7.7-15.8-15.8 0-10.3 6.1-15.2 13.6-16.8 81.9-18.1 165.6-16.5 237 26.2 6.1 3.9 9.7 7.4 9.7 16.5s-7.1 15.4-15.2 15.4zm26.9-65.6c-5.2 0-8.7-2.3-12.3-4.2-62.5-37-155.7-51.9-238.6-29.4-4.8 1.3-7.4 2.6-11.9 2.6-10.7 0-19.4-8.7-19.4-19.4s5.2-17.8 15.5-20.7c27.8-7.8 56.2-13.6 97.8-13.6 64.9 0 127.6 16.1 177 45.5 8.1 4.8 11.3 11 11.3 19.7-.1 10.8-8.5 19.5-19.4 19.5zm31-76.2c-5.2 0-8.4-1.3-12.9-3.9-71.2-42.5-198.5-52.7-280.9-29.7-3.6 1-8.1 2.6-12.9 2.6-13.2 0-23.3-10.3-23.3-23.6 0-13.6 8.4-21.3 17.4-23.9 35.2-10.3 74.6-15.2 117.5-15.2 73 0 149.5 15.2 205.4 47.8 7.8 4.5 12.9 10.7 12.9 22.6 0 13.6-11 23.3-23.2 23.3z" },
-  github: { label: "GitHub", vb: "0 0 24 24", fill: "#111111", d: "M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z" },
-  telegram: { label: "Telegram", vb: "0 0 496 512", fill: "#229ed9", d: "M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1-8.3 0-6.9-3.1-9.7-11l-21.1-69.3-67.2-20.9c-14.5-4.4-14.6-14.4 3.2-21.3l262-101.1c12.6-5.7 24.8 3 20 21.1z" },
-  linkedin: { label: "LinkedIn", vb: "0 0 448 512", fill: "#0a66c2", d: "M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-12.4-58.4-43.4-58.4-23.7 0-37.8 15.9-44 31.3-2.3 5.5-2.9 13.2-2.9 20.9V448h-92.8s1.2-241.1 0-266.1h92.8v37.7c12.3-19 34.3-46.1 83.5-46.1 61 0 106.7 39.8 106.7 125.4V448z" },
-  bluesky: { label: "Bluesky", vb: "0 0 576 512", fill: "#0285ff", d: "M288 227.1C261.9 176.4 190.9 81.9 124.9 35.3C61.6-9.4 37.5-1.7 21.6 5.5C3.3 13.8 0 41.9 0 58.4S9.1 194 15 213.9c19.5 65.7 89.1 87.9 153.2 80.7c3.3-.5 6.6-.9 10-1.4c-3.3 .5-6.6 1-10 1.4C74.3 308.6-9.1 342.8 100.3 464.5C220.6 589.1 265.1 437.8 288 361.1c22.9 76.7 49.2 222.5 185.6 103.4c102.4-103.4 28.1-156-65.8-169.9c-3.3-.4-6.7-.8-10-1.3c3.4 .4 6.7 .9 10 1.3c64.1 7.1 133.6-15.1 153.2-80.7C566.9 194 576 75 576 58.4s-3.3-44.7-21.6-52.9c-15.8-7.1-40-14.9-103.2 29.8C385.1 81.9 314.1 176.4 288 227.1z" },
-  mastodon: { label: "Mastodon", vb: "0 0 448 512", fill: "#6364ff", d: "M433 179.1c0-97.2-63.7-125.7-63.7-125.7-62.5-28.7-228.6-28.4-290.5 0 0 0-63.7 28.5-63.7 125.7 0 115.7-6.6 259.4 105.6 289.1 40.5 10.7 75.3 13 103.3 11.4 50.8-2.8 79.3-18.1 79.3-18.1l-1.7-36.9s-36.3 11.4-77.1 10.1c-40.4-1.4-83-4.4-89.6-54a102.5 102.5 0 0 1-.9-13.9c85.6 20.9 158.7 9.1 178.8 6.7 56.1-6.7 105-41.3 111.2-72.9 9.8-49.8 9-121.5 9-121.5zm-75.1 125.2h-46.6v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.3V197c0-58.5-64-56.6-64-6.9v114.2H90.2c0-122.1-5.2-147.9 18.4-175 25.9-28.9 79.8-30.8 103.8 6.1l11.6 19.5 11.6-19.5c24.1-37.1 78.1-34.8 103.8-6.1 23.7 27.3 18.4 53 18.4 175z" },
-  farcaster: { label: "Farcaster", vb: "0 0 1000 1000", fill: "#855dcd", d: "M257.8 155.6h484.4v688.9h-71.1V528.9h-.7c-7.9-87.2-81.2-155.6-170.4-155.6s-162.6 68.3-170.4 155.6h-.7v315.6h-71.1V155.6zM128.9 253.3l28.9 97.8h24.4v395.6c-12.3 0-22.2 9.9-22.2 22.2v26.7h-4.4c-12.3 0-22.2 9.9-22.2 22.2v26.7h248.9v-26.7c0-12.3-9.9-22.2-22.2-22.2h-4.4v-26.7c0-12.3-9.9-22.2-22.2-22.2h-26.7V253.3H128.9zM675.6 746.7c-12.3 0-22.2 9.9-22.2 22.2v26.7H649c-12.3 0-22.2 9.9-22.2 22.2v26.7h248.9v-26.7c0-12.3-9.9-22.2-22.2-22.2h-4.4v-26.7c0-12.3-9.9-22.2-22.2-22.2V351.1h24.4l28.9-97.8H702.2v493.3h-26.7z" }
-};
-
-const BRANDS = [
-  { name: "Planetary Council", tag: "planetarycouncil.org", links: [["web", "https://planetarycouncil.org/"], ["x", "https://twitter.com/planetcouncil"], ["telegram", "https://t.me/planetarycouncil"], ["instagram", "https://www.instagram.com/planetarycouncil/"], ["github", "https://github.com/planetarycouncil"]] },
-  { name: "Independent Tribunal", tag: "independenttribunal.org", links: [["web", "https://www.independenttribunal.org/"], ["x", "https://twitter.com/IndependentTrib"], ["telegram", "https://t.me/IndependentTribunal"]] },
-  { name: "BaseX", tag: "basex.com", links: [["web", "https://basex.com/"], ["x", "https://x.com/basexhq"], ["github", "https://github.com/basexHQ"]] },
-  { name: "Mars Robertson", tag: "marsrobertson.com", links: [["web", "https://marsrobertson.com/"], ["instagram", "https://www.instagram.com/marsrobertson/"], ["facebook", "https://www.facebook.com/marsXrobertson"], ["youtube", "https://youtu.be/MGgz4cKPHp8"], ["linkedin", "https://www.linkedin.com/in/marsrobertson/"], ["github", "https://github.com/marsrobertson/"], ["bluesky", "https://bsky.app/profile/marsxr.bsky.social"], ["mastodon", "https://mastodon.social/@marsxr"], ["farcaster", "https://farcaster.xyz/marsx"]] },
-  { name: "Marsita the Ultra", tag: "@MarsitaTheUltra", noTagLink: true, links: [["x", "https://x.com/MarsitaTheUltra"], ["telegram", "https://t.me/marsitatheultra"], ["spotify", "https://open.spotify.com/playlist/7lu83IHHSAOOC3qoRfoBUr"], ["youtube", "https://youtu.be/MGgz4cKPHp8"], ["instagram", "https://www.instagram.com/marsitatheultra"], ["facebook", "https://www.facebook.com/marsXrobertson"], ["tiktok", "https://www.tiktok.com/@marsrobertson"]] },
-  { name: "Money from the Future", tag: "moneyfromthefuture.com", links: [["web", "https://moneyfromthefuture.com/"], ["x", "https://twitter.com/moneyFromThe"], ["telegram", "https://t.me/moneyFTF"], ["instagram", "https://instagram.com/moneyfromthefuture"], ["tiktok", "https://www.tiktok.com/@marsrobertson"]] }
-];
-
-function iconLink(k, href, title) {
-  const ic = ICONS[k];
-  if (!ic) return null;
-  const a = document.createElement("a");
-  a.className = "soc";
-  a.href = href;
-  a.target = "_blank";
-  a.rel = "noopener";
-  a.title = title || ic.label;
-  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svg.setAttribute("viewBox", ic.vb);
-  svg.setAttribute("aria-hidden", "true");
-  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  path.setAttribute("fill", ic.fill);
-  path.setAttribute("d", ic.d);
-  svg.appendChild(path);
-  a.appendChild(svg);
-  return a;
-}
-
-function renderSocials() {
-  const order = ["x", "telegram", "instagram", "facebook", "youtube", "tiktok", "spotify", "linkedin", "github", "bluesky", "mastodon", "farcaster"];
-  const shared = [], perBrand = [];
-  order.forEach(function (k) {
-    const hrefs = [];
-    BRANDS.forEach(function (b) {
-      const h = b.links.find(function (l) { return l[0] === k; });
-      if (h && hrefs.indexOf(h[1]) < 0) hrefs.push(h[1]);
-    });
-    if (hrefs.length === 1) shared.push([k, hrefs[0]]);
-    else if (hrefs.length > 1) perBrand.push(k);
-  });
-  const sharedEl = document.getElementById("shared-links");
-  sharedEl.replaceChildren();
-  shared.forEach(function (pair) {
-    const a = iconLink(pair[0], pair[1]);
-    if (a) sharedEl.appendChild(a);
-  });
-  const brandsEl = document.getElementById("brands");
-  brandsEl.replaceChildren();
-  BRANDS.forEach(function (b) {
-    const row = document.createElement("div");
-    row.className = "brand";
-    const meta = document.createElement("div");
-    meta.style.cssText = "flex:1 1 190px;min-width:0;display:flex;flex-direction:column;gap:2px";
-    const name = document.createElement("span");
-    name.className = "name";
-    name.textContent = b.name;
-    meta.appendChild(name);
-    if (!b.noTagLink) {
-      const tag = document.createElement("a");
-      tag.className = "tag";
-      tag.target = "_blank";
-      tag.rel = "noopener";
-      tag.href = b.tag.indexOf("@") === 0 ? "https://x.com/" + b.tag.slice(1) : "https://" + b.tag;
-      tag.textContent = b.tag;
-      meta.appendChild(tag);
-    }
-    row.appendChild(meta);
-    const links = document.createElement("div");
-    links.className = "brand-links";
-    perBrand.forEach(function (k) {
-      const hit = b.links.find(function (l) { return l[0] === k; });
-      if (hit) {
-        const a = iconLink(k, hit[1], ICONS[k].label + " — " + b.name);
-        if (a) links.appendChild(a);
-      }
-    });
-    row.appendChild(links);
-    brandsEl.appendChild(row);
-  });
 }
 
 /* ---------- app state + UI ------------------------------------------ */
@@ -1473,14 +1502,21 @@ function onResize() {
   renderProgress();
 }
 
+function syncBarHeight() {
+  const bar = document.querySelector(".pc-bar");
+  if (!bar) return;
+  const h = Math.ceil(bar.getBoundingClientRect().height);
+  document.documentElement.style.setProperty("--pc-bar-h", h + "px");
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-  renderSocials();
+  syncBarHeight();
   document.getElementById("btn-reset").addEventListener("click", resetVote);
   document.getElementById("btn-save").addEventListener("click", saveImage);
   document.getElementById("btn-share").addEventListener("click", shareSeal);
   document.getElementById("btn-copy").addEventListener("click", copyDetails);
   document.getElementById("decoder-input").addEventListener("input", onDecodeInput);
-  window.addEventListener("resize", onResize);
+  window.addEventListener("resize", function () { syncBarHeight(); onResize(); });
   loadSealImage().catch(function () { /* shown later if needed */ });
   restore();
 });
@@ -1495,7 +1531,9 @@ window.__PC_VOTE__ = {
   padFrom: padFrom,
   state: state,
   getNonce: getNonce,
-  SEAL_TEXT_AREA: SEAL_TEXT_AREA
+  SEAL_TEXT_AREA: SEAL_TEXT_AREA,
+  sealDisplayLines: sealDisplayLines,
+  parseEncoded: parseEncoded
 };
 </script>
 </body>
