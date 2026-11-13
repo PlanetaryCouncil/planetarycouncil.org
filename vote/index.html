@@ -405,6 +405,21 @@ main.wrap {
 }
 .btn-secondary:hover { background: var(--accentDark); color: #fff; }
 .hint { font-size: 15px; color: var(--muted); margin: 0; }
+.sign-row { width: min(100%, 680px); display: flex; gap: 18px; align-items: flex-start; }
+.sign-field { flex: 1 1 auto; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.sign-field label { font-family: var(--font-head); font-size: 13px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--text); }
+.sign-field .opt { font-weight: 500; letter-spacing: .08em; color: var(--muted); text-transform: none; }
+.sign-field input {
+  font-family: var(--font-mono); font-size: 18px; padding: 12px 14px; width: 100%;
+  border: 1px solid color-mix(in oklab, var(--accent) 45%, transparent); border-radius: 10px;
+  background: #fff; color: var(--text);
+}
+.sign-field input:focus { outline: 2px solid var(--accentDark); outline-offset: 1px; }
+.pfp-preview { margin: 0; flex: 0 0 104px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.pfp-preview img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; box-shadow: 0 4px 14px -6px rgba(0,0,0,.35); background: #eef6ff; }
+.pfp-preview figcaption { font-size: 12px; color: var(--muted); text-align: center; }
+.btn-big { font-size: 15px; padding: 16px 24px; }
+.seal-wrap .actions, .seal-wrap .datapoints, .seal-wrap > .hint { width: min(100%, 680px); }
 
 .recap { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
 .recap h3 {
@@ -616,6 +631,8 @@ footer.site span { color: var(--muted); opacity: .7; }
   .recap-row .ans, .decode-row .ans { grid-column: 2 / -1; text-align: left; }
   .dp .lbl { flex-basis: 100%; }
   .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+  .sign-row { flex-direction: column-reverse; align-items: center; }
+  .sign-field { width: 100%; }
 }
 </style>
 </head>
@@ -670,19 +687,28 @@ footer.site span { color: var(--muted); opacity: .7; }
     <section id="results" aria-labelledby="results-heading">
       <div>
         <h2 id="results-heading">Thank you for participating in the vote.</h2>
-        <p class="lead">We are engineering the future together.<br>Please share the I VOTED seal below.<br>Save as image and post widely.</p>
+        <p class="lead">We are engineering the future together.<br>Sign your seal, download it and use it as your profile photo: that is your proof of voting.</p>
       </div>
       <div class="seal-wrap">
         <canvas id="seal-canvas" width="1254" height="1254" aria-label="I VOTED seal with your vote data points"></canvas>
-        <div class="datapoints" id="datapoints"></div>
-      </div>
-      <div>
-        <div class="actions">
-          <button type="button" class="btn-primary" id="btn-save">Save image</button>
-          <button type="button" class="btn-secondary" id="btn-share">Share</button>
-          <button type="button" class="btn-secondary" id="btn-copy">Copy</button>
+        <div class="sign-row">
+          <div class="sign-field">
+            <label for="seal-name">Sign your seal <span class="opt">(optional)</span></label>
+            <input id="seal-name" type="text" autocomplete="name" spellcheck="false" maxlength="40" placeholder="Your name">
+            <p class="hint" id="name-hint">Shown on the seal only. Your name stays on this device and does not change your vote ID.</p>
+          </div>
+          <figure class="pfp-preview" aria-label="Profile photo preview">
+            <img id="pfp-preview" alt="Your seal as a round profile photo">
+            <figcaption>As a profile photo</figcaption>
+          </figure>
         </div>
-        <p class="hint" id="action-hint">The seal is an image. You can also right-click “Save As”, or long-press on mobile.</p>
+        <div class="actions">
+          <button type="button" class="btn-primary btn-big" id="btn-save">Download seal for your profile photo</button>
+          <button type="button" class="btn-secondary" id="btn-share">Share seal</button>
+          <button type="button" class="btn-secondary" id="btn-copy">Copy vote code</button>
+        </div>
+        <p class="hint" id="action-hint">Full-resolution square PNG. It still reads well when apps crop it to a circle.</p>
+        <div class="datapoints" id="datapoints"></div>
       </div>
       <div>
         <div class="recap" id="recap"></div>
@@ -784,34 +810,57 @@ const SCALE = [
   { v: -2, mark: "−−", label: "Strongly disagree", color: "#f43f5e" }
 ];
 
-/* ---------- I VOTED seal: text-area config --------------------------
-   Fractions of the seal image (0–1). The box sits inside the cream
-   banner below "NEW SYSTEM • PEACEFUL REVOLUTION" and above the
-   "PlanetaryCouncil.org/vote" ribbon.
+/* ---------- I VOTED seal: layouts -----------------------------------
+   Every seal design is one entry in SEAL_LAYOUTS. To add a design
+   (e.g. a circular one): drop the image next to this file, measure its
+   blank box (python3 tools/measure-seal-box.py your-image.png) and add
+   an entry. Pick it with ACTIVE_SEAL_LAYOUT or ?seal=<name> in the URL.
+   ?sealdebug=1 outlines the text area and the text grid.
 
-   When a new seal image arrives (more space for text), edit ONLY this
-   object — and, if the filename changes, SEAL_IMAGE below.
-   Append ?sealdebug=1 to the URL to draw the box on the canvas.
+   textArea  x, y, w, h as fractions of the image (0–1).
+   shape     "rect" (rows fill the box) or "circle" (textArea is the
+             circle's bounding box; each row is clipped to its chord).
+   padding   inner padding as fractions of the box: { x, y }.
+   rows      which rows to draw, in order: "code", "utc", "id", "name".
+   labels    the left-hand label of each row.
+   cols      characters per row: "auto" (longest row + minFill) or a number.
+   fill      what fills unused trailing cells: char + spaced ("- - -").
+   font      family, weight, lineHeight; size is computed to fit the box,
+             capped at maxSize (fraction of image width).
+   colors    text / label / fill / debug.
    ------------------------------------------------------------------- */
-const SEAL_IMAGE = "seal.png";
-const SEAL_TEXT_AREA = {
-  x: 0.222,          // left of cream box
-  y: 0.724,          // top
-  w: 0.556,          // width
-  h: 0.064,          // height
-  padLeft: 0.026,    // padding from the left edge of the cream box (fraction of image width)
-  padRight: 0.026,
-  align: "left",
-  color: "#0B4D2C",
-  fontFamily: '"IBM Plex Mono", ui-monospace, monospace',
-  fontWeight: "600",
-  fontSize: 0.017,   // preferred size as a fraction of image width; auto-shrinks to fit
-  lineHeight: 1.32,
-  debug: false
+const SEAL_LAYOUTS = {
+  default: {
+    image: "seal.png",
+    shape: "rect",
+    textArea: { x: 0.2153, y: 0.7145, w: 0.5694, h: 0.0797 } /* measured: cream box 270–984 × 896–995 px of 1254 */,
+    padding: { x: 0.035, y: 0.07 },
+    rows: ["code", "utc", "id", "name"],
+    labels: { code: null /* edition tag, e.g. WORLD */, utc: "UTC", id: "ID", name: "NAME" },
+    labelWidth: 5,
+    gap: 2,
+    cols: "auto",        // fit the longest row…
+    minFill: 4,
+    stretch: true,       // …then, if the box is wider, fill to its right edge
+    fill: { char: "-", spaced: true },
+    font: { family: '"IBM Plex Mono", ui-monospace, monospace', weight: "600", lineHeight: 1.24, maxSize: 0.024 },
+    colors: { text: "#0B4D2C", label: "#2F7A4B", fill: "rgba(11,77,44,0.38)", debug: "rgba(220,0,0,0.75)" }
+  }
 };
+const ACTIVE_SEAL_LAYOUT = "default";
 
-/* Pretty, left-aligned block drawn on the seal. The Copy button and the
-   decoder still use the canonical WORLD-{SEED}_{b58} form. */
+function sealLayoutName() {
+  const m = location.search.match(/[?&]seal=([A-Za-z0-9_-]+)/);
+  if (m && SEAL_LAYOUTS[m[1]]) return m[1];
+  return ACTIVE_SEAL_LAYOUT;
+}
+function sealLayout() { return SEAL_LAYOUTS[sealLayoutName()]; }
+
+/* ---------- seal text: fixed-width grid -----------------------------
+   Every row is exactly `cols` characters wide. The label column is
+   padded, values follow, and unused trailing cells are filled with
+   dashes. The Copy button and the decoder still use the canonical
+   WORLD-{SEED}_{b58} code. */
 function padPrefix(s, w) {
   s = String(s);
   while (s.length < w) s += " ";
@@ -830,14 +879,82 @@ function parseEncoded(encoded) {
   if (m2) return { tag: m2[1].toUpperCase(), seed: m2[2].toUpperCase(), payload: m2[3] };
   return null;
 }
-function sealDisplayLines(record) {
+
+const NAME_MAX = 40; // hard cap before layout fitting
+function sanitizeName(raw) {
+  let s = String(raw || "");
+  try { s = s.normalize("NFKC"); } catch (e) {}
+  // letters, marks, digits, spaces and a few name punctuation marks only
+  s = s.replace(/[^\p{L}\p{M}\p{N} .,'’&-]/gu, "");
+  s = s.replace(/\s+/g, " ").trim();
+  return Array.from(s).slice(0, NAME_MAX).join("");
+}
+
+/* Row values without padding: [{ label, value }] in layout order. */
+function sealRowValues(record, layout) {
+  const L = layout || sealLayout();
   const parsed = parseEncoded(record.encoded) || { tag: EDITION.codeTag, seed: "", payload: record.encoded || "" };
-  const pw = Math.max(parsed.tag.length, 5); // WORLD / UKISH / UTC / ID
-  return [
-    padPrefix(parsed.tag, pw) + "  " + parsed.seed + "  " + parsed.payload,
-    padPrefix("UTC", pw) + "  " + (record.timestamp || ""),
-    padPrefix("ID", pw) + "  " + groupId(record.voteId)
-  ];
+  const values = {
+    code: { label: L.labels.code || parsed.tag, value: parsed.seed + "  " + parsed.payload },
+    utc:  { label: L.labels.utc, value: record.timestamp || "" },
+    id:   { label: L.labels.id, value: groupId(record.voteId) },
+    name: { label: L.labels.name, value: (record.name || "").toUpperCase() }
+  };
+  return L.rows.map(function (k) { return Object.assign({ key: k }, values[k]); });
+}
+
+function sealGridCols(rows, layout) {
+  const L = layout;
+  if (typeof L.cols === "number") return L.cols;
+  const lw = Math.max(L.labelWidth, ...rows.map(function (r) { return r.label.length; }));
+  const longest = Math.max(...rows.filter(function (r) { return r.key !== "name"; })
+    .map(function (r) { return lw + L.gap + Array.from(r.value).length; }));
+  return longest + L.minFill;
+}
+
+/* Max characters of a name that fit the grid (used for the input). */
+function sealNameMax(layout) {
+  const L = layout || sealLayout();
+  const rows = sealRowValues({ encoded: "WORLD-00000000_" + "1".repeat(14), timestamp: "2000-01-01T00:00:00.000Z", voteId: "0".repeat(16) }, L);
+  const cols = sealGridCols(rows, L);
+  return Math.max(4, Math.min(NAME_MAX, cols - Math.max(L.labelWidth, 4) - L.gap - 2));
+}
+
+function fillCells(startCol, cols, fill) {
+  let out = "";
+  for (let c = startCol; c < cols; c++) {
+    if (!fill.spaced) out += fill.char;
+    else out += ((cols - 1 - c) % 2 === 0) ? fill.char : " ";   // dashes line up and every row ends on one
+  }
+  return out;
+}
+
+/* Build the grid: [{ label, value, fill, text }] — text is exactly `cols` wide. */
+function sealGrid(record, layout, colsOverride) {
+  const L = layout || sealLayout();
+  const rows = sealRowValues(record, L);
+  const cols = colsOverride || sealGridCols(rows, L);
+  const lw = Math.max(L.labelWidth, ...rows.map(function (r) { return r.label.length; }));
+  return {
+    cols: cols,
+    rows: rows.map(function (r) {
+      const label = padPrefix(r.label, lw + L.gap);
+      let value = Array.from(r.value);
+      const room = cols - label.length - 2;        // keep a space + at least one dash
+      if (value.length > room) value = value.slice(0, Math.max(0, room));
+      value = value.join("");
+      const used = label.length + value.length;
+      let fill = fillCells(used, cols, L.fill);
+      if (value.length && fill[0] !== " ") fill = " " + fill.slice(1); // breathing space after the value
+      const text = (label + value + fill).slice(0, cols);
+      return { key: r.key, label: label, value: value, fill: text.slice(label.length + value.length), text: text };
+    })
+  };
+}
+
+/* Plain-text block (what's drawn on the seal), handy for tests. */
+function sealDisplayLines(record, layout) {
+  return sealGrid(record, layout).rows.map(function (r) { return r.text; });
 }
 
 const STORAGE_VOTE  = "pc.vote." + EDITION.id + ".v1";
@@ -1021,74 +1138,170 @@ function newPadSeed() {
 }
 
 /* ---------- seal canvas --------------------------------------------- */
-let sealImage = null;
-let sealImagePromise = null;
+const sealImages = {};
 
-function loadSealImage() {
-  if (sealImagePromise) return sealImagePromise;
-  sealImagePromise = new Promise(function (resolve, reject) {
+function loadSealImage(layout) {
+  const L = layout || sealLayout();
+  if (sealImages[L.image]) return sealImages[L.image];
+  sealImages[L.image] = new Promise(function (resolve, reject) {
     const img = new Image();
-    img.onload = function () { sealImage = img; resolve(img); };
-    img.onerror = function () { reject(new Error("Could not load seal.png")); };
-    img.src = SEAL_IMAGE;
+    img.onload = function () { resolve(img); };
+    img.onerror = function () { reject(new Error("Could not load " + L.image)); };
+    img.src = L.image;
   });
-  return sealImagePromise;
+  return sealImages[L.image];
 }
 
-async function renderSeal(record) {
-  const img = await loadSealImage();
-  try { await document.fonts.load(SEAL_TEXT_AREA.fontWeight + " 24px " + SEAL_TEXT_AREA.fontFamily); } catch (e) {}
+/* Fit a monospace grid of `cols` × `rows` into width × height. */
+function fitMonoFont(ctx, L, cols, rows, width, height, imgW) {
+  const probe = 100;
+  ctx.font = L.font.weight + " " + probe + "px " + L.font.family;
+  const advance = ctx.measureText("0".repeat(20)).width / 20 / probe; // em per char
+  const byW = width / (cols * advance);
+  const byH = height / (rows * L.font.lineHeight);
+  const size = Math.min(byW, byH, (L.font.maxSize || 1) * imgW);
+  return { size: Math.floor(size * 10) / 10, advance: advance * size };
+}
+
+/* Row boxes inside the text area: [{ x, y (centre), w }] */
+function sealRowBoxes(L, area, rowCount, lineH) {
+  const boxes = [];
+  const blockH = rowCount * lineH;
+  const top = area.y + (area.h - blockH) / 2;
+  for (let i = 0; i < rowCount; i++) {
+    const cy = top + lineH * (i + 0.5);
+    if (L.shape === "circle") {
+      const r = Math.min(area.w, area.h) / 2;
+      const cx = area.x + area.w / 2, ccy = area.y0 + area.h0 / 2;
+      const dy = Math.max(Math.abs(cy - lineH / 2 - ccy), Math.abs(cy + lineH / 2 - ccy));
+      const half = Math.sqrt(Math.max(0, r * r - dy * dy));
+      boxes.push({ x: cx - half, y: cy, w: half * 2 });
+    } else {
+      boxes.push({ x: area.x, y: cy, w: area.w });
+    }
+  }
+  return boxes;
+}
+
+async function renderSeal(record, layout) {
+  const L = layout || sealLayout();
+  const img = await loadSealImage(L);
+  try { await document.fonts.load(L.font.weight + " 24px " + L.font.family); } catch (e) {}
   try { await document.fonts.ready; } catch (e) {}
 
   const canvas = document.getElementById("seal-canvas");
-  const w = img.naturalWidth, h = img.naturalHeight;
-  canvas.width = w;
-  canvas.height = h;
+  const W = img.naturalWidth, H = img.naturalHeight;
+  canvas.width = W;
+  canvas.height = H;
   const ctx = canvas.getContext("2d");
-  ctx.clearRect(0, 0, w, h);
-  ctx.drawImage(img, 0, 0, w, h);
+  ctx.clearRect(0, 0, W, H);
+  ctx.drawImage(img, 0, 0, W, H);
 
-  const area = SEAL_TEXT_AREA;
-  const x = area.x * w, y = area.y * h, tw = area.w * w, th = area.h * h;
-  const debug = area.debug || /(?:\?|&)sealdebug(?:&|=|$)/.test(location.search);
+  const ta = L.textArea;
+  const box = { x: ta.x * W, y: ta.y * H, w: ta.w * W, h: ta.h * H };
+  const pad = L.padding || { x: 0, y: 0 };
+  const inner = {
+    x: box.x + box.w * pad.x, y: box.y + box.h * pad.y,
+    w: box.w * (1 - 2 * pad.x), h: box.h * (1 - 2 * pad.y),
+    x0: box.x, y0: box.y, w0: box.w, h0: box.h
+  };
+  const debug = /(?:\?|&)sealdebug(?:&|=|$)/.test(location.search);
+
+  let grid = sealGrid(record, L);
+  const nRows = grid.rows.length;
+  let fit = fitMonoFont(ctx, L, grid.cols, nRows, inner.w, inner.h, W);
+  let lineH = fit.size * L.font.lineHeight;
+  let rowBoxes = sealRowBoxes(L, inner, nRows, lineH);
+  if (L.shape !== "circle" && L.stretch !== false) {
+    // height-bound box: extend every row with more fill cells to reach the right edge
+    const cells = Math.floor(inner.w / fit.advance + 1e-6);
+    if (cells > grid.cols) grid = sealGrid(record, L, cells);
+  }
+  if (L.shape === "circle") {
+    // each row gets as many cells as its chord allows; shrink until the widest fits
+    // shrink until every row's content (label + value + a space and a dash) fits its chord
+    const need = grid.rows.map(function (r) { return r.label.length + Array.from(r.value).length + 2; });
+    for (let guard = 0; guard < 60; guard++) {
+      const fits = rowBoxes.every(function (b, i) { return Math.floor(b.w / fit.advance) >= need[i]; });
+      if (fits) break;
+      fit = { size: fit.size * 0.95, advance: fit.advance * 0.95 };
+      lineH = fit.size * L.font.lineHeight;
+      rowBoxes = sealRowBoxes(L, inner, nRows, lineH);
+    }
+  }
+
   if (debug) {
     ctx.save();
-    ctx.strokeStyle = "rgba(200,0,0,0.7)";
-    ctx.lineWidth = Math.max(2, w / 600);
-    ctx.strokeRect(x, y, tw, th);
+    ctx.strokeStyle = L.colors.debug;
+    ctx.lineWidth = Math.max(2, W / 600);
+    if (L.shape === "circle") {
+      ctx.beginPath();
+      ctx.arc(box.x + box.w / 2, box.y + box.h / 2, Math.min(box.w, box.h) / 2, 0, Math.PI * 2);
+      ctx.stroke();
+    } else {
+      ctx.strokeRect(box.x, box.y, box.w, box.h);
+    }
+    ctx.setLineDash([6, 4]);
+    ctx.lineWidth = 1;
+    rowBoxes.forEach(function (b) { ctx.strokeRect(b.x, b.y - lineH / 2, b.w, lineH); });
     ctx.restore();
   }
 
-  const lines = sealDisplayLines(record);
-  const padL = (area.padLeft || 0.026) * w;
-  const padR = (area.padRight || 0.026) * w;
-  const textW = Math.max(40, tw - padL - padR);
-  const tx = x + padL;
-
-  let fontSize = (area.fontSize || 0.017) * w;
-  const font = function (size) { return area.fontWeight + " " + size + "px " + area.fontFamily; };
-  const lineH = area.lineHeight || 1.32;
-  ctx.textAlign = area.align === "left" ? "left" : "center";
+  ctx.font = L.font.weight + " " + fit.size + "px " + L.font.family;
+  ctx.textAlign = "left";
   ctx.textBaseline = "middle";
-  while (fontSize > 8) {
-    ctx.font = font(fontSize);
-    const maxW = Math.max.apply(null, lines.map(function (l) { return ctx.measureText(l).width; }));
-    const totalH = fontSize * lineH * lines.length;
-    if (maxW <= textW && totalH <= th - 4) break;
-    fontSize -= 0.5;
-  }
-  ctx.font = font(fontSize);
-  ctx.fillStyle = area.color;
-  ctx.shadowColor = "rgba(255,255,255,0.7)";
-  ctx.shadowBlur = 2;
-  const totalH = fontSize * lineH * lines.length;
-  let cy = y + th / 2 - totalH / 2 + (fontSize * lineH) / 2;
-  for (const line of lines) {
-    ctx.fillText(line, tx, cy, textW);
-    cy += fontSize * lineH;
-  }
-  ctx.shadowBlur = 0;
+  grid.rows.forEach(function (row, i) {
+    const b = rowBoxes[i];
+    let cells = grid.cols;
+    if (L.shape === "circle") {
+      cells = Math.floor(b.w / fit.advance);
+      row = sealGrid(record, L, cells).rows[i];
+    }
+    // draw cell-by-cell segments so every row is exactly the same width
+    let x = b.x + (L.shape === "circle" ? (b.w - cells * fit.advance) / 2 : 0);
+    const draw = function (text, color) {
+      if (!text) return;
+      ctx.fillStyle = color;
+      // a non-monospace glyph (e.g. CJK) can be wider: clamp to its cells
+      const cellsW = Array.from(text).length * fit.advance;
+      ctx.fillText(text, x, b.y, cellsW + 0.5);
+      x += cellsW;
+    };
+    draw(row.label, L.colors.label);
+    draw(row.value, L.colors.text);
+    draw(row.fill, L.colors.fill);
+  });
   return canvas;
+}
+
+function sealRecord() {
+  return { encoded: state.encoded, timestamp: state.timestamp, voteId: state.voteId, name: state.name || "" };
+}
+
+let pfpUrl = null;
+async function drawSeal() {
+  const canvas = await renderSeal(sealRecord());
+  const img = document.getElementById("pfp-preview");
+  if (img && canvas.toBlob) {
+    const blob = await canvasBlob(canvas);
+    if (blob) {
+      if (pfpUrl) URL.revokeObjectURL(pfpUrl);
+      pfpUrl = URL.createObjectURL(blob);
+      img.src = pfpUrl;
+    }
+  }
+  return canvas;
+}
+
+let nameTimer = null;
+function onNameInput(e) {
+  const clean = sanitizeName(e.target.value).slice(0, sealNameMax());
+  state.name = clean;
+  persistPartial();
+  clearTimeout(nameTimer);
+  nameTimer = setTimeout(function () {
+    if (state.encoded) showResults(false);
+  }, 120);
 }
 
 function canvasBlob(canvas) {
@@ -1103,6 +1316,7 @@ const state = {
   voteId: null,
   encoded: null,
   device: null,
+  name: "",
   justCompleted: false
 };
 
@@ -1217,7 +1431,8 @@ function persistPartial() {
     timestamp: state.timestamp,
     voteId: state.voteId,
     encoded: state.encoded,
-    device: state.device || null
+    device: state.device || null,
+    name: state.name || ""
   };
   saveVote(rec);
 }
@@ -1251,7 +1466,7 @@ async function showResults(scroll) {
     ["Encoded answers", state.encoded],
     ["Voted at (UTC)", state.timestamp],
     ["Vote ID", state.voteId]
-  ].forEach(function (pair) {
+  ].concat(state.name ? [["Signed", state.name]] : []).forEach(function (pair) {
     const row = document.createElement("div");
     row.className = "dp";
     const l = document.createElement("span");
@@ -1281,7 +1496,7 @@ async function showResults(scroll) {
     recap.appendChild(row);
   });
 
-  await renderSeal({ encoded: state.encoded, timestamp: state.timestamp, voteId: state.voteId });
+  await drawSeal();
   if (scroll) {
     results.scrollIntoView({ behavior: "smooth", block: "start" });
   }
@@ -1319,6 +1534,8 @@ function resetVote() {
   state.voteId = null;
   state.encoded = null;
   state.device = null;
+  state.name = "";
+  document.getElementById("seal-name").value = "";
   renderQuestions();
   renderProgress();
   hideResults();
@@ -1338,7 +1555,7 @@ async function saveImage() {
     const blob = await canvasBlob(canvas);
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = "planetary-council-i-voted-" + EDITION.codeTag + "-" + (state.voteId || "seal") + ".png";
+    a.download = "planetary-council-i-voted-" + EDITION.codeTag + "-" + (state.voteId || "seal") + ".png"; // full-res square PNG
     document.body.appendChild(a);
     a.click();
     a.remove();
@@ -1357,7 +1574,7 @@ async function shareSeal() {
   try {
     const canvas = document.getElementById("seal-canvas");
     const blob = await canvasBlob(canvas);
-    const file = new File([blob], "planetary-council-i-voted.png", { type: "image/png" });
+    const file = new File([blob], "planetary-council-i-voted-" + EDITION.codeTag + ".png", { type: "image/png" });
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
       await navigator.share({ title: "I voted — Planetary Council", text: text, files: [file], url: SITE_VOTE_URL });
       btn.textContent = "Shared";
@@ -1438,7 +1655,11 @@ async function restore() {
     state.voteId = saved.voteId || null;
     state.encoded = saved.encoded || null;
     state.device = saved.device || null;
+    state.name = sanitizeName(saved.name || "");
   }
+  const nameInput = document.getElementById("seal-name");
+  nameInput.maxLength = sealNameMax();
+  nameInput.value = state.name || "";
   renderQuestions();
   renderProgress();
   if (isComplete() && state.encoded && state.voteId && state.timestamp) {
@@ -1479,8 +1700,11 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("btn-share").addEventListener("click", shareSeal);
   document.getElementById("btn-copy").addEventListener("click", copyDetails);
   document.getElementById("decoder-input").addEventListener("input", onDecodeInput);
+  document.getElementById("seal-name").addEventListener("input", onNameInput);
+  document.getElementById("seal-name").addEventListener("blur", function (e) { e.target.value = state.name || ""; });
   window.addEventListener("resize", function () { syncBarHeight(); onResize(); });
   loadSealImage().catch(function () { /* shown later if needed */ });
+  document.getElementById("seal-name").maxLength = sealNameMax();
   restore();
 });
 
@@ -1494,7 +1718,13 @@ window.__PC_VOTE__ = {
   padFrom: padFrom,
   state: state,
   getNonce: getNonce,
-  SEAL_TEXT_AREA: SEAL_TEXT_AREA,
+  SEAL_LAYOUTS: SEAL_LAYOUTS,
+  sealLayout: sealLayout,
+  sealLayoutName: sealLayoutName,
+  sealGrid: sealGrid,
+  sealNameMax: sealNameMax,
+  sanitizeName: sanitizeName,
+  renderSeal: renderSeal,
   sealDisplayLines: sealDisplayLines,
   parseEncoded: parseEncoded
 };
