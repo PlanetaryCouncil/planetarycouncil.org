@@ -127,9 +127,7 @@ button { font-family: inherit; }
   padding: 13px 28px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 .pc-logo {
   display: flex;
@@ -151,39 +149,13 @@ button { font-family: inherit; }
   font-size: 16.5px;
   letter-spacing: -0.01em;
 }
-.pc-bar-links {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.pc-bar-links a {
-  display: inline-flex;
-  align-items: center;
-  padding: 9px 17px;
-  border-radius: 999px;
-  font-family: var(--pc-head);
-  font-weight: 600;
-  font-size: 13.5px;
-  text-decoration: none;
-  color: var(--pc-ink);
-  border: 1px solid var(--pc-line);
-  transition: transform .16s ease, border-color .16s ease, background .16s ease;
-}
-.pc-bar-links a:hover { color: var(--pc-ink); text-decoration: none; border-color: var(--pc-accent); }
-.pc-bar-links a.current {
-  background: var(--pc-accent);
-  color: #ffffff;
-  border-color: var(--pc-accent);
-}
-.pc-bar-links a.current:hover { color: #ffffff; }
 
 
 header.hero {
   position: relative;
-  max-width: 1100px;
+  max-width: 1060px;
   margin: 0 auto;
-  padding: clamp(16px, 3.5vw, 36px) clamp(14px, 3vw, 24px) 36px;
+  padding: clamp(16px, 3.5vw, 36px) 28px 36px;
 }
 .hero h1 {
   font-family: var(--font-head);
@@ -238,9 +210,9 @@ header.hero {
   margin-bottom: 52px;
 }
 .sticky-inner {
-  max-width: 980px;
+  max-width: 1060px;
   margin: 0 auto;
-  padding: 10px clamp(14px, 3vw, 24px);
+  padding: 10px 28px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -301,9 +273,9 @@ header.hero {
 
 main.wrap {
   position: relative;
-  max-width: 980px;
+  max-width: 1060px;
   margin: 0 auto;
-  padding: 0 clamp(14px, 3vw, 24px);
+  padding: 0 28px;
   display: flex;
   flex-direction: column;
   gap: 64px;
@@ -636,9 +608,6 @@ footer.site span { color: var(--muted); opacity: .7; }
 .noscript { margin: 24px auto; max-width: 640px; padding: 16px; font-size: 18px; color: var(--text); }
 
 @media (max-width: 759px) {
-  .pc-bar-inner { padding: 10px 16px 12px; }
-  .pc-bar-links { width: 100%; gap: 8px; }
-  .pc-bar-links a { padding: 7px 13px; font-size: 12.5px; }
   .scale-legend { display: block; }
   .dots { display: none; }
   .q-opts { max-width: none; width: 100%; margin-left: 0; }
@@ -667,12 +636,6 @@ footer.site span { color: var(--muted); opacity: .7; }
         </span>
         <span class="pc-logo-name">Planetary Council</span>
       </a>
-      <nav class="pc-bar-links" aria-label="Site">
-        <a href="https://planetarycouncil.org/">Home</a>
-        <a href="https://planetarycouncil.org/#council">The Council</a>
-        <a href="https://planetarycouncil.org/#people-are-people">Publications</a>
-        <a class="current interaction-1" href="https://planetarycouncil.org/vote/" aria-current="page">Vote</a>
-      </nav>
     </div>
   </header>
 
