@@ -1,0 +1,1125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Play the Shah of Iran prototype: a win-win-win game of miracle engineering from the Planetary Council.">
+<link rel="canonical" href="https://planetarycouncil.org/shah-of-iran/play/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Shah of Iran — play the prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a drafting-table blueprint. Masthead, then the Wheel, the live Table, then tools. Lapis ink on cool vellum, saffron gold for miracles. */
+:root {
+  --paper: #eef1f5; --panel: #f9fafc; --ink: #15213f; --muted: #58637a; --line: #c8cfdc;
+  --lapis: #1f3c88; --gold: #a86b12; --gold-soft: #f4e6c8;
+  --t1: #a86b12; --t2: #1f3c88; --t3: #17726b; --t4: #7a4a8e;
+  --ok: #2c7a4b; --warn: #b2452a;
+  --display: "Cinzel", "Trajan Pro", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #0c1430; --panel: #131d3e; --ink: #e7ebf5; --muted: #9ca7c2; --line: #2a3769;
+  --lapis: #93acff; --gold: #e6b24c; --gold-soft: #3b3016;
+  --t1: #e6b24c; --t2: #93acff; --t3: #5fcac0; --t4: #c9a0e3; --ok: #6cc590; --warn: #f28e70;
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --paper: #0c1430; --panel: #131d3e; --ink: #e7ebf5; --muted: #9ca7c2; --line: #2a3769;
+  --lapis: #93acff; --gold: #e6b24c; --gold-soft: #3b3016;
+  --t1: #e6b24c; --t2: #93acff; --t3: #5fcac0; --t4: #c9a0e3; --ok: #6cc590; --warn: #f28e70;
+  color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper);
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--line) 35%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--line) 35%, transparent) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--ink); font: 15px/1.55 var(--body);
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 1180px; margin: 0 auto; display: grid; gap: 56px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: .04em; }
+h2 { font-size: 1.55rem; }
+h3 { font-size: 1.05rem; }
+p { margin: 0; }
+.eyebrow { font: 500 .72rem/1.3 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+button, select, input, textarea { font: inherit; color: inherit; }
+button {
+  cursor: pointer; border: 1px solid var(--line); background: var(--panel); border-radius: 6px;
+  padding: 6px 12px; transition: border-color .15s, background .15s;
+}
+button:hover { border-color: var(--lapis); }
+button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+button.primary { background: var(--lapis); color: var(--paper); border-color: var(--lapis); font-weight: 600; }
+button.gold { background: var(--gold); color: var(--paper); border-color: var(--gold); font-weight: 600; }
+button.ghost { background: transparent; }
+button.small { padding: 2px 8px; font-size: .8rem; }
+button.danger { color: var(--warn); }
+select, input, textarea { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; }
+textarea { width: 100%; min-height: 160px; font: .8rem/1.45 var(--mono); resize: vertical; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.sec-head { display: grid; gap: 6px; margin-bottom: 20px; }
+.sec-head p { max-width: 65ch; }
+
+/* Masthead */
+header.mast { padding-block: 56px 8px; display: grid; gap: 14px; }
+header.mast h1 { font-size: clamp(2.3rem, 7vw, 4.8rem); line-height: .95; font-weight: 700; letter-spacing: .06em; }
+header.mast h1 span { color: var(--gold); }
+.subtitle { font: italic 400 1.15rem/1.4 var(--body); color: var(--muted); }
+.creed { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 10px; font: 500 .82rem/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.creed b { color: var(--gold); font-weight: 500; }
+.arch { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 18px; }
+.arch div { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: grid; gap: 2px; min-width: 0; align-content: start; }
+@media (max-width: 760px) { .arch { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.arch .role { font: 500 .68rem/1.3 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+.arch b { font-family: var(--display); letter-spacing: .03em; }
+.arch .reach { font-size: .8rem; color: var(--muted); }
+.steps { display: grid; gap: 8px; margin: 0 0 18px; padding-left: 1.3em; max-width: 70ch; }
+.small { font-size: .8rem; margin-top: 12px; }
+footer a { color: inherit; }
+
+/* Wheel */
+.wheel-grid { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 32px; align-items: start; }
+.wheel-box { position: relative; max-width: 420px; width: 100%; }
+#wheel { width: 100%; height: auto; aspect-ratio: 1; display: block; max-width: 100%; }
+.pointer { position: absolute; top: -6px; left: 50%; transform: translateX(-50%); width: 0; height: 0;
+  border-left: 12px solid transparent; border-right: 12px solid transparent; border-top: 22px solid var(--gold); }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 20px; min-width: 0; }
+
+/* Quest detail */
+.q-title { font-family: var(--display); font-size: 1.35rem; letter-spacing: .03em; }
+.q-flavor { font-style: italic; color: var(--muted); }
+.facts { border-left: 2px solid var(--line); padding-left: 12px; font-size: .88rem; color: var(--muted); }
+.facts b { font: 500 .68rem var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink); display: block; }
+.stack { display: grid; gap: 12px; align-content: start; }
+.chain { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+.mir { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 8px; align-items: start; padding: 5px 6px; border-radius: 6px; font-size: .9rem; }
+.mir .n { min-width: 0; }
+.mir .idx { font: .75rem/1.9 var(--mono); color: var(--muted); }
+.meta { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+.res { font: 500 .64rem/1 var(--mono); letter-spacing: .06em; padding: 3px 5px; border-radius: 4px; border: 1px solid var(--line); color: var(--muted); }
+.pips { font: .8rem/1 var(--mono); color: var(--gold); letter-spacing: 1px; }
+.kind { font: 500 .62rem/1 var(--mono); text-transform: uppercase; letter-spacing: .08em; padding: 3px 5px; border-radius: 4px; }
+.kind.lateral { color: var(--t3); border: 1px solid var(--t3); }
+.kind.reframe { color: var(--t4); border: 1px solid var(--t4); }
+.tiers { display: grid; gap: 4px; }
+.tier { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 10px; align-items: center; font-size: .9rem; padding: 4px 0; }
+.tb { font: 700 .78rem/1 var(--display); text-align: center; padding: 5px 0; border-radius: 4px; color: var(--paper); }
+.tb.I { background: var(--t1); } .tb.II { background: var(--t2); } .tb.III { background: var(--t3); } .tb.IV { background: var(--t4); }
+.pb { font-size: .86rem; display: grid; gap: 4px; }
+.pb span { font: 500 .66rem var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-right: 6px; }
+
+/* Table */
+.controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 18px; }
+.ctl { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.clock { display: flex; gap: 4px; flex-wrap: wrap; }
+.tick { width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--line); font: .7rem/22px var(--mono); text-align: center; color: var(--muted); }
+.tick.past { background: var(--line); color: var(--ink); }
+.tick.now { background: var(--gold); border-color: var(--gold); color: var(--paper); font-weight: 600; }
+.mcard { border: 1px dashed var(--gold); background: var(--gold-soft); border-radius: 8px; padding: 10px 12px; font-size: .88rem; }
+.mcard b { font-family: var(--display); letter-spacing: .03em; display: block; }
+
+.endings { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--panel); margin-bottom: 18px; }
+.end { padding: 12px; border-right: 1px solid var(--line); display: grid; gap: 4px; align-content: start; }
+.end:last-child { border-right: 0; }
+.end h3 { font-size: .85rem; }
+.end p { font-size: .76rem; color: var(--muted); }
+.end .st { font: 500 .66rem var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.end.lit { background: color-mix(in srgb, var(--gold) 16%, var(--panel)); }
+.end.lit .st { color: var(--gold); }
+.fmem { border: 2px solid var(--gold); border-radius: 10px; padding: 12px 16px; margin-bottom: 18px; font-weight: 600; background: var(--gold-soft); }
+.fmem b { font-family: var(--display); letter-spacing: .06em; }
+
+.players { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+.player { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; }
+.p-head { padding: 14px 16px; border-bottom: 1px solid var(--line); display: grid; gap: 10px; }
+.p-name { font: 600 1.05rem var(--body); background: transparent; border: 1px solid transparent; padding: 2px 4px; margin-left: -5px; min-width: 0; width: 0; flex: 1; }
+.p-name:hover { border-color: var(--line); }
+.rank { font: 500 .66rem var(--mono); letter-spacing: .1em; text-transform: uppercase; padding: 3px 7px; border-radius: 99px; border: 1px solid var(--gold); color: var(--gold); white-space: nowrap; }
+.counters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.ctr { border: 1px solid var(--line); border-radius: 6px; padding: 4px 6px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px; }
+.ctr .l { font: .62rem/1.2 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); grid-column: 1 / -1; }
+.ctr .v { font: 600 1rem var(--mono); font-variant-numeric: tabular-nums; }
+.ctr .b { display: flex; gap: 2px; }
+.ctr .b button { padding: 0 6px; font-size: .8rem; line-height: 1.4; }
+.titles { display: flex; flex-wrap: wrap; gap: 4px; }
+.title-chip { font-size: .74rem; padding: 2px 7px; border-radius: 4px; background: var(--gold-soft); border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent); }
+.pq { padding: 14px 16px; border-bottom: 1px solid var(--line); display: grid; gap: 10px; }
+.pq:last-child { border-bottom: 0; }
+.pq-head { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.pq-title { font-family: var(--display); font-size: 1rem; letter-spacing: .02em; }
+.facedown { border: 1px dashed var(--line); border-radius: 8px; padding: 14px; text-align: center; display: grid; gap: 8px; justify-items: center; }
+button.mir { width: 100%; text-align: left; border: 1px solid transparent; background: transparent; }
+button.mir:hover { border-color: var(--line); }
+.mir.done { background: color-mix(in srgb, var(--ok) 12%, transparent); }
+.mir.done .n { text-decoration: none; }
+.mir.done .idx { color: var(--ok); font-weight: 600; }
+.mir.struck .n { text-decoration: line-through; color: var(--muted); }
+.mir-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px; align-items: start; }
+.strike { font-size: .7rem; padding: 3px 6px; margin-top: 3px; color: var(--muted); }
+.strike.on { color: var(--t4); border-color: var(--t4); }
+.tier .status { font: .74rem var(--mono); color: var(--muted); white-space: nowrap; }
+.tier.ready .status { color: var(--ok); }
+.tier.claimed .status { color: var(--gold); font-weight: 600; }
+.p-foot { padding: 10px 16px; display: flex; justify-content: flex-end; gap: 8px; }
+
+/* Tools */
+.tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+.dice { display: flex; flex-wrap: wrap; gap: 6px; min-height: 40px; }
+.die { width: 36px; height: 36px; border-radius: 7px; border: 1.5px solid var(--line); display: grid; place-items: center; font: 600 1rem var(--mono); }
+.die.hit { border-color: var(--gold); background: var(--gold); color: var(--paper); }
+.die.ins { border-style: dashed; border-color: var(--t4); color: var(--t4); }
+.verdict { font-family: var(--display); font-size: 1.2rem; letter-spacing: .04em; }
+.verdict.ok { color: var(--ok); } .verdict.no { color: var(--warn); }
+.field { display: grid; gap: 4px; font-size: .8rem; color: var(--muted); }
+.field select, .field input { color: var(--ink); }
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; }
+.dist { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.dist td, .dist th { padding: 8px 6px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.dist th { font: 500 .66rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.dist td:last-child { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.scroll { overflow-x: auto; }
+.msg { font-size: .85rem; }
+.msg.ok { color: var(--ok); } .msg.no { color: var(--warn); }
+
+/* Characters */
+.cp-line { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.cp-big { font: 600 2.4rem/1 var(--mono); font-variant-numeric: tabular-nums; color: var(--gold); }
+.bar { height: 8px; border-radius: 99px; background: var(--line); overflow: hidden; }
+.bar > i { display: block; height: 100%; background: var(--gold); border-radius: 99px; }
+.bar.lapis > i { background: var(--lapis); }
+.bar-row { display: grid; gap: 4px; font-size: .84rem; }
+.bar-row .row { justify-content: space-between; }
+.ledger { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: .85rem; max-height: 220px; overflow-y: auto; }
+.ledger li { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 8px; align-items: center; }
+.codex { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 6px; }
+.cx { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 8px; align-items: center; font-size: .84rem; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); }
+.cx .tb.none { background: transparent; color: var(--muted); border: 1px dashed var(--line); }
+.cx.retired { opacity: .75; border-style: dashed; }
+.loadout { border: 1px dashed var(--gold); border-radius: 8px; padding: 8px 10px; display: grid; gap: 6px; font-size: .82rem; }
+.sig { font-size: .82rem; border-left: 2px solid var(--gold); padding-left: 8px; }
+.log { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: .84rem; }
+.log .mono { font-size: .74rem; color: var(--muted); margin-right: 6px; }
+.choose { font-size: .78rem; padding: 2px 4px; max-width: 170px; }
+
+/* Deck */
+.deck { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+details.dq { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; min-width: 0; }
+details.dq summary { cursor: pointer; padding: 12px 16px; display: flex; justify-content: space-between; gap: 10px; align-items: baseline; list-style: none; }
+details.dq summary::-webkit-details-marker { display: none; }
+details.dq summary .q { font-family: var(--display); letter-spacing: .02em; }
+details.dq > div { padding: 0 16px 16px; }
+footer { font-size: .82rem; color: var(--muted); display: grid; gap: 6px; border-top: 1px solid var(--line); padding-top: 20px; }
+
+@media (max-width: 820px) {
+  .wheel-grid { grid-template-columns: 1fr; }
+  .endings { grid-template-columns: 1fr 1fr; }
+  .end { border-bottom: 1px solid var(--line); }
+  .players, .deck, .tools { grid-template-columns: minmax(0, 1fr); }
+  .counters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dist td:last-child { white-space: normal; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <p style="padding-top:18px;margin:0"><a href="/shah-of-iran/" style="color:inherit">&larr; Shah of Iran</a> &middot; <a href="/" style="color:inherit">Planetary Council</a></p>
+  <header class="mast">
+    <div class="eyebrow">Miracle Engineering Solutions LLC Inc. presents · Deck edition <span id="edition"></span></div>
+    <h1>Shah <span>of Iran</span></h1>
+    <p class="subtitle">A Miracle Engineering game. Win-Win-Win. Find the fewest miracles it takes to unify humanity.</p>
+    <div class="creed">
+      <span>There is no impossible. <b>Only miracles required.</b></span>
+      <span><b>We win when we all win.</b></span>
+    </div>
+  </header>
+
+  <section id="main-sec">
+    <div class="sec-head">
+      <div class="eyebrow">The main quest</div>
+      <h2>Unify humanity as the Ambassador of Peace</h2>
+      <p class="muted">Eight names everyone on Earth has heard of. Bring each one on board and humanity is unified. Each one is a miracle. Miracle engineering means finding the path that needs the fewest.</p>
+    </div>
+    <div class="arch" id="arch"></div>
+    <ol class="steps">
+      <li><b>Deal.</b> Everyone gets the main quest, plus side quests from the wheel.</li>
+      <li><b>Engineer miracles.</b> On your turn, roll dice for one step. A 5 or 6 succeeds. Helping another player gives you both more dice.</li>
+      <li><b>Win together.</b> 1 miracle is a table-top peace. 4 is a win. All 8 is peace. Fewer miracles for the same result is better engineering, and the biggest endings only unlock when every player gets there.</li>
+    </ol>
+    <div class="row">
+      <button class="gold" id="deal-main">Deal the main quest to every player</button>
+      <span class="msg" id="main-msg" role="status"></span>
+    </div>
+    <p class="muted small">Satire and thought experiment. If you use the internet, you have almost certainly heard of all eight. Nobody named here is affiliated with this game or has endorsed it.</p>
+  </section>
+
+  <section id="wheel-sec">
+    <div class="sec-head">
+      <div class="eyebrow">The Side Quest Generator</div>
+      <h2>Spin for an impossible life</h2>
+      <p class="muted">Every quest has a Full Miracle, a next-best Ultra tier, a sideways Lateral win and a Reframe that changes what the words mean. Spin one, then deal it to a player at the table.</p>
+    </div>
+    <div class="wheel-grid">
+      <div class="stack">
+        <div class="wheel-box"><div class="pointer"></div><canvas id="wheel" width="840" height="840" aria-label="Quest wheel"></canvas></div>
+        <div class="row">
+          <select id="wheel-type" aria-label="Which quests are on the wheel">
+            <option value="role">A · Role quests</option>
+            <option value="outcome">B · Outcome quests</option>
+            <option value="enabler">C · Enabler quests</option>
+            <option value="all">Everything</option>
+          </select>
+          <button class="gold" id="spin">Spin the wheel</button>
+        </div>
+      </div>
+      <div class="card stack" id="wheel-result"></div>
+    </div>
+  </section>
+
+  <section id="table-sec">
+    <div class="sec-head">
+      <div class="eyebrow">The Table</div>
+      <h2>Track the game</h2>
+      <p class="muted" id="table-note"></p>
+    </div>
+
+    <div class="controls">
+      <div class="ctl">
+        <div class="eyebrow">Mode</div>
+        <select id="mode" aria-label="Game mode">
+          <option value="blitz">Blitz · about 1 hour · 4 rounds · 2 quests</option>
+          <option value="standard">Standard · 8 rounds · 3 quests</option>
+          <option value="campaign">Campaign · multi-session · 6 rounds each</option>
+        </select>
+        <div class="row">
+          <button id="new-table">Deal a new table</button>
+          <button id="add-player">Add player</button>
+        </div>
+      </div>
+      <div class="ctl">
+        <div class="row" style="justify-content:space-between"><div class="eyebrow" id="clock-label">Round</div><span class="mono muted" id="session-label"></span></div>
+        <div class="clock" id="clock"></div>
+        <div class="row">
+          <button class="primary" id="next-round">End round &amp; draw Miracle Card</button>
+          <button id="end-session" hidden>End session</button>
+          <button id="bank">Finish game &amp; bank CP</button>
+        </div>
+        <div id="card-slot"></div>
+        <p class="msg" id="bank-msg"></p>
+      </div>
+      <div class="ctl">
+        <div class="eyebrow">Record a successful help</div>
+        <div class="row">
+          <select id="help-from" aria-label="Helper"></select>
+          <span class="muted">helped</span>
+          <select id="help-to" aria-label="Player helped"></select>
+        </div>
+        <button id="record-help">Record help (Bond changes hands)</button>
+        <p class="msg muted" id="help-msg">The player helped gives the helper a Bond.</p>
+      </div>
+    </div>
+
+    <div class="endings" id="endings"></div>
+    <div id="fmem-slot"></div>
+    <div class="players" id="players"></div>
+  </section>
+
+  <section id="char-sec">
+    <div class="sec-head">
+      <div class="eyebrow">Characters</div>
+      <h2>Your character travels</h2>
+      <p class="muted">Titles, Character Points and your Codex follow you to every table. Copy your character code, paste it into someone else's game, and pick up where you left off. The long goal is to claim an Ultra (Tier II) or better on every quest in the deck.</p>
+    </div>
+    <div class="tools">
+      <div class="card stack">
+        <div class="row" style="justify-content:space-between">
+          <h3>Character sheet</h3>
+          <select id="char-pick" aria-label="Whose character"></select>
+        </div>
+        <div id="char-sheet" class="stack"></div>
+      </div>
+      <div class="card stack">
+        <h3>Bring a character to this table</h3>
+        <textarea id="import-code" aria-label="Character code" spellcheck="false" style="min-height:90px" placeholder="Paste a character code (starts with ME1.)"></textarea>
+        <div class="row"><button class="primary" id="import-btn">Seat this character</button></div>
+        <p class="msg" id="import-msg">If the same character is already seated, their sheet is updated instead of duplicated.</p>
+        <h3 style="margin-top:8px">Reality log</h3>
+        <ul class="log" id="reality-log"></ul>
+      </div>
+    </div>
+    <div class="stack" style="margin-top:16px">
+      <div class="row" style="justify-content:space-between"><h3 id="codex-title">Codex</h3><span class="muted mono" id="codex-sum" style="font-size:.8rem"></span></div>
+      <div class="codex" id="codex"></div>
+    </div>
+  </section>
+
+  <section id="tools-sec">
+    <div class="sec-head">
+      <div class="eyebrow">Instruments</div>
+      <h2>Dice, distinctions, saves</h2>
+    </div>
+    <div class="tools">
+      <div class="card stack">
+        <h3>Miracle attempt</h3>
+        <p class="muted" style="font-size:.85rem">2 base dice, +1 per matching card, +1 per helper card. Each 5–6 is a success. Insight counts as one automatic success each.</p>
+        <div class="fields">
+          <label class="field">Dice<input id="dl-dice" type="number" min="1" max="30" value="4"></label>
+          <label class="field">Difficulty<select id="dl-diff"><option>1</option><option selected>2</option><option>3</option></select></label>
+          <label class="field">Succeeds on<select id="dl-thr"><option value="5">5–6</option><option value="4">4–6 (Laureate)</option></select></label>
+          <label class="field">Insight spent<input id="dl-ins" type="number" min="0" max="10" value="0"></label>
+          <label class="field">Attempt by<select id="dl-player"></select></label>
+        </div>
+        <div class="row"><button class="gold" id="roll">Roll</button><span class="mono muted" id="odds"></span></div>
+        <div class="dice" id="dice"></div>
+        <div id="verdict"></div>
+      </div>
+
+      <div class="card stack">
+        <h3>Distinctions</h3>
+        <p class="muted" style="font-size:.85rem">There is no single scoreboard. Each distinction has its own leader.</p>
+        <div class="scroll"><table class="dist" id="dist"></table></div>
+      </div>
+
+      <div class="card stack">
+        <h3>Save &amp; carry over</h3>
+        <p class="muted" style="font-size:.85rem">This browser remembers the table. To move a campaign to another device, copy the save and paste it there.</p>
+        <textarea id="save-box" aria-label="Save data" spellcheck="false" placeholder="Press Show save, or paste a save here and press Load."></textarea>
+        <div class="row">
+          <button id="show-save">Show save</button>
+          <button id="copy-save">Copy</button>
+          <button id="load-save">Load pasted save</button>
+          <button class="danger" id="reset">Reset to example</button>
+        </div>
+        <p class="msg" id="save-msg"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="forge-sec">
+    <div class="sec-head">
+      <div class="eyebrow">Quest Forge</div>
+      <h2>Add new impossible things</h2>
+      <p class="muted">Ask any AI (or write one yourself) for a quest in the deck's JSON shape, paste it here, and the table votes it in. Forged quests join the wheel and the deck in this browser.</p>
+    </div>
+    <div class="tools">
+      <div class="card stack">
+        <div class="row">
+          <input id="forge-theme" placeholder="Theme, e.g. 'become mayor of the internet'" style="flex:1; min-width:0">
+          <button id="copy-prompt">Copy AI prompt</button>
+        </div>
+        <textarea id="forge-box" aria-label="Quest JSON" spellcheck="false"></textarea>
+        <div class="row">
+          <button id="forge-template">Fill template</button>
+          <button class="primary" id="forge-add">Ratify &amp; add to deck</button>
+        </div>
+        <p class="msg" id="forge-msg"></p>
+      </div>
+      <div class="card stack">
+        <h3>Forged so far</h3>
+        <div id="forged" class="stack"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="deck-sec">
+    <div class="sec-head">
+      <div class="eyebrow">The Deck</div>
+      <h2>Every quest, every path</h2>
+      <p class="muted">"On the record" notes are real-world context, kept apart from the invention. Everything else is game.</p>
+    </div>
+    <div class="deck" id="deck"></div>
+  </section>
+
+  <footer>
+    <span>Miracle Engineering Solutions LLC Inc. Engineering the improbable since whenever necessary.</span>
+    <span>One miracle is luck. A cascade is engineering. Impossible is just poor dependency management.</span>
+    <span>Part of <a href="https://genesis.re">Network State Genesis</a> and the <a href="https://planetarycouncil.org">Planetary Council</a>.</span>
+    <span>With gratitude to MetaFest in Croatia, MetaGame, Existential Hope, XPRIZE, imagination engineering and the Moonshots podcast. Inspirations, not affiliations.</span>
+  </footer>
+</div>
+
+<script src="quests.js"></script>
+<script>
+(() => {
+const R = window.RESOURCES, BASE = window.QUESTS, CARDS = window.MIRACLE_CARDS, DECK = window.DECK || { edition: "?" }, RLOG = window.REALITY_LOG || [];
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const pick = a => a[Math.floor(Math.random() * a.length)];
+const TYPE_LABEL = { role: "A · Role", outcome: "B · Outcome", enabler: "C · Enabler" };
+const MODES = {
+  blitz: { rounds: 4, actions: 3, quests: ["role", "outcome"] },
+  standard: { rounds: 8, actions: 2, quests: ["role", "outcome", "enabler"] },
+  campaign: { rounds: 6, actions: 2, quests: ["role", "outcome", "enabler"] }
+};
+const BGS = { Dreamer: "IMA", Operator: "ACC", Founder: "CAP", Engineer: "TEC", Broadcaster: "ATT", Official: "LEG" };
+const TR = { I: 4, II: 3, III: 2, IV: 1 };
+const TIER_PTS = { I: 10, II: 6, III: 4, IV: 2 };
+const RANKS = [[250, "Master Miracle Engineer", 4], [100, "Architect", 3], [40, "Engineer", 2], [10, "Apprentice", 1], [0, "Unranked", 0]];
+const ENDING_CP = [0, 2, 4, 8, 14, 25]; // by number of endings unlocked
+const KEY = "miracle-engineering-v1";
+
+let state;
+const deck = () => BASE.concat(state.custom || []);
+const activeDeck = () => deck().filter(q => !q.retired);
+const qById = id => deck().find(q => q.id === id);
+
+function pq(qid) { return { qid, done: [], struck: [], claimed: [], open: false }; }
+function exampleState() {
+  const s = {
+    mode: "standard", round: 2, session: 1, custom: [], lastCard: CARDS[0], example: true, gameId: "example", banked: null,
+    players: [
+      { name: "Mars", bg: "Dreamer", quests: [pq("mars"), pq("phenom"), pq("impossible")], insight: 1, held: 1, given: 0, cascades: 0, elegance: 0, imagination: 1, titles: [] },
+      { name: "Ava", bg: "Operator", quests: [pq("pope"), pq("country"), pq("kingmaker")], insight: 0, held: 0, given: 1, cascades: 0, elegance: 0, imagination: 0, titles: [] },
+      { name: "Oracle (AI)", bg: "Engineer", quests: [pq("shah"), pq("moon"), pq("cascade")], insight: 2, held: 0, given: 0, cascades: 0, elegance: 0, imagination: 0, titles: [] }
+    ]
+  };
+  const [m, a, o] = s.players;
+  m.quests[0].done[6] = true; m.quests[0].claimed = ["IV"]; m.quests[0].open = true;
+  m.titles.push({ t: "Ig Nobel laureate", tier: "III", qid: "nobel2", q: "Win two Nobel Prizes in the same year", s: "earlier game" });
+  m.titles.push({ t: "President Mars (by name and by book)", tier: "IV", qid: "mars", q: "Become President of Mars", s: 1 });
+  m.cpBonus = 9; m.charId = "mars-example";
+  m.quests[1].done[0] = true;
+  a.quests[0].done[0] = true; a.quests[0].open = true;
+  a.quests[1].done[3] = true;
+  o.quests[0].done[7] = true; o.quests[0].open = true;
+  o.quests[1].done[0] = true;
+  s.players.forEach(norm);
+  return s;
+}
+function load() {
+  try { const raw = localStorage.getItem(KEY); if (raw) { const s = JSON.parse(raw); if (s && Array.isArray(s.players)) return s; } } catch (e) {}
+  return exampleState();
+}
+function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+// ── derived ──
+const realityStruck = (qid, i) => (qById(qid)?.reality || []).some(r => r.m === i);
+const isDone = (p, i) => !!(p.done[i] || p.struck[i] || realityStruck(p.qid, i));
+function tierReady(p, tier) { return tier.need.every(i => isDone(p, i)); }
+function bestTier(player) {
+  let best = 0;
+  player.quests.forEach(q => q.claimed.forEach(t => { best = Math.max(best, TR[t] || 0); }));
+  return best;
+}
+function questPts(player) {
+  return player.quests.reduce((sum, q) => {
+    const quest = qById(q.qid); if (!quest) return sum;
+    const pts = quest.tiers.filter(t => q.claimed.includes(t.t)).map(t => t.pts);
+    return sum + (pts.length ? Math.max(...pts) : 0);
+  }, 0);
+}
+function resolved(player) { return player.quests.reduce((n, q) => n + q.done.filter(Boolean).length, 0); }
+function norm(p) {
+  p.titles = p.titles || []; p.cpBonus = p.cpBonus || 0; p.loadout = p.loadout || 0; p.signature = p.signature || "";
+  p.charId = p.charId || Math.random().toString(36).slice(2, 10);
+  ["insight", "held", "given", "cascades", "elegance", "imagination"].forEach(k => { p[k] = p[k] || 0; });
+  p.quests = p.quests || [];
+  return p;
+}
+function titleQid(t) { if (t.qid) return t.qid; const q = deck().find(x => x.title === t.q); return q ? q.id : t.q; }
+function codexOf(p) {
+  const c = {};
+  p.titles.forEach(t => { const id = titleQid(t); if ((TR[t.tier] || 0) > (TR[c[id]] || 0)) c[id] = t.tier; });
+  return c;
+}
+function cpOf(p) { return Object.values(codexOf(p)).reduce((s, t) => s + (TIER_PTS[t] || 0), 0) + (p.cpBonus || 0); }
+function codexProgress(p) {
+  const c = codexOf(p), act = activeDeck();
+  return { n: act.length, ultra: act.filter(q => (TR[c[q.id]] || 0) >= 3).length, mastery: act.filter(q => c[q.id] === "I").length, any: act.filter(q => c[q.id]).length };
+}
+function rankInfo(p) {
+  const cp = cpOf(p), pr = codexProgress(p);
+  if (pr.n && pr.ultra === pr.n) return { name: "Beyond Ultra", slots: 4, cp, next: null };
+  const i = RANKS.findIndex(([k]) => cp >= k);
+  return { name: RANKS[i][1], slots: RANKS[i][2], cp, next: i > 0 ? RANKS[i - 1] : null };
+}
+function rankOf(p) { return rankInfo(p).name; }
+function improbable(player) {
+  let best = null;
+  player.quests.forEach(q => {
+    const quest = qById(q.qid); if (!quest) return;
+    quest.tiers.filter(t => q.claimed.includes(t.t)).forEach(t => {
+      const w = t.need.reduce((s, i) => s + (quest.miracles[i]?.d || 0), 0);
+      const score = TR[t.t] * 100 + w;
+      if (!best || score > best.score) best = { score, label: `${t.name} (Tier ${t.t}, weight ${w})` };
+    });
+  });
+  return best;
+}
+
+// ── static quest rendering ──
+function pips(d) { return d ? "●".repeat(d) + "○".repeat(3 - d) : "✓ condition"; }
+function miracleMeta(m) {
+  return `<span class="meta">${m.kind ? `<span class="kind ${m.kind}">${m.kind}</span>` : ""}${(m.r || []).map(r => `<span class="res" title="${esc(R[r])}">${r}</span>`).join("")}<span class="pips" title="Difficulty ${m.d}">${pips(m.d)}</span></span>`;
+}
+function questDetail(q) {
+  const t1 = q.tiers.find(t => t.t === "I");
+  const weight = t1 ? t1.need.reduce((s, i) => s + (q.miracles[i]?.d || 0), 0) : 0;
+  return `
+    <div class="stack">
+      <div class="eyebrow">${TYPE_LABEL[q.type] || q.type}${t1 ? ` · Full Miracle needs ${t1.need.length} miracles · weight ${weight}` : ""}</div>
+      <div class="q-title">${esc(q.title)}</div>
+      ${q.flavor ? `<p class="q-flavor">${esc(q.flavor)}</p>` : ""}
+      ${q.facts ? `<p class="facts"><b>On the record</b>${esc(q.facts)}</p>` : ""}
+      <ol class="chain">${q.miracles.map((m, i) => `<li class="mir"><span class="idx">${i + 1}</span><span class="n">${esc(m.n)}</span>${miracleMeta(m)}</li>`).join("")}</ol>
+      <div class="tiers">${q.tiers.map(t => `<div class="tier"><span class="tb ${t.t}">${t.t}</span><span>${esc(t.name)} <span class="muted mono" style="font-size:.75rem">needs ${t.need.map(i => i + 1).join(", ")}</span></span><span class="mono muted">${t.pts} pts</span></div>`).join("")}</div>
+      <div class="pb"><div><span>Power</span>${esc(q.power)}</div><div><span>Burden</span>${esc(q.burden)}</div></div>
+    </div>`;
+}
+
+// ── wheel ──
+const canvas = $("#wheel"), ctx = canvas.getContext("2d");
+let wheelAngle = 0, wheelItems = [], spinning = false, lastSpun = null;
+function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+function wheelPool() { const t = $("#wheel-type").value; return activeDeck().filter(q => t === "all" || q.type === t); }
+function drawWheel() {
+  wheelItems = wheelPool();
+  const W = canvas.width, c = W / 2, r = c - 10, n = wheelItems.length || 1, seg = Math.PI * 2 / n;
+  ctx.clearRect(0, 0, W, W);
+  const fills = [css("--lapis"), css("--panel")], ink = [css("--paper"), css("--ink")];
+  wheelItems.forEach((q, i) => {
+    const a0 = wheelAngle + i * seg - Math.PI / 2;
+    ctx.beginPath(); ctx.moveTo(c, c); ctx.arc(c, c, r, a0, a0 + seg); ctx.closePath();
+    ctx.fillStyle = (q.id === "shah" || q.id === "peace") ? css("--gold") : fills[i % 2]; ctx.fill();
+    ctx.strokeStyle = css("--line"); ctx.lineWidth = 2; ctx.stroke();
+    ctx.save(); ctx.translate(c, c); ctx.rotate(a0 + seg / 2);
+    ctx.fillStyle = (q.id === "shah" || q.id === "peace") ? css("--paper") : ink[i % 2];
+    ctx.font = `600 ${n > 14 ? 20 : 25}px "IBM Plex Sans", system-ui, sans-serif`; ctx.textAlign = "right"; ctx.textBaseline = "middle";
+    let label = q.title.replace(/^Become (the )?/, "").replace(/^Unify humanity as the /, ""); if (label.length > 26) label = label.slice(0, 25) + "…";
+    ctx.fillText(label, r - 24, 0); ctx.restore();
+  });
+  ctx.beginPath(); ctx.arc(c, c, 62, 0, Math.PI * 2); ctx.fillStyle = css("--paper"); ctx.fill();
+  ctx.strokeStyle = css("--gold"); ctx.lineWidth = 4; ctx.stroke();
+  ctx.fillStyle = css("--gold"); ctx.font = `700 30px Cinzel, Georgia, serif`; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+  ctx.fillText("M·E", c, c + 2);
+}
+function showWheelResult(q) {
+  lastSpun = q;
+  const opts = state.players.map((p, i) => `<option value="${i}">${esc(p.name)}</option>`).join("");
+  $("#wheel-result").innerHTML = questDetail(q) + (state.players.length ? `
+    <div class="row" style="border-top:1px solid var(--line); padding-top:12px">
+      <span class="muted">Deal to</span><select id="deal-to" aria-label="Player to receive this quest">${opts}</select>
+      <button id="deal-btn">Replace their ${TYPE_LABEL[q.type] || q.type} quest</button>
+    </div>` : "");
+}
+function spin() {
+  if (spinning || !wheelItems.length) return;
+  spinning = true;
+  const n = wheelItems.length, seg = Math.PI * 2 / n, target = Math.floor(Math.random() * n);
+  // pointer sits at the top; slice i's centre is at wheelAngle + (i + .5) * seg
+  const base = -((target + 0.5) * seg);
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const start = wheelAngle, turns = reduce ? 0 : 5;
+  let end = base + Math.PI * 2 * (Math.ceil((start - base) / (Math.PI * 2)) + turns);
+  const dur = reduce ? 1 : 3200, t0 = performance.now();
+  (function frame(now) {
+    const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 4);
+    wheelAngle = start + (end - start) * e; drawWheel();
+    if (k < 1) requestAnimationFrame(frame); else { spinning = false; showWheelResult(wheelItems[target]); }
+  })(t0);
+}
+
+// ── table rendering ──
+function renderClock() {
+  const m = MODES[state.mode];
+  $("#clock").innerHTML = Array.from({ length: m.rounds }, (_, i) => `<span class="tick ${i + 1 < state.round ? "past" : i + 1 === state.round ? "now" : ""}">${i + 1}</span>`).join("");
+  const over = state.round > m.rounds;
+  $("#clock-label").textContent = over ? "Clock has run out" : `Round ${state.round} of ${m.rounds} · ${m.actions} actions each`;
+  $("#session-label").textContent = state.mode === "campaign" ? `Session ${state.session}` : "";
+  $("#end-session").hidden = state.mode !== "campaign";
+  $("#next-round").disabled = over;
+  $("#card-slot").innerHTML = state.lastCard ? `<div class="mcard"><b>${esc(state.lastCard.n)}</b>${esc(state.lastCard.e)}</div>` : "";
+  $("#table-note").textContent = state.example
+    ? "Example table, already in round 2. Mars has claimed a Reframe tier and the Oracle has one ready to claim. Deal a new table to start your own."
+    : "Click a miracle when it's done. ✂ marks it compressed (struck by an accepted pitch). Claim tiers when they light up.";
+}
+function computeEndings() {
+  const ps = state.players, n = ps.length;
+  const ii = ps.filter(p => bestTier(p) >= 3).length;
+  const anyI = ps.some(p => bestTier(p) >= 4);
+  const bonded = ps.every(p => p.held > 0 && p.given > 0);
+  const allI = n > 0 && ps.every(p => p.quests.length && p.quests.every(q => q.claimed.includes("I")));
+  const E = [
+    ["Individual", "Someone claims Tier II or better.", ii >= 1],
+    ["Network", "Half the table at Tier II+.", n > 0 && ii >= Math.ceil(n / 2)],
+    ["Civilization", "Every player at Tier II+.", n > 0 && ii === n],
+    ["Beyond Ultra", "Civilization, all bonded both ways, one Tier I.", n > 0 && ii === n && bonded && anyI],
+    ["Ultimate Beyond Ultra", "Everyone, Tier I, every quest.", allI]
+  ];
+  return E;
+}
+function renderEndings() {
+  const ps = state.players, n = ps.length, E = computeEndings();
+  $("#endings").innerHTML = E.map(([h, p, lit]) => `<div class="end ${lit ? "lit" : ""}"><span class="st">${lit ? "Unlocked" : "Locked"}</span><h3>${h}</h3><p>${p}</p></div>`).join("");
+  const behind = ps.filter(p => bestTier(p) < 3);
+  $("#fmem-slot").innerHTML = n > 1 && behind.length === 1
+    ? `<div class="fmem"><b>FULL MIRACLE ENGINEERING MODE.</b> Everyone else has reached Tier II. ${esc(behind[0].name)}'s quest is the final boss: Burdens are suspended and helper dice count double.</div>` : "";
+}
+function counter(pi, key, label) {
+  return `<div class="ctr"><span class="l">${label}</span><span class="v">${state.players[pi][key] || 0}</span><span class="b"><button class="ghost" data-act="dec" data-p="${pi}" data-k="${key}" aria-label="Decrease ${label}">−</button><button class="ghost" data-act="inc" data-p="${pi}" data-k="${key}" aria-label="Increase ${label}">+</button></span></div>`;
+}
+let armed = null; // two-step confirmations
+function renderPlayers() {
+  const round1 = state.round === 1;
+  $("#players").innerHTML = state.players.map((p, pi) => `
+    <article class="player">
+      <div class="p-head">
+        <div class="row" style="flex-wrap:nowrap">
+          <input class="p-name" id="pname-${pi}" value="${esc(p.name)}" data-act="rename" data-p="${pi}" aria-label="Player name">
+          <span class="rank" title="Character Points">${rankOf(p)} · ${cpOf(p)} CP</span>
+        </div>
+        <div class="row">
+          <select id="pbg-${pi}" data-act="bg" data-p="${pi}" aria-label="Background">${Object.entries(BGS).map(([b, r]) => `<option ${b === p.bg ? "selected" : ""} value="${b}">${b} (${r})</option>`).join("")}</select>
+          <span class="mono muted" style="font-size:.8rem">${questPts(p)} quest pts</span>
+        </div>
+        <div class="counters">
+          ${counter(pi, "insight", "Insight")}${counter(pi, "held", "Bonds held")}${counter(pi, "given", "Bonds given")}
+          ${counter(pi, "cascades", "Cascades")}${counter(pi, "elegance", "Elegance")}${counter(pi, "imagination", "Imagination")}
+        </div>
+        ${loadoutBox(p, pi, round1)}
+        ${p.sigActive && qById(p.signature) ? `<div class="sig"><b>Signature power</b> · ${esc(qById(p.signature).power)}<br><span class="muted">Burden: ${esc(qById(p.signature).burden)}</span></div>` : ""}
+        ${p.titles.length ? `<div class="titles">${p.titles.map(t => `<span class="title-chip" title="${esc(t.q)} · session ${t.s}">${esc(t.t)}</span>`).join("")}</div>` : `<span class="muted" style="font-size:.8rem">No titles yet. Tier IV reframes are the fastest first win.</span>`}
+      </div>
+      ${p.quests.map((q, qi) => playerQuest(p, pi, q, qi, round1)).join("")}
+      <div class="p-foot"><button class="small danger" data-act="remove" data-p="${pi}">${armed === `remove-${pi}` ? "Confirm remove" : "Remove player"}</button></div>
+    </article>`).join("");
+}
+function slotsLeft(p) { return Math.max(0, rankInfo(p).slots - (p.loadout || 0)); }
+function loadoutBox(p, pi, round1) {
+  const slots = rankInfo(p).slots;
+  if (!round1 || !slots) return "";
+  const left = slotsLeft(p), sig = qById(p.signature);
+  return `<div class="loadout"><div class="row" style="justify-content:space-between"><b>Starting point</b><span class="mono">${left} of ${slots} loadout slots left</span></div>
+    <div class="row">
+      ${sig ? `<button class="small" data-act="sig" data-p="${pi}" ${!p.sigActive && !left ? "disabled" : ""}>${p.sigActive ? "Signature power: on" : "Bring signature power"}</button>` : `<span class="muted">Pick a signature power on the character sheet.</span>`}
+      <button class="small" data-act="res" data-p="${pi}" ${!p.extraRes && !left ? "disabled" : ""}>${p.extraRes ? `+3 ${BGS[p.bg]} cards: taken` : `Take +3 ${BGS[p.bg]} cards`}</button>
+    </div>
+    <span class="muted">Use “Choose” to pick a quest instead of spinning, or “Head start” on a quest already in your Codex. Each costs 1 slot.</span></div>`;
+}
+function playerQuest(p, pi, q, qi, round1) {
+  const quest = qById(q.qid);
+  if (!quest) return `<div class="pq"><span class="muted">Missing quest “${esc(q.qid)}”.</span></div>`;
+  const hidden = quest.type !== "role" && !q.open;
+  const reshuffle = round1 ? `<button class="small ghost" data-act="reshuffle" data-p="${pi}" data-q="${qi}">${armed === `re-${pi}-${qi}` ? "Confirm reshuffle" : "Reshuffle"}</button>` : "";
+  const known = codexOf(p)[q.qid], left = slotsLeft(p);
+  const choose = round1 && left ? `<select class="choose" data-act="choose" data-p="${pi}" data-q="${qi}" aria-label="Choose a quest instead"><option value="">Choose (1 slot)…</option>${activeDeck().filter(x => x.type === quest.type && x.id !== q.qid).map(x => `<option value="${x.id}">${esc(x.title)}</option>`).join("")}</select>` : "";
+  const headStart = round1 && left && known && !q.headStart ? `<button class="small" data-act="headstart" data-p="${pi}" data-q="${qi}" title="You've played this before (best: Tier ${known})">Head start</button>` : "";
+  const head = `<div class="pq-head"><span class="eyebrow">${TYPE_LABEL[quest.type]}${quest.type !== "role" ? (q.open ? " · revealed" : " · hidden") : " · public"}</span><span class="row" style="gap:6px">${choose}${headStart}${reshuffle}${quest.type !== "role" ? `<button class="small ghost" data-act="peek" data-p="${pi}" data-q="${qi}">${q.open ? "Hide" : "Peek"}</button>` : ""}</span></div>`;
+  if (hidden) return `<div class="pq">${head}<div class="facedown"><span class="muted">Face-down quest. Only ${esc(p.name)} should peek, or reveal it through Scout.</span></div></div>`;
+  return `<div class="pq">${head}
+    <div class="pq-title">${esc(quest.title)}${known ? ` <span class="mono muted" style="font-size:.72rem">Codex best: ${known}</span>` : ""}</div>
+    <ol class="chain">${quest.miracles.map((m, mi) => `
+      <li class="mir-row">
+        <button class="mir ${q.done[mi] ? "done" : ""} ${q.struck[mi] ? "struck" : ""}" data-act="mir" data-p="${pi}" data-q="${qi}" data-m="${mi}" aria-pressed="${!!q.done[mi]}">
+          <span class="idx" ${realityStruck(q.qid, mi) ? 'title="Reality resolved this step"' : ""}>${q.done[mi] || realityStruck(q.qid, mi) ? "✓" : mi + 1}</span><span class="n">${esc(m.n)}</span>${miracleMeta(m)}
+        </button>
+        <button class="small ghost strike ${q.struck[mi] ? "on" : ""}" data-act="strike" data-p="${pi}" data-q="${qi}" data-m="${mi}" title="Compressed: an accepted pitch struck this miracle" aria-label="Toggle compressed">✂</button>
+      </li>`).join("")}</ol>
+    <div class="tiers">${quest.tiers.map(t => {
+      const claimed = q.claimed.includes(t.t), ready = tierReady(q, t);
+      const have = t.need.filter(i => isDone(q, i)).length;
+      return `<div class="tier ${claimed ? "claimed" : ready ? "ready" : ""}"><span class="tb ${t.t}">${t.t}</span><span>${esc(t.name)} <span class="mono muted" style="font-size:.74rem">· ${t.pts}</span></span>
+        ${claimed ? `<button class="small" data-act="claim" data-p="${pi}" data-q="${qi}" data-t="${t.t}" title="Unclaim">Claimed ✓</button>`
+          : ready ? `<button class="small gold" data-act="claim" data-p="${pi}" data-q="${qi}" data-t="${t.t}">Claim</button>`
+          : `<span class="status">${have}/${t.need.length}</span>`}</div>`;
+    }).join("")}</div>
+    <div class="pb"><div><span>Power</span>${esc(quest.power)}</div><div><span>Burden</span>${esc(quest.burden)}</div></div>
+  </div>`;
+}
+function renderSelects() {
+  const opts = state.players.map((p, i) => `<option value="${i}">${esc(p.name)}</option>`).join("");
+  ["#help-from", "#help-to", "#dl-player"].forEach((s, k) => {
+    const el = $(s), v = el.value;
+    el.innerHTML = (s === "#dl-player" ? `<option value="">Nobody in particular</option>` : "") + opts;
+    if (v !== "" && el.querySelector(`option[value="${v}"]`)) el.value = v; else if (k === 1 && state.players.length > 1) el.value = "1";
+  });
+}
+function renderDist() {
+  const ps = state.players;
+  if (!ps.length) { $("#dist").innerHTML = ""; return; }
+  const lead = (f, fmt = v => v) => {
+    const vals = ps.map(p => ({ p, v: f(p) })).filter(x => x.v !== null);
+    if (!vals.length) return ["—", ""];
+    const max = Math.max(...vals.map(x => x.v));
+    if (max <= 0) return ["—", ""];
+    return [vals.filter(x => x.v === max).map(x => esc(x.p.name)).join(", "), fmt(max)];
+  };
+  const imp = ps.map(p => ({ p, b: improbable(p) })).filter(x => x.b).sort((a, b) => b.b.score - a.b.score)[0];
+  const rows = [
+    ["Quest Points", ...lead(questPts)],
+    ["Most Efficient Miracle Engineer", ...lead(p => resolved(p) ? questPts(p) / resolved(p) : null, v => v.toFixed(2) + " pts/miracle")],
+    ["Greatest Enabler", ...lead(p => p.held || 0, v => v + " bonds")],
+    ["Cascade Architect", ...lead(p => p.cascades || 0)],
+    ["Most Elegant", ...lead(p => p.elegance || 0, v => v + " compressions")],
+    ["Imagination", ...lead(p => p.imagination || 0)],
+    ["Most Improbable Quest", imp ? esc(imp.p.name) : "—", imp ? esc(imp.b.label) : ""]
+  ];
+  $("#dist").innerHTML = `<tr><th>Distinction</th><th>Leader</th><th>Value</th></tr>` + rows.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("");
+}
+function renderForged() {
+  const c = state.custom || [];
+  $("#forged").innerHTML = c.length ? c.map((q, i) => `<div class="row" style="justify-content:space-between"><span><b>${esc(q.title)}</b> <span class="muted mono" style="font-size:.75rem">${TYPE_LABEL[q.type] || q.type}</span></span><button class="small danger" data-act="unforge" data-i="${i}">Remove</button></div>`).join("")
+    : `<p class="muted">Nothing forged yet. Try “Become Mayor of the Internet” or “Get a whale to vote”.</p>`;
+}
+function renderDeck() {
+  $("#deck").innerHTML = deck().map(q => `<details class="dq"><summary><span class="q">${esc(q.title)}</span><span class="eyebrow">${q.retired ? "Hall of Accomplished Impossibles" : `${TYPE_LABEL[q.type] || q.type} · ${esc(q.since || DECK.edition)}`}</span></summary><div>${questDetail(q)}</div></details>`).join("");
+}
+function render() {
+  renderClock(); renderEndings(); renderPlayers(); renderSelects(); renderDist(); renderForged(); renderChars(); save();
+}
+
+// ── characters ──
+function sum(str) { let h = 0; for (const c of str) h = (h * 31 + c.charCodeAt(0)) % 99991; return h.toString(36); }
+function charCode(p) {
+  const body = JSON.stringify({ v: 1, charId: p.charId, name: p.name, bg: p.bg, titles: p.titles, cpBonus: p.cpBonus, signature: p.signature, edition: DECK.edition });
+  const b64 = btoa(unescape(encodeURIComponent(body)));
+  return `ME1.${b64}.${sum(b64)}`;
+}
+function parseCode(code) {
+  const m = code.trim().match(/^ME1\.([A-Za-z0-9+/=]+)\.([a-z0-9]+)$/);
+  if (!m) throw new Error("A character code starts with ME1. and has no spaces.");
+  if (sum(m[1]) !== m[2]) throw new Error("The code looks damaged. Copy it again in full.");
+  const c = JSON.parse(decodeURIComponent(escape(atob(m[1]))));
+  if (!c || !Array.isArray(c.titles)) throw new Error("That code has no character in it.");
+  return c;
+}
+let charIdx = 0;
+function renderChars() {
+  $("#edition").textContent = DECK.edition;
+  const ps = state.players;
+  const pickEl = $("#char-pick");
+  pickEl.innerHTML = ps.map((p, i) => `<option value="${i}">${esc(p.name)}</option>`).join("");
+  if (charIdx >= ps.length) charIdx = 0;
+  pickEl.value = String(charIdx);
+  $("#reality-log").innerHTML = RLOG.slice().reverse().map(r => `<li><span class="mono">${esc(r.date)} · ${esc(r.edition)}</span>${esc(r.note)}</li>`).join("")
+    + deck().filter(q => q.retired).map(q => `<li><span class="mono">${esc(q.retired.date)} · retired</span>${esc(q.title)}: ${esc(q.retired.note)}</li>`).join("");
+  const p = ps[charIdx];
+  if (!p) { $("#char-sheet").innerHTML = `<p class="muted">Seat a player to see a character sheet.</p>`; $("#codex").innerHTML = ""; return; }
+  const r = rankInfo(p), pr = codexProgress(p), c = codexOf(p);
+  const pct = (a, b) => b ? Math.round(a / b * 100) : 0;
+  const nextTxt = r.next ? `${r.next[0] - r.cp} CP to ${r.next[1]}` : (r.name === "Beyond Ultra" ? "Every Ultra in this edition claimed" : "Next: every Ultra in the edition");
+  const sigOpts = Object.entries(c).filter(([id, t]) => TR[t] >= 3 && qById(id)).map(([id]) => `<option value="${id}" ${p.signature === id ? "selected" : ""}>${esc(qById(id).power.split(" — ")[0])} (${esc(qById(id).title)})</option>`).join("");
+  $("#char-sheet").innerHTML = `
+    <div class="cp-line"><span class="cp-big">${r.cp}</span><span><b>${r.name}</b><br><span class="muted" style="font-size:.84rem">${nextTxt} · ${r.slots} loadout slot${r.slots === 1 ? "" : "s"} per game</span></span></div>
+    <div class="bar-row"><div class="row"><span>Ultra Codex (Tier II+)</span><span class="mono">${pr.ultra} / ${pr.n}</span></div><div class="bar"><i style="width:${pct(pr.ultra, pr.n)}%"></i></div></div>
+    <div class="bar-row"><div class="row"><span>Mastery (Tier I)</span><span class="mono">${pr.mastery} / ${pr.n}</span></div><div class="bar lapis"><i style="width:${pct(pr.mastery, pr.n)}%"></i></div></div>
+    <label class="field">Signature power (needs Tier II+ on its quest)
+      <select id="sig-pick" data-act="sigpick" data-p="${charIdx}">${sigOpts ? `<option value="">None</option>${sigOpts}` : `<option value="">No Tier II+ yet</option>`}</select></label>
+    <div><div class="eyebrow" style="margin-bottom:6px">Title Ledger · ${p.titles.length}</div>
+      ${p.titles.length ? `<ul class="ledger">${p.titles.slice().reverse().map(t => `<li><span class="tb ${t.tier}">${t.tier}</span><span>${esc(t.t)} <span class="muted">· ${esc(t.q)}</span></span><span class="mono muted" style="font-size:.72rem">${esc(t.date || (typeof t.s === "number" ? "session " + t.s : t.s))}</span></li>`).join("")}</ul>` : `<p class="muted" style="font-size:.85rem">Empty. A Tier IV reframe is the fastest first entry.</p>`}</div>
+    <div class="row"><button id="char-copy">Copy character code</button><span class="muted" style="font-size:.8rem">Paste it at any other table.</span></div>
+    <textarea id="char-code" readonly aria-label="Character code" style="min-height:60px">${charCode(p)}</textarea>`;
+  const known = new Set(activeDeck().map(q => q.id));
+  const elsewhere = Object.keys(c).filter(id => !known.has(id));
+  $("#codex-title").textContent = `${p.name}'s Codex`;
+  $("#codex-sum").textContent = `edition ${DECK.edition} · ${pr.any} of ${pr.n} quests touched${elsewhere.length ? ` · ${elsewhere.length} from other tables or retired` : ""}`;
+  $("#codex").innerHTML = activeDeck().map(q => `<div class="cx"><span class="tb ${c[q.id] || "none"}">${c[q.id] || "—"}</span><span>${esc(q.title)}</span></div>`).join("")
+    + elsewhere.map(id => { const q = qById(id); return `<div class="cx retired"><span class="tb ${c[id]}">${c[id]}</span><span>${esc(q ? q.title : id)} <span class="muted">· ${q && q.retired ? "retired" : "elsewhere"}</span></span></div>`; }).join("");
+}
+$("#char-pick").onchange = e => { charIdx = +e.target.value; renderChars(); };
+$("#char-sheet").addEventListener("change", e => {
+  if (e.target.id !== "sig-pick") return;
+  const p = state.players[charIdx]; p.signature = e.target.value;
+  if (!p.signature && p.sigActive) { p.sigActive = false; p.loadout--; }
+  render();
+});
+$("#char-sheet").addEventListener("click", e => {
+  if (e.target.id !== "char-copy") return;
+  const t = $("#char-code").value;
+  navigator.clipboard?.writeText(t).then(() => { e.target.textContent = "Copied"; })
+    .catch(() => { $("#char-code").select(); e.target.textContent = "Copy blocked: text selected"; });
+});
+$("#import-btn").onclick = () => {
+  const msg = $("#import-msg");
+  try {
+    const c = parseCode($("#import-code").value);
+    let p = state.players.find(x => x.charId && x.charId === c.charId);
+    const fields = { name: c.name || "Traveller", bg: BGS[c.bg] ? c.bg : "Dreamer", titles: c.titles, cpBonus: +c.cpBonus || 0, signature: c.signature || "", charId: c.charId };
+    if (p) Object.assign(p, fields); else { p = newPlayer(fields.name); Object.assign(p, fields); state.players.push(p); }
+    state.example = false; charIdx = state.players.indexOf(p);
+    render(); renderChars();
+    msg.textContent = `${p.name} is seated with ${cpOf(p)} CP and ${p.titles.length} titles.${c.edition && c.edition !== DECK.edition ? ` Their code is from edition ${c.edition}; quests this table doesn't have still count in their Codex.` : ""}`;
+    msg.className = "msg ok"; $("#import-code").value = "";
+  } catch (err) { msg.textContent = `Couldn't seat that character. ${err.message}`; msg.className = "msg no"; }
+};
+
+// ── actions ──
+function usedIds() { return new Set(state.players.flatMap(p => p.quests.map(q => q.qid))); }
+function drawQuest(type, exclude) {
+  const pool = activeDeck().filter(q => q.type === type && !exclude.has(q.id));
+  const any = activeDeck().filter(q => q.type === type);
+  return (pool.length ? pick(pool) : pick(any)).id;
+}
+function newPlayer(name) {
+  const used = usedIds();
+  const quests = MODES[state.mode].quests.map(t => { const id = drawQuest(t, used); used.add(id); return pq(id); });
+  return norm({ name, bg: pick(Object.keys(BGS)), quests, titles: [] });
+}
+function dealTable() {
+  const names = state.players.length ? state.players.map(p => p.name) : ["Player 1", "Player 2", "Player 3"];
+  const old = state.players;
+  state.players = [];
+  // characters persist across games: keep identity, deal fresh quests
+  names.forEach((n, i) => {
+    const p = newPlayer(n), o = old[i];
+    if (o) Object.assign(p, { bg: o.bg, titles: o.titles, cpBonus: o.cpBonus, signature: o.signature, charId: o.charId });
+    state.players.push(p);
+  });
+  state.round = 1; state.session = 1; state.lastCard = null; state.example = false;
+  state.gameId = Date.now().toString(36); state.banked = null;
+  render(); drawWheel();
+}
+
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-act]"); if (!b || b.tagName === "INPUT" || b.tagName === "SELECT") return;
+  const act = b.dataset.act, pi = +b.dataset.p, qi = +b.dataset.q, mi = +b.dataset.m;
+  const p = state.players[pi], q = p && p.quests[qi];
+  if (act !== "remove" && act !== "reshuffle") armed = null;
+  switch (act) {
+    case "inc": p[b.dataset.k] = (p[b.dataset.k] || 0) + 1; break;
+    case "dec": p[b.dataset.k] = Math.max(0, (p[b.dataset.k] || 0) - 1); break;
+    case "mir": q.done[mi] = !q.done[mi]; break;
+    case "strike": q.struck[mi] = !q.struck[mi]; break;
+    case "peek": q.open = !q.open; break;
+    case "claim": {
+      const quest = qById(q.qid), tier = quest.tiers.find(t => t.t === b.dataset.t);
+      if (q.claimed.includes(tier.t)) {
+        q.claimed = q.claimed.filter(t => t !== tier.t);
+        for (let i = p.titles.length - 1; i >= 0; i--) if (titleQid(p.titles[i]) === quest.id && p.titles[i].tier === tier.t) { p.titles.splice(i, 1); break; }
+      } else {
+        q.claimed.push(tier.t);
+        p.titles.push({ t: tier.name, tier: tier.t, qid: quest.id, q: quest.title, s: state.session, date: new Date().toISOString().slice(0, 10) });
+        if (tier.t === "III" || tier.t === "IV") p.insight = (p.insight || 0) + 1;
+      }
+      break;
+    }
+    case "reshuffle":
+      if (armed !== `re-${pi}-${qi}`) { armed = `re-${pi}-${qi}`; break; }
+      armed = null;
+      p.quests[qi] = pq(drawQuest(qById(q.qid)?.type || "role", usedIds())); break;
+    case "remove":
+      if (armed !== `remove-${pi}`) { armed = `remove-${pi}`; break; }
+      armed = null; state.players.splice(pi, 1); break;
+    case "sig":
+      if (p.sigActive) { p.sigActive = false; p.loadout--; } else if (slotsLeft(p)) { p.sigActive = true; p.loadout++; }
+      break;
+    case "res":
+      if (p.extraRes) { p.extraRes = false; p.loadout--; } else if (slotsLeft(p)) { p.extraRes = true; p.loadout++; }
+      break;
+    case "headstart": {
+      if (!slotsLeft(p) || q.headStart) break;
+      const quest = qById(q.qid), t1 = quest.tiers.find(t => t.t === "I") || quest.tiers[0];
+      const i = t1.need.find(i => !isDone(q, i));
+      if (i === undefined) break;
+      q.done[i] = true; q.headStart = true; p.loadout++;
+      break;
+    }
+    case "unforge": state.custom.splice(+b.dataset.i, 1); renderDeck(); drawWheel(); break;
+    default: return;
+  }
+  render();
+});
+document.addEventListener("change", e => {
+  const el = e.target, act = el.dataset.act; if (!act) return;
+  const p = state.players[+el.dataset.p];
+  if (act === "rename") p.name = el.value.trim() || p.name;
+  if (act === "bg") p.bg = el.value;
+  if (act === "choose" && el.value && slotsLeft(p)) { const nq = pq(el.value); nq.open = true; p.quests[+el.dataset.q] = nq; p.loadout++; }
+  render();
+});
+$("#wheel-result").addEventListener("click", e => {
+  if (e.target.id !== "deal-btn" || !lastSpun) return;
+  const p = state.players[+$("#deal-to").value]; if (!p) return;
+  const i = p.quests.findIndex(q => qById(q.qid)?.type === lastSpun.type);
+  const nq = pq(lastSpun.id); nq.open = true;
+  if (i >= 0) p.quests[i] = nq; else p.quests.push(nq);
+  state.example = false;
+  render();
+  e.target.textContent = `Dealt to ${p.name}`;
+});
+$("#spin").onclick = spin;
+$("#wheel-type").onchange = () => { wheelAngle = 0; drawWheel(); };
+$("#mode").onchange = e => { state.mode = e.target.value; render(); };
+$("#new-table").onclick = dealTable;
+$("#add-player").onclick = () => { state.players.push(newPlayer(`Player ${state.players.length + 1}`)); state.example = false; render(); };
+$("#next-round").onclick = () => { state.lastCard = pick(CARDS); state.round += 1; render(); };
+function bankEndings() {
+  const key = `${state.gameId}-${state.session}`;
+  if (state.banked === key) return "Endings for this game are already banked.";
+  const lit = computeEndings().filter(e => e[2]).length, cp = ENDING_CP[lit];
+  state.players.forEach(p => { p.cpBonus = (p.cpBonus || 0) + cp; });
+  state.banked = key;
+  return lit ? `${lit} ending${lit > 1 ? "s" : ""} unlocked: every player banks ${cp} CP.` : "No endings unlocked, so no shared CP this time.";
+}
+$("#bank").onclick = () => { const m = bankEndings(); render(); $("#bank-msg").textContent = m; $("#bank-msg").className = "msg ok"; };
+$("#end-session").onclick = () => {
+  const banked = bankEndings();
+  state.players.forEach(p => { p.held = Math.floor((p.held || 0) / 2); p.given = Math.floor((p.given || 0) / 2); p.loadout = 0; p.sigActive = false; p.extraRes = false; p.quests.forEach(q => { q.headStart = false; }); });
+  state.session += 1; state.round = 1; state.lastCard = null;
+  render();
+  $("#bank-msg").textContent = banked; $("#bank-msg").className = "msg ok";
+  $("#table-note").textContent = `Session ${state.session} begins. Titles, Powers and progress carried over; Bonds halved; loadout slots refreshed. Each player may Continue, Choose or Reshuffle quests (round 1 only).`;
+};
+$("#record-help").onclick = () => {
+  const a = +$("#help-from").value, b = +$("#help-to").value;
+  if (a === b) { $("#help-msg").textContent = "Pick two different players."; $("#help-msg").className = "msg no"; return; }
+  const H = state.players[a], O = state.players[b], mentor = cpOf(H) - cpOf(O) >= 50;
+  H.held++; O.given++; H.cpBonus = (H.cpBonus || 0) + (mentor ? 2 : 1);
+  render();
+  $("#help-msg").textContent = `${O.name} gave ${H.name} a Bond. ${H.name} +${mentor ? "2 CP (mentor help)" : "1 CP"}.`; $("#help-msg").className = "msg ok";
+};
+
+// dice
+function binomAtLeast(n, k, p) {
+  if (k <= 0) return 1; if (k > n) return 0;
+  let s = 0, c = 1;
+  for (let i = 0; i <= n; i++) { if (i > 0) c = c * (n - i + 1) / i; if (i >= k) s += c * Math.pow(p, i) * Math.pow(1 - p, n - i); }
+  return s;
+}
+function updateOdds() {
+  const n = Math.max(1, +$("#dl-dice").value || 1), d = +$("#dl-diff").value, thr = +$("#dl-thr").value, ins = Math.max(0, +$("#dl-ins").value || 0);
+  const pr = binomAtLeast(n, d - ins, (7 - thr) / 6);
+  $("#odds").textContent = `Chance: ${(pr * 100).toFixed(0)}%`;
+}
+["#dl-dice", "#dl-diff", "#dl-thr", "#dl-ins"].forEach(s => $(s).addEventListener("input", updateOdds));
+$("#roll").onclick = () => {
+  const n = Math.min(30, Math.max(1, +$("#dl-dice").value || 1)), d = +$("#dl-diff").value, thr = +$("#dl-thr").value, ins = Math.max(0, +$("#dl-ins").value || 0);
+  const rolls = Array.from({ length: n }, () => 1 + Math.floor(Math.random() * 6));
+  const hits = rolls.filter(r => r >= thr).length + ins;
+  $("#dice").innerHTML = rolls.map(r => `<span class="die ${r >= thr ? "hit" : ""}">${r}</span>`).join("") + Array.from({ length: ins }, () => `<span class="die ins" title="Insight">★</span>`).join("");
+  const ok = hits >= d, who = $("#dl-player").value;
+  let extra = "";
+  if (who !== "") {
+    const p = state.players[+who];
+    if (ins) p.insight = Math.max(0, (p.insight || 0) - ins);
+    if (!ok) { p.insight = (p.insight || 0) + 1; extra = ` ${esc(p.name)} gains 1 Insight.`; }
+    render();
+  }
+  $("#verdict").innerHTML = ok
+    ? `<div class="verdict ok">Miracle! ${hits} of ${d} successes.</div><p class="muted" style="font-size:.85rem">Mark it on the quest. Helpers each get a Bond.</p>`
+    : `<div class="verdict no">Not yet. ${hits} of ${d}.</div><p class="muted" style="font-size:.85rem">Failure gives information.${extra}</p>`;
+};
+
+// save / load
+$("#show-save").onclick = () => { $("#save-box").value = JSON.stringify(state, null, 1); $("#save-msg").textContent = "Save shown. Copy it somewhere safe."; $("#save-msg").className = "msg ok"; };
+$("#copy-save").onclick = () => {
+  if (!$("#save-box").value) $("#save-box").value = JSON.stringify(state);
+  const t = $("#save-box").value;
+  navigator.clipboard?.writeText(t).then(() => { $("#save-msg").textContent = "Copied."; $("#save-msg").className = "msg ok"; })
+    .catch(() => { $("#save-box").select(); $("#save-msg").textContent = "Copy was blocked. The text is selected; copy it by hand."; $("#save-msg").className = "msg no"; });
+};
+$("#load-save").onclick = () => {
+  try {
+    const s = JSON.parse($("#save-box").value);
+    if (!s || !Array.isArray(s.players) || !MODES[s.mode]) throw new Error("That doesn't look like a Miracle Engineering save.");
+    s.custom = s.custom || []; s.players.forEach(norm); state = s; $("#mode").value = s.mode; render(); renderDeck(); drawWheel();
+    $("#save-msg").textContent = "Save loaded."; $("#save-msg").className = "msg ok";
+  } catch (err) { $("#save-msg").textContent = `Couldn't load: ${err.message}`; $("#save-msg").className = "msg no"; }
+};
+$("#reset").onclick = e => {
+  if (e.target.dataset.armed !== "1") { e.target.dataset.armed = "1"; e.target.textContent = "Confirm reset"; return; }
+  e.target.dataset.armed = ""; e.target.textContent = "Reset to example";
+  state = exampleState(); $("#mode").value = state.mode; render(); renderDeck(); drawWheel();
+  $("#save-msg").textContent = "Back to the example table."; $("#save-msg").className = "msg ok";
+};
+
+// main quest
+$("#arch").innerHTML = (window.ARCHETYPES || []).map(a => `<div><span class="role">${esc(a.role)}</span><b>${esc(a.name)}</b></div>`).join("");
+$("#deal-main").onclick = () => {
+  let n = 0;
+  state.players.forEach(p => { if (!p.quests.some(q => q.qid === "peace")) { p.quests.unshift(pq("peace")); n++; } });
+  state.example = false; save(); render();
+  $("#main-msg").textContent = n ? `Dealt to ${n} player${n === 1 ? "" : "s"}. Scroll down to the table.` : "Everyone already has it.";
+  $("#main-msg").className = "msg ok";
+};
+
+// forge
+const TEMPLATE = [{
+  id: "mayor-internet", type: "role", title: "Become Mayor of the Internet",
+  flavor: "Nobody elected anyone. That's the opening.", facts: "",
+  miracles: [
+    { n: "Build a community that governs itself well", r: ["ACC", "IMA"], d: 2 },
+    { n: "Three rival communities adopt your charter", r: ["LEG", "ACC"], d: 3 },
+    { n: "An election with a real turnout", r: ["ATT"], d: 2 },
+    { n: "You win it", r: ["ATT", "LEG"], d: 2 },
+    { n: "Moderator-in-chief of a very large forum", r: ["ACC"], d: 2, kind: "lateral" },
+    { n: "Buy a domain with 'mayor' in it and hold office hours", r: ["IMA", "CAP"], d: 1, kind: "reframe" }
+  ],
+  tiers: [
+    { t: "I", name: "Mayor of the Internet", need: [0, 1, 2, 3], pts: 10 },
+    { t: "II", name: "Charter author", need: [0, 1], pts: 6 },
+    { t: "III", name: "Moderator-in-chief", need: [4], pts: 4 },
+    { t: "IV", name: "Mayor of a domain", need: [5], pts: 2 }
+  ],
+  power: "Town hall — once per round, any two players may trade without it costing an action.",
+  burden: "Always online — you cannot hide quests."
+}];
+function validQuest(q) {
+  const errs = [];
+  if (!q || typeof q !== "object") return ["not an object"];
+  if (!q.id || !q.title) errs.push("needs id and title");
+  if (!["role", "outcome", "enabler"].includes(q.type)) errs.push("type must be role, outcome or enabler");
+  if (!Array.isArray(q.miracles) || !q.miracles.length) errs.push("needs miracles");
+  if (!Array.isArray(q.tiers) || !q.tiers.length) errs.push("needs tiers");
+  (q.tiers || []).forEach(t => { if (!TR[t.t] || !Array.isArray(t.need) || t.need.some(i => !q.miracles?.[i])) errs.push(`tier ${t.t || "?"} is malformed or points at a missing miracle`); });
+  (q.miracles || []).forEach((m, i) => { if (!m.n || typeof m.d !== "number") errs.push(`miracle ${i + 1} needs n and d`); m.r = Array.isArray(m.r) ? m.r.filter(r => R[r]) : []; });
+  if (deck().some(x => x.id === q.id)) errs.push(`id “${q.id}” already exists`);
+  return errs;
+}
+$("#forge-template").onclick = () => { $("#forge-box").value = JSON.stringify(TEMPLATE, null, 2); };
+$("#forge-add").onclick = () => {
+  const msg = $("#forge-msg");
+  try {
+    let data = JSON.parse($("#forge-box").value.replace(/^```(json)?|```$/gm, ""));
+    if (!Array.isArray(data)) data = [data];
+    const bad = data.map(q => [q?.title || "?", validQuest(q)]).filter(([, e]) => e.length);
+    if (bad.length) throw new Error(bad.map(([t, e]) => `${t}: ${e.join("; ")}`).join(" · "));
+    data.forEach(q => { q.power = q.power || "—"; q.burden = q.burden || "—"; q.facts = q.facts || ""; state.custom.push(q); });
+    save(); renderForged(); renderDeck(); drawWheel();
+    msg.textContent = `Ratified: ${data.map(q => q.title).join(", ")}. It's on the wheel now.`; msg.className = "msg ok";
+    $("#forge-box").value = "";
+  } catch (err) { msg.textContent = `Not added. ${err.message}`; msg.className = "msg no"; }
+};
+function forgePrompt() {
+  const theme = $("#forge-theme").value.trim() || "surprise us";
+  return `You are the Quest Forge for MIRACLE ENGINEERING, a cooperative-competitive game whose rule is "We win when we all win". Players pursue absurd, seemingly impossible objectives, each decomposed into Miracles (unlikely but achievable steps).
+
+Generate 1 new quest. Theme: ${theme}.
+
+Rules: headline sounds impossible but has a real causal path. 4–7 concrete miracles with difficulty 1 (plausible), 2 (unlikely) or 3 (needs luck or a coalition). Exactly one miracle with "kind":"lateral" (a different ladder, comparable view) and one with "kind":"reframe" (satisfy the words by changing their meaning; funny and genuinely achievable). Tiers: I full (10 pts), II next best on the same ladder (6), III lateral (4), IV reframe (2). One Power that helps OTHER players and one Burden that constrains the holder. "facts": 1–3 sentences of real, checkable context; never invent statistics; leave empty if unsure. Target offices and outcomes, never named private individuals. Resources: LEG, ATT, CAP, TEC, ACC, IMA. "need" holds zero-based miracle indices.
+
+Return ONLY a JSON array shaped exactly like this example:
+${JSON.stringify(TEMPLATE)}`;
+}
+$("#copy-prompt").onclick = () => {
+  const t = forgePrompt(), msg = $("#forge-msg");
+  navigator.clipboard?.writeText(t).then(() => { msg.textContent = "Prompt copied. Paste it into any AI, then paste its JSON above."; msg.className = "msg ok"; })
+    .catch(() => { $("#forge-box").value = t; $("#forge-box").select(); msg.textContent = "Copy was blocked, so the prompt is in the box and selected. Copy it by hand."; msg.className = "msg no"; });
+};
+
+// theme changes redraw the canvas
+matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", drawWheel);
+new MutationObserver(drawWheel).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+function start(data) {
+  state = data && data.state ? data.state : load();
+  state.custom = state.custom || [];
+  state.players.forEach(norm);
+  $("#mode").value = state.mode;
+  render(); renderDeck(); drawWheel(); updateOdds();
+  showWheelResult(qById("shah"));
+  if (document.fonts) document.fonts.ready.then(drawWheel);
+}
+window.claude?.hot?.snapshot?.(() => ({ state }));
+window.claude?.hot?.ready ? window.claude.hot.ready(start) : start(window.claude?.hot?.data ?? {});
+})();
+</script>
+
+</html>
