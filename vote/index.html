@@ -27,7 +27,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="seal-circle.png">
 <style>
 :root {
   /* Main site tokens — header, page chrome */
@@ -807,6 +806,7 @@ const EDITIONS = {
     navTag: "World vote",
     label: "World",
     sealTag: "WORLD",
+    seal: "world-v2",
     questions: [
       ["🤝", "Unify versions of reality", "One shared set of facts on the same page."],
       ["🔎", "Resolve conspiracy theories", "Settle them openly, starting with climate change."],
@@ -831,6 +831,7 @@ const EDITIONS = {
     navTag: "UK vote",
     label: "UK",
     sealTag: "UK",
+    seal: "uk-v2",
     questions: [
       ["🗳️", "Proportional representation", "Seats in parliament should match the share of votes cast."],
       ["🔌", "Public ownership", "Energy, water and rail run at cost, not for dividends."],
@@ -932,11 +933,80 @@ const SEAL_LAYOUTS = {
     qr: { ecc: "M", quietZone: 2, dark: "#0A2E1A", light: "#FFFFFF" }
   }
 };
-const ACTIVE_SEAL_LAYOUT = "circle";
+/* v2 badges (World green, UK navy): white text box on the left, gold-framed
+   square on the right with a placeholder QR that the real one fully covers.
+   Boxes measured from the 1254px art with vote/tools/measure-seal-v2.py:
+   text box interior x 263–762, y 874–1036 (inset 3px); QR square interior
+   World x 799–981 / UK x 798–982, y 868–1038 (inset 1px, painted opaque
+   white). Re-measure new art with: python3 vote/tools/measure-seal-v2.py */
+/* Generic QR (same on every v2 seal) → https://planetarycouncil.org/vote/
+   Module matrix read from the QR image Mars supplied (29×29, version 3),
+   drawn with whole-pixel modules so it stays crisp at any size. */
+const SITE_QR_MATRIX = [
+  "11111110101011010011101111111",
+  "10000010011111000011101000001",
+  "10111010111000001000101011101",
+  "10111010111010111110101011101",
+  "10111010100110111110001011101",
+  "10000010001101011111101000001",
+  "11111110101010101010101111111",
+  "00000000001010010001000000000",
+  "11110010101111000001110011101",
+  "01101001101011111001100011010",
+  "00010011011111000011110111010",
+  "00101001011000010100100100010",
+  "00100010011010110000101010000",
+  "11110000100110101101101011100",
+  "01000111110101000101011010100",
+  "10010000110100101111111110011",
+  "01000111111010101010010100110",
+  "00010100101000110001011000000",
+  "10011010110001100101100101110",
+  "00001000100101111001011000101",
+  "01111110001001101111111110101",
+  "00000000111000001000100010010",
+  "11111110010000101011101011010",
+  "10000010011111110011100011100",
+  "10111010010100011110111110111",
+  "10111010111101011101010010110",
+  "10111010101010111110001111101",
+  "10000010100011000011000001101",
+  "11111110101100001010101101010"
+];
+
+function v2Layout(image, ink, label, fill, qrDark, qrArea) {
+  return {
+    image: image,
+    shape: "rect",
+    textArea: { x: 0.2121, y: 0.6994, w: 0.3939, h: 0.1252 },
+    padding: { x: 0.04, y: 0.13 },
+    // three rows; "Answers:" shows the encoded vote (decodable on the page), not the marks
+    rows: ["name", "time", "vote"],
+    labels: { name: "Name:", time: "Time:", vote: "Answers:" },
+    minWidths: { time: 24, vote: 29 },   // same grid (and font size) for every vote
+    opticalCenter: true,
+    labelWidth: 8,
+    gap: 1,
+    cols: "auto",
+    minFill: 2,
+    stretch: true,
+    spread: 3,
+    fill: { char: "-", spaced: true },
+    font: { family: '"IBM Plex Mono", ui-monospace, monospace', weight: "600", lineHeight: 1.5, maxSize: 0.024 },
+    colors: { text: ink, label: label, fill: fill, debug: "rgba(220,0,0,0.75)" },
+    qrArea: qrArea,
+    qr: { matrix: SITE_QR_MATRIX, quietZone: 2, dark: qrDark, light: "#FFFFFF" }
+  };
+}
+SEAL_LAYOUTS["world-v2"] = v2Layout("seal-world-v2.png", "#0A4424", "#1F6B3D", "rgba(10,68,36,0.40)", "#06301A", { x: 0.6380, y: 0.6930, w: 0.1443, h: 0.1348 });
+SEAL_LAYOUTS["uk-v2"]    = v2Layout("seal-uk-v2.png",    "#0B1F4B", "#2A3F73", "rgba(11,31,75,0.40)", "#0B1F4B", { x: 0.6372, y: 0.6930, w: 0.1459, h: 0.1348 });
+
+const ACTIVE_SEAL_LAYOUT = "circle"; // fallback when an edition names no seal
 
 function sealLayoutName() {
   const m = location.search.match(/[?&]seal=([A-Za-z0-9_-]+)/);
-  if (m && SEAL_LAYOUTS[m[1]]) return m[1];
+  if (m && SEAL_LAYOUTS[m[1]]) return m[1];          // ?seal=default|circle|world-v2|uk-v2
+  if (EDITION.seal && SEAL_LAYOUTS[EDITION.seal]) return EDITION.seal; // each edition has its own badge
   return ACTIVE_SEAL_LAYOUT;
 }
 function sealLayout() { return SEAL_LAYOUTS[sealLayoutName()]; }
@@ -1005,7 +1075,8 @@ function sealRowValues(record, layout) {
     name: { label: L.labels.name, value: (record.name || "").toUpperCase() },
     time: { label: L.labels.time, value: record.timestamp || "" },
     answers: { label: L.labels.answers, value: padPrefix(editionForCode(record.encoded).sealTag, 5) + " " + answerMarks(record.answers) },
-    url:  { label: L.labels.url, value: displayUrl(verifyUrl(record.encoded)) }
+    url:  { label: L.labels.url, value: displayUrl(verifyUrl(record.encoded)) },
+    vote: { label: L.labels.vote, value: record.encoded || "" }
   };
   return L.rows.map(function (k) { return Object.assign({ key: k }, values[k]); });
 }
@@ -1015,7 +1086,7 @@ function sealGridCols(rows, layout) {
   if (typeof L.cols === "number") return L.cols;
   const lw = Math.max(L.labelWidth, ...rows.map(function (r) { return r.label.length; }));
   const longest = Math.max(...rows.filter(function (r) { return r.key !== "name"; })
-    .map(function (r) { return lw + L.gap + Array.from(r.value).length; }));
+    .map(function (r) { return lw + L.gap + Math.max(Array.from(r.value).length, (L.minWidths && L.minWidths[r.key]) || 0); }));
   return longest + L.minFill;
 }
 
@@ -1359,15 +1430,22 @@ async function renderSeal(record, layout) {
   ctx.font = L.font.weight + " " + fit.size + "px " + L.font.family;
   ctx.textAlign = "left";
   ctx.textBaseline = "middle";
+  let dy = 0;
+  if (L.opticalCenter) {
+    // centre the cap height (not the em box) on each row line
+    ctx.textBaseline = "alphabetic";
+    const m = ctx.measureText("H");
+    dy = (m.actualBoundingBoxAscent - m.actualBoundingBoxDescent) / 2;
+  }
   grid.rows.forEach(function (row, i) {
-    const b = rowBoxes[i];
+    const b = { x: rowBoxes[i].x, y: rowBoxes[i].y + dy, w: rowBoxes[i].w };
     let cells = grid.cols;
     if (L.shape === "circle") {
       cells = Math.floor(b.w / fit.advance);
       row = sealGrid(record, L, cells).rows[i];
     }
     // draw cell-by-cell segments so every row is exactly the same width
-    let x = b.x + (L.shape === "circle" ? (b.w - cells * fit.advance) / 2 : 0);
+    let x = b.x + ((L.shape === "circle" || L.opticalCenter) ? (b.w - cells * fit.advance) / 2 : 0);
     const draw = function (text, color) {
       if (!text) return;
       ctx.fillStyle = color;
@@ -1386,12 +1464,20 @@ async function renderSeal(record, layout) {
 
 /* QR code centred in L.qrArea, whole-pixel modules, light quiet zone. */
 function drawSealQr(ctx, L, W, H, url, debug) {
-  if (typeof qrcode !== "function") return; // vendor/qrcode.js missing: no QR, seal still renders
+  if (!(L.qr && L.qr.matrix) && typeof qrcode !== "function") return; // vendor/qrcode.js missing: no QR, seal still renders
   const cfg = L.qr || {};
-  const qr = qrcode(0, cfg.ecc || "M");
-  qr.addData(url);
-  qr.make();
-  const n = qr.getModuleCount();
+  let qr;
+  if (cfg.matrix) {
+    // static QR from a module matrix (same code on every seal)
+    qr = { isDark: function (r, c) { return cfg.matrix[r].charAt(c) === "1"; } };
+    qr.n = cfg.matrix.length;
+  } else {
+    qr = qrcode(0, cfg.ecc || "M");
+    qr.addData(url);
+    qr.make();
+    qr.n = qr.getModuleCount();
+  }
+  const n = qr.n;
   const a = L.qrArea;
   const bx = a.x * W, by = a.y * H, bw = a.w * W, bh = a.h * H;
   const quiet = cfg.quietZone == null ? 2 : cfg.quietZone;
@@ -1400,7 +1486,9 @@ function drawSealQr(ctx, L, W, H, url, debug) {
   const ox = Math.round(bx + (bw - size) / 2), oy = Math.round(by + (bh - size) / 2);
   ctx.save();
   ctx.fillStyle = cfg.light || "#fff";
-  ctx.fillRect(bx, by, bw, bh);
+  // opaque, pixel-snapped: fully hides any placeholder QR printed in the art
+  const fx = Math.floor(bx), fy = Math.floor(by);
+  ctx.fillRect(fx, fy, Math.ceil(bx + bw) - fx, Math.ceil(by + bh) - fy);
   ctx.fillStyle = cfg.dark || "#000";
   for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) {
     if (qr.isDark(r, c)) ctx.fillRect(ox + c * mod, oy + r * mod, mod, mod);
