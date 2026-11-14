@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="seal.png">
+<link rel="preload" as="image" href="seal-circle.png">
 <style>
 :root {
   /* Main site tokens — header, page chrome */
@@ -424,12 +424,19 @@ main.wrap {
   border-radius: 18px; background: linear-gradient(180deg, #f3fbef, #ffffff);
   border: 1px solid #bfe3c4; box-shadow: 0 10px 30px -22px rgba(10,68,36,.6);
 }
-.manifesto p { margin: 0; color: #0A4424; }
-.manifesto .m-head { font-family: var(--font-head); font-size: clamp(20px, 3vw, 26px); font-weight: 700; }
-.manifesto .m-rule { display: block; width: 72px; height: 3px; margin: 14px auto 16px; border-radius: 3px; background: linear-gradient(90deg, #2e9b4f, #8fd19e); }
-.manifesto .m-body { font-size: 18px; line-height: 1.5; color: #1F5134; }
-.manifesto .m-big { font-family: var(--font-head); font-weight: 800; letter-spacing: .06em; font-size: clamp(22px, 4.2vw, 34px); color: #0B6B33; margin: 6px 0 8px; }
-.manifesto strong { color: #0A4424; }
+/* One font (the page body font), modest sizes: a simple explanation. */
+.manifesto p { margin: 0; font-family: inherit; font-size: 17px; font-weight: 400; line-height: 1.6; letter-spacing: normal; text-transform: none; color: #1F5134; }
+.manifesto .m-head { font-size: 19px; font-weight: 600; color: #0A4424; margin-bottom: 6px; }
+.edition-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 22px; }
+.edition-switch { display: inline-flex; padding: 4px; border-radius: 999px; background: #fff; border: 1px solid color-mix(in oklab, var(--accent) 40%, transparent); box-shadow: 0 6px 18px -14px rgba(0,0,0,.5); }
+.edition-switch button {
+  font-family: var(--font-head); font-size: 14px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  padding: 8px 18px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer;
+}
+.edition-switch button[aria-checked="true"] { background: var(--accentDark); color: #fff; }
+.edition-switch button:not([aria-checked="true"]):hover { color: var(--text); }
+.edition-note { font-size: 14px; color: var(--muted); }
+.privacy-note { margin: 4px auto 0; max-width: 640px; text-align: center; font-size: 13px; line-height: 1.5; color: var(--muted); opacity: .85; }
 .verify-banner { margin: 6px 0 14px; padding: 14px 16px; border-radius: 12px; background: #eaf7ec; border: 1px solid #9fd3a9; color: #0A4424; font-size: 16px; line-height: 1.45; }
 .verify-banner code { font-family: var(--font-mono); word-break: break-all; }
 .seal-wrap .actions, .seal-wrap .datapoints, .seal-wrap > .hint { width: min(100%, 680px); }
@@ -677,6 +684,13 @@ footer.site span { color: var(--muted); opacity: .7; }
       <span class="big">hard</span>
     </h1>
     <div class="sub">SYSTEM UPGRADE<br><br>change is <s>possible</s> NOW</div>
+    <div class="edition-bar">
+      <div class="edition-switch" role="radiogroup" aria-label="Choose the edition">
+        <button type="button" role="radio" data-edition="world" aria-checked="true">World</button>
+        <button type="button" role="radio" data-edition="uk" aria-checked="false">UK</button>
+      </div>
+      <span class="edition-note" id="edition-note"></span>
+    </div>
   </header>
 
   <div class="sticky-bar">
@@ -706,10 +720,10 @@ footer.site span { color: var(--muted); opacity: .7; }
         <canvas id="seal-canvas" width="1254" height="1254" aria-label="I VOTED seal with your vote data points"></canvas>
         <div class="manifesto">
           <p class="m-head">We are pro peace and pro life.</p>
-          <span class="m-rule" aria-hidden="true"></span>
-          <p class="m-body">This is a new game.</p>
-          <p class="m-big">WE WIN WHEN WE ALL WIN.</p>
-          <p class="m-body">Love wins. Humanity wins.<br><strong>Please share this message.</strong></p>
+          <p>This is a new game.</p>
+          <p>WE WIN WHEN WE ALL WIN.</p>
+          <p>Love wins. Humanity wins.</p>
+          <p>Please share this message.</p>
         </div>
         <div class="sign-row">
           <div class="sign-field">
@@ -759,11 +773,13 @@ footer.site span { color: var(--muted); opacity: .7; }
       <a href="https://github.com/PlanetaryCouncil/planetarycouncil.org" target="_blank" rel="noopener">Source</a>
       <span>PlanetaryCouncil.org</span>
     </footer>
+    <p class="privacy-note">To pick the UK or World edition, your browser may ask a public lookup (country.is) which country it is in. No IP address is stored: only the two-letter country code is kept on this device for a day. Choosing an edition yourself skips the lookup.</p>
   </main>
   </div><!-- /.pc-content -->
 </div>
 <noscript><p class="noscript">This page needs JavaScript to record a vote and draw your I VOTED seal.</p></noscript>
 
+<script src="/js/geo-locale.js"></script>
 <script src="vendor/qrcode.js"></script>
 <script>
 /* =====================================================================
@@ -789,6 +805,8 @@ const EDITIONS = {
     padOffset: 10,
     heading: "10 questions for the world",
     navTag: "World vote",
+    label: "World",
+    sealTag: "WORLD",
     questions: [
       ["🤝", "Unify versions of reality", "One shared set of facts on the same page."],
       ["🔎", "Resolve conspiracy theories", "Settle them openly, starting with climate change."],
@@ -802,13 +820,17 @@ const EDITIONS = {
       ["🏦", "End tax havens", "No bank secrecy, no offshore hiding, one simple framework."]
     ]
   },
-  /* Forthcoming: set EDITION = EDITIONS.uk and serve from /vote/uk/ */
+  /* UK edition: the exact ten UK questions of the legacy combined ballot
+     (vote/legacy/), UKISH- codes with pad offset 0, so seals and codes
+     are compatible with the legacy decoder. */
   uk: {
     id: "uk",
     codeTag: "UKISH",
     padOffset: 0,
     heading: "10 questions for the UK",
     navTag: "UK vote",
+    label: "UK",
+    sealTag: "UK",
     questions: [
       ["🗳️", "Proportional representation", "Seats in parliament should match the share of votes cast."],
       ["🔌", "Public ownership", "Energy, water and rail run at cost, not for dividends."],
@@ -824,7 +846,15 @@ const EDITIONS = {
   }
 };
 
-const EDITION = EDITIONS.world;
+let EDITION = EDITIONS.world; // chosen at start-up, see pickInitialEdition()
+
+/* Country → edition. GeoLocale lives in /js/geo-locale.js (generic, reusable). */
+const EDITION_GEO = {
+  rules: { GB: "uk", default: "world" },
+  param: "edition",            // ?edition=uk / ?edition=world force an edition
+  cacheKey: "pc.vote.edition", // manual choice + cached country code (never the IP)
+  timeoutMs: 1500
+};
 
 const SCALE = [
   { v:  2, mark: "++", label: "Strongly agree",    color: "var(--accent)" },
@@ -945,6 +975,13 @@ function sanitizeName(raw) {
   return Array.from(s).slice(0, NAME_MAX).join("");
 }
 
+function editionForCode(encoded) {
+  const p = parseEncoded(encoded);
+  if (p && /^UK/.test(p.tag)) return EDITIONS.uk;
+  if (p && /^W/.test(p.tag)) return EDITIONS.world;
+  return EDITION;
+}
+
 /* Verification URL: opening it decodes and shows this vote's answers. */
 function verifyUrl(encoded) { return encoded ? SITE_VOTE_URL + "#" + encoded : SITE_VOTE_URL; }
 function displayUrl(url) { return String(url).replace(/^https?:\/\//, ""); }
@@ -967,7 +1004,7 @@ function sealRowValues(record, layout) {
     id:   { label: L.labels.id, value: groupId(record.voteId) },
     name: { label: L.labels.name, value: (record.name || "").toUpperCase() },
     time: { label: L.labels.time, value: record.timestamp || "" },
-    answers: { label: L.labels.answers, value: answerMarks(record.answers) },
+    answers: { label: L.labels.answers, value: padPrefix(editionForCode(record.encoded).sealTag, 5) + " " + answerMarks(record.answers) },
     url:  { label: L.labels.url, value: displayUrl(verifyUrl(record.encoded)) }
   };
   return L.rows.map(function (k) { return Object.assign({ key: k }, values[k]); });
@@ -1027,7 +1064,7 @@ function sealDisplayLines(record, layout) {
   return sealGrid(record, layout).rows.map(function (r) { return r.text; });
 }
 
-const STORAGE_VOTE  = "pc.vote." + EDITION.id + ".v1";
+let STORAGE_VOTE  = "pc.vote." + EDITION.id + ".v1"; // one saved vote per edition
 const STORAGE_NONCE = "pc.vote.nonce";
 const SITE_VOTE_URL = "https://planetarycouncil.org/vote/";
 const SHARE_MESSAGE = "I voted. We are pro peace and pro life. This is a new game. WE WIN WHEN WE ALL WIN. Love wins. Humanity wins. Please share this message.";
@@ -1767,6 +1804,84 @@ function showVerification() {
   return true;
 }
 
+/* ---------- edition choice ------------------------------------------ */
+function forcedEdition() {
+  // a verify link (#UKISH-… / #WORLD-…) forces the matching edition
+  const code = codeFromLocation();
+  if (code) return { id: editionForCode(code).id, source: "verify link" };
+  const q = new URLSearchParams(location.search).get("edition");
+  if (q && EDITIONS[q.toLowerCase()]) return { id: q.toLowerCase(), source: "link" };
+  return null;
+}
+
+let editionSource = "default";
+function updateEditionUI(detail) {
+  document.querySelectorAll(".edition-switch button").forEach(function (b) {
+    b.setAttribute("aria-checked", b.dataset.edition === EDITION.id ? "true" : "false");
+  });
+  const note = document.getElementById("edition-note");
+  const why = {
+    "verify link": "from the verify link",
+    link: "from the link",
+    choice: "your choice",
+    cache: detail && detail.country ? "for " + detail.country : "",
+    ip: detail && detail.country ? "for " + detail.country : "",
+    timezone: "from your time zone",
+    language: "from your browser language",
+    default: ""
+  }[editionSource] || "";
+  note.textContent = EDITION.label + " edition" + (why ? " · " + why : "");
+  document.title = EDITION.heading.replace(/^10 questions/, "Vote: 10 questions") + " · Planetary Council";
+}
+
+async function setEdition(id, source, detail) {
+  const ed = EDITIONS[id] || EDITIONS.world;
+  editionSource = source || editionSource;
+  if (ed === EDITION && editionBooted) { updateEditionUI(detail); return; }
+  EDITION = ed;
+  STORAGE_VOTE = "pc.vote." + EDITION.id + ".v1";
+  state.answers = EDITION.questions.map(function () { return null; });
+  state.padSeed = newPadSeed();
+  state.timestamp = state.voteId = state.encoded = state.device = null;
+  state.name = "";
+  hideResults();
+  updateEditionUI(detail);
+  editionBooted = true;
+  await restore();
+}
+let editionBooted = false;
+
+function onEditionClick(e) {
+  const id = e.currentTarget.dataset.edition;
+  if (typeof GeoLocale !== "undefined") GeoLocale.choose(EDITION_GEO, id);
+  // drop ?edition= so the saved choice wins on the next visit
+  const u = new URL(location.href);
+  if (u.searchParams.has("edition")) { u.searchParams.delete("edition"); history.replaceState(null, "", u); }
+  setEdition(id, "choice");
+}
+
+/* Render straight away with what we know synchronously, then refine once
+   the (cached or network) country lookup returns. Never blocks render. */
+async function bootEdition() {
+  const forced = forcedEdition();
+  if (forced) return setEdition(forced.id, forced.source);
+  const G = typeof GeoLocale !== "undefined" ? GeoLocale : null;
+  const quick = G && G.peek(EDITION_GEO);
+  if (quick && EDITIONS[quick.value]) {
+    await setEdition(quick.value, quick.source, quick);
+    if (quick.source !== "cache") return;
+  } else {
+    await setEdition("world", "default");
+  }
+  if (!G) return;
+  const r = await G.detect(EDITION_GEO);
+  const id = EDITIONS[r.value] ? r.value : "world";
+  const src = r.source.indexOf("ip:") === 0 ? "ip" : r.source;
+  // don't yank the ballot away from someone who already started answering
+  if (id !== EDITION.id && answeredCount() > 0) return;
+  await setEdition(id, src, r);
+}
+
 async function restore() {
   const saved = loadVote();
   if (saved) {
@@ -1824,15 +1939,21 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("seal-name").addEventListener("input", onNameInput);
   document.getElementById("seal-name").addEventListener("blur", function (e) { e.target.value = state.name || ""; });
   window.addEventListener("resize", function () { syncBarHeight(); onResize(); });
-  window.addEventListener("hashchange", showVerification);
+  window.addEventListener("hashchange", function () {
+    const f = forcedEdition();
+    (f ? setEdition(f.id, f.source) : Promise.resolve()).then(showVerification);
+  });
   loadSealImage().catch(function () { /* shown later if needed */ });
   document.getElementById("seal-name").maxLength = sealNameMax();
-  restore().then(showVerification);
+  document.querySelectorAll(".edition-switch button").forEach(function (b) { b.addEventListener("click", onEditionClick); });
+  bootEdition().then(showVerification);
 });
 
 // Expose a few helpers for the headless test harness (harmless in production).
 window.__PC_VOTE__ = {
-  EDITION: EDITION,
+  get EDITION() { return EDITION; },
+  setEdition: setEdition,
+  get editionSource() { return editionSource; },
   EDITIONS: EDITIONS,
   SCALE: SCALE,
   encodeAnswers: encodeAnswers,
