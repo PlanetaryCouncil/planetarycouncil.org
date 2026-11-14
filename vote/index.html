@@ -419,6 +419,19 @@ main.wrap {
 .pfp-preview img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; box-shadow: 0 4px 14px -6px rgba(0,0,0,.35); background: #eef6ff; }
 .pfp-preview figcaption { font-size: 12px; color: var(--muted); text-align: center; }
 .btn-big { font-size: 15px; padding: 16px 24px; }
+.manifesto {
+  width: min(100%, 680px); text-align: center; padding: 26px 22px 24px;
+  border-radius: 18px; background: linear-gradient(180deg, #f3fbef, #ffffff);
+  border: 1px solid #bfe3c4; box-shadow: 0 10px 30px -22px rgba(10,68,36,.6);
+}
+.manifesto p { margin: 0; color: #0A4424; }
+.manifesto .m-head { font-family: var(--font-head); font-size: clamp(20px, 3vw, 26px); font-weight: 700; }
+.manifesto .m-rule { display: block; width: 72px; height: 3px; margin: 14px auto 16px; border-radius: 3px; background: linear-gradient(90deg, #2e9b4f, #8fd19e); }
+.manifesto .m-body { font-size: 18px; line-height: 1.5; color: #1F5134; }
+.manifesto .m-big { font-family: var(--font-head); font-weight: 800; letter-spacing: .06em; font-size: clamp(22px, 4.2vw, 34px); color: #0B6B33; margin: 6px 0 8px; }
+.manifesto strong { color: #0A4424; }
+.verify-banner { margin: 6px 0 14px; padding: 14px 16px; border-radius: 12px; background: #eaf7ec; border: 1px solid #9fd3a9; color: #0A4424; font-size: 16px; line-height: 1.45; }
+.verify-banner code { font-family: var(--font-mono); word-break: break-all; }
 .seal-wrap .actions, .seal-wrap .datapoints, .seal-wrap > .hint { width: min(100%, 680px); }
 
 .recap { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
@@ -687,10 +700,17 @@ footer.site span { color: var(--muted); opacity: .7; }
     <section id="results" aria-labelledby="results-heading">
       <div>
         <h2 id="results-heading">Thank you for participating in the vote.</h2>
-        <p class="lead">We are engineering the future together.<br>Sign your seal, download it and use it as your profile photo: that is your proof of voting.</p>
+        <p class="lead">Sign your seal, download it and use it as your profile photo: that is your proof of voting.</p>
       </div>
       <div class="seal-wrap">
         <canvas id="seal-canvas" width="1254" height="1254" aria-label="I VOTED seal with your vote data points"></canvas>
+        <div class="manifesto">
+          <p class="m-head">We are pro peace and pro life.</p>
+          <span class="m-rule" aria-hidden="true"></span>
+          <p class="m-body">This is a new game.</p>
+          <p class="m-big">WE WIN WHEN WE ALL WIN.</p>
+          <p class="m-body">Love wins. Humanity wins.<br><strong>Please share this message.</strong></p>
+        </div>
         <div class="sign-row">
           <div class="sign-field">
             <label for="seal-name">Sign your seal <span class="opt">(optional)</span></label>
@@ -724,6 +744,9 @@ footer.site span { color: var(--muted); opacity: .7; }
     <section id="decoder">
       <div class="badge">See the responses from the card</div>
       <h2>Card decoder</h2>
+      <div class="verify-banner" id="verify-banner" hidden>
+        <strong>Verifying a seal.</strong> These are the answers encoded in <code id="verify-code"></code>.
+      </div>
       <p>Paste the “Encoded answers” line from any card or seal and it should read the answers back. World codes (<code>WORLD-…</code>) and legacy UK codes (<code>UKISH-…</code>) both work.</p>
       <textarea id="decoder-input" placeholder="WORLD-A1B2C3D4_DmoAGqef6pum4s" spellcheck="false"></textarea>
       <div class="decode-msg" id="decode-msg" hidden></div>
@@ -741,6 +764,7 @@ footer.site span { color: var(--muted); opacity: .7; }
 </div>
 <noscript><p class="noscript">This page needs JavaScript to record a vote and draw your I VOTED seal.</p></noscript>
 
+<script src="vendor/qrcode.js"></script>
 <script>
 /* =====================================================================
    Planetary Council — /vote  (world edition)
@@ -828,6 +852,12 @@ const SCALE = [
    font      family, weight, lineHeight; size is computed to fit the box,
              capped at maxSize (fraction of image width).
    colors    text / label / fill / debug.
+   spread    optional: if the font is limited by width, spread rows up to
+             this × font size apart so they fill the box height.
+   qrArea    optional box (fractions) for a QR code of the verification
+             URL; qr: { ecc: "L"|"M"|"Q"|"H", quietZone (modules), dark, light }.
+   Row keys: code (WORLD seed b58), utc / time (ISO timestamp), id,
+             name, answers (++ + · − −− per question), url (verify URL).
    ------------------------------------------------------------------- */
 const SEAL_LAYOUTS = {
   default: {
@@ -845,9 +875,34 @@ const SEAL_LAYOUTS = {
     fill: { char: "-", spaced: true },
     font: { family: '"IBM Plex Mono", ui-monospace, monospace', weight: "600", lineHeight: 1.24, maxSize: 0.024 },
     colors: { text: "#0B4D2C", label: "#2F7A4B", fill: "rgba(11,77,44,0.38)", debug: "rgba(220,0,0,0.75)" }
+  },
+
+  /* Round "I VOTED / NEW SYSTEM • PLANETARY REVOLUTION" badge (Nov 2026).
+     Measured from the pixels (1254 × 1254):
+       green box inside its frame  x 264–758, y 865–1042
+       white square inside frame   x 793–982, y 866–1041          */
+  circle: {
+    image: "seal-circle.png",
+    shape: "rect",                       // the badge is round, its text box is a rectangle
+    textArea: { x: 0.2105, y: 0.6898, w: 0.3947, h: 0.1419 },
+    padding: { x: 0.035, y: 0.08 },
+    rows: ["name", "time", "answers", "url"],
+    labels: { name: "Name:", time: "Time:", answers: "Answers:", url: "URL:" },
+    labelWidth: 8,
+    gap: 1,
+    cols: "auto",
+    minFill: 2,
+    stretch: true,
+    spread: 2.3,                          // when width-bound, spread rows up to 2.3× font size apart
+    fill: { char: "-", spaced: true },
+    font: { family: '"IBM Plex Mono", ui-monospace, monospace', weight: "600", lineHeight: 1.5, maxSize: 0.024 },
+    colors: { text: "#0A4424", label: "#1F6B3D", fill: "rgba(10,68,36,0.40)", debug: "rgba(220,0,0,0.75)" },
+    // QR code with the verification URL, drawn in the white square
+    qrArea: { x: 0.6324, y: 0.6906, w: 0.1515, h: 0.1404 },
+    qr: { ecc: "M", quietZone: 2, dark: "#0A2E1A", light: "#FFFFFF" }
   }
 };
-const ACTIVE_SEAL_LAYOUT = "default";
+const ACTIVE_SEAL_LAYOUT = "circle";
 
 function sealLayoutName() {
   const m = location.search.match(/[?&]seal=([A-Za-z0-9_-]+)/);
@@ -890,6 +945,18 @@ function sanitizeName(raw) {
   return Array.from(s).slice(0, NAME_MAX).join("");
 }
 
+/* Verification URL: opening it decodes and shows this vote's answers. */
+function verifyUrl(encoded) { return encoded ? SITE_VOTE_URL + "#" + encoded : SITE_VOTE_URL; }
+function displayUrl(url) { return String(url).replace(/^https?:\/\//, ""); }
+/* "++ +  ·  −  −−" — each answer takes two cells so the row is regular. */
+function answerMarks(answers) {
+  if (!Array.isArray(answers)) return "";
+  return answers.map(function (v) {
+    const s = SCALE.find(function (x) { return x.v === v; });
+    return padPrefix(s ? s.mark : "_", 2);
+  }).join(" ").replace(/\s+$/, "");
+}
+
 /* Row values without padding: [{ label, value }] in layout order. */
 function sealRowValues(record, layout) {
   const L = layout || sealLayout();
@@ -898,7 +965,10 @@ function sealRowValues(record, layout) {
     code: { label: L.labels.code || parsed.tag, value: parsed.seed + "  " + parsed.payload },
     utc:  { label: L.labels.utc, value: record.timestamp || "" },
     id:   { label: L.labels.id, value: groupId(record.voteId) },
-    name: { label: L.labels.name, value: (record.name || "").toUpperCase() }
+    name: { label: L.labels.name, value: (record.name || "").toUpperCase() },
+    time: { label: L.labels.time, value: record.timestamp || "" },
+    answers: { label: L.labels.answers, value: answerMarks(record.answers) },
+    url:  { label: L.labels.url, value: displayUrl(verifyUrl(record.encoded)) }
   };
   return L.rows.map(function (k) { return Object.assign({ key: k }, values[k]); });
 }
@@ -915,7 +985,7 @@ function sealGridCols(rows, layout) {
 /* Max characters of a name that fit the grid (used for the input). */
 function sealNameMax(layout) {
   const L = layout || sealLayout();
-  const rows = sealRowValues({ encoded: "WORLD-00000000_" + "1".repeat(14), timestamp: "2000-01-01T00:00:00.000Z", voteId: "0".repeat(16) }, L);
+  const rows = sealRowValues({ encoded: "WORLD-00000000_" + "1".repeat(14), timestamp: "2000-01-01T00:00:00.000Z", voteId: "0".repeat(16), answers: EDITION.questions.map(function () { return -2; }) }, L);
   const cols = sealGridCols(rows, L);
   return Math.max(4, Math.min(NAME_MAX, cols - Math.max(L.labelWidth, 4) - L.gap - 2));
 }
@@ -960,6 +1030,7 @@ function sealDisplayLines(record, layout) {
 const STORAGE_VOTE  = "pc.vote." + EDITION.id + ".v1";
 const STORAGE_NONCE = "pc.vote.nonce";
 const SITE_VOTE_URL = "https://planetarycouncil.org/vote/";
+const SHARE_MESSAGE = "I voted. We are pro peace and pro life. This is a new game. WE WIN WHEN WE ALL WIN. Love wins. Humanity wins. Please share this message.";
 
 /* ---------- encoding (legacy-compatible) ---------------------------- */
 const B58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
@@ -1211,6 +1282,7 @@ async function renderSeal(record, layout) {
   const nRows = grid.rows.length;
   let fit = fitMonoFont(ctx, L, grid.cols, nRows, inner.w, inner.h, W);
   let lineH = fit.size * L.font.lineHeight;
+  if (L.spread) lineH = Math.max(lineH, Math.min(inner.h / nRows, fit.size * L.spread)); // width-bound: spread rows over the height
   let rowBoxes = sealRowBoxes(L, inner, nRows, lineH);
   if (L.shape !== "circle" && L.stretch !== false) {
     // height-bound box: extend every row with more fill cells to reach the right edge
@@ -1271,11 +1343,37 @@ async function renderSeal(record, layout) {
     draw(row.value, L.colors.text);
     draw(row.fill, L.colors.fill);
   });
+  if (L.qrArea) drawSealQr(ctx, L, W, H, verifyUrl(record.encoded), debug);
   return canvas;
 }
 
+/* QR code centred in L.qrArea, whole-pixel modules, light quiet zone. */
+function drawSealQr(ctx, L, W, H, url, debug) {
+  if (typeof qrcode !== "function") return; // vendor/qrcode.js missing: no QR, seal still renders
+  const cfg = L.qr || {};
+  const qr = qrcode(0, cfg.ecc || "M");
+  qr.addData(url);
+  qr.make();
+  const n = qr.getModuleCount();
+  const a = L.qrArea;
+  const bx = a.x * W, by = a.y * H, bw = a.w * W, bh = a.h * H;
+  const quiet = cfg.quietZone == null ? 2 : cfg.quietZone;
+  const mod = Math.max(1, Math.floor(Math.min(bw, bh) / (n + 2 * quiet)));
+  const size = mod * n;
+  const ox = Math.round(bx + (bw - size) / 2), oy = Math.round(by + (bh - size) / 2);
+  ctx.save();
+  ctx.fillStyle = cfg.light || "#fff";
+  ctx.fillRect(bx, by, bw, bh);
+  ctx.fillStyle = cfg.dark || "#000";
+  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) {
+    if (qr.isDark(r, c)) ctx.fillRect(ox + c * mod, oy + r * mod, mod, mod);
+  }
+  if (debug) { ctx.strokeStyle = L.colors.debug; ctx.lineWidth = 2; ctx.strokeRect(bx, by, bw, bh); }
+  ctx.restore();
+}
+
 function sealRecord() {
-  return { encoded: state.encoded, timestamp: state.timestamp, voteId: state.voteId, name: state.name || "" };
+  return { encoded: state.encoded, timestamp: state.timestamp, voteId: state.voteId, name: state.name || "", answers: state.answers };
 }
 
 let pfpUrl = null;
@@ -1543,7 +1641,7 @@ function resetVote() {
 }
 
 function copyBlock() {
-  return [state.encoded, state.timestamp, "ID  " + state.voteId, SITE_VOTE_URL].filter(Boolean).join("\n");
+  return [state.encoded, state.timestamp, "ID  " + state.voteId, verifyUrl(state.encoded)].filter(Boolean).join("\n");
 }
 
 async function saveImage() {
@@ -1570,25 +1668,26 @@ async function saveImage() {
 async function shareSeal() {
   const btn = document.getElementById("btn-share");
   const prev = btn.textContent;
-  const text = copyBlock();
+  const text = SHARE_MESSAGE;
+  const url = verifyUrl(state.encoded);
   try {
     const canvas = document.getElementById("seal-canvas");
     const blob = await canvasBlob(canvas);
     const file = new File([blob], "planetary-council-i-voted-" + EDITION.codeTag + ".png", { type: "image/png" });
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      await navigator.share({ title: "I voted — Planetary Council", text: text, files: [file], url: SITE_VOTE_URL });
+      await navigator.share({ title: "I voted — Planetary Council", text: text + "\n" + url, files: [file] });
       btn.textContent = "Shared";
     } else if (navigator.share) {
-      await navigator.share({ title: "I voted — Planetary Council", text: text, url: SITE_VOTE_URL });
+      await navigator.share({ title: "I voted — Planetary Council", text: text, url: url });
       btn.textContent = "Shared";
     } else {
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(text + "\n" + url);
       btn.textContent = "Copied details";
     }
   } catch (e) {
     if (e && e.name === "AbortError") { btn.textContent = prev; return; }
     try {
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(text + "\n" + url);
       btn.textContent = "Copied details";
     } catch (e2) {
       btn.textContent = "Couldn’t share";
@@ -1644,6 +1743,28 @@ function onDecodeInput() {
     row.append(n, ic, t, a);
     rowsEl.appendChild(row);
   });
+}
+
+/* A seal's QR / URL row points at /vote/#WORLD-…: decode and show it. */
+function codeFromLocation() {
+  let h = "";
+  try { h = decodeURIComponent((location.hash || "").replace(/^#/, "")); } catch (e) { h = location.hash.replace(/^#/, ""); }
+  const q = location.search.match(/[?&]v=([^&]+)/);
+  const cand = [h, q ? decodeURIComponent(q[1]) : ""];
+  for (const c of cand) if (c && looksLikeCode(c) && parseEncoded(c)) return c.trim();
+  return null;
+}
+function showVerification() {
+  const code = codeFromLocation();
+  const banner = document.getElementById("verify-banner");
+  if (!code) { banner.hidden = true; return false; }
+  const input = document.getElementById("decoder-input");
+  input.value = code;
+  onDecodeInput();
+  document.getElementById("verify-code").textContent = code;
+  banner.hidden = false;
+  document.getElementById("decoder").scrollIntoView({ behavior: "auto", block: "start" });
+  return true;
 }
 
 async function restore() {
@@ -1703,9 +1824,10 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("seal-name").addEventListener("input", onNameInput);
   document.getElementById("seal-name").addEventListener("blur", function (e) { e.target.value = state.name || ""; });
   window.addEventListener("resize", function () { syncBarHeight(); onResize(); });
+  window.addEventListener("hashchange", showVerification);
   loadSealImage().catch(function () { /* shown later if needed */ });
   document.getElementById("seal-name").maxLength = sealNameMax();
-  restore();
+  restore().then(showVerification);
 });
 
 // Expose a few helpers for the headless test harness (harmless in production).
@@ -1726,6 +1848,9 @@ window.__PC_VOTE__ = {
   sanitizeName: sanitizeName,
   renderSeal: renderSeal,
   sealDisplayLines: sealDisplayLines,
+  verifyUrl: verifyUrl,
+  answerMarks: answerMarks,
+  SHARE_MESSAGE: SHARE_MESSAGE,
   parseEncoded: parseEncoded
 };
 </script>
