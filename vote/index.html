@@ -402,6 +402,7 @@ main.wrap {
 #results .lead { margin: 10px 0 0; max-width: 820px; font-size: 19px; line-height: 1.45; color: var(--muted); text-wrap: pretty; }
 
 .seal-wrap { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.q-intro { margin: 0 0 8px; max-width: 760px; font-size: 19px; line-height: 1.5; color: var(--muted); text-wrap: pretty; }
 .seal-name {
   width: min(100%, 520px); font-family: var(--font-mono); font-size: 18px; text-align: center;
   padding: 14px 16px; border-radius: 12px; background: #fff; color: var(--text);
@@ -693,7 +694,8 @@ footer.site span { color: var(--muted); opacity: .7; }
   .dp .lbl { flex-basis: 100%; }
   .btn-primary, .btn-secondary { width: 100%; text-align: center; }
   .sign-row { flex-direction: column; align-items: stretch; }
-  .pfp-preview { display: none; }   /* the badge is right above: keep the name field directly under it */
+  .pfp-preview { display: none; }
+  .saved-note { display: none !important; } /* would wrap the sticky bar and push the page down on completion */   /* the badge is right above: keep the name field directly under it */
   .sign-field { width: 100%; }
 }
 </style>
@@ -731,7 +733,6 @@ footer.site span { color: var(--muted); opacity: .7; }
         <button type="button" role="radio" data-edition="world" aria-checked="true">World</button>
         <button type="button" role="radio" data-edition="uk" aria-checked="false">UK</button>
       </div>
-      <span class="edition-note" id="edition-note"></span>
     </div>
   </header>
 
@@ -756,10 +757,15 @@ footer.site span { color: var(--muted); opacity: .7; }
 
     <section class="q-section" id="questions-section" aria-labelledby="q-heading">
       <h2 id="q-heading">10 questions for the world</h2>
+      <p class="q-intro" id="q-intro">This is the Planetary Council vote: ten big ideas for upgrading how the world works. Say where you stand on each one, from −− (strongly disagree) to ++ (strongly agree). When all ten are answered you get your I VOTED badge.</p>
       <div id="questions"></div>
     </section>
 
-    <section id="results" class="is-blank" aria-label="Your I VOTED badge">
+    <section id="results" class="is-blank" aria-labelledby="results-heading">
+      <div>
+        <h2 id="results-heading">Your I VOTED badge</h2>
+        <p class="lead">Your badge carries your name and your answers code. It is your proof of voting: save it and use it as your profile photo.</p>
+      </div>
       <div class="seal-wrap">
         <div class="seal-stage" id="seal-stage">
           <img id="seal-img" alt="Your I VOTED badge" decoding="async">
@@ -773,7 +779,19 @@ footer.site span { color: var(--muted); opacity: .7; }
         </div>
         <input id="seal-name" class="seal-name" type="text" autocomplete="name" spellcheck="false" maxlength="40" placeholder="Your name" aria-label="Your name">
         <button type="button" class="btn-primary btn-save" id="btn-save" disabled>Save badge</button>
+        <div class="manifesto">
+          <p class="m-head">We are pro peace and pro life.</p>
+          <p>This is a new game.</p>
+          <p>WE WIN WHEN WE ALL WIN.</p>
+          <p>Love wins. Humanity wins.</p>
+          <p>Please share this message.</p>
+        </div>
       </div>
+    </section>
+
+    <section class="newsletter" aria-labelledby="newsletter-heading">
+      <h2 id="newsletter-heading">Signup to a newsletter</h2>
+      <iframe src="https://planetarycouncil.substack.com/embed" width="480" height="320" style="border:1px solid var(--pc-line);border-radius:12px;background:rgba(255,255,255,0.7);max-width:100%" frameborder="0" scrolling="no" title="Planetary Council newsletter signup"></iframe>
     </section>
 
 
@@ -784,6 +802,7 @@ footer.site span { color: var(--muted); opacity: .7; }
       <a href="https://github.com/PlanetaryCouncil/planetarycouncil.org" target="_blank" rel="noopener">Source</a>
       <span>PlanetaryCouncil.org</span>
     </footer>
+    <p class="privacy-note">Your vote stays on this device. To pick the UK or World edition we may ask country.is for your country; only the two-letter code is kept, never your IP.</p>
   </main>
   </div><!-- /.pc-content -->
 </div>
@@ -817,6 +836,7 @@ const EDITIONS = {
     navTag: "World vote",
     label: "World",
     sealTag: "WORLD",
+    intro: "This is the Planetary Council vote: ten big ideas for upgrading how the world works. Say where you stand on each one, from −− (strongly disagree) to ++ (strongly agree). When all ten are answered you get your I VOTED badge.",
     seal: "world-v2",
     questions: [
       ["🤝", "Unify versions of reality", "One shared set of facts on the same page."],
@@ -842,6 +862,7 @@ const EDITIONS = {
     navTag: "UK vote",
     label: "UK",
     sealTag: "UK",
+    intro: "This is the Planetary Council vote for the UK: ten big ideas for upgrading how the country works. Say where you stand on each one, from −− (strongly disagree) to ++ (strongly agree). When all ten are answered you get your I VOTED badge.",
     seal: "uk-v2",
     questions: [
       ["🗳️", "Proportional representation", "Seats in parliament should match the share of votes cast."],
@@ -1710,10 +1731,7 @@ async function showResults(scroll) {
   const results = document.getElementById("results");
   setBadgeState();
   await drawSeal();                     // filled art lands under the overlay first
-  if (scroll) {
-    document.getElementById("seal-stage").scrollIntoView({ behavior: "smooth", block: "center" });
-    await new Promise(function (r) { setTimeout(r, 350); });
-  }
+  // never move the page while someone is voting: the badge fills in where it is
   results.classList.remove("is-blank"); // overlay fades out, badge comes to full colour
 }
 
@@ -1876,18 +1894,8 @@ function updateEditionUI(detail) {
   document.querySelectorAll(".edition-switch button").forEach(function (b) {
     b.setAttribute("aria-checked", b.dataset.edition === EDITION.id ? "true" : "false");
   });
-  const note = document.getElementById("edition-note");
-  const why = {
-    "verify link": "from the verify link",
-    link: "from the link",
-    choice: "your choice",
-    cache: detail && detail.country ? "for " + detail.country : "",
-    ip: detail && detail.country ? "for " + detail.country : "",
-    timezone: "from your time zone",
-    language: "from your browser language",
-    default: ""
-  }[editionSource] || "";
-  note.textContent = EDITION.label + " edition" + (why ? " · " + why : "");
+  const intro = document.getElementById("q-intro");
+  if (intro) intro.textContent = EDITION.intro;
   document.title = EDITION.heading.replace(/^10 questions/, "Vote: 10 questions") + " · Planetary Council";
 }
 
