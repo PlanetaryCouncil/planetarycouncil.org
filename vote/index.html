@@ -355,8 +355,36 @@ main.wrap {
   border-color: var(--sel, var(--accent));
 }
 
-#results { display: none; flex-direction: column; gap: 20px; }
-#results.is-open { display: flex; }
+#results { display: flex; flex-direction: column; gap: 20px; }
+#results.is-blank .datapoints, #results.is-blank .results-extra { display: none; }
+.seal-stage { position: relative; width: min(100%, 680px); aspect-ratio: 1 / 1; }
+#seal-img {
+  width: 100%; height: 100%; display: block; object-fit: contain;
+  -webkit-touch-callout: default; user-select: auto;   /* long-press "Save image" */
+  clip-path: circle(49.8% at 50% 50%);                 /* the art is round on a white square */
+  transition: opacity .8s ease, filter .8s ease;
+}
+#seal-img:not([src]) { visibility: hidden; }
+#results.is-blank #seal-img { opacity: .5; filter: saturate(.35); }
+.seal-overlay {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(255,255,255,.55), rgba(255,255,255,.3) 92%, rgba(255,255,255,0) 100%);
+  opacity: 1; visibility: visible; transition: opacity .8s ease, visibility 0s linear 0s;
+}
+#results:not(.is-blank) .seal-overlay { opacity: 0; visibility: hidden; transition: opacity .8s ease, visibility 0s linear .8s; }
+.seal-msg {
+  max-width: 76%; padding: 18px 24px; text-align: center; border-radius: 16px;
+  background: rgba(255,255,255,.92); border: 1px solid color-mix(in oklab, var(--accent) 35%, transparent);
+  box-shadow: 0 12px 32px -20px rgba(0,0,0,.45);
+}
+.seal-msg strong { display: block; font-family: var(--font-head); font-size: clamp(18px, 3.2vw, 26px); font-weight: 700; line-height: 1.2; color: var(--text); text-wrap: balance; }
+.seal-msg span { display: block; margin-top: 8px; font-size: 15px; color: var(--muted); }
+.actions button:disabled { opacity: .45; cursor: not-allowed; }
+.actions .btn-primary:disabled:hover { background: var(--accentDark); }
+.actions .btn-secondary:disabled:hover { background: transparent; color: var(--accentDark); }
+.btn-save { min-width: 240px; font-size: 17px; padding: 18px 34px; }
+@media (prefers-reduced-motion: reduce) { #seal-img, .seal-overlay { transition: none !important; } }
 #results h2 {
   font-family: var(--font-head);
   font-weight: 700;
@@ -369,7 +397,7 @@ main.wrap {
 #results .lead { margin: 10px 0 0; max-width: 820px; font-size: 19px; line-height: 1.45; color: var(--muted); text-wrap: pretty; }
 
 .seal-wrap { display: flex; flex-direction: column; align-items: center; gap: 16px; }
-#seal-canvas { width: min(100%, 680px); height: auto; display: block; border-radius: 8px; }
+#seal-canvas[hidden] { display: none; }
 .datapoints { width: min(100%, 680px); display: flex; flex-direction: column; gap: 8px; }
 .dp {
   display: flex;
@@ -650,7 +678,8 @@ footer.site span { color: var(--muted); opacity: .7; }
   .recap-row .ans, .decode-row .ans { grid-column: 2 / -1; text-align: left; }
   .dp .lbl { flex-basis: 100%; }
   .btn-primary, .btn-secondary { width: 100%; text-align: center; }
-  .sign-row { flex-direction: column-reverse; align-items: center; }
+  .sign-row { flex-direction: column; align-items: stretch; }
+  .pfp-preview { display: none; }   /* the badge is right above: keep the name field directly under it */
   .sign-field { width: 100%; }
 }
 </style>
@@ -697,7 +726,7 @@ footer.site span { color: var(--muted); opacity: .7; }
       <span class="tally" id="tally">0/10</span>
       <div class="progress" aria-hidden="true"><span id="pct"></span></div>
       <div class="dots" id="dots" hidden></div>
-      <span class="saved-note" id="saved-note" hidden><a href="#results">Your vote is saved — see your seal</a></span>
+      <span class="saved-note" id="saved-note" hidden><a href="#results">Your vote is saved — see your badge</a></span>
       <button type="button" class="btn-ghost" id="btn-reset">Reset</button>
     </div>
   </div>
@@ -705,18 +734,44 @@ footer.site span { color: var(--muted); opacity: .7; }
   <main class="wrap">
     <section class="q-section" id="questions-section" aria-labelledby="q-heading">
       <h2 id="q-heading">10 questions for the world</h2>
-      <div class="scale-legend">++ strongly agree · + agree · · neutral · − disagree · −− strongly disagree</div>
+      <div class="scale-legend">−− strongly disagree · − disagree · · neutral · + agree · ++ strongly agree</div>
       <div class="scale-heads-row"><div class="scale-heads" id="scale-heads"></div></div>
       <div id="questions"></div>
     </section>
 
-    <section id="results" aria-labelledby="results-heading">
+    <section id="results" class="is-blank" aria-labelledby="results-heading">
       <div>
-        <h2 id="results-heading">Thank you for participating in the vote.</h2>
-        <p class="lead">Sign your seal, download it and use it as your profile photo: that is your proof of voting.</p>
+        <h2 id="results-heading">Your I VOTED badge</h2>
+        <p class="lead" id="results-lead">Answer all the questions and your badge fills in here. Sign it, save it and use it as your profile photo: that is your proof of voting.</p>
       </div>
       <div class="seal-wrap">
-        <canvas id="seal-canvas" width="1254" height="1254" aria-label="I VOTED seal with your vote data points"></canvas>
+        <div class="seal-stage" id="seal-stage">
+          <img id="seal-img" alt="Your I VOTED badge" decoding="async">
+          <canvas id="seal-canvas" width="1254" height="1254" hidden aria-hidden="true"></canvas>
+          <div class="seal-overlay" id="seal-overlay">
+            <div class="seal-msg">
+              <strong>Answer all the questions to create your badge</strong>
+              <span id="seal-count">0 of 10 answered</span>
+            </div>
+          </div>
+        </div>
+        <div class="sign-row">
+          <div class="sign-field">
+            <label for="seal-name">Your name <span class="opt">(optional, signs your badge)</span></label>
+            <input id="seal-name" type="text" autocomplete="name" spellcheck="false" maxlength="40" placeholder="Your name">
+            <p class="hint" id="name-hint">Shown on the badge only. It stays on this device and does not change your vote ID.</p>
+          </div>
+          <figure class="pfp-preview" aria-label="Profile photo preview">
+            <img id="pfp-preview" alt="Your badge as a round profile photo">
+            <figcaption>As a profile photo</figcaption>
+          </figure>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn-primary btn-big btn-save" id="btn-save" disabled>Save badge</button>
+          <button type="button" class="btn-secondary" id="btn-share" disabled>Share badge</button>
+          <button type="button" class="btn-secondary" id="btn-copy" disabled>Copy vote code</button>
+        </div>
+        <p class="hint" id="action-hint">Saves a full-resolution square PNG that still reads well when apps crop it to a circle. On a phone you can also press and hold the badge and choose “Save image”.</p>
         <div class="manifesto">
           <p class="m-head">We are pro peace and pro life.</p>
           <p>This is a new game.</p>
@@ -724,28 +779,11 @@ footer.site span { color: var(--muted); opacity: .7; }
           <p>Love wins. Humanity wins.</p>
           <p>Please share this message.</p>
         </div>
-        <div class="sign-row">
-          <div class="sign-field">
-            <label for="seal-name">Sign your seal <span class="opt">(optional)</span></label>
-            <input id="seal-name" type="text" autocomplete="name" spellcheck="false" maxlength="40" placeholder="Your name">
-            <p class="hint" id="name-hint">Shown on the seal only. Your name stays on this device and does not change your vote ID.</p>
-          </div>
-          <figure class="pfp-preview" aria-label="Profile photo preview">
-            <img id="pfp-preview" alt="Your seal as a round profile photo">
-            <figcaption>As a profile photo</figcaption>
-          </figure>
-        </div>
-        <div class="actions">
-          <button type="button" class="btn-primary btn-big" id="btn-save">Download seal for your profile photo</button>
-          <button type="button" class="btn-secondary" id="btn-share">Share seal</button>
-          <button type="button" class="btn-secondary" id="btn-copy">Copy vote code</button>
-        </div>
-        <p class="hint" id="action-hint">Full-resolution square PNG. It still reads well when apps crop it to a circle.</p>
         <div class="datapoints" id="datapoints"></div>
       </div>
-      <div>
+      <div class="results-extra">
         <div class="recap" id="recap"></div>
-        <p class="change-note">Change any answer above to issue a new vote and a new seal, or use Reset to start over. Your vote is saved on this device only.</p>
+        <p class="change-note">Change any answer above to issue a new vote and a new badge, or use Reset to start over. Your vote is saved on this device only.</p>
       </div>
     </section>
 
@@ -864,6 +902,9 @@ const SCALE = [
   { v: -1, mark: "−",  label: "Disagree",          color: "#f59e0b" },
   { v: -2, mark: "−−", label: "Strongly disagree", color: "#f43f5e" }
 ];
+/* On screen the scale runs −− … ++ (disagree on the left, agree on the right).
+   Only the display order changes: values, codes and the legacy decoder are untouched. */
+const SCALE_UI = SCALE.slice().reverse();
 
 /* ---------- I VOTED seal: layouts -----------------------------------
    Every seal design is one entry in SEAL_LAYOUTS. To add a design
@@ -1375,6 +1416,11 @@ async function renderSeal(record, layout) {
   const ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, W, H);
   ctx.drawImage(img, 0, 0, W, H);
+  if (record.blank) {
+    // blank badge: art (+ the generic QR when the layout has one), no rows yet
+    if (L.qrArea && L.qr && L.qr.matrix) drawSealQr(ctx, L, W, H, SITE_VOTE_URL, false);
+    return canvas;
+  }
 
   const ta = L.textArea;
   const box = { x: ta.x * W, y: ta.y * H, w: ta.w * W, h: ta.h * H };
@@ -1501,19 +1547,37 @@ function sealRecord() {
   return { encoded: state.encoded, timestamp: state.timestamp, voteId: state.voteId, name: state.name || "", answers: state.answers };
 }
 
-let pfpUrl = null;
-async function drawSeal() {
-  const canvas = await renderSeal(sealRecord());
-  const img = document.getElementById("pfp-preview");
-  if (img && canvas.toBlob) {
-    const blob = await canvasBlob(canvas);
-    if (blob) {
-      if (pfpUrl) URL.revokeObjectURL(pfpUrl);
-      pfpUrl = URL.createObjectURL(blob);
-      img.src = pfpUrl;
-    }
-  }
-  return canvas;
+/* Draws are queued so a slow blank render can never land after a filled one.
+   The visible badge is an <img> with a data URL, so long-press "Save image"
+   works on phones; the canvas stays hidden and feeds Save / Share. */
+let sealQueue = Promise.resolve();
+function drawSeal(blank) {
+  sealQueue = sealQueue.catch(function () {}).then(async function () {
+    const rec = sealRecord();
+    if (blank || !isComplete() || !state.encoded) rec.blank = true;
+    const canvas = await renderSeal(rec);
+    const url = canvas.toDataURL("image/png");
+    const big = document.getElementById("seal-img");
+    const small = document.getElementById("pfp-preview");
+    big.src = url;
+    if (small) small.src = url;
+    try { await big.decode(); } catch (e) {}
+    return canvas;
+  });
+  return sealQueue;
+}
+
+function setBadgeState() {
+  const done = isComplete() && !!state.encoded;
+  const n = answeredCount(), total = EDITION.questions.length;
+  document.getElementById("seal-count").textContent = n + " of " + total + " answered";
+  ["btn-save", "btn-share", "btn-copy"].forEach(function (id) { document.getElementById(id).disabled = !done; });
+  document.getElementById("results-heading").textContent = done ? "Thank you for participating in the vote." : "Your I VOTED badge";
+  document.getElementById("results-lead").textContent = done
+    ? "Sign your badge, save it and use it as your profile photo: that is your proof of voting."
+    : "Answer all the questions and your badge fills in here. Sign it, save it and use it as your profile photo: that is your proof of voting.";
+  document.getElementById("seal-img").alt = done ? "Your I VOTED badge, " + EDITION.label + " edition" : "Blank I VOTED badge: answer all the questions to create it";
+  return done;
 }
 
 let nameTimer = null;
@@ -1560,7 +1624,7 @@ function renderQuestions() {
   const heads = document.getElementById("scale-heads");
   heads.replaceChildren();
   const narrow = window.innerWidth < 760;
-  SCALE.forEach(function (s) {
+  SCALE_UI.forEach(function (s) {
     const sp = document.createElement("span");
     sp.textContent = narrow ? s.mark : s.label;
     heads.appendChild(sp);
@@ -1592,7 +1656,7 @@ function renderQuestions() {
     opts.className = "q-opts";
     opts.setAttribute("role", "radiogroup");
     opts.setAttribute("aria-labelledby", "q-title-" + i);
-    SCALE.forEach(function (s) {
+    SCALE_UI.forEach(function (s) {
       const b = document.createElement("button");
       b.type = "button";
       b.setAttribute("role", "radio");
@@ -1682,7 +1746,6 @@ async function finalizeVote() {
 
 async function showResults(scroll) {
   const results = document.getElementById("results");
-  results.classList.add("is-open");
   const dp = document.getElementById("datapoints");
   dp.replaceChildren();
   [
@@ -1719,14 +1782,21 @@ async function showResults(scroll) {
     recap.appendChild(row);
   });
 
-  await drawSeal();
+  setBadgeState();
+  await drawSeal();                     // filled art lands under the overlay first
   if (scroll) {
-    results.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.getElementById("seal-stage").scrollIntoView({ behavior: "smooth", block: "center" });
+    await new Promise(function (r) { setTimeout(r, 350); });
   }
+  results.classList.remove("is-blank"); // overlay fades out, badge comes to full colour
 }
 
 function hideResults() {
-  document.getElementById("results").classList.remove("is-open");
+  const results = document.getElementById("results");
+  const wasFilled = !results.classList.contains("is-blank");
+  results.classList.add("is-blank");
+  setBadgeState();
+  if (wasFilled || !document.getElementById("seal-img").getAttribute("src")) drawSeal(true);
 }
 
 async function pick(i, v) {
@@ -1735,6 +1805,7 @@ async function pick(i, v) {
   else state.answers[i] = v;
   updateQuestion(i);
   renderProgress();
+  setBadgeState();
   if (isComplete()) {
     state.justCompleted = !prevComplete;
     await finalizeVote();
@@ -1990,6 +2061,10 @@ async function restore() {
     await showResults(false);
   } else if (isComplete()) {
     await finalizeVote();
+  } else {
+    document.getElementById("results").classList.add("is-blank");
+    setBadgeState();
+    await drawSeal(true);
   }
 }
 
@@ -1998,10 +2073,10 @@ function onResize() {
   if (!heads.childElementCount) return;
   const narrow = window.innerWidth < 760;
   const current = heads.firstChild && heads.firstChild.textContent;
-  const should = narrow ? SCALE[0].mark : SCALE[0].label;
+  const should = narrow ? SCALE_UI[0].mark : SCALE_UI[0].label;
   if (current !== should) {
     heads.replaceChildren();
-    SCALE.forEach(function (s) {
+    SCALE_UI.forEach(function (s) {
       const sp = document.createElement("span");
       sp.textContent = narrow ? s.mark : s.label;
       heads.appendChild(sp);
@@ -2044,6 +2119,7 @@ window.__PC_VOTE__ = {
   get editionSource() { return editionSource; },
   EDITIONS: EDITIONS,
   SCALE: SCALE,
+  SCALE_UI: SCALE_UI,
   encodeAnswers: encodeAnswers,
   decodeOne: decodeOne,
   padFrom: padFrom,
