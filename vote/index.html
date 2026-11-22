@@ -417,7 +417,9 @@ main.wrap {
   width: min(100%, 520px); font-family: var(--font-mono); font-size: 18px; text-align: center;
   padding: 14px 16px; border-radius: 12px; background: #fff; color: var(--text);
   border: 1px solid color-mix(in oklab, var(--accent) 45%, transparent);
+  text-transform: uppercase;
 }
+.seal-name::placeholder { text-transform: none; }
 .seal-name:focus { outline: 2px solid var(--accentDark); outline-offset: 1px; }
 #decoder[hidden] { display: none; }
 #decoder { display: flex; flex-direction: column; gap: 12px; }
@@ -1073,6 +1075,7 @@ function sanitizeName(raw) {
   // letters, marks, digits, spaces and a few name punctuation marks only
   s = s.replace(/[^\p{L}\p{M}\p{N} .,'’&-]/gu, "");
   s = s.replace(/\s+/g, " ").trim();
+  s = s.toUpperCase();   // names are ALL CAPS, as on the badge (scripts without case are untouched)
   return Array.from(s).slice(0, NAME_MAX).join("");
 }
 
@@ -1565,7 +1568,19 @@ function setBadgeState() {
 
 let nameTimer = null;
 function onNameInput(e) {
-  const clean = sanitizeName(e.target.value).slice(0, sealNameMax());
+  const el = e.target;
+  if (!e.isComposing) {
+    // show caps while typing, keeping the caret where it was
+    const v = el.value, up = v.toUpperCase();
+    if (up !== v) {
+      const pos = el.selectionStart == null ? v.length : el.selectionStart;
+      const end = el.selectionEnd == null ? pos : el.selectionEnd;
+      const np = v.slice(0, pos).toUpperCase().length, ne = v.slice(0, end).toUpperCase().length;
+      el.value = up;
+      try { el.setSelectionRange(np, ne); } catch (err) {}
+    }
+  }
+  const clean = sanitizeName(el.value).slice(0, sealNameMax());
   state.name = clean;
   persistPartial();
   clearTimeout(nameTimer);
@@ -1983,6 +1998,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("btn-save").addEventListener("click", saveImage);
   document.getElementById("decoder-input").addEventListener("input", onDecodeInput);
   document.getElementById("seal-name").addEventListener("input", onNameInput);
+  document.getElementById("seal-name").addEventListener("compositionend", onNameInput);
   document.getElementById("seal-name").addEventListener("blur", function (e) { e.target.value = state.name || ""; });
   window.addEventListener("resize", function () { syncBarHeight(); onResize(); });
   window.addEventListener("hashchange", function () {
