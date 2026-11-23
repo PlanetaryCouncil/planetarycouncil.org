@@ -1,0 +1,1301 @@
+<title>Billionaire Non-Proliferation Treaty</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+<style>
+  :root {
+    --ground: #eceef1;
+    --panel: #fbfcfd;
+    --panel-alt: #f2f4f8;
+    --ink: #101a2b;
+    --ink-soft: #4d5a70;
+    --ink-faint: #7f8a9d;
+    --rule: #c8d0dc;
+    --rule-soft: #dfe4ec;
+    --accent: #1d3a6b;
+    --accent-soft: #dbe3f0;
+    --gold: #8a6a12;
+    --living: #1f6b4f;
+    /* the cover is the same deep navy in both themes — it is a cover, not a surface */
+    --deep: #0b1628;
+    --deep-2: #12233d;
+    --deep-ink: #eef2f8;
+    --deep-soft: #9db0cc;
+    --deep-gold: #d7ab4a;
+    --deep-rule: #23375a;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0a0f18;
+      --panel: #111826;
+      --panel-alt: #16202f;
+      --ink: #e6ebf2;
+      --ink-soft: #97a4b8;
+      --ink-faint: #6d7b90;
+      --rule: #26313f;
+      --rule-soft: #1a2331;
+      --accent: #7aa6e0;
+      --accent-soft: #16263c;
+      --gold: #d7a53f;
+      --living: #5cc39a;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #0a0f18;
+    --panel: #111826;
+    --panel-alt: #16202f;
+    --ink: #e6ebf2;
+    --ink-soft: #97a4b8;
+    --ink-faint: #6d7b90;
+    --rule: #26313f;
+    --rule-soft: #1a2331;
+    --accent: #7aa6e0;
+    --accent-soft: #16263c;
+    --gold: #d7a53f;
+    --living: #5cc39a;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .mono {
+    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  /* ================= cover ================= */
+
+  .cover {
+    background: var(--deep);
+    background-image:
+      radial-gradient(1200px 520px at 78% -8%, rgba(215, 171, 74, .16), transparent 62%),
+      radial-gradient(900px 520px at 8% 108%, rgba(46, 143, 110, .18), transparent 60%);
+    color: var(--deep-ink);
+    border-bottom: 1px solid var(--deep-rule);
+  }
+
+  .cover .wrap { padding-top: 54px; padding-bottom: 46px; }
+
+  .slug {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    align-items: baseline;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--deep-soft);
+  }
+
+  .slug a { color: var(--deep-gold); text-decoration: none; border-bottom: 1px solid rgba(215,171,74,.35); }
+  .slug a:hover { border-bottom-color: var(--deep-gold); }
+
+  .cover h1 {
+    font-family: Archivo, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 900;
+    font-size: clamp(40px, 8vw, 92px);
+    line-height: .9;
+    letter-spacing: -.035em;
+    margin: 26px 0 0;
+    text-wrap: balance;
+  }
+
+  .cover h1 em {
+    display: block;
+    font-style: normal;
+    color: var(--deep-gold);
+  }
+
+  .cover .sub {
+    margin: 20px 0 0;
+    max-width: 40ch;
+    font-size: clamp(19px, 2.4vw, 25px);
+    line-height: 1.36;
+    color: var(--deep-ink);
+  }
+
+  .cover .sub span { color: var(--deep-soft); }
+
+  .rule-gold {
+    height: 1px;
+    background: linear-gradient(90deg, var(--deep-gold), rgba(215,171,74,.05));
+    margin: 30px 0 0;
+  }
+
+  .headline-figs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 26px 30px;
+    margin-top: 30px;
+  }
+
+  .fig .k {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--deep-soft);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .fig .v {
+    font-family: Archivo, sans-serif;
+    font-weight: 800;
+    font-size: clamp(38px, 5.4vw, 58px);
+    line-height: 1;
+    letter-spacing: -.035em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .fig .v.gold { color: var(--deep-gold); }
+  .fig .v.living { color: #6fd0a6; }
+
+  .fig p {
+    margin: 9px 0 0;
+    font-size: 15px;
+    color: var(--deep-soft);
+    max-width: 30ch;
+    line-height: 1.45;
+  }
+
+  .verdict {
+    margin: 34px 0 0;
+    padding: 20px 22px;
+    border: 1px solid var(--deep-rule);
+    background: rgba(255, 255, 255, .035);
+    font-size: clamp(17px, 2vw, 21px);
+    line-height: 1.45;
+    max-width: 74ch;
+  }
+
+  .verdict b { color: var(--deep-gold); font-weight: 600; }
+
+  /* ================= shared section furniture ================= */
+
+  section { padding: 60px 0 0; }
+
+  .rubric {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 12px;
+  }
+
+  h2.head {
+    font-family: Archivo, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 800;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.02;
+    letter-spacing: -.028em;
+    margin: 0;
+    max-width: 22ch;
+    text-wrap: balance;
+  }
+
+  .lede { margin: 14px 0 0; max-width: 72ch; color: var(--ink-soft); font-size: 17.5px; }
+  .lede strong { color: var(--ink); font-weight: 600; }
+
+  /* ================= treaty ================= */
+
+  .articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    margin-top: 26px;
+  }
+
+  .articles article {
+    background: var(--panel);
+    outline: 1px solid var(--rule);
+    padding: 20px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .art-no {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .articles h3 {
+    font-family: Archivo, "Helvetica Neue", Arial, sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -.018em;
+    margin: 0;
+  }
+
+  .articles p { margin: 0; font-size: 15.5px; color: var(--ink-soft); }
+
+  .articles p.fine {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    line-height: 1.55;
+    color: var(--ink-faint);
+    margin-top: 2px;
+  }
+
+  /* ================= the invitation ================= */
+
+  .plateau {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 26px;
+    margin-top: 26px;
+  }
+
+  .ledger-box {
+    border: 1px solid var(--rule);
+    background: var(--panel);
+  }
+
+  .ledger-box h3 {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink-faint);
+  }
+
+  .ledger-box.gains h3 { color: var(--living); }
+
+  .ledger-box dl { margin: 0; }
+
+  .ledger-box .row {
+    display: grid;
+    grid-template-columns: minmax(110px, 38%) 1fr;
+    gap: 16px;
+    padding: 13px 20px;
+    border-bottom: 1px solid var(--rule-soft);
+    align-items: baseline;
+  }
+
+  .ledger-box .row:last-child { border-bottom: 0; }
+
+  .ledger-box dt {
+    font-family: Archivo, sans-serif;
+    font-weight: 700;
+    font-size: 15.5px;
+    letter-spacing: -.01em;
+    margin: 0;
+  }
+
+  .ledger-box dd {
+    margin: 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+
+  .ledger-box .nil dd::before {
+    content: "\2014  ";
+    color: var(--ink-faint);
+  }
+
+  .ledger-box.gains dd::before {
+    content: "+ ";
+    font-family: "IBM Plex Mono", monospace;
+    color: var(--living);
+    font-weight: 600;
+  }
+
+  .together {
+    margin-top: 26px;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--gold);
+    background: var(--panel-alt);
+    padding: 22px 24px;
+    max-width: none;
+  }
+
+  .together p { margin: 0; font-size: 17px; color: var(--ink-soft); max-width: 74ch; }
+  .together p + p { margin-top: 12px; }
+  .together strong { color: var(--ink); font-weight: 600; }
+  .together .creed {
+    font-family: Archivo, sans-serif;
+    font-weight: 700;
+    font-size: clamp(19px, 2.4vw, 24px);
+    letter-spacing: -.02em;
+    color: var(--ink);
+    max-width: 36ch;
+    line-height: 1.25;
+  }
+
+  /* ================= the instrument ================= */
+
+  .instrument {
+    margin-top: 26px;
+    border: 1px solid var(--rule);
+    background: var(--panel);
+    padding: 24px;
+  }
+
+  .dial {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;
+  }
+
+  .dial label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    flex: 0 0 auto;
+  }
+
+  .dial input[type="range"] { flex: 1 1 280px; accent-color: var(--gold); height: 22px; }
+
+  .dial .readout {
+    font-family: Archivo, sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: -.03em;
+    font-variant-numeric: tabular-nums;
+    min-width: 5ch;
+    text-align: right;
+  }
+
+  .presets { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+
+  button.chip {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    background: var(--panel-alt);
+    border: 1px solid var(--rule);
+    padding: 6px 11px;
+    cursor: pointer;
+    transition: background .12s ease, color .12s ease, border-color .12s ease;
+  }
+
+  button.chip:hover { border-color: var(--ink-soft); color: var(--ink); }
+  button.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--panel); }
+  button.chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .allocation {
+    display: flex;
+    height: 40px;
+    margin-top: 20px;
+    border: 1px solid var(--rule);
+    background: var(--panel-alt);
+    overflow: hidden;
+  }
+
+  .allocation i {
+    display: block;
+    border-right: 1px solid var(--panel);
+    background: var(--rule-soft);
+    transition: background .3s ease;
+  }
+
+  .allocation i.funded { background: var(--accent); }
+  .allocation i.rest { background: var(--gold); border-right: 0; }
+
+  .alloc-key {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    margin-top: 10px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .04em;
+    color: var(--ink-faint);
+  }
+
+  .alloc-key b { font-weight: 600; }
+  .alloc-key .sw-funded { color: var(--accent); }
+  .alloc-key .sw-part   { color: var(--accent); opacity: .55; }
+  .alloc-key .sw-none   { color: var(--rule); }
+  .alloc-key .sw-rest   { color: var(--gold); }
+
+  .tally {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 20px;
+  }
+
+  .tally div { background: var(--panel-alt); padding: 14px 16px; }
+
+  .tally dt {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 5px;
+  }
+
+  .tally dd {
+    margin: 0;
+    font-family: Archivo, sans-serif;
+    font-weight: 800;
+    font-size: 27px;
+    letter-spacing: -.03em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tally dd small {
+    display: block;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 400;
+    font-size: 13.5px;
+    letter-spacing: 0;
+    color: var(--ink-soft);
+    margin-top: 5px;
+    line-height: 1.4;
+  }
+
+  /* ================= programme cards ================= */
+
+  .programme {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 18px;
+    margin-top: 26px;
+  }
+
+  .card {
+    border: 1px solid var(--rule);
+    background: var(--panel);
+    padding: 20px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    transition: border-color .3s ease, box-shadow .3s ease, opacity .3s ease;
+  }
+
+  .card.unfunded { opacity: .52; }
+
+  .card.funded {
+    border-color: var(--accent);
+    box-shadow: inset 3px 0 0 var(--accent);
+  }
+
+  .card.partial {
+    border-color: var(--gold);
+    box-shadow: inset 3px 0 0 var(--gold);
+  }
+
+  .card-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .card-top .cost { color: var(--ink); font-weight: 600; letter-spacing: .06em; font-size: 13px; }
+
+  .card h3 {
+    font-family: Archivo, "Helvetica Neue", Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -.022em;
+    line-height: 1.14;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .card p { margin: 0; font-size: 15.5px; color: var(--ink-soft); }
+
+  .card .ends {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    line-height: 1.55;
+    color: var(--ink-faint);
+  }
+
+  .card .yield {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--rule-soft);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: var(--ink);
+    letter-spacing: .01em;
+  }
+
+  .card .yield b { color: var(--living); font-weight: 600; font-size: 15px; display: block; }
+  .card .yield span { color: var(--ink-faint); }
+
+  .stamp {
+    align-self: flex-start;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border: 1px solid currentColor;
+    color: var(--ink-faint);
+  }
+
+  .card.funded .stamp { color: var(--accent); }
+  .card.partial .stamp { color: var(--gold); }
+
+  /* ================= calendar ================= */
+
+  .calendar {
+    margin-top: 26px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .era {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: 0 30px;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .era .year {
+    font-family: Archivo, sans-serif;
+    font-weight: 800;
+    font-size: 40px;
+    letter-spacing: -.035em;
+    line-height: 1;
+    color: var(--gold);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .era .year small {
+    display: block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 8px;
+  }
+
+  .era ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px; }
+
+  .era li { padding-left: 22px; position: relative; color: var(--ink-soft); max-width: 68ch; }
+
+  .era li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .62em;
+    width: 10px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .era li b { color: var(--ink); font-weight: 600; }
+
+  /* ================= coda ================= */
+
+  .coda {
+    margin-top: 60px;
+    background: var(--deep);
+    background-image: radial-gradient(900px 420px at 82% 0%, rgba(46, 143, 110, .18), transparent 60%);
+    color: var(--deep-ink);
+    border-top: 1px solid var(--deep-rule);
+  }
+
+  .coda .wrap { padding-top: 58px; padding-bottom: 58px; }
+
+  .coda h2 {
+    font-family: Archivo, sans-serif;
+    font-weight: 800;
+    font-size: clamp(28px, 4.2vw, 46px);
+    letter-spacing: -.03em;
+    line-height: 1.02;
+    margin: 14px 0 0;
+    max-width: 20ch;
+  }
+
+  .coda .rubric { color: var(--deep-gold); margin: 0; }
+
+  .coda p {
+    max-width: 66ch;
+    color: var(--deep-soft);
+    font-size: 18px;
+    margin: 20px 0 0;
+  }
+
+  .coda p strong { color: var(--deep-ink); font-weight: 600; }
+
+  .coda .last {
+    margin-top: 30px;
+    padding-top: 24px;
+    border-top: 1px solid var(--deep-rule);
+    font-family: Archivo, sans-serif;
+    font-weight: 700;
+    font-size: clamp(20px, 2.6vw, 28px);
+    letter-spacing: -.02em;
+    color: var(--deep-ink);
+    max-width: 30ch;
+    line-height: 1.2;
+  }
+
+  a.tg {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: 26px;
+    text-decoration: none;
+    border: 1px solid var(--deep-gold);
+    color: var(--deep-gold);
+    padding: 13px 20px;
+    transition: background .14s ease, color .14s ease;
+  }
+
+  a.tg:hover { background: var(--deep-gold); color: var(--deep); }
+  a.tg:focus-visible { outline: 2px solid var(--deep-gold); outline-offset: 3px; }
+
+  .tg-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+
+  .tg-handle { font-family: "IBM Plex Mono", monospace; font-size: 14px; letter-spacing: .01em; }
+
+  /* ================= method ================= */
+
+  .method {
+    padding: 40px 0 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .method h3 {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--ink-faint);
+  }
+
+  .method p { margin: 0; font-size: 15px; color: var(--ink-soft); max-width: 80ch; }
+  .method a { color: var(--accent); }
+
+  @media (max-width: 760px) {
+    .era { grid-template-columns: 1fr; gap: 14px; }
+    .era .year { font-size: 32px; }
+    .allocation { height: 30px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+
+  /* ---------- the first ten ---------- */
+  .ten { list-style: none; margin: 26px 0 0; padding: 0; border-top: 1px solid var(--rule); counter-reset: ten; }
+  .ten li {
+    counter-increment: ten;
+    display: grid;
+    grid-template-columns: 2.4em minmax(0, 1fr) auto;
+    gap: 4px 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    align-items: baseline;
+  }
+  .ten li::before {
+    content: counter(ten, decimal-leading-zero);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+    color: var(--gold);
+  }
+  .ten .who { font-family: "Archivo", sans-serif; font-weight: 700; font-size: 18px; color: var(--ink); }
+  .ten .who small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 400; font-size: 12px; color: var(--ink-faint); margin-top: 2px; }
+  .ten .frees { font-family: "IBM Plex Mono", monospace; font-size: 15px; color: var(--living); white-space: nowrap; text-align: right; }
+  .ten .frees small { display: block; font-size: 11px; color: var(--ink-faint); }
+  .ten .why { grid-column: 2 / -1; margin: 4px 0 0; font-size: 15.5px; color: var(--ink-soft); max-width: 70ch; }
+  .ten-sum { margin: 18px 0 0; font-family: "IBM Plex Mono", monospace; font-size: 13.5px; color: var(--ink-soft); }
+  .ten-sum b { color: var(--living); }
+  .ten-note { margin: 14px 0 0; font-size: 14.5px; color: var(--ink-faint); max-width: 72ch; }
+  @media (max-width: 560px) {
+    .ten li { grid-template-columns: 2em minmax(0, 1fr); }
+    .ten .frees { grid-column: 2; text-align: left; }
+    .ten .why { grid-column: 2; }
+  }
+</style>
+
+<!-- ============================ cover ============================ -->
+<div class="cover">
+  <div class="wrap">
+    <div class="slug">
+      <span>Draft &mdash; open for signature</span>
+      <span>Fifteen undertakings</span>
+      <span>One planet, one balance sheet</span>
+      <span>Addressed to the three thousand</span>
+      <span><a href="#first-ten">The first ten &darr;</a></span>
+      <span><a href="./people/">The register, person by person &rarr;</a></span>
+      <span><a href="../treaty.html">The treaty in one page &rarr;</a></span>
+      <span><a href="../index.html">&larr; Planetary Council</a></span>
+    </div>
+
+    <h1>Billionaire<br>Non-Proliferation<br><em>Treaty</em></h1>
+
+    <p class="sub">Beyond one billion, life doesn't get any better.
+      <span>Everything above it goes into the regeneration of a planet &mdash; not as charity, as commons.</span>
+    </p>
+
+    <div class="rule-gold"></div>
+
+    <div class="headline-figs">
+      <div class="fig">
+        <span class="k">The surplus above the cap</span>
+        <div class="v gold">$17T</div>
+        <p>What the world's billionaires hold beyond one billion each. 3,385 people; $20.4 trillion between them; $3.4 trillion of it under the cap and untouched.</p>
+      </div>
+      <div class="fig">
+        <span class="k">What the whole programme costs</span>
+        <div class="v">$12.3T</div>
+        <p>Fifteen planetary undertakings, costed at the published financing gaps. Not a selection of them. All fifteen, to completion.</p>
+      </div>
+      <div class="fig">
+        <span class="k">Left over afterwards</span>
+        <div class="v living">$4.7T</div>
+        <p>The regeneration of the biosphere and the end of preventable death do not exhaust the surplus. They leave more than a quarter of it.</p>
+      </div>
+    </div>
+
+    <p class="verdict">This is the entire argument, and it is arithmetic rather than ideology: <b>humanity's outstanding bill is smaller than one asset class held by three thousand people.</b> Malaria, tuberculosis, dirty water, dirty air, extreme poverty, the schooling of every child, a billion hectares of ruined land, an emptied ocean &mdash; the published price of ending all of it, together, fits inside the surplus with change left over. Nobody has to be poorer than a billion dollars for it to work.</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ============================ treaty ============================ -->
+  <section id="treaty">
+    <p class="rubric">The instrument</p>
+    <h2 class="head">Seven articles, written the way arms control is written</h2>
+    <p class="lede">Not a tax, not a confiscation, not a pledge drive. A <strong>non-proliferation regime</strong>: concentrated private capital treated as a stockpile with a verification problem rather than as a virtue with a marginal rate. No party has signed it, nothing here is law, and no living person's assets are described. The mechanism matters as much as the money &mdash; a commitment that cannot be verified, or that a foundation can hold in perpetuity, has historically bought governance rather than regeneration.</p>
+
+    <div class="articles">
+      <article>
+        <span class="art-no">Article I</span>
+        <h3>The cap</h3>
+        <p>A ceiling of one billion US dollars in net worth per natural person, indexed and reviewed once a decade. Below it nothing changes: no floor, no cap on income, no cap on what a company may be worth &mdash; only on accumulated stock held by one individual.</p>
+        <p class="fine">A billion is not proposed as a fair number. It is proposed as an obviously generous one, so that the argument survives being wrong by a factor of ten.</p>
+      </article>
+      <article>
+        <span class="art-no">Article II</span>
+        <h3>The surplus</h3>
+        <p>Everything above the cap is committed to the planetary commons and disbursed within ten years of crossing it. A pledge is not a disbursement. An endowment that grows faster than it gives is not a disbursement either.</p>
+        <p class="fine">The ten-year clock exists because perpetual foundations convert giving into governance: the money stays, the influence stays, and the deaths the money would have averted still happen on schedule.</p>
+      </article>
+      <article>
+        <span class="art-no">Article III</span>
+        <h3>The commons</h3>
+        <p>Surplus funds goods no one can be excluded from: a habitable climate, an intact biosphere, ended diseases, clean air and water, open knowledge, and the public institutions that hold them. Delivery runs through bodies accountable to the people served.</p>
+        <p class="fine">Naming rights are not a commons good. Neither is a wing, a prize, a chair, or a rocket.</p>
+      </article>
+      <article>
+        <span class="art-no">Article IV</span>
+        <h3>Non-proliferation</h3>
+        <p>Holdings are counted at the beneficial owner. Trusts, foundations, holding companies, family offices and control blocks all count against the natural person who controls them. Splitting a fortune across vehicles or relatives does not create a new person under the cap.</p>
+        <p class="fine">Every enrichment programme in history has described itself as civilian.</p>
+      </article>
+      <article>
+        <span class="art-no">Article V</span>
+        <h3>Verification</h3>
+        <p>A public register of holdings above the cap, audited annually by an independent body, with the beneficial-ownership chain published in full. Inspection is a condition of accession, not a courtesy extended afterwards.</p>
+        <p class="fine">Unverifiable compliance is indistinguishable from non-compliance, whatever the press release says.</p>
+      </article>
+      <article>
+        <span class="art-no">Article VI</span>
+        <h3>The measure</h3>
+        <p>Success is reported in lives changed &mdash; deaths averted, children schooled, hectares alive, households lifted &mdash; with methods open to challenge and error bars printed. Dollars committed is an input, never a result.</p>
+        <p class="fine">Every figure on this page is an order-of-magnitude estimate. Printing the uncertainty is part of the instrument, not a disclaimer bolted to it.</p>
+      </article>
+      <article>
+        <span class="art-no">Article VII</span>
+        <h3>Accession</h3>
+        <p>Open for signature by any person and for adoption by any state that prefers to legislate it. Unilateral compliance is valid and requires no counterparty: one signatory who disburses outranks a ratified instrument nobody applies.</p>
+        <p class="fine">Non-proliferation regimes work when the holdouts become conspicuous. That is the entire enforcement mechanism on offer here.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================ invitation ============================ -->
+  <section id="invitation">
+    <p class="rubric">To the three thousand</p>
+    <h2 class="head">The second billion buys you nothing. We can prove it.</h2>
+    <p class="lede">This part is addressed to the people the cap applies to, because the treaty is an offer before it is a rule. The research on money and wellbeing agrees on the shape: satisfaction climbs steeply out of poverty, keeps climbing through security, and then <strong>flattens</strong>. Somewhere far below a billion, the curve goes horizontal. Past that point a fortune is no longer a life getting better &mdash; it is a number getting larger, plus the cost of guarding it. You know this. It is the quiet fact of every survey of the very rich ever conducted: asked how much would be enough, they answer <em>more</em>, at every level, forever. The treaty is the exit from that treadmill, and it is the only exit that comes with something magnificent on the other side.</p>
+
+    <div class="plateau">
+      <div class="ledger-box">
+        <h3>What the second billion buys</h3>
+        <dl>
+          <div class="row nil"><dt>Health</dt><dd>No treatment exists at $2B that is unavailable at $1B. Your cardiologist cannot tell the difference.</dd></div>
+          <div class="row nil"><dt>Time</dt><dd>Not one additional hour. The calendar is the one asset that never responds to money past the first few million.</dd></div>
+          <div class="row nil"><dt>Safety</dt><dd>Marginally less of it, if anything &mdash; the number is now the target, and the perimeter around your family grows with it.</dd></div>
+          <div class="row nil"><dt>Love</dt><dd>The people at the table increasingly cannot be sure why they are at the table. Neither, eventually, can you.</dd></div>
+          <div class="row nil"><dt>Meaning</dt><dd>Compounding is not a purpose. Nobody's eulogy has ever cited an index outperformed.</dd></div>
+          <div class="row nil"><dt>Standing</dt><dd>A bigger number in a ranking of numbers, read mostly by the other people in the ranking.</dd></div>
+        </dl>
+      </div>
+      <div class="ledger-box gains">
+        <h3>What signing buys</h3>
+        <dl>
+          <div class="row"><dt>A dead disease</dt><dd>Eradication costs $120B. The largest fortunes on the list carry twice that above the cap: one signature, and the oldest killer of children in history is over.</dd></div>
+          <div class="row"><dt>A seat</dt><dd>Signatories sit on the commons council with the people served &mdash; deciding together where the surplus goes, one voice each, for life.</dd></div>
+          <div class="row"><dt>Peers</dt><dd>The first cohort of signatories will know each other the way the Apollo crews knew each other. Nobody remembers who was rich in 1969.</dd></div>
+          <div class="row"><dt>A verified name</dt><dd>On the public register, in the founding instrument, on the record &mdash; not on a wing of a building. Auditable generosity, the only kind that persuades anyone.</dd></div>
+          <div class="row"><dt>The rules</dt><dd>First movers write the treaty's institutions. Holdouts inherit them. That asymmetry is the entire history of every regime like this one.</dd></div>
+          <div class="row"><dt>The story</dt><dd>Your grandchildren live on the calendar below and know which side of the register you were on. That is the only form of compounding that survives you.</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="together">
+      <p class="creed">We work for humanity. We change the rules of the game. And what counts as impact, we decide together.</p>
+      <p>Together means the table is round: signatories, and the communities the surplus serves, one voice each &mdash; not a donor conference where the microphone tracks the money. The treaty removes the very thing that has poisoned every previous version of this offer, because <strong>under the cap, no one at the table can buy the table.</strong> That is what the ceiling is for. It is not a punishment for success; it is the admission price of a room where your judgement finally counts for itself, weighed on its merits by people free to tell you no.</p>
+      <p>And this is why the ask is not sacrifice. Sacrifice is giving up something that was making your life better. The plateau means the surplus was not. What the treaty asks you to surrender is a scoreboard &mdash; and what it hands back is the largest project our species has ever attempted, with your name in the founding instrument and your voice, singular and equal, in every decision it makes. <strong>No one has ever been offered a better trade for something worth nothing.</strong></p>
+    </div>
+  </section>
+
+  <!-- ============================ instrument ============================ -->
+  <section id="first-ten">
+    <p class="rubric">The first ten</p>
+    <h2 class="head">Who signs first, on the public record</h2>
+    <p class="lede">A treaty starts with the people for whom it is the shortest step. These ten have already said, in public and mostly in writing, that the bulk of the fortune is not staying with them. <strong>None of them has been asked yet, and none has signed.</strong> This is our reading of what they have published about themselves &mdash; a forecast, open to argument, not an endorsement by anyone on it.</p>
+
+    <ol class="ten" id="ten"></ol>
+    <p class="ten-sum" id="ten-sum"></p>
+    <p class="ten-sum">Individual pages, as they are written: <a href="./people/">the register, person by person &rarr;</a></p>
+    <p class="ten-note">Net worth is the Forbes real-time figure for 13 August 2026; &ldquo;above the cap&rdquo; is that figure minus one billion. The Anthropic entry counts seven people as one signature because they made one pledge: the company's IPO filing of 26 October 2026 records that each cofounder has pledged 80% of their Anthropic equity to philanthropy, and also that the pledge is voluntary, revocable and not legally binding. That last clause is exactly what Article V exists to close &mdash; a pledge becomes a treaty when it lands on a public register and cannot be quietly withdrawn. Every listing does this: an IPO is the moment a paper fortune becomes a real one, and the cheapest moment there will ever be to put a ceiling on it.</p>
+  </section>
+
+  <section id="programme">
+    <p class="rubric">The programme</p>
+    <h2 class="head">Move the dial. Watch the century change.</h2>
+    <p class="lede">Fifteen undertakings, in the order a civilisation would sensibly buy them: first the things that are killing people now, then the systems that keep killing them, then the endowment that carries the whole thing past the people who paid for it. The dial is the <strong>share of the surplus actually committed</strong>. Every undertaking is costed at published financing gaps &mdash; the numbers institutions already publish and nobody funds.</p>
+
+    <div class="instrument">
+      <div class="dial">
+        <label for="share">Share of the surplus committed</label>
+        <input id="share" type="range" min="0" max="100" step="1" value="100" aria-describedby="tally">
+        <span class="readout mono" id="share-out">100%</span>
+      </div>
+
+      <div class="presets" role="group" aria-label="Preset commitment levels">
+        <button class="chip" data-pct="1" aria-pressed="false">1% &mdash; one signatory</button>
+        <button class="chip" data-pct="5" aria-pressed="false">5%</button>
+        <button class="chip" data-pct="21" aria-pressed="false">21% &mdash; disease ends</button>
+        <button class="chip" data-pct="50" aria-pressed="false">50%</button>
+        <button class="chip" data-pct="95" aria-pressed="false">95% &mdash; all fifteen</button>
+        <button class="chip" data-pct="100" aria-pressed="true">100%</button>
+      </div>
+
+      <div class="allocation" id="allocation" role="img" aria-label="Allocation of the surplus across the fifteen undertakings"></div>
+      <p class="alloc-key">
+        <span><b class="sw-funded">&#9632;</b> funded to completion</span>
+        <span><b class="sw-part">&#9632;</b> part-funded</span>
+        <span><b class="sw-none">&#9632;</b> not reached</span>
+        <span><b class="sw-rest">&#9632;</b> surplus remaining</span>
+      </p>
+
+      <dl class="tally" id="tally">
+        <div>
+          <dt>Committed</dt>
+          <dd class="mono" id="t-committed">&mdash;<small>Out of a $17 trillion surplus.</small></dd>
+        </div>
+        <div>
+          <dt>Undertakings completed</dt>
+          <dd class="mono" id="t-done">&mdash;<small>Fully funded to their published completion cost.</small></dd>
+        </div>
+        <div>
+          <dt>Deaths averted, every year</dt>
+          <dd class="mono" id="t-lives">&mdash;<small>Annual toll of the causes the funded undertakings end, at full deployment.</small></dd>
+        </div>
+        <div>
+          <dt>People whose conditions change</dt>
+          <dd class="mono" id="t-people">&mdash;<small>Inside at least one completed undertaking. A lower bound &mdash; the populations overlap and are never summed.</small></dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="programme" id="programme-grid"></div>
+  </section>
+
+  <!-- ============================ calendar ============================ -->
+  <section id="calendar">
+    <p class="rubric">The calendar of endings</p>
+    <h2 class="head">What stops happening, and when</h2>
+    <p class="lede">A schedule at full commitment, starting from a first year of disbursement. It is deliberately unhedged &mdash; every line is a thing that either happens by that date or visibly does not, which is the only kind of promise worth writing down.</p>
+
+    <div class="calendar">
+      <div class="era">
+        <div class="year">2031<small>Year five</small></div>
+        <ul>
+          <li><b>Malaria is in its last districts.</b> Transmission interrupted across the Sahel and the Great Lakes; the remaining cases countable by name.</li>
+          <li><b>No household on earth drinks unsafe water</b> in forty of the countries where the burden was highest. Diarrhoeal death, the second-biggest killer of small children in living memory, stops being a leading cause of anything.</li>
+          <li><b>Extreme poverty falls below one percent of humanity</b> and stays there, because the floor is a standing transfer and not a growth forecast.</li>
+          <li><b>Every child alive has a school to go to</b> &mdash; built, staffed, and paid for through the decade, not announced.</li>
+        </ul>
+      </div>
+      <div class="era">
+        <div class="year">2035<small>Year nine</small></div>
+        <ul>
+          <li><b>Tuberculosis ends.</b> The oldest continuously lethal disease in human history, finally out of the top hundred causes of death.</li>
+          <li><b>HIV becomes historical</b>: no new infections at scale, everyone diagnosed on treatment, the last generation to be born into the epidemic already grown.</li>
+          <li><b>The pharmacopoeia is public.</b> Every essential medicine off-patent, manufactured on three continents, priced at cost.</li>
+          <li><b>A pathogen with pandemic potential is detected in days, not months</b>, and a vaccine exists inside a hundred.</li>
+        </ul>
+      </div>
+      <div class="era">
+        <div class="year">2040<small>Year fourteen</small></div>
+        <ul>
+          <li><b>Every city's air is breathable</b> by the strict standard, not the lenient one &mdash; the single largest environmental cause of death, retired.</li>
+          <li><b>The grid is built.</b> Universal electricity, storage at planetary scale, deep geothermal proven, and the last coal plant in the world closed on schedule rather than in emergency.</li>
+          <li><b>A billion hectares are under restoration</b> &mdash; forest, mangrove, peat, grassland, reef &mdash; the largest deliberate act of repair our species has attempted.</li>
+          <li><b>Soil is gaining carbon instead of losing it</b> across five hundred million smallholdings, and the people farming it own the gain.</li>
+        </ul>
+      </div>
+      <div class="era">
+        <div class="year">2050<small>Year twenty-four</small></div>
+        <ul>
+          <li><b>The ocean has its biomass back.</b> Industrial bottom trawling ended by fleet buy-out; a third of the sea protected; fisheries larger than before they were protected, because that is what happens.</li>
+          <li><b>No child dies of anything preventable</b> &mdash; the sentence people have been writing in reports since 1978, discharged.</li>
+          <li><b>The knowledge commons is complete</b>: every paper, dataset, genome and model open, in a thousand languages, to anyone.</li>
+          <li><b>The Trust still pays.</b> Two trillion endowed, never spent, funding the maintenance of all of it forever &mdash; the first institution humanity has built for its heirs rather than its donors.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============================ coda ============================ -->
+<div class="coda">
+  <div class="wrap">
+    <p class="rubric">The point</p>
+    <h2>None of this is waiting on a discovery.</h2>
+    <p>There is no missing technology on this page. The nets, the drugs, the pipes, the panels, the seedlings, the curricula, the sequencers and the satellites all exist and all work. The malaria parasite has no defence we have not already beaten in eleven countries. Tuberculosis is curable for the price of a meal. Restoration is a matter of seedlings and patience. <strong>Every undertaking here is a purchase order, not a research programme.</strong></p>
+    <p>Which means the thing standing between now and that calendar is not knowledge, capacity, or even politics in the first instance. It is an allocation decision made by a few thousand people about money that, past the first billion, measurably does nothing further for the person holding it. No health outcome improves. No hour of the day is returned. No relationship is repaired. The second billion buys nothing at all &mdash; <strong>and it is the whole of the difference between this century and the one on the calendar above.</strong></p>
+    <p>So the treaty does not ask anyone to be poor, or good, or sorry. It asks for a ceiling on one number, a destination for what sits above it, and a public register so we can all see who signed. That is a smaller thing to ask than any generation before us could have asked, and it buys something none of them could have bought at any price.</p>
+    <p class="last">We measure success in one unit: lives changed. On these numbers, the first full commitment changes about twelve million of them a year &mdash; and then keeps doing it, every year, forever.</p>
+
+    <a class="tg" href="https://t.me/planetarycouncil" target="_blank" rel="noopener noreferrer">
+      <span class="tg-label">Argue with the numbers &mdash; and sign</span>
+      <span class="tg-handle">t.me/planetarycouncil</span>
+    </a>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="method">
+    <h3>Method, and where these numbers come from</h3>
+    <p>The $17 trillion surplus is aggregate billionaire wealth &mdash; $20.4 trillion held by 3,385 people on the Forbes real-time list of 13 August 2026 &mdash; minus one billion per person. The list moves daily; the figure is a dated snapshot, not a constant. Each undertaking is costed at the order of magnitude of its published financing gap &mdash; the annual figures that the WHO, UNESCO, the World Bank, UNEP, the IEA and the IAPB already publish for universal water and sanitation, universal education, disease elimination, restoration, energy access and the rest &mdash; multiplied by the years to completion and rounded hard. They are estimates, they carry real uncertainty, and several would move by a factor of two under a serious costing exercise. None of them moves by a factor of ten, which is the only precision the argument actually needs.</p>
+    <p>Deaths averted are the current annual death tolls of the causes each undertaking removes, credited only at full deployment: malaria, tuberculosis, HIV, the neglected tropical diseases, unsafe water and sanitation, and air pollution. They are not summed with the ones that overlap. Undertakings whose benefit is real but not a mortality figure &mdash; the ocean, the soil, the knowledge commons, the Trust &mdash; are counted in their own units, because Article VI says the units do not convert and a list that pretends otherwise is lying to make itself look tidier.</p>
+    <p>Nothing here is a forecast of what will happen. It is a price list for what could be bought, published so that the gap between the two is a decision somebody is visibly making rather than a fact of nature. Corrections and counter-costings are welcome in the channel above; the numbers on this page are meant to be argued down, and then paid.</p>
+  </section>
+</div>
+
+<script>
+  // Fifteen undertakings, in funding order. cost = US$ trillions, at published financing-gap
+  // scale. deaths = annual deaths averted at full deployment (null where the benefit is real
+  // but not a mortality figure). people = people whose material conditions change.
+  const WORKS = [
+    {
+      id: "I", cost: 0.12, term: "2027–2031",
+      title: "Eradicate malaria",
+      desc: "Not control. Eradication: universal nets and chemoprevention, the new vaccines at full coverage, gene-drive and vector work where transmission will not break, and surveillance down to the last case.",
+      ends: "Ends a parasite that has killed more human beings than any other single cause in history, and still kills a child every minute.",
+      deaths: 600000, people: 240000000, unit: "people no longer living in transmission zones"
+    },
+    {
+      id: "II", cost: 0.50, term: "2027–2035",
+      title: "End TB, HIV and the neglected diseases",
+      desc: "The endgame on all of them at once: universal testing and treatment, the short regimens everywhere, mass administration for the twenty neglected tropical diseases, and elimination certified country by country.",
+      ends: "Ends the oldest continuously lethal disease we know of, and closes an epidemic that defined a generation.",
+      deaths: 1900000, people: 1600000000, unit: "people released from endemic-disease exposure"
+    },
+    {
+      id: "III", cost: 1.50, term: "2027–2036",
+      title: "Water and sanitation for everyone",
+      desc: "Safely managed water and sanitation at every household on earth: treatment, pipes, pumps, sewerage and the utilities to run them, built to last a century rather than a funding cycle.",
+      ends: "Ends waterborne death, and returns to women and girls the two hundred million hours a day currently spent carrying water.",
+      deaths: 1400000, people: 2200000000, unit: "people connected to safe water and sanitation"
+    },
+    {
+      id: "IV", cost: 0.50, term: "2027–2040",
+      title: "Clean air over every city",
+      desc: "Clean cooking fuel and stoves at universal scale, coal retirement with the workforce paid through the transition, enforceable particulate standards, and a public monitor in every city that has none.",
+      ends: "Ends the largest environmental cause of death on the planet — indoors and out, the same intervention.",
+      deaths: 6700000, people: 4000000000, unit: "people breathing air that meets the strict standard"
+    },
+    {
+      id: "V", cost: 1.50, term: "2027–2041",
+      title: "An income floor beneath extreme poverty",
+      desc: "A standing unconditional transfer that closes the gap between what the poorest people have and the poverty line — paid directly, indefinitely, with no conditions and no programme officers deciding what a poor person needs.",
+      ends: "Ends extreme poverty as a category, not as a projection: the floor is a payment, and payments do not depend on growth forecasts.",
+      deaths: null, people: 700000000, unit: "people lifted permanently above the line"
+    },
+    {
+      id: "VI", cost: 1.50, term: "2027–2041",
+      title: "School for every child",
+      desc: "The full financing gap for universal quality education: schools built, teachers trained and paid properly, materials in mother tongues, and the girls' secondary schooling that changes everything downstream of it.",
+      ends: "Ends the exclusion of a quarter of a billion children who are out of school right now, and every second-order consequence of it.",
+      deaths: null, people: 250000000, unit: "children into school and kept there"
+    },
+    {
+      id: "VII", cost: 0.50, term: "2028–2035",
+      title: "Medicines into the commons",
+      desc: "Buy out the patents on every essential medicine and place them in the public domain, then build the manufacturing to make them — three continents, cost-price, quality-assured, publicly owned.",
+      ends: "Ends the arrangement where a cure exists and a person dies at a distance of one licensing agreement.",
+      deaths: 1000000, people: 2000000000, unit: "people with essential medicines priced at cost"
+    },
+    {
+      id: "VIII", cost: 0.30, term: "2027–2035",
+      title: "Pandemic-proof the species",
+      desc: "Metagenomic surveillance at ports and sewersheds worldwide, distributed sequencing, far-UVC and ventilation in public buildings, a standing hundred-day vaccine capability, and stockpiles that are actually stocked.",
+      ends: "Ends the era in which a novel pathogen gets a six-month head start on the institutions meant to catch it.",
+      deaths: null, people: 8000000000, unit: "everyone alive, insured against the next one"
+    },
+    {
+      id: "IX", cost: 0.50, term: "2027–2036",
+      title: "Electrify the unelectrified",
+      desc: "Light, refrigeration and power for the seven hundred million people who have none: mini-grids, rooftop solar, storage, and transmission into the places the grid was never going to reach on commercial terms.",
+      ends: "Ends the daily reality of a clinic without a fridge, a night without light, and a childhood without a lit page after dark.",
+      deaths: null, people: 700000000, unit: "people connected to power for the first time"
+    },
+    {
+      id: "X", cost: 1.00, term: "2028–2040",
+      title: "The energy commons",
+      desc: "Grid, storage and firm clean power built as public infrastructure: interconnection at continental scale, long-duration storage, deep geothermal and next-generation nuclear proven and handed over as open designs.",
+      ends: "Ends the fossil era on a schedule rather than in an emergency, and ends the argument that decarbonisation must be paid for by the poorest.",
+      deaths: null, people: 8000000000, unit: "everyone, on a habitable trajectory"
+    },
+    {
+      id: "XI", cost: 1.00, term: "2028–2042",
+      title: "Regenerate a billion hectares",
+      desc: "Forest, mangrove, peatland, grassland and reef restored at continental scale, with tenure and payment going to the communities doing the work — the largest deliberate act of repair our species has attempted.",
+      ends: "Ends the era of net loss: the first century in which the living surface of the planet is measured going up.",
+      deaths: null, people: 1000000000, unit: "hectares brought back to life"
+    },
+    {
+      id: "XII", cost: 0.30, term: "2028–2050",
+      title: "Give the ocean back its biomass",
+      desc: "A third of the sea genuinely protected, industrial bottom trawling ended by buying the fleets out and retraining their crews, harmful subsidies retired, and enforcement paid for from satellites rather than promises.",
+      ends: "Ends the strip-mining of the largest habitat on earth — and, within a decade, produces more fish than the trawling did.",
+      deaths: null, people: 3000000000, unit: "people fed from recovering fisheries"
+    },
+    {
+      id: "XIII", cost: 1.00, term: "2028–2045",
+      title: "Living soil and the food transition",
+      desc: "Five hundred million smallholdings moved to regenerative practice with the transition years underwritten, seed and knowledge held in common, and the carbon and yield gains owned by the farmers who make them.",
+      ends: "Ends the trade-off between feeding people and keeping topsoil, which was never a real trade-off, only an unfunded one.",
+      deaths: null, people: 2500000000, unit: "people in farming households with living soil"
+    },
+    {
+      id: "XIV", cost: 0.10, term: "2027–2050",
+      title: "The knowledge commons",
+      desc: "Every paper, dataset, genome, curriculum and trained model open and permanently mirrored, translated into a thousand languages, with the compute to use them available as a public utility.",
+      ends: "Ends the paywalling of the accumulated understanding of our species, which is the cheapest injustice on this page to fix.",
+      deaths: null, people: 8000000000, unit: "everyone, with access to everything known"
+    },
+    {
+      id: "XV", cost: 2.00, term: "Endowed, in perpetuity",
+      title: "The Planetary Commons Trust",
+      desc: "Two trillion endowed and never spent, governed by the people served rather than the people who paid, disbursing its return forever to maintain everything above — because a restored planet is a maintenance obligation, not a project.",
+      ends: "Ends the pattern where a heroic decade is followed by three of neglect, and the gains quietly go back.",
+      deaths: null, people: 8000000000, unit: "every generation after this one"
+    }
+  ];
+
+  const SURPLUS = 17.0;                       // US$ trillions above the cap
+  const PORTFOLIO = WORKS.reduce((s, w) => s + w.cost, 0);
+
+  const el = id => document.getElementById(id);
+  const share = el("share");
+  const grid = el("programme-grid");
+  const alloc = el("allocation");
+
+  const esc = s => s.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+
+  const money = t => t >= 1 ? "$" + t.toFixed(2).replace(/0$/, "") + "T"
+                            : "$" + Math.round(t * 1000) + "B";
+
+  const big = n => {
+    if (n >= 1e9) return (n / 1e9).toFixed(n >= 1e10 ? 1 : 2).replace(/\.0$/, "") + "bn";
+    if (n >= 1e6) return (n / 1e6).toFixed(n >= 1e7 ? 0 : 1).replace(/\.0$/, "") + "m";
+    if (n >= 1e3) return Math.round(n / 1e3) + "k";
+    return String(n);
+  };
+
+  // How far down the list a given commitment reaches.
+  function fundingState(committed) {
+    let left = committed;
+    return WORKS.map(w => {
+      const got = Math.max(0, Math.min(w.cost, left));
+      left -= got;
+      return { work: w, got, frac: got / w.cost };
+    });
+  }
+
+  function cardHTML(s) {
+    const w = s.work;
+    const cls = s.frac >= 0.999 ? "funded" : (s.frac > 0 ? "partial" : "unfunded");
+    const stamp = s.frac >= 0.999 ? "Funded to completion"
+      : (s.frac > 0 ? Math.round(s.frac * 100) + "% funded" : "Not reached");
+    const deathLine = w.deaths
+      ? '<b>' + big(w.deaths) + ' deaths averted a year</b><span>' + esc(w.unit) + ': ' + big(w.people) + '</span>'
+      : '<b>' + big(w.people) + '</b><span>' + esc(w.unit) + '</span>';
+    return '<article class="card ' + cls + '">'
+      + '<div class="card-top"><span>Undertaking ' + w.id + ' &middot; ' + esc(w.term) + '</span>'
+      +   '<span class="cost">' + money(w.cost) + '</span></div>'
+      + '<h3>' + esc(w.title) + '</h3>'
+      + '<span class="stamp">' + stamp + '</span>'
+      + '<p>' + esc(w.desc) + '</p>'
+      + '<p class="ends">' + esc(w.ends) + '</p>'
+      + '<p class="yield">' + deathLine + '</p>'
+      + '</article>';
+  }
+
+  function allocHTML(states, committed) {
+    const segs = states.map(s => {
+      const pct = (s.work.cost / SURPLUS) * 100;
+      // a part-funded undertaking fills only as far as the money went
+      const style = s.frac > 0 && s.frac < 0.999
+        ? 'width:' + pct.toFixed(3) + '%;background:linear-gradient(90deg,var(--accent) 0 '
+          + (s.frac * 100).toFixed(1) + '%,var(--rule-soft) ' + (s.frac * 100).toFixed(1) + '% 100%)'
+        : 'width:' + pct.toFixed(3) + '%';
+      const cls = s.frac >= 0.999 ? "funded" : "";
+      return '<i class="' + cls + '" style="' + style + '" title="'
+        + esc(s.work.title) + ' — ' + money(s.work.cost)
+        + (s.frac > 0 && s.frac < 0.999 ? ' — ' + Math.round(s.frac * 100) + '% funded' : '')
+        + '"></i>';
+    }).join("");
+    const rest = ((SURPLUS - PORTFOLIO) / SURPLUS) * 100;
+    return segs + '<i class="rest" style="width:' + rest.toFixed(3) + '%" title="Surplus remaining"></i>';
+  }
+
+  // The first ten: a forecast from the public record. Net worth in US$ billions,
+  // Forbes real-time list, 13 Aug 2026. `n` is the number of people behind one entry.
+  const FIRST_TEN = [
+    { who: "MacKenzie Scott", from: "Amazon", nw: 33.0, n: 1,
+      why: "Signed the Giving Pledge in 2019 and then did it: $19.3 billion to more than 2,500 nonprofits, no strings, accounted for in public on Yield Giving. The closest thing to the treaty already in operation." },
+    { who: "Warren Buffett", from: "Berkshire Hathaway", nw: 144.3, n: 1,
+      why: "Co-founded the Giving Pledge and has committed more than 99% of the fortune. Wrote in his pledge letter that the money has no utility to him and enormous utility to others, which is Article I in his own words." },
+    { who: "Bill Gates", from: "Microsoft", nw: 108.1, n: 1,
+      why: "Announced in 2025 that virtually all of his wealth goes out through the foundation by 2045, which then closes. A date and a destination already exist; the treaty adds the ceiling." },
+    { who: "Michael Bloomberg", from: "Bloomberg LP", nw: 109.4, n: 1,
+      why: "Giving Pledge signatory; the company is promised to Bloomberg Philanthropies. Funded the campaigns behind hundreds of coal-plant retirements and covered the UN climate secretariat's shortfall when Washington would not." },
+    { who: "Melinda French Gates", from: "Microsoft", nw: 30.5, n: 1,
+      why: "Giving Pledge signatory in her own right, now giving independently through Pivotal. Wrote in her pledge letter that she recognises the absurdity of so much wealth sitting with one person." },
+    { who: "The seven Anthropic cofounders", from: "Anthropic", nw: 15.5, n: 7,
+      why: "Dario and Daniela Amodei, Jack Clark, Tom Brown, Jared Kaplan, Sam McCandlish and Christopher Olah pledged 80% of their Anthropic equity to philanthropy, on record in the IPO filing. A whole founding team pledging together at the point of listing, and by the filing's own words still revocable." },
+    { who: "Andrew Forrest", from: "Fortescue", nw: 18.0, n: 1,
+      why: "Giving Pledge signatory. Minderoo Foundation holds an A$9.6 billion endowment, and he is turning an iron-ore company into a green-energy one with his own balance sheet." },
+    { who: "Laurene Powell Jobs", from: "Apple, Disney", nw: 15.0, n: 1,
+      why: "Has said she is not interested in legacy wealth and that it ends with her. Committed $3.5 billion to climate through the Waverley Street Foundation, built to spend down, not to last." },
+    { who: "Dustin Moskovitz", from: "Facebook", nw: 10.2, n: 1,
+      why: "The youngest person to have signed the Giving Pledge when he did, in 2010. Gives through Good Ventures on published reasoning about where a dollar does the most, which is Article VI's method." },
+    { who: "Hansj\u00f6rg Wyss", from: "Synthes", nw: 4.8, n: 1,
+      why: "Giving Pledge signatory who put $1 billion behind protecting 30% of the planet by 2030. Already most of the way to the cap from the other side." }
+  ];
+
+  (function renderTen() {
+    const b = v => "$" + (v >= 100 ? v.toFixed(0) : v.toFixed(1)) + "B";
+    el("ten").innerHTML = FIRST_TEN.map(t => {
+      const above = (t.nw - 1) * t.n;
+      return '<li><div class="who">' + esc(t.who)
+        + '<small>' + esc(t.from) + ' · ' + b(t.nw) + (t.n > 1 ? ' each' : '') + '</small></div>'
+        + '<div class="frees">' + b(above) + '<small>above the cap</small></div>'
+        + '<p class="why">' + esc(t.why) + '</p></li>';
+    }).join("");
+    const people = FIRST_TEN.reduce((s, t) => s + t.n, 0);
+    const above = FIRST_TEN.reduce((s, t) => s + (t.nw - 1) * t.n, 0);
+    el("ten-sum").innerHTML = people + " people, ten signatures: <b>$" + Math.round(above)
+      + " billion</b> above the cap — " + (above / 1000 / SURPLUS * 100).toFixed(1)
+      + "% of the surplus, and proof to the other 3,369 that it can be done.";
+  })();
+
+  function render(pct) {
+    const committed = SURPLUS * (pct / 100);
+    const states = fundingState(committed);
+    const done = states.filter(s => s.frac >= 0.999);
+
+    // Deaths and people are credited only where an undertaking is funded to completion:
+    // a half-built eradication campaign eradicates nothing.
+    const deaths = done.reduce((s, x) => s + (x.work.deaths || 0), 0);
+    // Populations overlap almost completely — the child under a net drinks the water and
+    // sits in the school — so this is the largest single population reached, a lower bound,
+    // never a sum. Summing them produces more people than exist.
+    const reached = done.reduce((s, x) => Math.max(s, x.work.people), 0);
+
+    el("share-out").textContent = pct + "%";
+    el("t-committed").innerHTML = money(committed)
+      + "<small>Out of a $17 trillion surplus. " + (committed >= PORTFOLIO
+        ? "Enough for all fifteen, with " + money(SURPLUS - PORTFOLIO) + " left over."
+        : "Short of the full programme by " + money(PORTFOLIO - committed) + ".") + "</small>";
+    el("t-done").innerHTML = done.length + " of 15"
+      + "<small>Fully funded to their published completion cost.</small>";
+    el("t-lives").innerHTML = (deaths ? big(deaths) : "—")
+      + "<small>" + (deaths
+        ? "A year, every year, once deployed — around " + (deaths / 62e6 * 100).toFixed(0)
+          + "% of all deaths worldwide."
+        : "Nothing yet reaches completion at this level of commitment.") + "</small>";
+    el("t-people").innerHTML = (reached ? big(reached) : "—")
+      + "<small>" + (reached >= 8e9
+        ? "Everyone alive is inside at least one completed undertaking."
+        : "Inside at least one completed undertaking — a lower bound, not a sum: the same people appear in most of them.") + "</small>";
+
+    alloc.innerHTML = allocHTML(states, committed);
+    grid.innerHTML = states.map(cardHTML).join("");
+
+    document.querySelectorAll("[data-pct]").forEach(b =>
+      b.setAttribute("aria-pressed", String(Number(b.dataset.pct) === pct)));
+  }
+
+  share.addEventListener("input", () => render(Number(share.value)));
+
+  document.querySelectorAll("[data-pct]").forEach(b => b.addEventListener("click", () => {
+    share.value = b.dataset.pct;
+    render(Number(b.dataset.pct));
+  }));
+
+  render(Number(share.value));
+</script>

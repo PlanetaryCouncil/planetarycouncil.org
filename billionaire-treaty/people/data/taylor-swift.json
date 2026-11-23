@@ -1,0 +1,24 @@
+{
+  "id": "taylor-swift",
+  "name": "Taylor Swift",
+  "tagline": "Musician known for the Eras Tour and her music catalog.",
+  "net_worth_usd_b": 2.007,
+  "rank": 2091,
+  "list": "Forbes real-time billionaires, 13 Aug 2026",
+  "facts": [
+    {"k": "Source", "v": "Music"},
+    {"k": "Country", "v": "United States"},
+    {"k": "Age", "v": "36"},
+    {"k": "Lives in", "v": "Nashville, Tennessee"},
+    {"k": "Self-made", "v": "Yes"}
+  ],
+  "bio": [
+    "Taylor Swift is a musician from the United States who lives in Nashville, Tennessee. She is a US citizen and is 36 years old. Forbes ranks her 2,091st on its real-time list of billionaires. Her wealth is self-made and comes from music.",
+    "Her fortune crossed the billion-dollar mark in October 2023, thanks to Eras Tour income and the value of her music catalog. She is the first musician to reach the billionaire ranking mainly through songs and performances.",
+    "Forbes puts her net worth at about $2.0 billion in a snapshot dated 13 August 2026. That total includes nearly $800 million from royalties and touring, a music catalog valued at an estimated $600 million, and about $110 million in real estate. In May 2025 she announced that she had regained the rights to her first six albums, which she had been re-recording and releasing since 2021. Demand for tickets to the US leg of the Eras Tour overwhelmed Ticketmaster, and members of Congress questioned the company's hold on concert sales."
+  ],
+  "treaty_note": "At about $2.0 billion, she is about $1.0 billion above the one-billion cap. Under the proposed treaty, that excess would be roughly half of her net worth, which would leave her near one billion dollars.",
+  "sources": [
+    {"label": "Forbes profile", "url": "https://www.forbes.com/profile/taylor-swift/"}
+  ]
+}
