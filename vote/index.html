@@ -834,7 +834,7 @@ const EDITIONS = {
     label: "World",
     sealTag: "WORLD",
     intro: "This is the Planetary Council vote: ten big ideas for upgrading how the world works. Say where you stand on each one. When all ten are answered you get your I VOTED badge.",
-    seal: "world-v2",
+    seal: "world-v3",
     questions: [
       ["🤝", "Unify versions of reality", "One shared set of facts on the same page."],
       ["🔎", "Resolve conspiracy theories", "Settle them openly, starting with climate change."],
@@ -860,7 +860,7 @@ const EDITIONS = {
     label: "UK",
     sealTag: "UK",
     intro: "This is the Planetary Council vote for the UK: ten big ideas for upgrading how the country works. Say where you stand on each one. When all ten are answered you get your I VOTED badge.",
-    seal: "uk-v2",
+    seal: "uk-v3",
     questions: [
       ["🗳️", "Proportional representation", "Seats in parliament should match the share of votes cast."],
       ["🔌", "Public ownership", "Energy, water and rail run at cost, not for dividends."],
@@ -1032,6 +1032,36 @@ function v2Layout(image, ink, label, fill, qrDark, qrArea) {
   };
 }
 SEAL_LAYOUTS["world-v2"] = v2Layout("seal-world-v2.png", "#0A4424", "#1F6B3D", "rgba(10,68,36,0.40)", "#06301A", { x: 0.6380, y: 0.6930, w: 0.1443, h: 0.1348 });
+/* v3 badges ("plain box"): the art already prints Name: / Time: / Answers:
+   in the text frame and a working QR (→ https://planetarycouncil.org/vote/)
+   in the gold square, so we draw only the values, on the printed rows.
+   Measured from the 1254px art: frame interior x 300–772, y 870–1012;
+   printed labels x 323–394, cap centres y 904.5 / 939.5 / 974.5. */
+function v3Layout(image, ink, fill) {
+  return {
+    image: image,
+    shape: "rect",
+    printedLabels: true,
+    textArea: { x: 408 / 1254, y: 870 / 1254, w: (760 - 408) / 1254, h: 142 / 1254 },
+    padding: { x: 0, y: 0 },
+    rowCenters: [904.5 / 1254, 939.5 / 1254, 974.5 / 1254],
+    rows: ["name", "time", "vote"],
+    labels: { name: "", time: "", vote: "" },
+    minWidths: { time: 24, vote: 29 },
+    labelWidth: 0,
+    gap: 0,
+    cols: "auto",
+    minFill: 2,
+    stretch: true,
+    alignLeft: true,
+    opticalCenter: true,
+    fill: { char: "-", spaced: true },
+    font: { family: '"IBM Plex Mono", ui-monospace, monospace', weight: "600", lineHeight: 1.5, maxSize: 0.0168 },
+    colors: { text: ink, label: ink, fill: fill, debug: "rgba(220,0,0,0.75)" }
+  };
+}
+SEAL_LAYOUTS["world-v3"] = v3Layout("seal-world-v3.png", "#0A4424", "rgba(10,68,36,0.38)");
+SEAL_LAYOUTS["uk-v3"]    = v3Layout("seal-uk-v3.png",    "#0B1F4B", "rgba(11,31,75,0.38)");
 SEAL_LAYOUTS["uk-v2"]    = v2Layout("seal-uk-v2.png",    "#0B1F4B", "#2A3F73", "rgba(11,31,75,0.40)", "#0B1F4B", { x: 0.6372, y: 0.6930, w: 0.1459, h: 0.1348 });
 
 const ACTIVE_SEAL_LAYOUT = "circle"; // fallback when an edition names no seal
@@ -1129,7 +1159,7 @@ function sealNameMax(layout) {
   const L = layout || sealLayout();
   const rows = sealRowValues({ encoded: "WORLD-00000000_" + "1".repeat(14), timestamp: "2000-01-01T00:00:00.000Z", voteId: "0".repeat(16), answers: EDITION.questions.map(function () { return -2; }) }, L);
   const cols = sealGridCols(rows, L);
-  return Math.max(4, Math.min(NAME_MAX, cols - Math.max(L.labelWidth, 4) - L.gap - 2));
+  return Math.max(4, Math.min(NAME_MAX, cols - (L.printedLabels ? L.labelWidth : Math.max(L.labelWidth, 4)) - L.gap - 2));
 }
 
 function fillCells(startCol, cols, fill) {
@@ -1431,6 +1461,7 @@ async function renderSeal(record, layout) {
   let lineH = fit.size * L.font.lineHeight;
   if (L.spread) lineH = Math.max(lineH, Math.min(inner.h / nRows, fit.size * L.spread)); // width-bound: spread rows over the height
   let rowBoxes = sealRowBoxes(L, inner, nRows, lineH);
+  if (L.rowCenters) rowBoxes = L.rowCenters.map(function (fy) { return { x: inner.x, y: fy * H, w: inner.w }; }); // rows printed in the art
   if (L.shape !== "circle" && L.stretch !== false) {
     // height-bound box: extend every row with more fill cells to reach the right edge
     const cells = Math.floor(inner.w / fit.advance + 1e-6);
@@ -1484,7 +1515,7 @@ async function renderSeal(record, layout) {
       row = sealGrid(record, L, cells).rows[i];
     }
     // draw cell-by-cell segments so every row is exactly the same width
-    let x = b.x + ((L.shape === "circle" || L.opticalCenter) ? (b.w - cells * fit.advance) / 2 : 0);
+    let x = b.x + (!L.alignLeft && (L.shape === "circle" || L.opticalCenter) ? (b.w - cells * fit.advance) / 2 : 0);
     const draw = function (text, color) {
       if (!text) return;
       ctx.fillStyle = color;
