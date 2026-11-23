@@ -419,7 +419,7 @@ main.wrap {
   border: 1px solid color-mix(in oklab, var(--accent) 45%, transparent);
   text-transform: uppercase;
 }
-.seal-name::placeholder { text-transform: none; }
+.seal-name::placeholder { text-transform: uppercase; }
 .seal-name:focus { outline: 2px solid var(--accentDark); outline-offset: 1px; }
 #decoder[hidden] { display: none; }
 #decoder { display: flex; flex-direction: column; gap: 12px; }
@@ -774,7 +774,7 @@ footer.site span { color: var(--muted); opacity: .7; }
           <img id="seal-img" alt="Your I VOTED badge" decoding="async">
           <canvas id="seal-canvas" width="1254" height="1254" hidden aria-hidden="true"></canvas>
         </div>
-        <input id="seal-name" class="seal-name" type="text" autocomplete="name" spellcheck="false" maxlength="40" placeholder="Your name" aria-label="Your name">
+        <input id="seal-name" class="seal-name" type="text" autocomplete="name" spellcheck="false" maxlength="40" placeholder="YOUR NAME" aria-label="Your name">
         <button type="button" class="btn-primary btn-save" id="btn-save" disabled>Save badge</button>
         <button type="button" class="btn-ghost btn-reset" id="btn-reset">Reset answers</button>
         <div class="manifesto">
