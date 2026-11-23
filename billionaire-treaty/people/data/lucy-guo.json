@@ -1,0 +1,24 @@
+{
+  "id": "lucy-guo",
+  "name": "Lucy Guo",
+  "tagline": "Scale AI co-founder and CEO of creator platform Passes",
+  "net_worth_usd_b": 1.45,
+  "rank": 2712,
+  "list": "Forbes real-time billionaires, 13 Aug 2026",
+  "facts": [
+    {"k": "Source", "v": "Artificial intelligence"},
+    {"k": "Country", "v": "United States"},
+    {"k": "Age", "v": "31"},
+    {"k": "Lives in", "v": "Los Angeles, California"},
+    {"k": "Self-made", "v": "Yes"}
+  ],
+  "bio": [
+    "Lucy Guo is a US citizen who works in artificial intelligence. She is the daughter of electrical engineers who emigrated from China. As a child, she taught herself to code so she could adopt virtual pets in the game Neopets. Forbes lists her as a self-made billionaire, with a net worth of $1.45 billion on its real-time list.",
+    "She studied computer science and human-computer interaction at Carnegie Mellon, then left to become a Thiel Fellow. In 2016 she launched Scale AI, a data-labeling company, with cofounder Alexandr Wang. She left Scale in 2018 after a falling-out with Wang, but she still owns roughly 3% of the company, which is the source of most of her fortune.",
+    "In 2022 she founded Passes, a creator platform, and she serves as its CEO. The company has raised $50 million. In June 2025, Meta bought 49% of Scale AI for about $14 billion, and Scale paid its shareholders a large dividend. From April to December 2025, she was ranked as the world's youngest self-made woman billionaire."
+  ],
+  "treaty_note": "Under the proposed treaty, a net worth of $1.45 billion is $0.45 billion above the one billion dollar cap. That excess is about $450 million, which would leave her a billionaire.",
+  "sources": [
+    {"label": "Forbes profile", "url": "https://www.forbes.com/profile/lucy-guo/"}
+  ]
+}
