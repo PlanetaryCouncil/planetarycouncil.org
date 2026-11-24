@@ -30,7 +30,6 @@ a:focus-visible{outline:2px solid var(--pc-accent);outline-offset:3px;}
 .bar{position:sticky;top:0;z-index:40;backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);background:color-mix(in srgb,var(--pc-bg) 76%,transparent);border-bottom:1px solid var(--pc-line);}
 .bar-in{max-width:1116px;margin:0 auto;padding:13px 28px;display:flex;align-items:center;justify-content:space-between;gap:10px 16px;flex-wrap:wrap;}
 .brand{display:flex;align-items:center;gap:11px;color:var(--pc-ink);font-family:var(--pc-head);font-weight:600;font-size:16.5px;letter-spacing:-0.01em;}
-.pillars{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-dim);}
 .wrap{max-width:1116px;margin:0 auto;padding:0 28px;}
 .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--pc-accent);margin:0 0 14px;}
 h1{font-family:var(--pc-head);font-weight:600;font-size:clamp(42px,6.6vw,92px);line-height:0.98;letter-spacing:-0.03em;margin:0 0 24px;text-wrap:balance;}
@@ -60,6 +59,7 @@ footer{padding:36px 28px;border-top:1px solid var(--pc-line);}
 @media (max-width:760px){.grid{grid-template-columns:1fr;}.hero{padding:56px 0 40px;}.wrap{padding:0 20px;}.bar-in{padding:13px 20px;}}
 @media (prefers-reduced-motion:reduce){*{transition:none !important;}}
 </style>
+<style id="pc-pillars-css">.pc-pillars{font-family:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;font-size:11px;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;color:#45607e;white-space:nowrap;line-height:1.4;}@media (max-width:420px){.pc-pillars{font-size:9.5px;letter-spacing:0.12em;}}.pc-pillars-strip{position:relative;z-index:50;margin:0;background:#eef6ff;border-bottom:1px solid rgba(10,124,255,0.22);}.pc-pillars-strip>div{box-sizing:border-box;max-width:1116px;margin:0 auto;padding:7px 28px;text-align:right;}@media (max-width:760px){.pc-pillars-strip>div{padding:7px 20px;}}</style>
 </head>
 <body>
 <div class="bar"><div class="bar-in">
@@ -67,7 +67,7 @@ footer{padding:36px 28px;border-top:1px solid var(--pc-line);}
 <svg aria-hidden="true" height="28" viewBox="0 0 200 200" width="28"><g fill="none" stroke="var(--pc-accent)" stroke-width="4"><circle cx="100" cy="100" r="34"></circle><circle cx="134" cy="100" r="34"></circle><circle cx="66" cy="100" r="34"></circle><circle cx="117" cy="70.6" r="34"></circle><circle cx="117" cy="129.4" r="34"></circle><circle cx="83" cy="70.6" r="34"></circle><circle cx="83" cy="129.4" r="34"></circle></g></svg>
 Planetary Council
 </a>
-<span class="pillars">Peace · Justice · Climate</span>
+<span class="pc-pillars" style="margin-left:auto;">Peace · Justice · Climate</span>
 </div></div>
 
 <main class="wrap">

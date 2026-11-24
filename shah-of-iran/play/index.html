@@ -13,7 +13,7 @@
 <style>
 /* Layout: a drafting-table blueprint. Masthead, then the Wheel, the live Table, then tools. Lapis ink on cool vellum, saffron gold for miracles. */
 :root {
-  --paper: #eef1f5; --panel: #f9fafc; --ink: #15213f; --muted: #58637a; --line: #c8cfdc;
+  --paper: #eef6ff; --panel: rgba(255,255,255,0.78); --ink: #0a1b33; --muted: #45607e; --line: rgba(10,124,255,0.22);
   --lapis: #1f3c88; --gold: #a86b12; --gold-soft: #f4e6c8;
   --t1: #a86b12; --t2: #1f3c88; --t3: #17726b; --t4: #7a4a8e;
   --ok: #2c7a4b; --warn: #b2452a;
@@ -21,24 +21,10 @@
   --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
 }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --paper: #0c1430; --panel: #131d3e; --ink: #e7ebf5; --muted: #9ca7c2; --line: #2a3769;
-  --lapis: #93acff; --gold: #e6b24c; --gold-soft: #3b3016;
-  --t1: #e6b24c; --t2: #93acff; --t3: #5fcac0; --t4: #c9a0e3; --ok: #6cc590; --warn: #f28e70;
-  color-scheme: dark; } }
-:root[data-theme="dark"] {
-  --paper: #0c1430; --panel: #131d3e; --ink: #e7ebf5; --muted: #9ca7c2; --line: #2a3769;
-  --lapis: #93acff; --gold: #e6b24c; --gold-soft: #3b3016;
-  --t1: #e6b24c; --t2: #93acff; --t3: #5fcac0; --t4: #c9a0e3; --ok: #6cc590; --warn: #f28e70;
-  color-scheme: dark; }
 
 * { box-sizing: border-box; }
 body {
   background: var(--paper);
-  background-image:
-    linear-gradient(color-mix(in srgb, var(--line) 35%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--line) 35%, transparent) 1px, transparent 1px);
-  background-size: 28px 28px;
   color: var(--ink); font: 15px/1.55 var(--body);
   padding-inline: 16px; padding-block: 0 64px;
 }
@@ -227,10 +213,26 @@ footer { font-size: .82rem; color: var(--muted); display: grid; gap: 6px; border
   .dist td:last-child { white-space: normal; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+/* Planetary Council skin: same background as the home page */
+.pc-bgl{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.pc-bgl i{position:absolute;inset:0;}
+.pc-bgl .g1{background:radial-gradient(125% 95% at 82% -5%,#ffffff,#eef6ff 58%);}
+.pc-bgl .g2{opacity:.6;background-image:linear-gradient(rgba(10,124,255,0.22) 1px,transparent 1px),linear-gradient(90deg,rgba(10,124,255,0.22) 1px,transparent 1px);background-size:66px 66px;-webkit-mask-image:radial-gradient(circle at 74% 8%,#000,transparent 72%);mask-image:radial-gradient(circle at 74% 8%,#000,transparent 72%);}
+.pc-bgl .g3{inset:auto;top:-16%;right:-8%;width:52vw;height:52vw;border-radius:50%;filter:blur(74px);opacity:.5;background:radial-gradient(circle,rgba(10,124,255,0.55),transparent 62%);animation:pc-drift 22s ease-in-out infinite;}
+@keyframes pc-drift{0%{transform:translate(0,0) scale(1);}50%{transform:translate(4%,-3%) scale(1.09);}100%{transform:translate(0,0) scale(1);}}
+@media (prefers-reduced-motion:reduce){.pc-bgl .g3{animation:none;}}
+.wrap{position:relative;z-index:1;}
+.pc-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 16px;padding-top:18px;}
+.proto{border:1px solid var(--gold);background:var(--gold-soft);border-radius:10px;padding:12px 16px;font-size:.95rem;line-height:1.5;}
+.proto b{font-weight:600;}
 </style>
-
+<style id="pc-pillars-css">.pc-pillars{font-family:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;font-size:11px;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;color:#45607e;white-space:nowrap;line-height:1.4;}@media (max-width:420px){.pc-pillars{font-size:9.5px;letter-spacing:0.12em;}}.pc-pillars-strip{position:relative;z-index:50;margin:0;background:#eef6ff;border-bottom:1px solid rgba(10,124,255,0.22);}.pc-pillars-strip>div{box-sizing:border-box;max-width:1116px;margin:0 auto;padding:7px 28px;text-align:right;}@media (max-width:760px){.pc-pillars-strip>div{padding:7px 20px;}}</style>
+</head>
+<body>
+<div class="pc-bgl" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i></div>
 <div class="wrap">
-  <p style="padding-top:18px;margin:0"><a href="/shah-of-iran/" style="color:inherit">&larr; Shah of Iran</a> &middot; <a href="/" style="color:inherit">Planetary Council</a></p>
+  <div style="display:grid;gap:14px"><div class="pc-top"><p style="margin:0"><a href="/shah-of-iran/" style="color:inherit">&larr; Shah of Iran</a> &middot; <a href="/" style="color:inherit">Planetary Council</a></p><span class="pc-pillars" style="margin-left:auto;">Peace · Justice · Climate</span></div>
+  <p class="proto"><b>Super early prototype.</b> This was designed by AI, and not many humans have played it yet. Expect rough edges. The main idea stands: <b>imagination engineering</b>.</p></div>
   <header class="mast">
     <div class="eyebrow">Miracle Engineering Solutions LLC Inc. presents · Deck edition <span id="edition"></span></div>
     <h1>Shah <span>of Iran</span></h1>
@@ -1121,5 +1123,5 @@ window.claude?.hot?.snapshot?.(() => ({ state }));
 window.claude?.hot?.ready ? window.claude.hot.ready(start) : start(window.claude?.hot?.data ?? {});
 })();
 </script>
-
+</body>
 </html>
